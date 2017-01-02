@@ -31,7 +31,7 @@ public class Match {
      *
      * @return ID
      */
-    public int getID() {
+    public int getId() {
         return ID;
     }
 
@@ -39,7 +39,7 @@ public class Match {
      *
      * @return location of the match
      */
-    public String getLOCATION() {
+    public String getLocation() {
         return LOCATION;
     }
 
@@ -55,7 +55,7 @@ public class Match {
      *
      * @return final score of the match
      */
-    public int getFINAL_SCORE() {
+    public int getFinalScore() {
         return FINAL_SCORE;
     }
 
@@ -63,7 +63,7 @@ public class Match {
      *
      * @return the winner team
      */
-    public String getWINNER_TEAM() {
+    public String getWinnerTeam() {
         return WINNER_TEAM;
     }
 
