@@ -43,12 +43,25 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamName;
     @FXML
     private JFXTextField txtNewTeamField;
+    @FXML
+    private JFXTextField txtNewTeamSchool;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        initializeDesign();
         initializeTables();
     }
 
+    /**
+     * Sets the initial design
+     */
+    private void initializeDesign() {
+        lblTeamAmount.setText("0");
+    }
+
+    /**
+     * Fills the tables with information about the teams
+     */
     private void initializeTables() {
         clmID.setCellValueFactory(new PropertyValueFactory<>("id"));
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
