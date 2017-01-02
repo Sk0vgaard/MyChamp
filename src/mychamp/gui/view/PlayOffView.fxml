@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1339.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
-      <GridPane layoutX="46.0" layoutY="83.0" prefHeight="656.0" prefWidth="923.0">
+      <GridPane layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,7 +32,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -39,7 +41,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -48,7 +50,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -57,7 +59,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -66,7 +68,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -75,7 +77,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -84,7 +86,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -120,7 +122,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -138,7 +140,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -147,7 +149,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -156,7 +158,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -165,7 +167,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -246,7 +248,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -255,7 +257,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -264,7 +266,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -273,7 +275,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -282,7 +284,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -291,7 +293,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -300,7 +302,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -309,7 +311,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -318,7 +320,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -327,7 +329,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -336,7 +338,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -345,7 +347,7 @@
                   <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <children>
                   <Label layoutY="14.0" text="&lt;name1&gt;" />
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
@@ -464,5 +466,92 @@
             </Pane>
          </children>
       </GridPane>
+      <Label layoutX="124.0" layoutY="35.0" text="Runde 1">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="35.0" text="Runde 2">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="438.0" layoutY="35.0" text="Runde 3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="592.0" layoutY="35.0" text="Runde 4">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="754.0" layoutY="35.0" text="Runde 5">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="906.0" layoutY="35.0" text="Runde 6">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="35.0" text="Gruppe">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="35.0" layoutY="65.0" prefHeight="656.0" prefWidth="28.0" spacing="110.0">
+         <children>
+            <Label text="A">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label text="B">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label text="C">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label text="D">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="60.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="1070.0" layoutY="65.0" prefHeight="656.0" prefWidth="223.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team5&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team6&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team7&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team8&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team9&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team10&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team11&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team12&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team13&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team14&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team15&gt;" />
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team16&gt;" />
+         </children>
+      </VBox>
+      <Label layoutX="1137.0" layoutY="35.0" text="Rangliste">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
