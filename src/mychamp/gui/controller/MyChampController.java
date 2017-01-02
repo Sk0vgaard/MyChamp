@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import mychamp.be.Team;
+import mychamp.gui.model.TeamModel;
 
 /**
  *
@@ -45,6 +46,12 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamField;
     @FXML
     private JFXTextField txtNewTeamSchool;
+
+    private final TeamModel teamModel;
+
+    public MyChampController() {
+        teamModel = TeamModel.getInstance();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -78,6 +85,11 @@ public class MyChampController implements Initializable {
 
     @FXML
     private void handleStartTournament(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleAddTeam(ActionEvent event) {
+
     }
 
 }
