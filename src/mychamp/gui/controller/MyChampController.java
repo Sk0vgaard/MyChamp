@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,13 +56,14 @@ public class MyChampController implements Initializable {
     private final TeamModel teamModel;
 
     public MyChampController() {
-        teamModel = TeamModel.getInstance();
+        teamModel = TeamModel.getInstance();        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initializeDesign();
         initializeTables();
+        setListeners();
     }
 
     /**
@@ -78,6 +81,30 @@ public class MyChampController implements Initializable {
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
 
+    }
+    
+    /**
+     * Adds a listener to tableTeams.
+     */
+    private void setListeners(){
+        tableTeams.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Team>() {
+            @Override
+            public void changed(ObservableValue<? extends Team> observable, Team oldValue, Team newValue) {
+                if(newValue != null){
+                    displayTeamInfo();
+                }
+            }
+        });
+    }
+    
+    /**
+     * Display the information of the team.
+     */
+    private void displayTeamInfo(){
+        Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
+        txtTeamID.setText(team.getID() + "");
+        txtTeamName.setText(team.getTEAM_NAME());
+        txtTeamField.setText(team.getHOME_FIELD());
     }
 
     @FXML
