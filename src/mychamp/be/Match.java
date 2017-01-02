@@ -13,7 +13,7 @@ public class Match {
 
     private final String LOCATION;
 
-    private final ArrayList<Team> teams;
+    private final ArrayList<Team> TEAMS;
 
     private final int FINAL_SCORE;
 
@@ -22,7 +22,7 @@ public class Match {
     public Match(int ID, String LOCATION, ArrayList<Team> teams, int FINAL_SCORE, String WINNER_TEAM) {
         this.ID = ID;
         this.LOCATION = LOCATION;
-        this.teams = teams;
+        this.TEAMS = teams;
         this.FINAL_SCORE = FINAL_SCORE;
         this.WINNER_TEAM = WINNER_TEAM;
     }
@@ -45,10 +45,10 @@ public class Match {
 
     /**
      *
-     * @return teams playing
+     * @return TEAMS playing
      */
     public ArrayList<Team> getTeams() {
-        return teams;
+        return TEAMS;
     }
 
     /**
