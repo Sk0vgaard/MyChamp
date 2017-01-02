@@ -5,18 +5,18 @@
  */
 package mychamp.gui.model;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import mychamp.be.Team;
 
 public class TeamModel {
 
-    private ArrayList<Team> teams;
+    private final ObservableList<Team> teams;
 
     private static TeamModel instance;
 
-    public TeamModel()
-    {
-        teams = new ArrayList();
+    public TeamModel() {
+        teams = FXCollections.observableArrayList();
     }
 
     /**
@@ -29,19 +29,15 @@ public class TeamModel {
             instance = new TeamModel();
         }
         return instance;
-        
+
     }
-    
+
     public void addTeam(Team team) {
         teams.add(team);
     }
 
-    public ArrayList<Team> getTeams()
-    {
+    public ObservableList<Team> getTeams() {
         return teams;
     }
-    
-    
+
 }
-
-

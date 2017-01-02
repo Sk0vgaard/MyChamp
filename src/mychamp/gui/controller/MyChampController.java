@@ -74,8 +74,9 @@ public class MyChampController implements Initializable {
      * Fills the tables with information about the teams
      */
     private void initializeTables() {
-        clmID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
+        tableTeams.setItems(teamModel.getTeams());
+        clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
 
     }
 
@@ -96,16 +97,14 @@ public class MyChampController implements Initializable {
         primStage.setScene(new Scene(root));
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleAddTeam(ActionEvent event) {
-        Team teamToAdd = new Team(1, txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText(), 0, 0, 0);
+        Team teamToAdd = new Team(txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText());
         teamModel.addTeam(teamToAdd);
-        for (Team team : teamModel.getTeams()) {
-            System.out.println(team.getID());
-            System.out.println(team.getTEAM_NAME());
-            System.out.println(team.getHOME_FIELD());
-        }
-
     }
 
 }

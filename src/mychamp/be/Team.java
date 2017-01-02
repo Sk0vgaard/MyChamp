@@ -5,6 +5,8 @@
  */
 package mychamp.be;
 
+import mychamp.bll.IDCreator;
+
 public class Team {
 
     private final int ID;
@@ -27,6 +29,8 @@ public class Team {
 
     private int matchesPlayed;
 
+    private IDCreator getNewID = IDCreator.getInstance();
+
     /**
      * Create the team
      *
@@ -34,19 +38,16 @@ public class Team {
      * @param teamName
      * @param HOME_FIELD
      * @param SCHOOL
-     * @param wins
-     * @param losses
-     * @param matchesPlayed
      */
-    public Team(int ID, String teamName, String HOME_FIELD, String SCHOOL, int wins, int losses, int matchesPlayed) {
-        this.ID = ID;
+    public Team(String teamName, String HOME_FIELD, String SCHOOL) {
+        this.ID = getNewID.getTeamID();
         this.TEAM_NAME = teamName;
         this.HOME_FIELD = HOME_FIELD;
         this.SCHOOL = SCHOOL;
         points = 0;
-        this.wins = wins;
-        this.losses = losses;
-        this.matchesPlayed = matchesPlayed;
+        this.wins = 0;
+        this.losses = 0;
+        this.matchesPlayed = 0;
     }
 
     /**
