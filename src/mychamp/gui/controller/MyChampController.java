@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
 
@@ -25,7 +26,6 @@ import mychamp.gui.model.TeamModel;
  */
 public class MyChampController implements Initializable {
 
-    private Label label;
     @FXML
     private Label lblTeamAmount;
     @FXML
@@ -85,6 +85,7 @@ public class MyChampController implements Initializable {
 
     @FXML
     private void handleStartTournament(ActionEvent event) {
+        Stage primStage = (Stage) txtTeamName.getScene().getWindow();
     }
 
     @FXML
