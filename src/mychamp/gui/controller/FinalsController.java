@@ -38,7 +38,7 @@ public class FinalsController implements Initializable {
     @FXML
     private void handlePlayoffButton(ActionEvent event) throws IOException {
         Stage primStage = (Stage) lblRankings.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/FinalsView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/PlayOffView.fxml"));
         Parent root = loader.load();
         
         primStage.setScene(new Scene(root));

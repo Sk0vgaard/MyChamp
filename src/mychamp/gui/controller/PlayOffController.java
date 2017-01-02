@@ -5,12 +5,17 @@
  */
 package mychamp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -177,6 +182,11 @@ public class PlayOffController implements Initializable {
     }    
 
     @FXML
-    private void handleFinalsButton(ActionEvent event) {
+    private void handleFinalsButton(ActionEvent event) throws IOException {
+        Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/FinalsView.fxml"));
+        Parent root = loader.load();
+        
+        primStage.setScene(new Scene(root));
     }
 }
