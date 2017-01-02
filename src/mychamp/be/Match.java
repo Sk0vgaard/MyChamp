@@ -19,10 +19,10 @@ public class Match {
 
     private final String WINNER_TEAM;
 
-    public Match(int ID, String LOCATION, ArrayList<Team> teams, int FINAL_SCORE, String WINNER_TEAM) {
+    public Match(int ID, String LOCATION, ArrayList<Team> TEAMS, int FINAL_SCORE, String WINNER_TEAM) {
         this.ID = ID;
         this.LOCATION = LOCATION;
-        this.TEAMS = teams;
+        this.TEAMS = TEAMS;
         this.FINAL_SCORE = FINAL_SCORE;
         this.WINNER_TEAM = WINNER_TEAM;
     }
