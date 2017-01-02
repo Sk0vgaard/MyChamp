@@ -35,47 +35,47 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound2GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound2GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound2GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound2GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound3GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound3GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound3GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound3GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="1">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupATeam3" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupATeam4" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupAGoals3" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupAGoals4" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupATeam3" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound2GroupATeam4" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound2GroupAGoals3" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound2GroupAGoals4" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound2GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -84,25 +84,25 @@
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
                   <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
                   <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound4GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound4GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound4GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound4GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="2">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupBTeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupBTeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupBGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupBGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupBWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -129,7 +129,7 @@
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
                   <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
                   <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2">
@@ -143,20 +143,20 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound5GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound5GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound5GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound5GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupATeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound6GroupATeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound6GroupAGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound6GroupAGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound6GroupAWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -165,7 +165,7 @@
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
                   <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
                   <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="1">
@@ -174,7 +174,7 @@
                   <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
                   <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
                   <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupAWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2">
@@ -197,11 +197,11 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="3">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupBTeam3" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupBTeam4" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupBGoals3" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupBGoals4" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupBWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -251,11 +251,11 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="4">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupCTeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupCTeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupCGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupCGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupCWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -305,11 +305,11 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="5">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupCTeam3" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupCTeam4" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupCGoals3" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupCGoals4" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupCWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -359,11 +359,11 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="6">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupDTeam1" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupDTeam2" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupDGoals1" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupDGoals2" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupDWinner1" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="6">
@@ -413,11 +413,11 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="7">
                <children>
-                  <Label layoutY="14.0" text="&lt;name1&gt;" />
-                  <Label layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
-                  <Label layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
-                  <Label layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
-                  <Label layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupDTeam3" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblRound1GroupDTeam4" layoutX="79.0" layoutY="14.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblRound1GroupDGoals3" layoutX="1.0" layoutY="36.0" text="&lt;goals1&gt;" />
+                  <Label fx:id="lblRound1GroupDGoals4" layoutX="80.0" layoutY="36.0" text="&lt;goals2&gt;" />
+                  <Label fx:id="lblRound1GroupDWinner2" layoutX="27.0" layoutY="58.0" text="&lt;winnerLabel&gt;" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="7">
