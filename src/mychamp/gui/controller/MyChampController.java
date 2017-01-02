@@ -87,7 +87,12 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
     }
-
+    
+    /**
+     * Switches to the PlayOffView.
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
         Stage primStage = (Stage) txtTeamName.getScene().getWindow();
@@ -98,7 +103,7 @@ public class MyChampController implements Initializable {
     }
 
     /**
-     *
+     * Adds a Team.
      * @param event
      */
     @FXML

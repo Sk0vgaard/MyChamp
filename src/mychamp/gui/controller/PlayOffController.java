@@ -180,7 +180,12 @@ public class PlayOffController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
+    /**
+     * Switches to the FinalsView.
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
