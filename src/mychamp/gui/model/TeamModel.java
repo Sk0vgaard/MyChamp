@@ -32,10 +32,19 @@ public class TeamModel {
 
     }
 
+    /**
+     * Adds the team to the list of teams
+     *
+     * @param team
+     */
     public void addTeam(Team team) {
         teams.add(team);
     }
 
+    /**
+     *
+     * @return list of teams
+     */
     public ObservableList<Team> getTeams() {
         return teams;
     }
