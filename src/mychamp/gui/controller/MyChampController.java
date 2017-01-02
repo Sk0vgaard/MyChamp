@@ -98,7 +98,13 @@ public class MyChampController implements Initializable {
 
     @FXML
     private void handleAddTeam(ActionEvent event) {
-
+        
+        Team teamToAdd = new Team(1, txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText(), 0, 0, 0);
+        teamModel.addTeam(teamToAdd);
+        System.out.println(teamModel.getTeams());
+        
+        
+        
     }
 
 }

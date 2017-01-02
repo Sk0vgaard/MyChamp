@@ -14,6 +14,11 @@ public class TeamModel {
 
     private static TeamModel instance;
 
+    public TeamModel()
+    {
+        teams = new ArrayList();
+    }
+
     /**
      * TeamModel singleton to make sure we always only have one instance
      *
@@ -24,6 +29,19 @@ public class TeamModel {
             instance = new TeamModel();
         }
         return instance;
+        
+    }
+    
+    public void addTeam(Team team) {
+        teams.add(team);
     }
 
+    public ArrayList<Team> getTeams()
+    {
+        return teams;
+    }
+    
+    
 }
+
+
