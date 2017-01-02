@@ -554,7 +554,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="1070.0" layoutY="748.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" text="Finals" />
+      <Button layoutX="1070.0" layoutY="748.0" mnemonicParsing="false" onAction="#handleFinalsButton" prefHeight="31.0" prefWidth="223.0" text="Finals" />
       <Button layoutX="84.0" layoutY="748.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" text="Gruppe" />
       <Button layoutX="327.0" layoutY="748.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" text="Team" />
    </children>
