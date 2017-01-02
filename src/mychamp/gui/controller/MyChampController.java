@@ -6,11 +6,15 @@
 package mychamp.gui.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -84,8 +88,12 @@ public class MyChampController implements Initializable {
     }
 
     @FXML
-    private void handleStartTournament(ActionEvent event) {
+    private void handleStartTournament(ActionEvent event) throws IOException {
         Stage primStage = (Stage) txtTeamName.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/PlayOffView.fxml"));
+        Parent root = loader.load();
+
+        primStage.setScene(new Scene(root));
     }
 
     @FXML
