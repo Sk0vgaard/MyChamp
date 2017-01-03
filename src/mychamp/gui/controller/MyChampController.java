@@ -123,17 +123,17 @@ public class MyChampController implements Initializable {
 
     private Alert removeManyItems() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Are you sure you want to remove all these elements?");
-        alert.setContentText("Press 'OK' to remove.");
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdene?");
+        alert.setContentText("Tryk 'OK' for at slette.");
         return alert;
     }
     
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Are you sure you want to remove the team: " + "\n\n" + teamToDelete.getTEAM_NAME());
-        alert.setContentText("Press 'OK' to remove.");
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTEAM_NAME());
+        alert.setContentText("Tryk 'OK' for at slette.");
         return alert;
     }
     
@@ -210,7 +210,7 @@ public class MyChampController implements Initializable {
     private void warningDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Advarsel");
-        alert.setTitle("Manglende information");
+        alert.setTitle("Manglende information.");
         alert.setContentText("Vær venlig at udfylde alle informationer.");
         alert.showAndWait();
     }
