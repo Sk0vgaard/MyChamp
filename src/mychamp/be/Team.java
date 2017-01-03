@@ -9,13 +9,13 @@ import mychamp.bll.IDCreator;
 
 public class Team {
 
-    private final int ID;
+    private int ID;
 
-    private final String TEAM_NAME;
+    private String TEAM_NAME;
 
-    private final String SCHOOL;
+    private String SCHOOL;
 
-    private final String HOME_FIELD;
+    private String HOME_FIELD;
 
     private int points;
 
@@ -181,6 +181,21 @@ public class Team {
      */
     public void setMatchesPlayed(int matchesPlayed) {
         this.matchesPlayed = matchesPlayed;
+    }
+
+    public void setTEAM_NAME(String TEAM_NAME)
+    {
+        this.TEAM_NAME = TEAM_NAME;
+    }
+
+    public void setSCHOOL(String SCHOOL)
+    {
+        this.SCHOOL = SCHOOL;
+    }
+
+    public void setHOME_FIELD(String HOME_FIELD)
+    {
+        this.HOME_FIELD = HOME_FIELD;
     }
 
 }

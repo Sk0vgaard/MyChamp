@@ -87,14 +87,22 @@ public class MyChampController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        txtFieldList.add(txtTeamID);
-        txtFieldList.add(txtTeamField);
-        txtFieldList.add(txtTeamSchool);
-        txtFieldList.add(txtTeamName);
+        txtTeamID.setDisable(true);
+        initializeTextFieldList();
         initializeDesign();
         initializeTables();
         setListeners();
 
+    }
+
+    /**
+     * Adds the txtFields to the txtFieldList.
+     */
+    private void initializeTextFieldList()
+    {
+        txtFieldList.add(txtTeamField);
+        txtFieldList.add(txtTeamSchool);
+        txtFieldList.add(txtTeamName);
     }
 
     /**
@@ -151,29 +159,44 @@ public class MyChampController implements Initializable
         txtTeamSchool.setText(team.getSCHOOL());
     }
 
+    /**
+     * Makes the textfields editable when clicked, then changes the button to
+     * "save" and saves the data in the textfields in the teams list.
+     *
+     * @param event
+     */
     @FXML
     private void handleEditSelectedTeam(ActionEvent event)
     {
-        if (btnEdit.getText().equals("Rediger"))
+        if (isTableSelected())
         {
-            for (TextField textField : txtFieldList)
+            if (btnEdit.getText().equals("Rediger"))
             {
-                textField.setDisable(false);
-            }
-            btnEdit.setText("Gem");
-        } else {
-            for (TextField textField : txtFieldList)
+                for (TextField textField : txtFieldList)
+                {
+                    textField.setDisable(false);
+                }
+                btnEdit.setText("Gem");
+            } else
             {
-                textField.setDisable(true);
+                for (TextField textField : txtFieldList)
+                {
+                    textField.setDisable(true);
+                }
+                tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setSCHOOL(txtTeamSchool.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setTEAM_NAME(txtTeamName.getText());
+                refreshTable();
+                btnEdit.setText("Rediger");
             }
-            btnEdit.setText("Rediger");
         }
     }
-            /**
-             * Create a dialog to remove many items
-             *
-             * @return
-             */
+
+    /**
+     * Create a dialog to remove many items
+     *
+     * @return
+     */
     private Alert removeManyItems()
     {
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -198,6 +221,22 @@ public class MyChampController implements Initializable
         return alert;
     }
 
+    private boolean isTableSelected()
+    {
+        if (tableTeams.getSelectionModel().isEmpty())
+        {
+            return false;
+        } else
+        {
+            return true;
+        }
+    }
+
+    /**
+     * Deletes the selected team(s).
+     *
+     * @param event
+     */
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event)
     {
@@ -216,7 +255,7 @@ public class MyChampController implements Initializable
         if (result.get() == ButtonType.OK)
         {
             teamModel.deleteTeam(teamsToDelete);
-            if (tableTeams.getSelectionModel().isEmpty())
+            if (!isTableSelected())
             {
                 txtTeamName.clear();
                 txtTeamField.clear();
@@ -302,5 +341,15 @@ public class MyChampController implements Initializable
         alert.setTitle("Manglende information.");
         alert.setContentText("Vær venlig at udfylde alle informationer.");
         alert.showAndWait();
+    }
+    
+    /**
+     * Refreshes the table on changes
+     */
+    public void refreshTable() {
+        for (int i = 0; i < tableTeams.getColumns().size(); i++) {
+            ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(false);
+            ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(true);
+        }
     }
 }
