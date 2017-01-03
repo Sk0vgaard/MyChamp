@@ -8,20 +8,27 @@ package mychamp.gui.controller;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
@@ -55,6 +62,8 @@ public class MyChampController implements Initializable {
 
     private final TeamModel teamModel;
 
+    private TableView.TableViewSelectionModel<Team> selectedView;
+    
     public MyChampController() {
         teamModel = TeamModel.getInstance();        
     }
@@ -111,8 +120,49 @@ public class MyChampController implements Initializable {
     private void handleEditSelectedTeam(ActionEvent event) {
     }
 
+    private Alert removeManyItems() {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Are you sure you want to remove all these elements?");
+        alert.setContentText("Press 'OK' to remove.");
+        return alert;
+    }
+    
+    private Alert teamRemoveDialog(Team teamToDelete) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Are you sure you want to remove the team: " + "\n\n" + teamToDelete.getTEAM_NAME());
+        alert.setContentText("Press 'OK' to remove.");
+        return alert;
+    }
+    
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
+        ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+        Alert alert;
+        if (teamsToDelete.size() > 1) {
+            alert = removeManyItems();
+        } else {
+            alert = teamRemoveDialog(teamsToDelete.get(0));
+        }
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.get() == ButtonType.OK) {
+        teamModel.deleteTeam(teamsToDelete);
+        }
+    }
+    
+    /**
+     * Select more than one team
+     */
+    @FXML
+    private void handleMultiSelect(KeyEvent event) {
+        if (event.isControlDown() | event.isShiftDown()) {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        } else {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        }
     }
     
     /**
@@ -137,6 +187,9 @@ public class MyChampController implements Initializable {
     private void handleAddTeam(ActionEvent event) {
         Team teamToAdd = new Team(txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText());
         teamModel.addTeam(teamToAdd);
+        txtNewTeamField.clear();
+        txtNewTeamName.clear();
+        txtNewTeamSchool.clear();
     }
 
 }

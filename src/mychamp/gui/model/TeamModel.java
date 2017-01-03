@@ -49,4 +49,7 @@ public class TeamModel {
         return teams;
     }
 
+    public void deleteTeam(ObservableList<Team> teamsToDelete) {
+        teams.removeAll(teamsToDelete);
+    }
 }
