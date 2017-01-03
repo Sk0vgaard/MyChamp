@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -22,39 +23,32 @@ import javafx.stage.Stage;
  *
  * @author Rasmus
  */
-public class FinalsController implements Initializable {
-
+public class MenuController implements Initializable {
+    
     @FXML
-    private Label lblRankings;
-    @FXML
-    private Label lblRankings1;
-    @FXML
-    private Label lblRankings2;
-    @FXML
-    private Label lblRankings3;
-
+    private Label lblMenuBanner;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-    /**
-     * Switches to the PlayOffView.
-     * @param event
-     * @throws IOException 
-     */
+    }
+
     @FXML
-    private void handlePlayoffButton(ActionEvent event) throws IOException {
+    private void handlePlayOffButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
     }
 
     @FXML
-    private void handleMenuButton(ActionEvent event) throws IOException {
-        goToView("MenuView");
+    private void handleFinalsButton(ActionEvent event) throws IOException {
+        goToView("FinalsView");
     }
+
+    @FXML
+    private void handleNewTournamentButton(ActionEvent event) throws IOException {
+        goToView("MyChamp");        
+    }    
     
     /**
      * Goes to the view that is parsed.
@@ -62,9 +56,9 @@ public class FinalsController implements Initializable {
      * @throws IOException 
      */
     private void goToView(String view) throws IOException{
-        Stage primStage = (Stage) lblRankings.getScene().getWindow();
+        Stage primStage = (Stage) lblMenuBanner.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/" + view + ".fxml"));
         Parent root = loader.load();
         primStage.setScene(new Scene(root));
-    } 
+    }    
 }

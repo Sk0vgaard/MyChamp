@@ -19,7 +19,7 @@ public class MyChamp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui/view/MyChamp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml"));
 
         Scene scene = new Scene(root);
 

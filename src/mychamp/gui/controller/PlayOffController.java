@@ -188,10 +188,23 @@ public class PlayOffController implements Initializable {
      */
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
-        Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/FinalsView.fxml"));
-        Parent root = loader.load();
-        
-        primStage.setScene(new Scene(root));
+        goToView("FinalsView");
     }
+
+    @FXML
+    private void handleMenuButton(ActionEvent event) throws IOException {
+        goToView("MenuView");
+    }
+    
+    /**
+     * Goes to the view that is parsed.
+     * @param view
+     * @throws IOException 
+     */
+    private void goToView(String view) throws IOException{
+        Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/" + view + ".fxml"));
+        Parent root = loader.load();
+        primStage.setScene(new Scene(root));
+    } 
 }

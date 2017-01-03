@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="mychamp.gui.controller.FinalsController">
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.FinalsController">
    <children>
       <Button layoutX="1070.0" layoutY="748.0" mnemonicParsing="false" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" text="Play Off" />
       <VBox layoutX="1070.0" layoutY="65.0" prefHeight="656.0" prefWidth="223.0">
@@ -112,7 +111,7 @@
             </Pane>
          </children>
       </GridPane>
-      <Button layoutX="84.0" layoutY="748.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" text="Gruppe" />
+      <Button layoutX="84.0" layoutY="748.0" mnemonicParsing="false" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" text="Menu" />
       <Button layoutX="327.0" layoutY="748.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" text="Team" />
       <Label fx:id="lblRankings1" layoutX="235.0" layoutY="35.0" text="Kvart finale">
          <font>
