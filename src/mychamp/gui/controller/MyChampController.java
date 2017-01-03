@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -135,8 +136,29 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleAddTeam(ActionEvent event) {
-        Team teamToAdd = new Team(txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText());
-        teamModel.addTeam(teamToAdd);
+        //Check to see if all information is present.
+        if(!txtNewTeamName.getText().equals("") 
+                || !txtNewTeamField.getText().equals("") 
+                || !txtNewTeamSchool.getText().equals("")){
+            //Creates a team.
+            teamModel.addTeam(new Team(
+                txtNewTeamName.getText(), 
+                txtNewTeamField.getText(), 
+                txtNewTeamSchool.getText()));
+            //Clears the fields for information.
+            txtNewTeamName.setText("");
+            txtNewTeamField.setText("");
+            txtNewTeamSchool.setText("");
+        }else{
+            warningDialog();
+        }
     }
 
+    private void warningDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Advarsel");
+        alert.setTitle("Manglende information");
+        alert.setContentText("Vær venlig at udfylde alle informationer.");
+        alert.showAndWait();
+    }
 }
