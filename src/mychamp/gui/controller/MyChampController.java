@@ -30,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import static javax.swing.text.html.HTML.Tag.HEAD;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
 
@@ -185,11 +186,32 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleAddTeam(ActionEvent event) {
-        Team teamToAdd = new Team(txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText());
-        teamModel.addTeam(teamToAdd);
-        txtNewTeamField.clear();
-        txtNewTeamName.clear();
-        txtNewTeamSchool.clear();
+        //Check to see if all information is present.
+        if(!txtNewTeamName.getText().equals("") 
+                || !txtNewTeamField.getText().equals("") 
+                || !txtNewTeamSchool.getText().equals("")){
+            //Creates a team.
+            teamModel.addTeam(new Team(
+                txtNewTeamName.getText(), 
+                txtNewTeamField.getText(), 
+                txtNewTeamSchool.getText()));
+            //Clears the fields for information.
+            txtNewTeamName.clear();
+            txtNewTeamField.clear();
+            txtNewTeamSchool.clear();
+        }else{
+            warningDialog();
+        }
     }
-
+    
+    /**
+     * Pops up a warning dialog telling the user, there are missing information.
+     */
+    private void warningDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Advarsel");
+        alert.setTitle("Manglende information");
+        alert.setContentText("Vær venlig at udfylde alle informationer.");
+        alert.showAndWait();
+    }
 }
