@@ -5,6 +5,7 @@
  */
 package mychamp.gui.model;
 
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mychamp.be.Team;
@@ -47,6 +48,12 @@ public class TeamModel {
      */
     public ObservableList<Team> getTeams() {
         return teams;
+    }
+
+    public ArrayList<Team> getTeamsAsArrayList() {
+        ArrayList<Team> teamsAsArrayList = new ArrayList<>();
+        teamsAsArrayList.addAll(teams);
+        return teamsAsArrayList;
     }
 
 }

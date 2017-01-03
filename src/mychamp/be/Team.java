@@ -34,7 +34,6 @@ public class Team {
     /**
      * Create the team
      *
-     * @param ID
      * @param teamName
      * @param HOME_FIELD
      * @param SCHOOL

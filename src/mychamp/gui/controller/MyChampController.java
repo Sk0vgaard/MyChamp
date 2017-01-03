@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import mychamp.be.Team;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -55,8 +56,13 @@ public class MyChampController implements Initializable {
 
     private final TeamModel teamModel;
 
+    private final GroupModel groupModel;
+
+    private PlayOffController playOffController;
+
     public MyChampController() {
-        teamModel = TeamModel.getInstance();        
+        teamModel = TeamModel.getInstance();
+        groupModel = GroupModel.getInstance();
     }
 
     @Override
@@ -82,25 +88,25 @@ public class MyChampController implements Initializable {
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
 
     }
-    
+
     /**
      * Adds a listener to tableTeams.
      */
-    private void setListeners(){
+    private void setListeners() {
         tableTeams.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Team>() {
             @Override
             public void changed(ObservableValue<? extends Team> observable, Team oldValue, Team newValue) {
-                if(newValue != null){
+                if (newValue != null) {
                     displayTeamInfo();
                 }
             }
         });
     }
-    
+
     /**
      * Display the information of the team.
      */
-    private void displayTeamInfo(){
+    private void displayTeamInfo() {
         Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
         txtTeamID.setText(team.getID() + "");
         txtTeamName.setText(team.getTEAM_NAME());
@@ -114,11 +120,12 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
     }
-    
+
     /**
      * Switches to the PlayOffView.
+     *
      * @param event
-     * @throws IOException 
+     * @throws IOException
      */
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
@@ -126,11 +133,17 @@ public class MyChampController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/PlayOffView.fxml"));
         Parent root = loader.load();
 
+        groupModel.createRandomGroups();
+
         primStage.setScene(new Scene(root));
+        playOffController = PlayOffController.getInstance();
+        playOffController.setRandomGroups(groupModel.getGroups());
+        playOffController.setGroupInformation();
     }
 
     /**
      * Adds a Team.
+     *
      * @param event
      */
     @FXML

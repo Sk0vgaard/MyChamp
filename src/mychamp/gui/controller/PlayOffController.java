@@ -7,6 +7,7 @@ package mychamp.gui.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import mychamp.be.Group;
 
 /**
  * FXML Controller class
@@ -173,25 +175,58 @@ public class PlayOffController implements Initializable {
     @FXML
     private Label lblRound1GroupDWinner2;
 
+    private ArrayList<Group> randomGroups;
+
+    private static PlayOffController instance;
+
+    public static PlayOffController getInstance() {
+        return instance;
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        instance = this;
+    }
+
     /**
      * Switches to the FinalsView.
+     *
      * @param event
-     * @throws IOException 
+     * @throws IOException
      */
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/FinalsView.fxml"));
         Parent root = loader.load();
-        
+
         primStage.setScene(new Scene(root));
     }
+
+    /**
+     * Set the random groups
+     *
+     * @param randomGroups
+     */
+    public void setRandomGroups(ArrayList<Group> randomGroups) {
+        this.randomGroups = randomGroups;
+    }
+
+    /**
+     * Update PlayOffView information
+     */
+    public void setGroupInformation() {
+        ArrayList<Label> labels = new ArrayList();
+        labels.add(lblRound1GroupATeam1);
+        labels.add(lblRound1GroupATeam2);
+        labels.add(lblRound1GroupATeam3);
+        labels.add(lblRound1GroupATeam4);
+        for (int i = 0; i < 4; i++) {
+            labels.get(i).setText(randomGroups.get(0).getGroupTeams().get(i).getTEAM_NAME());
+        }
+    }
+
 }

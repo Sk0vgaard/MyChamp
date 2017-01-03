@@ -35,17 +35,19 @@ public class GroupManager {
      */
     public GroupManager(ArrayList<Team> teams) {
         teamIDS = teams;
-        playOffGroups.add(A);
-        playOffGroups.add(B);
-        playOffGroups.add(C);
-        playOffGroups.add(D);
+        playOffGroups = new ArrayList<>();
+        groupATeams = new ArrayList<>();
+        groupBTeams = new ArrayList<>();
+        groupCTeams = new ArrayList<>();
+        groupDTeams = new ArrayList<>();
     }
 
     /**
      *
      * @return playoff groups
      */
-    public ArrayList<Group> getGroups() {
+    public ArrayList<Group> getNewRandomGroups() {
+        createRandomGroups();
         return playOffGroups;
     }
 
@@ -56,24 +58,37 @@ public class GroupManager {
         Collections.shuffle(teamIDS);
 
         //Fill teams
-        for (int i = 0; i < 4; i++) {
-            groupATeams.add(teamIDS.get(i));
-            teamIDS.remove(i);
+        while (teamIDS.size() > 0) {
+            if (teamIDS.size() > 0) {
+                //Fill team A
+                groupATeams.add(teamIDS.get(0));
+                teamIDS.remove(0);
+            }
+            if (teamIDS.size() > 0) {
+                //Fill team B
+                groupBTeams.add(teamIDS.get(0));
+                teamIDS.remove(0);
+            }
+            if (teamIDS.size() > 0) {
+                //Fill team C
+                groupCTeams.add(teamIDS.get(0));
+                teamIDS.remove(0);
+            }
+            if (teamIDS.size() > 0) {
+                //Fill team D
+                groupDTeams.add(teamIDS.get(0));
+                teamIDS.remove(0);
+            }
         }
-        for (int i = 0; i < 4; i++) {
-            groupBTeams.add(teamIDS.get(i));
-            teamIDS.remove(i);
-        }
-        for (int i = 0; i < 4; i++) {
-            groupCTeams.add(teamIDS.get(i));
-            teamIDS.remove(i);
-        }
-        groupDTeams.addAll(teamIDS);
 
         A = new Group("A", groupATeams);
         B = new Group("B", groupBTeams);
         C = new Group("C", groupCTeams);
         D = new Group("D", groupDTeams);
+        playOffGroups.add(A);
+        playOffGroups.add(B);
+        playOffGroups.add(C);
+        playOffGroups.add(D);
     }
 
 }
