@@ -60,6 +60,8 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamField;
     @FXML
     private JFXTextField txtNewTeamSchool;
+    @FXML
+    private TextField txtTeamSchool;
 
     private final TeamModel teamModel;
     private final GroupModel groupModel;
@@ -118,12 +120,19 @@ public class MyChampController implements Initializable {
         txtTeamID.setText(team.getID() + "");
         txtTeamName.setText(team.getTEAM_NAME());
         txtTeamField.setText(team.getHOME_FIELD());
+        txtTeamSchool.setText(team.getSCHOOL());
     }
 
     @FXML
     private void handleEditSelectedTeam(ActionEvent event) {
+
     }
 
+    /**
+     * Create a dialog to remove many items
+     *
+     * @return
+     */
     private Alert removeManyItems() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
@@ -132,6 +141,12 @@ public class MyChampController implements Initializable {
         return alert;
     }
 
+    /**
+     * Create a team remove dialog
+     *
+     * @param teamToDelete
+     * @return
+     */
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
@@ -154,6 +169,14 @@ public class MyChampController implements Initializable {
 
         if (result.get() == ButtonType.OK) {
             teamModel.deleteTeam(teamsToDelete);
+            if (tableTeams.getSelectionModel().isEmpty()) {
+                txtTeamName.clear();
+                txtTeamField.clear();
+                txtTeamSchool.clear();
+                txtTeamID.clear();
+            } else {
+                displayTeamInfo();
+            }
         }
     }
 
@@ -200,7 +223,6 @@ public class MyChampController implements Initializable {
         if (!txtNewTeamName.getText().equals("")
                 || !txtNewTeamField.getText().equals("")
                 || !txtNewTeamSchool.getText().equals("")) {
-            //Creates a team.
             teamModel.addTeam(new Team(
                     txtNewTeamName.getText(),
                     txtNewTeamField.getText(),
