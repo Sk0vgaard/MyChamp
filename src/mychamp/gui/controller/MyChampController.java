@@ -8,20 +8,27 @@ package mychamp.gui.controller;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import mychamp.be.Team;
 import mychamp.gui.model.GroupModel;
@@ -55,10 +62,10 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamSchool;
 
     private final TeamModel teamModel;
-
     private final GroupModel groupModel;
 
     private PlayOffController playOffController;
+    private TableView.TableViewSelectionModel<Team> selectedView;
 
     public MyChampController() {
         teamModel = TeamModel.getInstance();
@@ -117,8 +124,49 @@ public class MyChampController implements Initializable {
     private void handleEditSelectedTeam(ActionEvent event) {
     }
 
+    private Alert removeManyItems() {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdene?");
+        alert.setContentText("Tryk 'OK' for at slette.");
+        return alert;
+    }
+
+    private Alert teamRemoveDialog(Team teamToDelete) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTEAM_NAME());
+        alert.setContentText("Tryk 'OK' for at slette.");
+        return alert;
+    }
+
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
+        ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+        Alert alert;
+        if (teamsToDelete.size() > 1) {
+            alert = removeManyItems();
+        } else {
+            alert = teamRemoveDialog(teamsToDelete.get(0));
+        }
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            teamModel.deleteTeam(teamsToDelete);
+        }
+    }
+
+    /**
+     * Select more than one team
+     */
+    @FXML
+    private void handleMultiSelect(KeyEvent event) {
+        if (event.isControlDown() | event.isShiftDown()) {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        } else {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        }
     }
 
     /**
@@ -148,8 +196,32 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleAddTeam(ActionEvent event) {
-        Team teamToAdd = new Team(txtNewTeamName.getText(), txtNewTeamField.getText(), txtNewTeamSchool.getText());
-        teamModel.addTeam(teamToAdd);
+        //Check to see if all information is present.
+        if (!txtNewTeamName.getText().equals("")
+                || !txtNewTeamField.getText().equals("")
+                || !txtNewTeamSchool.getText().equals("")) {
+            //Creates a team.
+            teamModel.addTeam(new Team(
+                    txtNewTeamName.getText(),
+                    txtNewTeamField.getText(),
+                    txtNewTeamSchool.getText()));
+            //Clears the fields for information.
+            txtNewTeamName.clear();
+            txtNewTeamField.clear();
+            txtNewTeamSchool.clear();
+        } else {
+            warningDialog();
+        }
     }
 
+    /**
+     * Pops up a warning dialog telling the user, there are missing information.
+     */
+    private void warningDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Advarsel");
+        alert.setTitle("Manglende information.");
+        alert.setContentText("Vær venlig at udfylde alle informationer.");
+        alert.showAndWait();
+    }
 }
