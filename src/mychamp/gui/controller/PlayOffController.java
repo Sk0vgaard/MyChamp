@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import mychamp.MyChamp;
 import mychamp.be.Group;
+import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
@@ -174,6 +175,8 @@ public class PlayOffController implements Initializable {
 
     private ArrayList<Group> randomGroups;
 
+    private TeamModel teamModel = TeamModel.getInstance();
+
     private static PlayOffController instance;
 
     public static PlayOffController getInstance() {
@@ -232,8 +235,38 @@ public class PlayOffController implements Initializable {
         labels.add(lblRound1GroupATeam2);
         labels.add(lblRound1GroupATeam3);
         labels.add(lblRound1GroupATeam4);
-        for (int i = 0; i < 4; i++) {
-            labels.get(i).setText(randomGroups.get(0).getGroupTeams().get(i).getTEAM_NAME());
-        }
+        labels.add(lblRound1GroupBTeam1);
+        labels.add(lblRound1GroupBTeam2);
+        labels.add(lblRound1GroupBTeam3);
+        labels.add(lblRound1GroupBTeam4);
+        labels.add(lblRound1GroupCTeam1);
+        labels.add(lblRound1GroupCTeam2);
+        labels.add(lblRound1GroupCTeam3);
+        labels.add(lblRound1GroupCTeam4);
+        labels.add(lblRound1GroupDTeam1);
+        labels.add(lblRound1GroupDTeam2);
+        labels.add(lblRound1GroupDTeam3);
+        labels.add(lblRound1GroupDTeam4);
+
+        //TODO ALH: Create a loop!
+        labels.get(0).setText(randomGroups.get(0).getGroupTeams().get(0).getTEAM_NAME());
+        labels.get(1).setText(randomGroups.get(0).getGroupTeams().get(1).getTEAM_NAME());
+        labels.get(2).setText(randomGroups.get(0).getGroupTeams().get(2).getTEAM_NAME());
+        labels.get(3).setText(randomGroups.get(0).getGroupTeams().get(3).getTEAM_NAME());
+
+        labels.get(4).setText(randomGroups.get(1).getGroupTeams().get(0).getTEAM_NAME());
+        labels.get(5).setText(randomGroups.get(1).getGroupTeams().get(1).getTEAM_NAME());
+        labels.get(6).setText(randomGroups.get(1).getGroupTeams().get(2).getTEAM_NAME());
+        labels.get(7).setText(randomGroups.get(1).getGroupTeams().get(3).getTEAM_NAME());
+
+        labels.get(8).setText(randomGroups.get(2).getGroupTeams().get(0).getTEAM_NAME());
+        labels.get(9).setText(randomGroups.get(2).getGroupTeams().get(1).getTEAM_NAME());
+        labels.get(10).setText(randomGroups.get(2).getGroupTeams().get(2).getTEAM_NAME());
+        labels.get(11).setText(randomGroups.get(2).getGroupTeams().get(3).getTEAM_NAME());
+
+        labels.get(12).setText(randomGroups.get(3).getGroupTeams().get(0).getTEAM_NAME());
+        labels.get(13).setText(randomGroups.get(3).getGroupTeams().get(1).getTEAM_NAME());
+        labels.get(14).setText(randomGroups.get(3).getGroupTeams().get(2).getTEAM_NAME());
+        labels.get(15).setText(randomGroups.get(3).getGroupTeams().get(3).getTEAM_NAME());
     }
 }
