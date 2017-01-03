@@ -36,13 +36,11 @@
          <children>
             <JFXTextField fx:id="txtNewTeamName" layoutX="59.0" layoutY="-4.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <Label layoutX="14.0" layoutY="8.0" text="Navn:" />
-
+            <JFXTextField fx:id="txtNewTeamSchool" layoutX="59.0" layoutY="45.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <JFXTextField fx:id="txtNewTeamField" layoutX="304.0" layoutY="32.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <Label layoutX="249.0" layoutY="42.0" text="H. bane:" />
             <JFXButton layoutX="508.0" layoutY="38.0" onAction="#handleAddTeam" text="Tilføj" />
             <Label layoutX="13.0" layoutY="55.0" text="Skole:" />
-            <JFXTextField fx:id="txtNewTeamSchool" layoutX="59.0" layoutY="45.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
-
          </children>
       </Pane>
       <Label layoutX="310.0" layoutY="14.0" text="Tilføj hold">
