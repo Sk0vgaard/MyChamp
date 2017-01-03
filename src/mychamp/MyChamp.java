@@ -5,6 +5,7 @@
  */
 package mychamp;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,7 @@ public class MyChamp extends Application {
     public static Scene finalsView;
     public static Scene menuView;
     public static Scene myChampView;
+    public static Scene teamScheduleView;
     
     public static Stage primStage;
     
@@ -28,11 +30,8 @@ public class MyChamp extends Application {
     public void start(Stage stage) throws Exception {
         //Getting a reference to the Stage.
         primStage = stage;
-        //Creating all the scenes used in the program.
-        playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
-        finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
-        menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));
-        myChampView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MyChamp.fxml")));
+        
+        createScenes();
         
         Parent root = FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml"));
 
@@ -67,10 +66,26 @@ public class MyChamp extends Application {
                 primStage.setScene(myChampView);
                 break;
             }
+            case "TeamScheduleView":{
+                primStage.setScene(teamScheduleView);
+                break;
+            }
             default: {
                 primStage.setScene(menuView);
                 break;
             }
         }
+    }
+    
+    /**
+     * Creates all scenes used in the program.
+     * @throws IOException 
+     */
+    private void createScenes() throws IOException{
+        playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
+        finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
+        menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));
+        myChampView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MyChamp.fxml")));
+        teamScheduleView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/TeamScheduleView.fxml")));
     }
 }

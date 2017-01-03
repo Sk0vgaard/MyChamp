@@ -220,6 +220,11 @@ public class PlayOffController implements Initializable {
         goToView("MenuView");
     }
 
+    @FXML
+    private void handleTeamButton(ActionEvent event) throws IOException {
+        goToView("TeamScheduleView");
+    }
+
     /**
      * Goes to the view that is parsed.
      *
