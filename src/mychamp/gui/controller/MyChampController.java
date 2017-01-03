@@ -153,7 +153,10 @@ public class MyChampController implements Initializable {
             warningDialog();
         }
     }
-
+    
+    /**
+     * Pops up a warning dialog telling the user, there are missing information.
+     */
     private void warningDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Advarsel");
