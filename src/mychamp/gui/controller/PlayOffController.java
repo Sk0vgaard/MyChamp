@@ -11,12 +11,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import mychamp.MyChamp;
 import mychamp.be.Group;
 
 /**
@@ -214,11 +211,7 @@ public class PlayOffController implements Initializable {
      * @throws IOException
      */
     private void goToView(String view) throws IOException {
-        Stage primStage = (Stage) lblRound1GroupAGoals1.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/" + view + ".fxml"));
-        Parent root = loader.load();
-
-        primStage.setScene(new Scene(root));
+        MyChamp.switchScene(view);
     }
 
     /**

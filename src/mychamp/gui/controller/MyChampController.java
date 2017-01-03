@@ -15,10 +15,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -29,7 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
+import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
@@ -200,13 +197,9 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
-        Stage primStage = (Stage) txtTeamName.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/PlayOffView.fxml"));
-        Parent root = loader.load();
-
         groupModel.createRandomGroups();
-
-        primStage.setScene(new Scene(root));
+        
+        MyChamp.switchScene("PlayOffView");
         playOffController = PlayOffController.getInstance();
         playOffController.setRandomGroups(groupModel.getGroups());
         playOffController.setGroupInformation();
