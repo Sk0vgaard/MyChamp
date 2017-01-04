@@ -124,10 +124,14 @@ public class MatchDetailsController implements Initializable {
 
     /**
      * Grants the teams their points, respective to a win, loss or draw
+     * Also records the goal scored for the match.
      */
     private void givePointsToWinner() {
         int homeScore = Integer.parseInt(txtOneScore.getText());
         int awayScore = Integer.parseInt(txtTwoScore.getText());
+        
+        match.setHomeTeamScore(homeScore);
+        match.setAwayTeamScore(awayScore);
 
         if (homeScore > awayScore) {
             homeTeam.setPoints(WINNER_POINTS);

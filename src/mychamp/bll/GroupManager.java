@@ -104,5 +104,26 @@ public class GroupManager {
         playOffGroups.add(C);
         playOffGroups.add(D);
     }
-
+    
+    /**
+     * Returns an ArrayList whit the teams of the specified group.
+     * @param groupToGetFrom String as the capital letter of the group to get from. Example "A".
+     * @return 
+     */
+    public ArrayList<Team> getTeamsOfGroup(String groupToGetFrom){
+        switch (groupToGetFrom){
+            case "A":{
+                return groupATeams;
+            }
+            case "B":{
+                return groupBTeams;
+            }
+            case "C":{
+                return groupCTeams;
+            }
+            default: {
+                return groupDTeams;
+            }
+        }
+    }
 }

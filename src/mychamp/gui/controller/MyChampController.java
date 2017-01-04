@@ -31,6 +31,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
+import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
