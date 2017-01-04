@@ -17,7 +17,7 @@ public class GroupModel {
 
     private GroupManager groupManager;
 
-    private TeamModel teamModel = TeamModel.getInstance();
+    private final TeamModel teamModel = TeamModel.getInstance();
 
     public static GroupModel getInstance() {
         if (instance == null) {

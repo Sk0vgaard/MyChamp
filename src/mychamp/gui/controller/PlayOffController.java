@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -688,6 +689,8 @@ public class PlayOffController implements Initializable {
             round1teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -725,6 +728,8 @@ public class PlayOffController implements Initializable {
             round2teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -762,6 +767,8 @@ public class PlayOffController implements Initializable {
             round3teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -799,6 +806,8 @@ public class PlayOffController implements Initializable {
             round4teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -836,6 +845,8 @@ public class PlayOffController implements Initializable {
             round5teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -873,6 +884,8 @@ public class PlayOffController implements Initializable {
             round6teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
+            //Clear current groupMatchs
+            groupMatches.clear();
         }
     }
 
@@ -1097,7 +1110,7 @@ public class PlayOffController implements Initializable {
         round6teamGoalLabels.add(lblRound6GroupDGoals4);
     }
 
-    private void MatchClicked() throws IOException {
+    private void MatchClicked(int group, int match) throws IOException {
         try {
             //Grab hold of the curret stage.
             primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
@@ -1112,12 +1125,11 @@ public class PlayOffController implements Initializable {
 
             //Finds the match that has been clicked on
             GroupModel gModel = GroupModel.getInstance();
-            Match matchToSend = gModel.getGroups().get(0).getGroupMatches().get(0);
-
+            Match matchToSend = gModel.getGroups().get(group).getGroupMatches().get(match);
             
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
-            mdController.setMatchData(matchToSend);
+            mdController.setCurrentMatch(matchToSend);
             System.out.println(matchToSend.getHomeTeam().getTeamName());
             System.out.println(matchToSend.getAwayTeam().getTeamName());
             
@@ -1132,73 +1144,75 @@ public class PlayOffController implements Initializable {
     }
 
     @FXML
-    private void handleMatch00(ActionEvent event) throws IOException {
+    private void handleMatchClick(ActionEvent event) throws IOException {
+        //Typecast the event to the button clicked
+        Button clickedButton = (Button) event.getSource();
+        //Get the Id from the clicked button
+        String buttonId = clickedButton.getId();
         try {
-            MatchClicked();
+            //Send the clicked button to MatchClicked method to open information with info about the clicked match
+            switch (buttonId) {
+                case "00":
+                    MatchClicked(0, 0);
+                    break;
+                case "01":
+                    MatchClicked(0, 1);
+                    break;
+                case "02":
+                    MatchClicked(1, 0);
+                    break;
+                case "03":
+                    MatchClicked(1, 1);
+                    break;
+                case "04":
+                    MatchClicked(2, 0);
+                    break;
+                case "05":
+                    MatchClicked(2, 1);
+                    break;
+                case "06":
+                    MatchClicked(3, 0);
+                    break;
+                case "07":
+                    MatchClicked(3, 1);
+                    break;
+                case "10":
+                    MatchClicked(0, 2);
+                    break;
+                case "11":
+                    MatchClicked(0, 3);
+                    break;
+                case "12":
+                    MatchClicked(1, 2);
+                    break;
+                case "13":
+                    MatchClicked(1, 3);
+                    break;
+                case "14":
+                    MatchClicked(2, 2);
+                    break;
+                case "15":
+                    MatchClicked(2, 3);
+                    break;
+                case "16":
+                    MatchClicked(3, 2);
+                    break;
+                case "17":
+                    MatchClicked(3, 3);
+                    break;
+                /*TODO ALH: The rest of the buttons needs to be put into this switch!
+                    1.First create a button in scenebuilder
+                    2.Then give it an id (the same as its coordinate!)
+                    3.Then make sure the onAction is set to call this method (handleMatchClick)
+                    4. Then you simply save it and add a new case here for the buttonNumber
+                    5. The MatchClicked will the send the group and the match to the new window method
+                 */
+                default:
+                    System.out.println("WTF?");
+                    break;
+            }
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
-    }
-
-    @FXML
-    private void handleMatch01(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void handleMatch02(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void handleMatch03(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch04(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch05(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch06(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch07(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch10(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch11(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch12(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch13(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch14(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch15(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch16(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleMatch17(ActionEvent event) {
     }
 }
