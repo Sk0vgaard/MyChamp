@@ -55,7 +55,7 @@ public class Team {
      * @param points
      */
     public void setPoints(int points) {
-        this.points = points;
+        this.points += points;
     }
 
     /**
@@ -72,7 +72,7 @@ public class Team {
      * @param goalsScored
      */
     public void setGoalsScored(int goalsScored) {
-        this.goalsScored = goalsScored;
+        this.goalsScored += goalsScored;
     }
 
     /**
@@ -112,7 +112,7 @@ public class Team {
      *
      * @return the home field
      */
-    public String getHOME_FIELD() {
+    public String getHomeField() {
         return HOME_FIELD;
     }
 
@@ -120,7 +120,7 @@ public class Team {
      *
      * @return the school of the team
      */
-    public String getSCHOOL() {
+    public String getSchool() {
         return SCHOOL;
     }
 
@@ -146,7 +146,7 @@ public class Team {
      * @param wins
      */
     public void setWins(int wins) {
-        this.wins = wins;
+        this.wins += wins;
     }
 
     /**
@@ -163,7 +163,7 @@ public class Team {
      * @param losses
      */
     public void setLosses(int losses) {
-        this.losses = losses;
+        this.losses += losses;
     }
 
     /**
@@ -183,18 +183,15 @@ public class Team {
         this.matchesPlayed = matchesPlayed;
     }
 
-    public void setTEAM_NAME(String TEAM_NAME)
-    {
+    public void setTeamName(String TEAM_NAME) {
         this.teamName = TEAM_NAME;
     }
 
-    public void setSCHOOL(String SCHOOL)
-    {
+    public void setSchool(String SCHOOL) {
         this.SCHOOL = SCHOOL;
     }
 
-    public void setHOME_FIELD(String HOME_FIELD)
-    {
+    public void setHomeField(String HOME_FIELD) {
         this.HOME_FIELD = HOME_FIELD;
     }
 

@@ -11,8 +11,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import mychamp.MyChamp;
 import mychamp.be.Group;
 
@@ -264,6 +270,8 @@ public class PlayOffController implements Initializable {
 
     private ArrayList<Group> randomGroups;
 
+    private Stage primStage;
+
     private final ArrayList<Label> round1teamNameLabels = new ArrayList();
     private final ArrayList<Label> round2teamNameLabels = new ArrayList();
     private final ArrayList<Label> round3teamNameLabels = new ArrayList();
@@ -501,5 +509,25 @@ public class PlayOffController implements Initializable {
         round3teamGoalLabels.add(lblRound3GroupDGoals2);
         round3teamGoalLabels.add(lblRound3GroupDGoals3);
         round3teamGoalLabels.add(lblRound3GroupDGoals4);
+    }
+
+    @FXML
+    private void handleMatchClicked(MouseEvent event) throws IOException {
+        try {
+            //Grab hold of the curret stage
+            primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
+            Parent root = loader.load();
+
+            Stage editStage = new Stage();
+            editStage.setScene(new Scene(root));
+
+            //Create new modal window from the FXMLLoader
+            editStage.initModality(Modality.WINDOW_MODAL);
+            editStage.initOwner(primStage);
+            editStage.show();
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }
     }
 }

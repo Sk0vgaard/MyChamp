@@ -27,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
@@ -141,8 +142,8 @@ public class MyChampController implements Initializable {
         Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
         txtTeamID.setText(team.getID() + "");
         txtTeamName.setText(team.getTeamName());
-        txtTeamField.setText(team.getHOME_FIELD());
-        txtTeamSchool.setText(team.getSCHOOL());
+        txtTeamField.setText(team.getHomeField());
+        txtTeamSchool.setText(team.getSchool());
     }
 
     /**
@@ -163,9 +164,9 @@ public class MyChampController implements Initializable {
                 for (TextField textField : txtFieldList) {
                     textField.setDisable(true);
                 }
-                tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setSCHOOL(txtTeamSchool.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setTEAM_NAME(txtTeamName.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setTeamName(txtTeamName.getText());
                 refreshTable();
                 btnEdit.setText("Rediger");
             }
@@ -214,6 +215,10 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
+        deleteTeam();
+    }
+
+    private void deleteTeam() {
         ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
         Alert alert;
         if (teamsToDelete.size() > 1) {
@@ -242,11 +247,14 @@ public class MyChampController implements Initializable {
      * Select more than one team
      */
     @FXML
-    private void handleMultiSelect(KeyEvent event) {
+    private void handleKeyShortCuts(KeyEvent event) {
         if (event.isControlDown() | event.isShiftDown()) {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         } else {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        }
+        if (event.getCode().equals(KeyCode.DELETE)) {
+            deleteTeam();
         }
     }
 
