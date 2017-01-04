@@ -1111,6 +1111,13 @@ public class PlayOffController implements Initializable {
         round6teamGoalLabels.add(lblRound6GroupDGoals4);
     }
 
+    /**
+     * Opens the MatchDetails window and loads the details for the match
+     *
+     * @param group
+     * @param match
+     * @throws IOException
+     */
     private void MatchClicked(int group, int match) throws IOException {
         try {
             //Grab hold of the curret stage.
