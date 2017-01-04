@@ -104,6 +104,7 @@ public class MyChampController implements Initializable {
      */
     private void initializeDesign() {
         lblTeamAmount.setText("0");
+        updateTeamMount();
 
         for (TextField textField : txtFieldList) {
             textField.setDisable(true);
@@ -116,7 +117,7 @@ public class MyChampController implements Initializable {
     private void initializeTables() {
         tableTeams.setItems(teamModel.getTeams());
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
+        clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
 
     }
 
@@ -213,13 +214,11 @@ public class MyChampController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleDeleteSelectedTeam(ActionEvent event)
-    {
+    private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
     }
 
-    private void deleteTeam()
-    {
+    private void deleteTeam() {
         ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
         Alert alert;
         if (teamsToDelete.size() > 1) {
@@ -241,23 +240,20 @@ public class MyChampController implements Initializable {
                 displayTeamInfo();
             }
         }
+        updateTeamMount();
     }
 
-    
     /**
      * Select more than one team
      */
     @FXML
-    private void handleKeyShortCuts(KeyEvent event)
-    {
-        if (event.isControlDown() | event.isShiftDown())
-        {
+    private void handleKeyShortCuts(KeyEvent event) {
+        if (event.isControlDown() | event.isShiftDown()) {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         } else {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
-        if (event.getCode().equals(KeyCode.DELETE))
-        {
+        if (event.getCode().equals(KeyCode.DELETE)) {
             deleteTeam();
         }
     }
@@ -275,7 +271,7 @@ public class MyChampController implements Initializable {
         MyChamp.switchScene("PlayOffView");
         playOffController = PlayOffController.getInstance();
         playOffController.setRandomGroups(groupModel.getGroups());
-        playOffController.setGroupInformation();
+        playOffController.setPlayOffInformation();
     }
 
     /**
@@ -300,6 +296,7 @@ public class MyChampController implements Initializable {
         } else {
             warningDialog();
         }
+        updateTeamMount();
     }
 
     /**
@@ -316,10 +313,8 @@ public class MyChampController implements Initializable {
     /**
      * Refreshes the table on changes
      */
-    public void refreshTable()
-    {
-        for (int i = 0; i < tableTeams.getColumns().size(); i++)
-        {
+    public void refreshTable() {
+        for (int i = 0; i < tableTeams.getColumns().size(); i++) {
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(false);
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(true);
         }
@@ -329,6 +324,6 @@ public class MyChampController implements Initializable {
      * Updates the teams total
      */
     public void updateTeamMount() {
-        lblTeamAmount.setText("" + tableTeams.getSelectionModel().getTableView().getColumns().size());
+        lblTeamAmount.setText("" + teamModel.getTeams().size());
     }
 }
