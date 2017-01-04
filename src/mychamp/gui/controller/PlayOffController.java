@@ -1141,10 +1141,10 @@ public class PlayOffController implements Initializable {
     }
 
     /**
+     * Opens the MatchDetails window and loads the details for the match
      *
      * @param group
      * @param match
-     * @param groupLetter the capital letter of the group chosen.
      * @throws IOException
      */
     private void MatchClicked(int group, int match) throws IOException {
