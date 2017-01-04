@@ -513,30 +513,6 @@ public class PlayOffController implements Initializable {
     private Label lblRound6GroupATeam3;
     @FXML
     private Label lblRound6GroupATeam4;
-
-    private ArrayList<Group> randomGroups;
-
-    private Stage primStage;
-
-    private final ArrayList<Label> round1teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round2teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round3teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round4teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round5teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round6teamNameLabels = new ArrayList();
-
-    private final ArrayList<Label> round1teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round2teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round3teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round4teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round5teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round6teamGoalLabels = new ArrayList();
-
-    private static PlayOffController instance;
-
-    public static PlayOffController getInstance() {
-        return instance;
-    }
     @FXML
     private GridPane PlayOffGridPane;
     @FXML
@@ -571,6 +547,35 @@ public class PlayOffController implements Initializable {
     private Label lblGroupDTeam3;
     @FXML
     private Label lblGroupDTeam4;
+
+    private ArrayList<Group> randomGroups;
+
+    private Stage primStage;
+
+    private final ArrayList<Label> round1teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round2teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round3teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round4teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round5teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round6teamNameLabels = new ArrayList();
+
+    private final ArrayList<Label> round1teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round2teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round3teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round4teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round5teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round6teamGoalLabels = new ArrayList();
+
+    private final ArrayList<Label> rankingsGroupA = new ArrayList();
+    private final ArrayList<Label> rankingsGroupB = new ArrayList();
+    private final ArrayList<Label> rankingsGroupC = new ArrayList();
+    private final ArrayList<Label> rankingsGroupD = new ArrayList();
+
+    private static PlayOffController instance;
+
+    public static PlayOffController getInstance() {
+        return instance;
+    }
 
     /**
      * Initializes the controller class.
@@ -1109,8 +1114,39 @@ public class PlayOffController implements Initializable {
         round6teamGoalLabels.add(lblRound6GroupDGoals2);
         round6teamGoalLabels.add(lblRound6GroupDGoals3);
         round6teamGoalLabels.add(lblRound6GroupDGoals4);
+
+        //Group A ranking.
+        rankingsGroupA.add(lblGroupATeam1);
+        rankingsGroupA.add(lblGroupATeam2);
+        rankingsGroupA.add(lblGroupATeam3);
+        rankingsGroupA.add(lblGroupATeam4);
+
+        //Group B ranking
+        rankingsGroupB.add(lblGroupBTeam1);
+        rankingsGroupB.add(lblGroupBTeam2);
+        rankingsGroupB.add(lblGroupBTeam3);
+        rankingsGroupB.add(lblGroupBTeam4);
+
+        //Group C ranking
+        rankingsGroupC.add(lblGroupCTeam1);
+        rankingsGroupC.add(lblGroupCTeam2);
+        rankingsGroupC.add(lblGroupCTeam3);
+        rankingsGroupC.add(lblGroupCTeam4);
+
+        //Group D ranking
+        rankingsGroupD.add(lblGroupDTeam1);
+        rankingsGroupD.add(lblGroupDTeam2);
+        rankingsGroupD.add(lblGroupDTeam3);
+        rankingsGroupD.add(lblGroupDTeam4);
     }
 
+    /**
+     *
+     * @param group
+     * @param match
+     * @param groupLetter the capital letter of the group chosen.
+     * @throws IOException
+     */
     private void MatchClicked(int group, int match) throws IOException {
         try {
             //Grab hold of the curret stage.
@@ -1134,11 +1170,51 @@ public class PlayOffController implements Initializable {
 
             //Shows the modal and waits for it to close before continuing reading the code.
             editStage.showAndWait();
-
-            RankingManager.getInstance().sortTeamRankingOrder();
+            
+            //Updates the group rankings.
+            updateGroupRankings(group);
 
         } catch (IOException ioe) {
             System.out.println(ioe);
+        }
+    }
+    
+    /**
+     * Update the rankings for the selected group.
+     * @param group 
+     */
+    private void updateGroupRankings(int group) {
+        ArrayList<Team> teamsToRank = RankingManager.getInstance().sortTeamRankingOrder(group);
+
+        switch (group) {
+            case 0: {
+                for (int i = 0; i < teamsToRank.size(); i++) {
+                    rankingsGroupA.get(i).setText(teamsToRank.get(i).getTeamName());
+                }
+                break;
+            }
+            case 1: {
+                for (int i = 0; i < teamsToRank.size(); i++) {
+                    rankingsGroupB.get(i).setText(teamsToRank.get(i).getTeamName());
+                }
+                break;
+            }
+            case 2: {
+                for (int i = 0; i < teamsToRank.size(); i++) {
+                    rankingsGroupC.get(i).setText(teamsToRank.get(i).getTeamName());
+                }
+                break;
+            }
+            case 3: {
+                for (int i = 0; i < teamsToRank.size(); i++) {
+                    rankingsGroupD.get(i).setText(teamsToRank.get(i).getTeamName());
+                }
+                break;
+            }
+            default: {
+                System.out.println("Something went wrong!");
+                break;
+            }
         }
     }
 

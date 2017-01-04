@@ -110,19 +110,23 @@ public class GroupManager {
      * @param groupToGetFrom String as the capital letter of the group to get from. Example "A".
      * @return 
      */
-    public ArrayList<Team> getTeamsOfGroup(String groupToGetFrom){
+    public ArrayList<Team> getTeamsOfGroup(int groupToGetFrom){
         switch (groupToGetFrom){
-            case "A":{
+            case 0:{
                 return groupATeams;
             }
-            case "B":{
+            case 1:{
                 return groupBTeams;
             }
-            case "C":{
+            case 2:{
                 return groupCTeams;
             }
-            default: {
+            case 3:{
                 return groupDTeams;
+            }
+            default: {
+                System.out.println("Something went wrong!");
+                return null;
             }
         }
     }

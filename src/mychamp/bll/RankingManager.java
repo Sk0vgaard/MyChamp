@@ -33,16 +33,17 @@ public class RankingManager {
         }
         return instance;
     }
-    //TODO RKL: Make the method dynamic instead of hardcoded to group A.
+    
     /**
      * Gets an ArrayList<Team> for the parsed group, then sorts the list so the 
      * team with the highest amounts of points is at index 0. Second highest at index 1
      * and so on.
+     * @param group
      * @return 
      */
-    public ArrayList<Team> sortTeamRankingOrder(/**TODO: Add a String paramater here */) {
+    public ArrayList<Team> sortTeamRankingOrder(int group) {
         //Gets the list to be sorted from the groupManager.
-        ArrayList<Team> teams = groupManager.getTeamsOfGroup("A");
+        ArrayList<Team> teams = groupManager.getTeamsOfGroup(group);
         
         //Keeps the method looping until all numbers have been placed.
         for (int j = 0; j < teams.size(); j++) {
