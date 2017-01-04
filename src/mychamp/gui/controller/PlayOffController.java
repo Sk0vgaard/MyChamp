@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -1126,9 +1127,9 @@ public class PlayOffController implements Initializable {
             GroupModel gModel = GroupModel.getInstance();
             Match matchToSend = gModel.getGroups().get(group).getGroupMatches().get(match);
 
-//            //Shows the modal.
+            //Shows the modal.
             editStage.show();
-//            //Loads the modals controller to send match.
+            //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
             mdController.setCurrentMatch(matchToSend);
 
@@ -1137,6 +1138,12 @@ public class PlayOffController implements Initializable {
         }
     }
 
+    /**
+     * Opens the selected match
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleMatchClick(ActionEvent event) throws IOException {
         //Typecast the event to the button clicked
@@ -1208,5 +1215,51 @@ public class PlayOffController implements Initializable {
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
+    }
+
+    /**
+     * Open the selected group view
+     *
+     * @param event
+     */
+    @FXML
+    private void handleGroupClick(MouseEvent event) throws IOException {
+        Label selectedGroup = (Label) event.getSource();
+        String groupName = selectedGroup.getText();
+
+        switch (groupName) {
+            case "A":
+                groupClick(0);
+                break;
+            case "B":
+                groupClick(1);
+                break;
+            case "C":
+                groupClick(2);
+                break;
+            case "D":
+                groupClick(3);
+                break;
+            default:
+                System.out.println("WTF!?");
+                break;
+        }
+    }
+
+    /**
+     * Open the GroupScheduleView with relevant information of the selected
+     * group
+     */
+    private void groupClick(int group) throws IOException {
+        //Grab hold of the curret stage.
+        goToView("GroupScheduleView");
+
+        //Finds the match that has been clicked on
+        GroupModel gModel = GroupModel.getInstance();
+        Group groupToSend = gModel.getGroups().get(group);
+
+        //Loads the modals controller to send match.
+        GroupScheduleController gsController = GroupScheduleController.getInstance();
+        gsController.setGroup(groupToSend);
     }
 }

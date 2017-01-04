@@ -61,4 +61,12 @@ public class Group {
         groupMatches.addAll(newMatches);
     }
 
+    /**
+     *
+     * @return the name of the group
+     */
+    public String getGroupName() {
+        return groupName;
+    }
+
 }

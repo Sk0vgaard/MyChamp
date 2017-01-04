@@ -17,23 +17,24 @@ import javafx.stage.Stage;
  * @author gta1
  */
 public class MyChamp extends Application {
-    
+
     public static Scene playOffView;
     public static Scene finalsView;
     public static Scene menuView;
     public static Scene myChampView;
     public static Scene teamScheduleView;
+    public static Scene groupScheduleView;
     public static Scene editTeamView;
-    
+
     public static Stage primStage;
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         //Getting a reference to the Stage.
         primStage = stage;
-        
+
         createScenes();
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml"));
 
         Scene scene = new Scene(root);
@@ -48,30 +49,36 @@ public class MyChamp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
     /**
      * Switches the scene in the stage.
-     * @param view the view which scenes you want to switch to. The string must have a capital letter first.
+     *
+     * @param view the view which scenes you want to switch to. The string must
+     * have a capital letter first.
      */
-    public static void switchScene(String view){
-        switch (view){
-            case "PlayOffView":{
+    public static void switchScene(String view) {
+        switch (view) {
+            case "PlayOffView": {
                 primStage.setScene(playOffView);
                 break;
             }
-            case "FinalsView":{
+            case "FinalsView": {
                 primStage.setScene(finalsView);
                 break;
             }
-            case "MyChamp":{
+            case "MyChamp": {
                 primStage.setScene(myChampView);
                 break;
             }
-            case "TeamScheduleView":{
+            case "TeamScheduleView": {
                 primStage.setScene(teamScheduleView);
                 break;
             }
-            case "EditTeamView":{
+            case "GroupScheduleView": {
+                primStage.setScene(groupScheduleView);
+                break;
+            }
+            case "EditTeamView": {
                 primStage.setScene(editTeamView);
                 break;
             }
@@ -81,17 +88,19 @@ public class MyChamp extends Application {
             }
         }
     }
-    
+
     /**
      * Creates all scenes used in the program.
-     * @throws IOException 
+     *
+     * @throws IOException
      */
-    private void createScenes() throws IOException{
+    private void createScenes() throws IOException {
         playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
         finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
         menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));
         myChampView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MyChamp.fxml")));
         teamScheduleView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/TeamScheduleView.fxml")));
-        editTeamView = new Scene (FXMLLoader.load(getClass().getResource("gui/view/EditTeamView.fxml")));
+        groupScheduleView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/GroupScheduleView.fxml")));
+        editTeamView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/EditTeamView.fxml")));
     }
 }

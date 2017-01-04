@@ -1448,22 +1448,22 @@
       </Label>
       <VBox layoutX="35.0" layoutY="65.0" prefHeight="656.0" prefWidth="28.0" spacing="110.0">
          <children>
-            <Label text="A">
+            <Label onMouseClicked="#handleGroupClick" text="A">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Label text="B">
+            <Label onMouseClicked="#handleGroupClick" text="B">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Label text="C">
+            <Label onMouseClicked="#handleGroupClick" text="C">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Label text="D">
+            <Label onMouseClicked="#handleGroupClick" text="D">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
