@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.EditTeamController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="-43.0" prefHeight="626.0" prefWidth="717.0">
+         <children>
+            <Label layoutX="29.0" layoutY="573.0" text="Hold" />
+            <Label fx:id="lblTeamAmount" layoutX="83.0" layoutY="573.0" text="NaN" />
+            <TableView fx:id="tableTeams" layoutX="29.0" layoutY="162.0" onKeyPressed="#handleKeyShortCuts" prefHeight="399.0" prefWidth="244.0">
+               <columns>
+                  <TableColumn fx:id="clmID" prefWidth="54.0" text="ID" />
+                  <TableColumn fx:id="clmTeam" prefWidth="189.0" text="Holdnavn" />
+               </columns>
+            </TableView>
+            <Pane layoutX="328.0" layoutY="195.0" prefHeight="204.0" prefWidth="303.0">
+               <children>
+                  <TextField fx:id="txtTeamName" layoutX="113.0" layoutY="68.0" />
+                  <Label layoutX="14.0" layoutY="73.0" text="Holdnavn" />
+                  <TextField fx:id="txtTeamID" layoutX="113.0" layoutY="24.0" />
+                  <Label layoutX="12.0" layoutY="28.0" text="ID" />
+                  <TextField fx:id="txtTeamField" layoutX="113.0" layoutY="116.0" />
+                  <Label layoutX="14.0" layoutY="121.0" text="H. bane" />
+                  <Label layoutX="18.0" layoutY="165.0" text="Skole:" />
+                  <TextField fx:id="txtTeamSchool" layoutX="113.0" layoutY="161.0" />
+               </children>
+            </Pane>
+            <Label layoutX="445.0" layoutY="162.0" prefHeight="17.0" prefWidth="57.0" text="Holdinfo" />
+            <Label layoutX="277.0" layoutY="90.0" text="Rediger/Slet hold">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Pane layoutX="423.0" layoutY="392.0" prefHeight="57.0" prefWidth="153.0">
+               <children>
+                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="14.0" layoutY="13.0" onAction="#handleEditSelectedTeam" text="Rediger" />
+                  <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" text="Slet" />
+               </children>
+            </Pane>
+            <JFXButton layoutX="406.0" layoutY="459.0" onAction="#handleFinish" prefHeight="78.0" prefWidth="153.0" text="Færdig" />
+            <Separator layoutY="138.0" prefHeight="5.0" prefWidth="717.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

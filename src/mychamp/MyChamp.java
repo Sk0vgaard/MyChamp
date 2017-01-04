@@ -23,6 +23,7 @@ public class MyChamp extends Application {
     public static Scene menuView;
     public static Scene myChampView;
     public static Scene teamScheduleView;
+    public static Scene editTeamView;
     
     public static Stage primStage;
     
@@ -70,6 +71,10 @@ public class MyChamp extends Application {
                 primStage.setScene(teamScheduleView);
                 break;
             }
+            case "EditTeamView":{
+                primStage.setScene(editTeamView);
+                break;
+            }
             default: {
                 primStage.setScene(menuView);
                 break;
@@ -87,5 +92,6 @@ public class MyChamp extends Application {
         menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));
         myChampView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MyChamp.fxml")));
         teamScheduleView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/TeamScheduleView.fxml")));
+        editTeamView = new Scene (FXMLLoader.load(getClass().getResource("gui/view/EditTeamView.fxml")));
     }
 }

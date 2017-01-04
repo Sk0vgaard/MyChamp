@@ -67,11 +67,16 @@ public class MyChampController implements Initializable {
     private final GroupModel groupModel;
 
     private PlayOffController playOffController;
+    private static MyChampController instance;
     private TableView.TableViewSelectionModel<Team> selectedView;
 
     private final ArrayList<TextField> txtFieldList;
     @FXML
     private JFXButton btnEdit;
+
+    public static MyChampController getIntance() {
+        return instance;
+    }
 
     public MyChampController() {
         teamModel = TeamModel.getInstance();
@@ -82,6 +87,7 @@ public class MyChampController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        instance = this;
         txtTeamID.setDisable(true);
         initializeTextFieldList();
         initializeDesign();
@@ -153,22 +159,30 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleEditSelectedTeam(ActionEvent event) {
-        if (isTableSelected()) {
-            if (btnEdit.getText().equals("Rediger")) {
-                for (TextField textField : txtFieldList) {
-                    textField.setDisable(false);
+        editSave();
+    }
+    public void editSave() throws NullPointerException {
+        try {
+            if (isTableSelected()) {
+                if (btnEdit.getText().equals("Rediger")) {
+                    for (TextField textField : txtFieldList) {
+                        textField.setDisable(false);
+                    }
+                    btnEdit.setText("Gem");
+                } else {
+                    for (TextField textField : txtFieldList) {
+                        textField.setDisable(true);
+                    }
+                    tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
+                    tableTeams.getSelectionModel().getSelectedItem().setSCHOOL(txtTeamSchool.getText());
+                    tableTeams.getSelectionModel().getSelectedItem().setTEAM_NAME(txtTeamName.getText());
+                    refreshTable();
+                    btnEdit.setText("Rediger");
+
                 }
-                btnEdit.setText("Gem");
-            } else {
-                for (TextField textField : txtFieldList) {
-                    textField.setDisable(true);
-                }
-                tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setSCHOOL(txtTeamSchool.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setTEAM_NAME(txtTeamName.getText());
-                refreshTable();
-                btnEdit.setText("Rediger");
             }
+        } catch (NullPointerException e) {
+            System.out.println("Choose a team to edit.");
         }
     }
 
@@ -213,13 +227,11 @@ public class MyChampController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleDeleteSelectedTeam(ActionEvent event)
-    {
+    private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
     }
 
-    private void deleteTeam()
-    {
+    public void deleteTeam() {
         ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
         Alert alert;
         if (teamsToDelete.size() > 1) {
@@ -243,21 +255,17 @@ public class MyChampController implements Initializable {
         }
     }
 
-    
     /**
      * Select more than one team
      */
     @FXML
-    private void handleKeyShortCuts(KeyEvent event)
-    {
-        if (event.isControlDown() | event.isShiftDown())
-        {
+    private void handleKeyShortCuts(KeyEvent event) {
+        if (event.isControlDown() | event.isShiftDown()) {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         } else {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
-        if (event.getCode().equals(KeyCode.DELETE))
-        {
+        if (event.getCode().equals(KeyCode.DELETE)) {
             deleteTeam();
         }
     }
@@ -316,10 +324,8 @@ public class MyChampController implements Initializable {
     /**
      * Refreshes the table on changes
      */
-    public void refreshTable()
-    {
-        for (int i = 0; i < tableTeams.getColumns().size(); i++)
-        {
+    public void refreshTable() {
+        for (int i = 0; i < tableTeams.getColumns().size(); i++) {
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(false);
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(true);
         }

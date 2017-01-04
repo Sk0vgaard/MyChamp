@@ -45,6 +45,11 @@ public class MenuController implements Initializable {
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
         goToView("MyChamp");        
     }    
+    @FXML
+    private void handleTeamEditButton(ActionEvent event) throws IOException
+    {
+        goToView("EditTeamView");
+    }
     
     /**
      * Goes to the view that is parsed.
