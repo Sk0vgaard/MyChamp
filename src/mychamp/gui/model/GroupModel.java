@@ -42,7 +42,7 @@ public class GroupModel {
      * Sends a request to the GroupManager for new random teams
      */
     public void createRandomGroups() {
-        groupManager = new GroupManager(teamModel.getTeamsAsArrayList());
+        groupManager = GroupManager.getInstance(teamModel.getTeamsAsArrayList());
         randomGroups = groupManager.getNewRandomGroups();
     }
 
