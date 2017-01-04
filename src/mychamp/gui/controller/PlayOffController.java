@@ -253,8 +253,8 @@ public class PlayOffController implements Initializable {
             //For every team in the group
             for (int l = 0; l < randomGroups.get(a).getGroupTeams().size(); l++) {
                 //Assign the team name to the group
-                Round1teamNameLabels.get(0).setText(randomGroups.get(a).getGroupTeams().get(l).getTEAM_NAME());
-                Round2teamNameLabels.get(0).setText(randomGroups.get(a).getGroupTeams().get(l).getTEAM_NAME());
+                Round1teamNameLabels.get(0).setText(randomGroups.get(a).getGroupTeams().get(l).getTeamName());
+                Round2teamNameLabels.get(0).setText(randomGroups.get(a).getGroupTeams().get(l).getTeamName());
                 Round1teamNameLabels.remove(0);
                 Round2teamNameLabels.remove(0);
 

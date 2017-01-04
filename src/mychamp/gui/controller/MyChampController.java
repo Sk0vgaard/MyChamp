@@ -140,9 +140,9 @@ public class MyChampController implements Initializable {
     private void displayTeamInfo() {
         Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
         txtTeamID.setText(team.getID() + "");
-        txtTeamName.setText(team.getTEAM_NAME());
-        txtTeamField.setText(team.getHOME_FIELD());
-        txtTeamSchool.setText(team.getSCHOOL());
+        txtTeamName.setText(team.getTeamName());
+        txtTeamField.setText(team.getHomeField());
+        txtTeamSchool.setText(team.getSchool());
     }
 
     /**
@@ -163,9 +163,9 @@ public class MyChampController implements Initializable {
                 for (TextField textField : txtFieldList) {
                     textField.setDisable(true);
                 }
-                tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setSCHOOL(txtTeamSchool.getText());
-                tableTeams.getSelectionModel().getSelectedItem().setTEAM_NAME(txtTeamName.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setTeamName(txtTeamName.getText());
                 refreshTable();
                 btnEdit.setText("Rediger");
             }
@@ -194,7 +194,7 @@ public class MyChampController implements Initializable {
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
-        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTEAM_NAME());
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTeamName());
         alert.setContentText("Tryk 'OK' for at slette.");
         return alert;
     }
