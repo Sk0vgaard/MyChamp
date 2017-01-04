@@ -1098,29 +1098,29 @@ public class PlayOffController implements Initializable {
 
     private void MatchClicked() throws IOException {
         try {
-        //Grab hold of the curret stage.
-        primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
-        Parent root = loader.load();
-        Stage editStage = new Stage();
-        editStage.setScene(new Scene(root));
-        
-        //Create new modal window from the FXMLLoader.
-        editStage.initModality(Modality.WINDOW_MODAL);
-        editStage.initOwner(primStage);
-        
-        //Finds the match that has been clicked on
-        GroupModel gModel = GroupModel.getInstance();
-        Match matchToSend = gModel.getGroups().get(0).getGroupMatches().get(0);
-       
-        //Loads the modals controller to send match.
-        MatchDetailsController mdController = loader.getController();
-        //mdController.setMatchData(matchToSend);
+            //Grab hold of the curret stage.
+            primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
+            Parent root = loader.load();
+            Stage editStage = new Stage();
+            editStage.setScene(new Scene(root));
+
+            //Create new modal window from the FXMLLoader.
+            editStage.initModality(Modality.WINDOW_MODAL);
+            editStage.initOwner(primStage);
+
+            //Finds the match that has been clicked on
+            GroupModel gModel = GroupModel.getInstance();
+            Match matchToSend = gModel.getGroups().get(0).getGroupMatches().get(0);
+
+            //Shows the modal.
+            editStage.show();
+            //Loads the modals controller to send match.
+            MatchDetailsController mdController = loader.getController();
+            mdController.setMatchData(matchToSend);
             System.out.println(matchToSend.getHomeTeam().getTeamName());
             System.out.println(matchToSend.getAwayTeam().getTeamName());
-        
-        //Shows the modal.
-        editStage.show();
+
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
