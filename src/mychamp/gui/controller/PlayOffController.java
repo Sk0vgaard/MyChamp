@@ -25,6 +25,7 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
 
 /**
@@ -1127,11 +1128,14 @@ public class PlayOffController implements Initializable {
             GroupModel gModel = GroupModel.getInstance();
             Match matchToSend = gModel.getGroups().get(group).getGroupMatches().get(match);
 
-            //Shows the modal.
-            editStage.show();
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
             mdController.setCurrentMatch(matchToSend);
+
+            //Shows the modal and waits for it to close before continuing reading the code.
+            editStage.showAndWait();
+
+            RankingManager.getInstance().sortTeamRankingOrder();
 
         } catch (IOException ioe) {
             System.out.println(ioe);
