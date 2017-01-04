@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import mychamp.be.Match;
 import mychamp.be.Team;
 
 /**
@@ -42,6 +43,7 @@ public class MatchDetailsController implements Initializable {
     
     private Stage stage;
     
+    private Match match;
     private Team homeTeam;
     private Team awayTeam;
 
@@ -55,12 +57,10 @@ public class MatchDetailsController implements Initializable {
     
     /**
      * Set the Teams so it's possible to get the data.
-     * @param homeTeam
-     * @param awayTeam 
+     * @param match
      */
-    public void setTeamData(Team homeTeam, Team awayTeam){
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
+    public void setMatchData(Match match){
+        this.match = match;
         setData();
     }
     
