@@ -30,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import mychamp.be.Team;
@@ -240,6 +241,11 @@ public class MyChampController implements Initializable
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event)
     {
+        deleteTeam();
+    }
+
+    private void deleteTeam()
+    {
         ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
         Alert alert;
         if (teamsToDelete.size() > 1)
@@ -268,18 +274,19 @@ public class MyChampController implements Initializable
         }
     }
 
+    
     /**
      * Select more than one team
      */
     @FXML
-    private void handleMultiSelect(KeyEvent event)
+    private void handleKeyShortCuts(KeyEvent event)
     {
         if (event.isControlDown() | event.isShiftDown())
         {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } else
+        } if (event.getCode().equals(KeyCode.DELETE))
         {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+            deleteTeam();
         }
     }
 
@@ -342,14 +349,17 @@ public class MyChampController implements Initializable
         alert.setContentText("Vær venlig at udfylde alle informationer.");
         alert.showAndWait();
     }
-    
+
     /**
      * Refreshes the table on changes
      */
-    public void refreshTable() {
-        for (int i = 0; i < tableTeams.getColumns().size(); i++) {
+    public void refreshTable()
+    {
+        for (int i = 0; i < tableTeams.getColumns().size(); i++)
+        {
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(false);
             ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(true);
         }
     }
+
 }

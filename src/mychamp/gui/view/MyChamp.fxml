@@ -15,7 +15,7 @@
    <children>
       <Label layoutX="29.0" layoutY="573.0" text="Hold" />
       <Label fx:id="lblTeamAmount" layoutX="83.0" layoutY="573.0" text="NaN" />
-      <TableView fx:id="tableTeams" layoutX="29.0" layoutY="162.0" onKeyPressed="#handleMultiSelect" prefHeight="399.0" prefWidth="244.0">
+      <TableView fx:id="tableTeams" layoutX="29.0" layoutY="162.0" onKeyPressed="#handleKeyShortCuts" prefHeight="399.0" prefWidth="244.0">
         <columns>
           <TableColumn fx:id="clmID" prefWidth="54.0" text="ID" />
           <TableColumn fx:id="clmTeam" prefWidth="189.0" text="Holdnavn" />
