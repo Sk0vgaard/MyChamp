@@ -25,6 +25,7 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.gui.model.GroupModel;
 
 /**
  * FXML Controller class
@@ -982,22 +983,28 @@ public class PlayOffController implements Initializable {
         round6teamGoalLabels.add(lblRound6GroupDGoals4);
     }
 
-    private void handleMatchClicked(int matchNumber) throws IOException {
+    private void MatchClicked() throws IOException {
         try {
         //Grab hold of the curret stage.
         primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
         Parent root = loader.load();
-       
-        //Loads the modals controller to send info.
-        MatchDetailsController mdController = loader.getController();
-
         Stage editStage = new Stage();
         editStage.setScene(new Scene(root));
-
+        
         //Create new modal window from the FXMLLoader.
         editStage.initModality(Modality.WINDOW_MODAL);
         editStage.initOwner(primStage);
+        
+        //Finds the match that has been clicked on
+        GroupModel gModel = GroupModel.getInstance();
+        Match matchToSend = gModel.getGroups().get(0).getGroupMatches().get(0);
+       
+        //Loads the modals controller to send match.
+        MatchDetailsController mdController = loader.getController();
+        //mdController.setMatchData(matchToSend);
+            System.out.println(matchToSend.getHomeTeam().getTeamName());
+            System.out.println(matchToSend.getAwayTeam().getTeamName());
         
         //Shows the modal.
         editStage.show();
@@ -1008,8 +1015,12 @@ public class PlayOffController implements Initializable {
     }
 
     @FXML
-    private void handleMatch00(ActionEvent event) {
-        System.out.println("yayaya!");
+    private void handleMatch00(ActionEvent event) throws IOException {
+        try {
+            MatchClicked();
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }
     }
 
     @FXML
