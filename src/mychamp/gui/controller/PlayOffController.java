@@ -23,6 +23,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mychamp.MyChamp;
 import mychamp.be.Group;
+import mychamp.be.Match;
+import mychamp.be.Team;
 
 /**
  * FXML Controller class
@@ -662,17 +664,36 @@ public class PlayOffController implements Initializable {
      * Set information for round 2
      */
     private void setRoundTwo() {
-
+        ArrayList<Match> groupMatches = new ArrayList<>();
+        Team teamOne = null;
+        Team teamTwo = null;
         for (int i = 0; i < 4; i++) {
-            round2teamNameLabels.get(0).setText(randomGroups.get(i).getGroupTeams().get(0).getTeamName());
-            round2teamNameLabels.get(1).setText(randomGroups.get(i).getGroupTeams().get(2).getTeamName());
-            round2teamNameLabels.get(2).setText(randomGroups.get(i).getGroupTeams().get(3).getTeamName());
-            round2teamNameLabels.get(3).setText(randomGroups.get(i).getGroupTeams().get(1).getTeamName());
+            teamOne = randomGroups.get(i).getGroupTeams().get(0);
+            teamTwo = randomGroups.get(i).getGroupTeams().get(2);
+            //Set label for first team in current group
+            round2teamNameLabels.get(0).setText(teamOne.getTeamName());
+            //Set label for second team in current group
+            round2teamNameLabels.get(1).setText(teamTwo.getTeamName());
+            //Create the first match of the group
+            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(0).getHomeField(), teamOne, teamTwo);
+            groupMatches.add(groupMatch1);
+            //Clear the match teams to ge ready for the second match in the group
+            teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            teamTwo = randomGroups.get(i).getGroupTeams().get(1);
+            //Set label for third team in current group
+            round2teamNameLabels.get(2).setText(teamOne.getTeamName());
+            //Set label for fourth team in current group
+            round2teamNameLabels.get(3).setText(teamTwo.getTeamName());
+            //Create the second match of the group
+            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(3).getHomeField(), teamOne, teamTwo);
+            groupMatches.add(groupmatch2);
+            //Remove labels from the list
             round2teamNameLabels.remove(0);
             round2teamNameLabels.remove(0);
             round2teamNameLabels.remove(0);
             round2teamNameLabels.remove(0);
-
+            //Add group matches to the array
+            randomGroups.get(i).addGroupMatches(groupMatches);
         }
     }
 

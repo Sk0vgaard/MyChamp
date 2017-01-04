@@ -5,7 +5,7 @@
  */
 package mychamp.be;
 
-import java.util.ArrayList;
+import mychamp.bll.IDCreator;
 
 public class Match {
 
@@ -13,58 +13,63 @@ public class Match {
 
     private final String LOCATION;
 
-    private final ArrayList<Team> TEAMS;
+    private Team homeTeam;
 
-    private final int FINAL_SCORE;
+    private Team awayTeam;
 
-    private final String WINNER_TEAM;
+    private int homeTeamScore;
 
-    public Match(int ID, String LOCATION, ArrayList<Team> TEAMS, int FINAL_SCORE, String WINNER_TEAM) {
-        this.ID = ID;
+    private int awayTeamScore;
+
+    private Team winnerTeam;
+
+    private final IDCreator getNewID = IDCreator.getInstance();
+
+    public Match(String LOCATION, Team home, Team away) {
+        this.ID = getNewID.getMatchID();
         this.LOCATION = LOCATION;
-        this.TEAMS = TEAMS;
-        this.FINAL_SCORE = FINAL_SCORE;
-        this.WINNER_TEAM = WINNER_TEAM;
+        homeTeam = home;
+        awayTeam = away;
     }
 
-    /**
-     *
-     * @return ID
-     */
-    public int getId() {
-        return ID;
+    public Team getHomeTeam() {
+        return homeTeam;
     }
 
-    /**
-     *
-     * @return location of the match
-     */
-    public String getLocation() {
-        return LOCATION;
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
-    /**
-     *
-     * @return TEAMS playing
-     */
-    public ArrayList<Team> getTeams() {
-        return TEAMS;
+    public Team getAwayTeam() {
+        return awayTeam;
     }
 
-    /**
-     *
-     * @return final score of the match
-     */
-    public int getFinalScore() {
-        return FINAL_SCORE;
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
     }
 
-    /**
-     *
-     * @return the winner team
-     */
-    public String getWinnerTeam() {
-        return WINNER_TEAM;
+    public int getHomeTeamScore() {
+        return homeTeamScore;
+    }
+
+    public void setHomeTeamScore(int homeTeamScore) {
+        this.homeTeamScore = homeTeamScore;
+    }
+
+    public int getAwayTeamScore() {
+        return awayTeamScore;
+    }
+
+    public void setAwayTeamScore(int awayTeamScore) {
+        this.awayTeamScore = awayTeamScore;
+    }
+
+    public Team getWinnerTeam() {
+        return winnerTeam;
+    }
+
+    public void setWinnerTeam(Team winnerTeam) {
+        this.winnerTeam = winnerTeam;
     }
 
 }
