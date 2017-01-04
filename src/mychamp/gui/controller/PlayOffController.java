@@ -15,8 +15,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mychamp.MyChamp;
@@ -202,6 +204,8 @@ public class PlayOffController implements Initializable {
     public static PlayOffController getInstance() {
         return instance;
     }
+    @FXML
+    private GridPane PlayOffGridPane;
 
     /**
      * Initializes the controller class.
@@ -351,23 +355,94 @@ public class PlayOffController implements Initializable {
         Round2teamGoalLabels.add(lblRound2GroupDGoals4);
     }
 
-    @FXML
-    private void handleMatchClicked(MouseEvent event) throws IOException {
+    private void handleMatchClicked(int matchNumber) throws IOException {
         try {
-        //Grab hold of the curret stage
+        //Grab hold of the curret stage.
         primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
         Parent root = loader.load();
+       
+        //Loads the modals controller to send info.
+        MatchDetailsController mdController = loader.getController();
 
         Stage editStage = new Stage();
         editStage.setScene(new Scene(root));
 
-        //Create new modal window from the FXMLLoader
+        //Create new modal window from the FXMLLoader.
         editStage.initModality(Modality.WINDOW_MODAL);
         editStage.initOwner(primStage);
+        
+        //Shows the modal.
         editStage.show();
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
+    }
+
+    @FXML
+    private void handleMatch00(ActionEvent event) {
+        System.out.println("yayaya!");
+    }
+
+    @FXML
+    private void handleMatch01(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void handleMatch02(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void handleMatch03(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch04(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch05(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch06(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch07(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch10(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch11(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch12(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch13(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch14(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch15(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch16(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleMatch17(ActionEvent event) {
     }
 }
