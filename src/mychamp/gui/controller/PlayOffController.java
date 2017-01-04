@@ -535,6 +535,38 @@ public class PlayOffController implements Initializable {
     }
     @FXML
     private GridPane PlayOffGridPane;
+    @FXML
+    private Label lblGroupATeam1;
+    @FXML
+    private Label lblGroupATeam2;
+    @FXML
+    private Label lblGroupATeam3;
+    @FXML
+    private Label lblGroupATeam4;
+    @FXML
+    private Label lblGroupBTeam1;
+    @FXML
+    private Label lblGroupBTeam2;
+    @FXML
+    private Label lblGroupBTeam3;
+    @FXML
+    private Label lblGroupBTeam4;
+    @FXML
+    private Label lblGroupCTeam1;
+    @FXML
+    private Label lblGroupCTeam2;
+    @FXML
+    private Label lblGroupCTeam3;
+    @FXML
+    private Label lblGroupCTeam4;
+    @FXML
+    private Label lblGroupDTeam1;
+    @FXML
+    private Label lblGroupDTeam2;
+    @FXML
+    private Label lblGroupDTeam3;
+    @FXML
+    private Label lblGroupDTeam4;
 
     /**
      * Initializes the controller class.
