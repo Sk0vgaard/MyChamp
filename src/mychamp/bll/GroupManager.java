@@ -11,6 +11,8 @@ import mychamp.be.Group;
 import mychamp.be.Team;
 
 public class GroupManager {
+    
+    public static GroupManager instance;
 
     private final ArrayList<Team> teamIDS;
 
@@ -40,6 +42,18 @@ public class GroupManager {
         groupBTeams = new ArrayList<>();
         groupCTeams = new ArrayList<>();
         groupDTeams = new ArrayList<>();
+    }
+    
+    /**
+     * Gets the instance of the GroupManager.
+     * @param teams Pass null as paramter unless in the GroupModel.
+     * @return 
+     */
+    public static GroupManager getInstance(ArrayList<Team> teams){
+        if(instance == null){
+            instance = new GroupManager(teams);
+        }
+        return instance;
     }
 
     /**
