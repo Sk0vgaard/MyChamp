@@ -103,6 +103,7 @@ public class MyChampController implements Initializable {
      */
     private void initializeDesign() {
         lblTeamAmount.setText("0");
+        updateTeamMount();
 
         for (TextField textField : txtFieldList) {
             textField.setDisable(true);
@@ -115,7 +116,7 @@ public class MyChampController implements Initializable {
     private void initializeTables() {
         tableTeams.setItems(teamModel.getTeams());
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
+        clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
 
     }
 
@@ -139,7 +140,7 @@ public class MyChampController implements Initializable {
     private void displayTeamInfo() {
         Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
         txtTeamID.setText(team.getID() + "");
-        txtTeamName.setText(team.getTEAM_NAME());
+        txtTeamName.setText(team.getTeamName());
         txtTeamField.setText(team.getHOME_FIELD());
         txtTeamSchool.setText(team.getSCHOOL());
     }
@@ -193,7 +194,7 @@ public class MyChampController implements Initializable {
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
-        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTEAM_NAME());
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTeamName());
         alert.setContentText("Tryk 'OK' for at slette.");
         return alert;
     }
@@ -234,6 +235,7 @@ public class MyChampController implements Initializable {
                 displayTeamInfo();
             }
         }
+        updateTeamMount();
     }
 
     /**
@@ -261,7 +263,7 @@ public class MyChampController implements Initializable {
         MyChamp.switchScene("PlayOffView");
         playOffController = PlayOffController.getInstance();
         playOffController.setRandomGroups(groupModel.getGroups());
-        playOffController.setGroupInformation();
+        playOffController.setPlayOffInformation();
     }
 
     /**
@@ -286,6 +288,7 @@ public class MyChampController implements Initializable {
         } else {
             warningDialog();
         }
+        updateTeamMount();
     }
 
     /**
@@ -313,6 +316,6 @@ public class MyChampController implements Initializable {
      * Updates the teams total
      */
     public void updateTeamMount() {
-        lblTeamAmount.setText("" + tableTeams.getSelectionModel().getTableView().getColumns().size());
+        lblTeamAmount.setText("" + teamModel.getTeams().size());
     }
 }

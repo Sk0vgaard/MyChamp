@@ -465,6 +465,222 @@
                   </Pane>
                </children>
             </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </GridPane>
       <Label layoutX="124.0" layoutY="35.0" text="Runde 1">

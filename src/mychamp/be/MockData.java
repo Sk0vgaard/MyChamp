@@ -19,7 +19,7 @@ public class MockData {
         Team signature = new Team("signature", "Skads", "Signaturskolen");
         Team urban = new Team("urban", "Præstegård", "Urbanskolen");
         Team vader = new Team("vader", "Egebækvej", "Vadehavsskolen");
-        Team international = new Team("international", "Guldager", "Esbjerg International School");
+        Team inter = new Team("inter", "Guldager", "Esbjerg International School");
         Team realz = new Team("realz", "Kronprinsengade", "Esbjerg Realskole");
         Team freebies = new Team("freebiez", "Bramming", "Friskolen i Bramming");
         Team mark1 = new Team("mark1", "Stenhuggervej", "Markusskolen");
@@ -36,7 +36,7 @@ public class MockData {
         mockTeams.add(signature);
         mockTeams.add(urban);
         mockTeams.add(vader);
-        mockTeams.add(international);
+        mockTeams.add(inter);
         mockTeams.add(realz);
         mockTeams.add(freebies);
         mockTeams.add(mark1);

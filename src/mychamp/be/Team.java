@@ -11,7 +11,7 @@ public class Team {
 
     private int ID;
 
-    private String TEAM_NAME;
+    private String teamName;
 
     private String SCHOOL;
 
@@ -40,7 +40,7 @@ public class Team {
      */
     public Team(String teamName, String HOME_FIELD, String SCHOOL) {
         this.ID = getNewID.getTeamID();
-        this.TEAM_NAME = teamName;
+        this.teamName = teamName;
         this.HOME_FIELD = HOME_FIELD;
         this.SCHOOL = SCHOOL;
         points = 0;
@@ -104,8 +104,8 @@ public class Team {
      *
      * @return the name of the team
      */
-    public String getTEAM_NAME() {
-        return TEAM_NAME;
+    public String getTeamName() {
+        return teamName;
     }
 
     /**
@@ -185,7 +185,7 @@ public class Team {
 
     public void setTEAM_NAME(String TEAM_NAME)
     {
-        this.TEAM_NAME = TEAM_NAME;
+        this.teamName = TEAM_NAME;
     }
 
     public void setSCHOOL(String SCHOOL)
