@@ -59,17 +59,17 @@ public class MatchDetailsController implements Initializable {
      *
      * @param match
      */
-    public void setMatchData(Match match) {
+    public void setCurrentMatch(Match match) {
         this.match = match;
         homeTeam = match.getHomeTeam();
         awayTeam = match.getAwayTeam();
-        setData();
+        setMatchInfo();
     }
 
     /**
      * Set the initial information about the teams in the match
      */
-    private void setData() {
+    private void setMatchInfo() {
         lblOneName.setText(homeTeam.getTeamName());
         lblTwoName.setText(awayTeam.getTeamName());
         lblOneGoals.setText("" + match.getHomeTeamScore());
