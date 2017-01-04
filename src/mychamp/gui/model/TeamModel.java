@@ -8,6 +8,7 @@ package mychamp.gui.model;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import mychamp.be.MockData;
 import mychamp.be.Team;
 
 public class TeamModel {
@@ -18,6 +19,7 @@ public class TeamModel {
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
+        teams.addAll(MockData.getMockTeams());
     }
 
     /**

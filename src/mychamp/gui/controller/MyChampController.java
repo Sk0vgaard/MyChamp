@@ -17,10 +17,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -32,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
+import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
@@ -41,8 +38,7 @@ import mychamp.gui.model.TeamModel;
  *
  * @author gta1
  */
-public class MyChampController implements Initializable
-{
+public class MyChampController implements Initializable {
 
     @FXML
     private Label lblTeamAmount;
@@ -77,8 +73,7 @@ public class MyChampController implements Initializable
     @FXML
     private JFXButton btnEdit;
 
-    public MyChampController()
-    {
+    public MyChampController() {
         teamModel = TeamModel.getInstance();
         groupModel = GroupModel.getInstance();
         txtFieldList = new ArrayList<>();
@@ -86,8 +81,7 @@ public class MyChampController implements Initializable
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
+    public void initialize(URL url, ResourceBundle rb) {
         txtTeamID.setDisable(true);
         initializeTextFieldList();
         initializeDesign();
@@ -99,8 +93,7 @@ public class MyChampController implements Initializable
     /**
      * Adds the txtFields to the txtFieldList.
      */
-    private void initializeTextFieldList()
-    {
+    private void initializeTextFieldList() {
         txtFieldList.add(txtTeamField);
         txtFieldList.add(txtTeamSchool);
         txtFieldList.add(txtTeamName);
@@ -109,12 +102,10 @@ public class MyChampController implements Initializable
     /**
      * Sets the initial design
      */
-    private void initializeDesign()
-    {
+    private void initializeDesign() {
         lblTeamAmount.setText("0");
 
-        for (TextField textField : txtFieldList)
-        {
+        for (TextField textField : txtFieldList) {
             textField.setDisable(true);
         }
     }
@@ -122,8 +113,7 @@ public class MyChampController implements Initializable
     /**
      * Fills the tables with information about the teams
      */
-    private void initializeTables()
-    {
+    private void initializeTables() {
         tableTeams.setItems(teamModel.getTeams());
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("TEAM_NAME"));
@@ -133,15 +123,11 @@ public class MyChampController implements Initializable
     /**
      * Adds a listener to tableTeams.
      */
-    private void setListeners()
-    {
-        tableTeams.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Team>()
-        {
+    private void setListeners() {
+        tableTeams.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Team>() {
             @Override
-            public void changed(ObservableValue<? extends Team> observable, Team oldValue, Team newValue)
-            {
-                if (newValue != null)
-                {
+            public void changed(ObservableValue<? extends Team> observable, Team oldValue, Team newValue) {
+                if (newValue != null) {
                     displayTeamInfo();
                 }
             }
@@ -151,8 +137,7 @@ public class MyChampController implements Initializable
     /**
      * Display the information of the team.
      */
-    private void displayTeamInfo()
-    {
+    private void displayTeamInfo() {
         Team team = (Team) tableTeams.getSelectionModel().getSelectedItem();
         txtTeamID.setText(team.getID() + "");
         txtTeamName.setText(team.getTEAM_NAME());
@@ -167,21 +152,15 @@ public class MyChampController implements Initializable
      * @param event
      */
     @FXML
-    private void handleEditSelectedTeam(ActionEvent event)
-    {
-        if (isTableSelected())
-        {
-            if (btnEdit.getText().equals("Rediger"))
-            {
-                for (TextField textField : txtFieldList)
-                {
+    private void handleEditSelectedTeam(ActionEvent event) {
+        if (isTableSelected()) {
+            if (btnEdit.getText().equals("Rediger")) {
+                for (TextField textField : txtFieldList) {
                     textField.setDisable(false);
                 }
                 btnEdit.setText("Gem");
-            } else
-            {
-                for (TextField textField : txtFieldList)
-                {
+            } else {
+                for (TextField textField : txtFieldList) {
                     textField.setDisable(true);
                 }
                 tableTeams.getSelectionModel().getSelectedItem().setHOME_FIELD(txtTeamField.getText());
@@ -198,8 +177,7 @@ public class MyChampController implements Initializable
      *
      * @return
      */
-    private Alert removeManyItems()
-    {
+    private Alert removeManyItems() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
         alert.setHeaderText("Er du sikker på du vil slette holdene?");
@@ -213,8 +191,7 @@ public class MyChampController implements Initializable
      * @param teamToDelete
      * @return
      */
-    private Alert teamRemoveDialog(Team teamToDelete)
-    {
+    private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
         alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTEAM_NAME());
@@ -222,13 +199,10 @@ public class MyChampController implements Initializable
         return alert;
     }
 
-    private boolean isTableSelected()
-    {
-        if (tableTeams.getSelectionModel().isEmpty())
-        {
+    private boolean isTableSelected() {
+        if (tableTeams.getSelectionModel().isEmpty()) {
             return false;
-        } else
-        {
+        } else {
             return true;
         }
     }
@@ -248,27 +222,22 @@ public class MyChampController implements Initializable
     {
         ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
         Alert alert;
-        if (teamsToDelete.size() > 1)
-        {
+        if (teamsToDelete.size() > 1) {
             alert = removeManyItems();
-        } else
-        {
+        } else {
             alert = teamRemoveDialog(teamsToDelete.get(0));
         }
 
         Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.get() == ButtonType.OK)
-        {
+        if (result.get() == ButtonType.OK) {
             teamModel.deleteTeam(teamsToDelete);
-            if (!isTableSelected())
-            {
+            if (!isTableSelected()) {
                 txtTeamName.clear();
                 txtTeamField.clear();
                 txtTeamSchool.clear();
                 txtTeamID.clear();
-            } else
-            {
+            } else {
                 displayTeamInfo();
             }
         }
@@ -284,7 +253,10 @@ public class MyChampController implements Initializable
         if (event.isControlDown() | event.isShiftDown())
         {
             tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } if (event.getCode().equals(KeyCode.DELETE))
+        } else {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        }
+        if (event.getCode().equals(KeyCode.DELETE))
         {
             deleteTeam();
         }
@@ -297,15 +269,10 @@ public class MyChampController implements Initializable
      * @throws IOException
      */
     @FXML
-    private void handleStartTournament(ActionEvent event) throws IOException
-    {
-        Stage primStage = (Stage) txtTeamName.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/PlayOffView.fxml"));
-        Parent root = loader.load();
-
+    private void handleStartTournament(ActionEvent event) throws IOException {
         groupModel.createRandomGroups();
 
-        primStage.setScene(new Scene(root));
+        MyChamp.switchScene("PlayOffView");
         playOffController = PlayOffController.getInstance();
         playOffController.setRandomGroups(groupModel.getGroups());
         playOffController.setGroupInformation();
@@ -317,13 +284,11 @@ public class MyChampController implements Initializable
      * @param event
      */
     @FXML
-    private void handleAddTeam(ActionEvent event)
-    {
+    private void handleAddTeam(ActionEvent event) {
         //Check to see if all information is present.
         if (!txtNewTeamName.getText().equals("")
                 || !txtNewTeamField.getText().equals("")
-                || !txtNewTeamSchool.getText().equals(""))
-        {
+                || !txtNewTeamSchool.getText().equals("")) {
             teamModel.addTeam(new Team(
                     txtNewTeamName.getText(),
                     txtNewTeamField.getText(),
@@ -332,8 +297,7 @@ public class MyChampController implements Initializable
             txtNewTeamName.clear();
             txtNewTeamField.clear();
             txtNewTeamSchool.clear();
-        } else
-        {
+        } else {
             warningDialog();
         }
     }
@@ -341,8 +305,7 @@ public class MyChampController implements Initializable
     /**
      * Pops up a warning dialog telling the user, there are missing information.
      */
-    private void warningDialog()
-    {
+    private void warningDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Advarsel");
         alert.setTitle("Manglende information.");
@@ -362,4 +325,10 @@ public class MyChampController implements Initializable
         }
     }
 
+    /**
+     * Updates the teams total
+     */
+    public void updateTeamMount() {
+        lblTeamAmount.setText("" + tableTeams.getSelectionModel().getTableView().getColumns().size());
+    }
 }

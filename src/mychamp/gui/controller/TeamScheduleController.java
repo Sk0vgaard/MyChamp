@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import mychamp.MyChamp;
 
 /**
@@ -19,39 +18,29 @@ import mychamp.MyChamp;
  *
  * @author Rasmus
  */
-public class MenuController implements Initializable {
-    
-    @FXML
-    private Label lblMenuBanner;
-    
+public class TeamScheduleController implements Initializable {
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }
+        // TODO
+    }    
 
     @FXML
-    private void handlePlayOffButton(ActionEvent event) throws IOException {
+    private void handleBackButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
     }
-
-    @FXML
-    private void handleFinalsButton(ActionEvent event) throws IOException {
-        goToView("FinalsView");
-    }
-
-    @FXML
-    private void handleNewTournamentButton(ActionEvent event) throws IOException {
-        goToView("MyChamp");        
-    }    
     
     /**
      * Goes to the view that is parsed.
+     *
      * @param view
-     * @throws IOException 
+     * @throws IOException
      */
-    private void goToView(String view) throws IOException{        
+    private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
-    }    
+    }
+    
 }
