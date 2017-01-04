@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
-      <GridPane layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0">
+      <GridPane layoutX="84.0" layoutY="65.0" onMouseClicked="#handleMatchClicked" prefHeight="656.0" prefWidth="941.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
