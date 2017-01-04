@@ -232,90 +232,101 @@ public class MyChampController implements Initializable {
         deleteTeam();
     }
 
-    public void deleteTeam() {
-        ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
-        Alert alert;
-        if (teamsToDelete.size() > 1) {
-            alert = removeManyItems();
-        } else {
-            alert = teamRemoveDialog(teamsToDelete.get(0));
-        }
-
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            teamModel.deleteTeam(teamsToDelete);
-            if (!isTableSelected()) {
-                txtTeamName.clear();
-                txtTeamField.clear();
-                txtTeamSchool.clear();
-                txtTeamID.clear();
+    public void deleteTeam() throws NullPointerException {
+        try {
+            ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+            Alert alert;
+            if (teamsToDelete.size() > 1) {
+                alert = removeManyItems();
             } else {
-                displayTeamInfo();
+                alert = teamRemoveDialog(teamsToDelete.get(0));
+            }
+
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.get() == ButtonType.OK) {
+                teamModel.deleteTeam(teamsToDelete);
+                if (!isTableSelected()) {
+                    txtTeamName.clear();
+                    txtTeamField.clear();
+                    txtTeamSchool.clear();
+                    txtTeamID.clear();
+                } else {
+                    displayTeamInfo();
+                }
+            }
+            updateTeamMount();
+        } catch (NullPointerException e) {
+            System.out.println("Choose a team to delete.");
+        }
+    }
+
+        /**
+         * Select more than one team
+         */
+        @FXML
+        private void handleKeyShortCuts
+        (KeyEvent event
+        
+            ) {
+        if (event.isControlDown() | event.isShiftDown()) {
+                tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            } else {
+                tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+            }
+            if (event.getCode().equals(KeyCode.DELETE)) {
+                deleteTeam();
             }
         }
-        updateTeamMount();
-    }
 
-    /**
-     * Select more than one team
-     */
-    @FXML
-    private void handleKeyShortCuts(KeyEvent event) {
-        if (event.isControlDown() | event.isShiftDown()) {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } else {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        /**
+         * Switches to the PlayOffView.
+         *
+         * @param event
+         * @throws IOException
+         */
+        @FXML
+        private void handleStartTournament
+        (ActionEvent event) throws IOException {
+            groupModel.createRandomGroups();
+
+            MyChamp.switchScene("PlayOffView");
+            playOffController = PlayOffController.getInstance();
+            playOffController.setRandomGroups(groupModel.getGroups());
+            playOffController.setPlayOffInformation();
         }
-        if (event.getCode().equals(KeyCode.DELETE)) {
-            deleteTeam();
-        }
-    }
 
-    /**
-     * Switches to the PlayOffView.
-     *
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    private void handleStartTournament(ActionEvent event) throws IOException {
-        groupModel.createRandomGroups();
-
-        MyChamp.switchScene("PlayOffView");
-        playOffController = PlayOffController.getInstance();
-        playOffController.setRandomGroups(groupModel.getGroups());
-        playOffController.setPlayOffInformation();
-    }
-
-    /**
-     * Adds a Team.
-     *
-     * @param event
-     */
-    @FXML
-    private void handleAddTeam(ActionEvent event) {
+        /**
+         * Adds a Team.
+         *
+         * @param event
+         */
+        @FXML
+        private void handleAddTeam
+        (ActionEvent event
+        
+            ) {
         //Check to see if all information is present.
         if (!txtNewTeamName.getText().equals("")
-                || !txtNewTeamField.getText().equals("")
-                || !txtNewTeamSchool.getText().equals("")) {
-            teamModel.addTeam(new Team(
-                    txtNewTeamName.getText(),
-                    txtNewTeamField.getText(),
-                    txtNewTeamSchool.getText()));
-            //Clears the fields for information.
-            txtNewTeamName.clear();
-            txtNewTeamField.clear();
-            txtNewTeamSchool.clear();
-        } else {
-            warningDialog();
+                    || !txtNewTeamField.getText().equals("")
+                    || !txtNewTeamSchool.getText().equals("")) {
+                teamModel.addTeam(new Team(
+                        txtNewTeamName.getText(),
+                        txtNewTeamField.getText(),
+                        txtNewTeamSchool.getText()));
+                //Clears the fields for information.
+                txtNewTeamName.clear();
+                txtNewTeamField.clear();
+                txtNewTeamSchool.clear();
+            } else {
+                warningDialog();
+            }
+            updateTeamMount();
         }
-        updateTeamMount();
-    }
-
-    /**
-     * Pops up a warning dialog telling the user, there are missing information.
-     */
+        /**
+         * Pops up a warning dialog telling the user, there are missing
+         * information.
+         */
     private void warningDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Advarsel");
