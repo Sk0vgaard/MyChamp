@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
       <GridPane fx:id="PlayOffGridPane" layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0">
         <columnConstraints>
@@ -570,6 +570,11 @@
                         <Label fx:id="lblRound3GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="20" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -597,6 +602,11 @@
                         <Label fx:id="lblRound3GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
                      </children>
                   </Pane>
+                  <Button id="21" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -624,6 +634,11 @@
                         <Label fx:id="lblRound3GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="22" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -651,6 +666,11 @@
                         <Label fx:id="lblRound3GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="23" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -678,6 +698,11 @@
                         <Label fx:id="lblRound3GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="24" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="5">
@@ -705,6 +730,11 @@
                         <Label fx:id="lblRound3GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="25" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="6">
@@ -732,6 +762,11 @@
                         <Label fx:id="lblRound3GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="26" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="7">
@@ -759,6 +794,11 @@
                         <Label fx:id="lblRound3GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="27" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3">
@@ -786,6 +826,11 @@
                         <Label fx:id="lblRound4GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="30" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -813,6 +858,11 @@
                         <Label fx:id="lblRound4GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
                      </children>
                   </Pane>
+                  <Button id="31" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2">
@@ -840,6 +890,11 @@
                         <Label fx:id="lblRound4GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="32" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3">
@@ -867,6 +922,11 @@
                         <Label fx:id="lblRound4GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="33" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="4">
@@ -894,6 +954,11 @@
                         <Label fx:id="lblRound4GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="34" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="5">
@@ -921,6 +986,11 @@
                         <Label fx:id="lblRound4GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="35" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="6">
@@ -948,6 +1018,11 @@
                         <Label fx:id="lblRound4GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="36" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="7">
@@ -975,6 +1050,11 @@
                         <Label fx:id="lblRound4GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="37" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4">
@@ -1002,6 +1082,11 @@
                         <Label fx:id="lblRound5GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="40" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -1029,6 +1114,11 @@
                         <Label fx:id="lblRound5GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
                      </children>
                   </Pane>
+                  <Button id="41" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2">
@@ -1056,6 +1146,11 @@
                         <Label fx:id="lblRound5GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="42" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3">
@@ -1083,6 +1178,11 @@
                         <Label fx:id="lblRound5GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="43" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="4">
@@ -1110,6 +1210,11 @@
                         <Label fx:id="lblRound5GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="44" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="5">
@@ -1137,6 +1242,11 @@
                         <Label fx:id="lblRound5GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="45" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="6">
@@ -1164,6 +1274,11 @@
                         <Label fx:id="lblRound5GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="46" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="7">
@@ -1191,6 +1306,11 @@
                         <Label fx:id="lblRound5GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="47" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5">
@@ -1218,6 +1338,11 @@
                         <Label fx:id="lblRound6GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="50" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="1">
@@ -1245,6 +1370,11 @@
                         <Label fx:id="lblRound6GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
                      </children>
                   </Pane>
+                  <Button id="51" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2">
@@ -1272,10 +1402,20 @@
                         <Label fx:id="lblRound6GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="52" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <children>
+                  <Button id="53" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                   <Pane prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="9.0" layoutY="6.0" text="H">
@@ -1326,6 +1466,11 @@
                         <Label fx:id="lblRound6GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="54" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="5">
@@ -1353,6 +1498,11 @@
                         <Label fx:id="lblRound6GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="55" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="6">
@@ -1380,6 +1530,11 @@
                         <Label fx:id="lblRound6GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="56" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7">
@@ -1407,6 +1562,11 @@
                         <Label fx:id="lblRound6GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="57" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
          </children>

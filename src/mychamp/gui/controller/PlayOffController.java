@@ -1281,13 +1281,102 @@ public class PlayOffController implements Initializable {
                 case "17":
                     MatchClicked(3, 3);
                     break;
-                /*TODO ALH: The rest of the buttons needs to be put into this switch!
-                    1.First create a button in scenebuilder
-                    2.Then give it an id (the same as its coordinate!)
-                    3.Then make sure the onAction is set to call this method (handleMatchClick)
-                    4. Then you simply save it and add a new case here for the buttonNumber
-                    5. The MatchClicked will the send the group and the match to the new window method
-                 */
+                case "20":
+                    MatchClicked(0, 4);
+                    break;
+                case "21":
+                    MatchClicked(0, 5);
+                    break;
+                case "22":
+                    MatchClicked(1, 4);
+                    break;
+                case "23":
+                    MatchClicked(1, 5);
+                    break;
+                case "24":
+                    MatchClicked(2, 4);
+                    break;
+                case "25":
+                    MatchClicked(2, 5);
+                    break;
+                case "26":
+                    MatchClicked(3, 4);
+                    break;
+                case "27":
+                    MatchClicked(3, 5);
+                    break;
+                case "30":
+                    MatchClicked(0, 6);
+                    break;
+                case "31":
+                    MatchClicked(0, 7);
+                    break;
+                case "32":
+                    MatchClicked(1, 6);
+                    break;
+                case "33":
+                    MatchClicked(1, 7);
+                    break;
+                case "34":
+                    MatchClicked(2, 6);
+                    break;
+                case "35":
+                    MatchClicked(2, 7);
+                    break;
+                case "36":
+                    MatchClicked(3, 6);
+                    break;
+                case "37":
+                    MatchClicked(3, 7);
+                    break;
+                case "40":
+                    MatchClicked(0, 8);
+                    break;
+                case "41":
+                    MatchClicked(0, 9);
+                    break;
+                case "42":
+                    MatchClicked(1, 8);
+                    break;
+                case "43":
+                    MatchClicked(1, 9);
+                    break;
+                case "44":
+                    MatchClicked(2, 8);
+                    break;
+                case "45":
+                    MatchClicked(2, 9);
+                    break;
+                case "46":
+                    MatchClicked(3, 8);
+                    break;
+                case "47":
+                    MatchClicked(3, 9);
+                    break;
+                case "50":
+                    MatchClicked(0, 10);
+                    break;
+                case "51":
+                    MatchClicked(0, 11);
+                    break;
+                case "52":
+                    MatchClicked(1, 10);
+                    break;
+                case "53":
+                    MatchClicked(1, 11);
+                    break;
+                case "54":
+                    MatchClicked(2, 10);
+                    break;
+                case "55":
+                    MatchClicked(2, 11);
+                    break;
+                case "56":
+                    MatchClicked(3, 10);
+                    break;
+                case "57":
+                    MatchClicked(3, 11);
+                    break;
                 default:
                     System.out.println("WTF?");
                     break;
