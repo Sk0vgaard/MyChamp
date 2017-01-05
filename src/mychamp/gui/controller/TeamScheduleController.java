@@ -7,13 +7,18 @@ package mychamp.gui.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import mychamp.MyChamp;
+import mychamp.be.Team;
+import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
@@ -87,15 +92,36 @@ public class TeamScheduleController implements Initializable {
     @FXML
     private Label lblTeamPlacement;
     @FXML
-    private ComboBox<?> comboTeamName;
+    private ComboBox<String> comboTeamName;
+    
+    ArrayList<Team> listOfTeams;
+    ArrayList<String> listOfTeamNames;
+    
+    private final TeamModel teamModel;
+
+    public TeamScheduleController() {
+        teamModel = TeamModel.getInstance();
+        listOfTeams = new ArrayList();
+        listOfTeamNames = new ArrayList();
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        listOfTeams.addAll(teamModel.getTeams());
+        initializeTeamNames();
     }    
+    
+    private void initializeTeamNames() {
+        for (Team team : listOfTeams) {
+            String teamToAdd;
+            teamToAdd = team.getTeamName();
+            listOfTeamNames.add(teamToAdd);
+        }
+        comboTeamName.getItems().addAll(listOfTeamNames);
+    }
 
     @FXML
     private void handleBackButton(ActionEvent event) throws IOException {
@@ -110,6 +136,12 @@ public class TeamScheduleController implements Initializable {
      */
     private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
+    }
+
+    @FXML
+    private void handleOnHidden(Event event) {
+        String test = comboTeamName.getValue();
+        System.out.println(test);
     }
     
 }

@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <ComboBox fx:id="comboTeamName" prefHeight="36.0" prefWidth="184.0" />
+            <ComboBox fx:id="comboTeamName" onHidden="#handleOnHidden" prefHeight="36.0" prefWidth="184.0" promptText="Vælg et hold" />
          </children>
       </HBox>
       <GridPane layoutX="14.0" layoutY="86.0" prefHeight="140.0" prefWidth="889.0">
