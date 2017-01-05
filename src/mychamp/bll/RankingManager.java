@@ -33,35 +33,41 @@ public class RankingManager {
         }
         return instance;
     }
-    
+
     /**
-     * Gets an ArrayList<Team> for the parsed group, then sorts the list so the 
-     * team with the highest amounts of points is at index 0. Second highest at index 1
-     * and so on.
+     * Gets an ArrayList<Team> for the parsed group, then sorts the list so the
+     * team with the highest amounts of points is at index 0. Second highest at
+     * index 1 and so on.
+     *
      * @param group
-     * @return 
+     * @return
      */
     public ArrayList<Team> sortTeamRankingOrder(int group) {
         //Gets the list to be sorted from the groupManager.
         ArrayList<Team> teams = groupManager.getTeamsOfGroup(group);
-        
+
         //Keeps the method looping until all numbers have been placed.
         for (int j = 0; j < teams.size(); j++) {
             //Places the lowest number to the right. Then the second lowest just left of that. And so on...
             for (int i = 0; i < teams.size(); i++) {
                 Team teamToBeChecked = teams.remove(i);
-                //Checks if out of bounds. Then if it should be moved one space to the right.
-                if (i == teams.size()) {
+                if (i == teams.size()) { //Checks if it's the last in the list.
                     teams.add(teamToBeChecked);
                     i = teams.size();
-                } else if (teamToBeChecked.getPoints() < teams.get(i).getPoints()) {
+                } else if (teamToBeChecked.getPoints() < teams.get(i).getPoints()) { //Checks the points difference.
                     teams.add(i + 1, teamToBeChecked);
-                } else {
+                } else if (teamToBeChecked.getGoalDifference() < teams.get(i).getGoalDifference()) { //Checks the goal difference.
+                    teams.add(i + 1, teamToBeChecked);
+                } else if(teamToBeChecked.getGoalsScored() < teams.get(i).getGoalsScored()){ //Checks the goalScored difference.
+                    teams.add(i + 1, teamToBeChecked);
+                }else if(teamToBeChecked.getWinLossRatio() < teams.get(i).getWinLossRatio()){ //Checks the mutual results.
+                    teams.add(i + 1, teamToBeChecked);
+                }else {
                     teams.add(i, teamToBeChecked);
                 }
             }
         }
-        
+
         //Testing purpose only. Shows the ranking in console TODO: Remove.
         for (Team team : teams) {
             System.out.println(team.getPoints() + "");

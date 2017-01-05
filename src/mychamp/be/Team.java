@@ -194,5 +194,20 @@ public class Team {
     public void setHomeField(String HOME_FIELD) {
         this.HOME_FIELD = HOME_FIELD;
     }
-
+    
+    /**
+     * Return the goaldifference.
+     * @return 
+     */
+    public int getGoalDifference(){
+        return goalsScored - goalsTaken;
+    }
+    
+    /**
+     * Returns the win/loses ratio of the team.
+     * @return 
+     */
+    public int getWinLossRatio(){
+        return wins - losses;
+    }
 }

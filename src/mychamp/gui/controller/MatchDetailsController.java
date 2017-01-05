@@ -130,6 +130,7 @@ public class MatchDetailsController implements Initializable {
         int homeScore = Integer.parseInt(txtOneScore.getText());
         int awayScore = Integer.parseInt(txtTwoScore.getText());
         
+        //Save the goals of the match to the match.
         match.setHomeTeamScore(homeScore);
         match.setAwayTeamScore(awayScore);
 
