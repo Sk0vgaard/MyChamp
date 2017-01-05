@@ -176,12 +176,12 @@ public class MyChampController implements Initializable {
                     for (TextField textField : txtFieldList) {
                         textField.setDisable(true);
                     }
+                    btnEdit.setText("Rediger");
                 }
                 tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
                 tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
                 tableTeams.getSelectionModel().getSelectedItem().setTeamName(txtTeamName.getText());
                 refreshTable();
-                btnEdit.setText("Rediger");
             }
         } catch (NullPointerException e) {
             System.out.println("Choose a team to edit.");

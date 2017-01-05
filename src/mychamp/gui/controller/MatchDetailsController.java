@@ -52,7 +52,6 @@ public class MatchDetailsController implements Initializable {
     private Match match;
     private Team homeTeam;
     private Team awayTeam;
-<<<<<<< HEAD
     
     ObservableList<Team> teamsToDelete;
     
@@ -62,12 +61,9 @@ public class MatchDetailsController implements Initializable {
         teamModel = TeamModel.getInstance();
         teamsToDelete = FXCollections.observableArrayList();
     }
-    
-=======
 
     private final PlayOffController poController = PlayOffController.getInstance();
 
->>>>>>> origin/beta
     /**
      * Initializes the controller class.
      */

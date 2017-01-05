@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import mychamp.MyChamp;
 
 /**
@@ -19,6 +21,73 @@ import mychamp.MyChamp;
  * @author Rasmus
  */
 public class TeamScheduleController implements Initializable {
+
+    @FXML
+    private Label lblRound1Team1;
+    @FXML
+    private Label lblRound1Team2;
+    @FXML
+    private Label lblRound1Goal1;
+    @FXML
+    private Label lblRound1Goal2;
+    @FXML
+    private Label Round1Winner;
+    @FXML
+    private Label lblRound2Team1;
+    @FXML
+    private Label lblRound2Team2;
+    @FXML
+    private Label lblRound2Goal1;
+    @FXML
+    private Label lblRound2Goal2;
+    @FXML
+    private Label Round2Winner;
+    @FXML
+    private Label lblRound3Team1;
+    @FXML
+    private Label lblRound3Team2;
+    @FXML
+    private Label lblRound3Goal1;
+    @FXML
+    private Label lblRound3Goal2;
+    @FXML
+    private Label Round3Winner;
+    @FXML
+    private Label lblRound4Team1;
+    @FXML
+    private Label lblRound4Team2;
+    @FXML
+    private Label lblRound4Goal1;
+    @FXML
+    private Label lblRound4Goal2;
+    @FXML
+    private Label Round4Winner;
+    @FXML
+    private Label lblRound5Team1;
+    @FXML
+    private Label lblRound5Team2;
+    @FXML
+    private Label lblRound5Goal1;
+    @FXML
+    private Label lblRound5Goal2;
+    @FXML
+    private Label Round5Winner;
+    @FXML
+    private Label lblRound6Team1;
+    @FXML
+    private Label lblRound6Team2;
+    @FXML
+    private Label lblRound6Goal1;
+    @FXML
+    private Label lblRound6Goal2;
+    @FXML
+    private Label Round6Winner;
+    @FXML
+    private Label lblTeamPoints;
+    @FXML
+    private Label lblTeamPlacement;
+    @FXML
+    private ComboBox<?> comboTeamName;
 
     /**
      * Initializes the controller class.
