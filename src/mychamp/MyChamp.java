@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mychamp.dal.DAOManager;
+import mychamp.gui.model.TeamModel;
 
 /**
  *
@@ -41,6 +43,8 @@ public class MyChamp extends Application {
 
         stage.setScene(scene);
         stage.show();
+        
+        loadSavedData();
     }
 
     /**
@@ -48,6 +52,19 @@ public class MyChamp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    /**
+     * If there is any previous data. Load it.
+     */
+    private void loadSavedData(){
+        DAOManager daoManager = DAOManager.getInstance();
+        TeamModel teamModel = TeamModel.getInstance();
+        
+        if(daoManager.isTeamsThere()){
+            teamModel.addNewListOfTeams(daoManager.getTeamsFromFile());
+        }
+        System.out.println("Main method calling");
     }
 
     /**
@@ -95,6 +112,7 @@ public class MyChamp extends Application {
      * @throws IOException
      */
     private void createScenes() throws IOException {
+        System.out.println(getClass().getResource("gui/view/EditTeamView.fxml"));
         playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
         finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
         menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));

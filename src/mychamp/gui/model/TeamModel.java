@@ -61,4 +61,13 @@ public class TeamModel {
     public void deleteTeam(ObservableList<Team> teamsToDelete) {
         teams.removeAll(teamsToDelete);
     }
+    
+    /**
+     * Clears the ObservableList and then adds the ArrayList that is parsed.
+     * @param teams 
+     */
+    public void addNewListOfTeams(ArrayList<Team> teams){
+        this.teams.clear();
+        this.teams.addAll(teams);
+    }
 }

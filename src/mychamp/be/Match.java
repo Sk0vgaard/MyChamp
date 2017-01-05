@@ -5,9 +5,10 @@
  */
 package mychamp.be;
 
+import java.io.Serializable;
 import mychamp.bll.IDCreator;
 
-public class Match {
+public class Match implements Serializable{
 
     private final int ID;
 

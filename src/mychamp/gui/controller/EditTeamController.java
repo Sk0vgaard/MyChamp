@@ -6,14 +6,19 @@
 package mychamp.gui.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
@@ -24,12 +29,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
- * FXML Controller class
  *
- * @author mathi
+ * @author gta1
  */
 public class EditTeamController implements Initializable {
 
@@ -38,7 +44,7 @@ public class EditTeamController implements Initializable {
     @FXML
     private TableView<Team> tableTeams;
     @FXML
-    private TableColumn<Team, String> clmID;
+    private TableColumn<Team, Integer> clmID;
     @FXML
     private TableColumn<Team, String> clmTeam;
     @FXML
@@ -48,22 +54,68 @@ public class EditTeamController implements Initializable {
     @FXML
     private TextField txtTeamField;
     @FXML
+    private JFXTextField txtNewTeamName;
+    @FXML
+    private JFXTextField txtNewTeamField;
+    @FXML
+    private JFXTextField txtNewTeamSchool;
+    @FXML
     private TextField txtTeamSchool;
     @FXML
     private JFXButton btnEdit;
+    
+    private final TeamModel teamModel;
+    private final GroupModel groupModel;
 
-    private MyChampController mcController = MyChampController.getIntance();
-    private TeamModel teamModel = TeamModel.getInstance();
+    private static EditTeamController instance;
+    
+    private final FileManager fileManager = FileManager.getInstance();
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        initializeTables();
-        txtTeamID.setDisable(true);
+    private final ArrayList<TextField> txtFieldList;
+    
+
+    public static EditTeamController getIntance() {
+        return instance;
     }
 
+    public EditTeamController() {
+
+        teamModel = TeamModel.getInstance();
+        groupModel = GroupModel.getInstance();
+        this.txtFieldList = new ArrayList<>();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        instance = this;
+        txtTeamID.setDisable(true);
+        initializeTextFieldList();
+        initializeDesign();
+        initializeTables();
+        setListeners();
+
+    }
+
+    /**
+     * Adds the txtFields to the txtFieldList.
+     */
+    private void initializeTextFieldList() {
+        txtFieldList.add(txtTeamField);
+        txtFieldList.add(txtTeamSchool);
+        txtFieldList.add(txtTeamName);
+    }
+
+    /**
+     * Sets the initial design
+     */
+    private void initializeDesign() {
+        lblTeamAmount.setText("0");
+        updateTeamMount();
+
+        for (TextField textField : txtFieldList) {
+            textField.setDisable(true);
+        }
+    }
 
     /**
      * Fills the tables with information about the teams
@@ -73,13 +125,21 @@ public class EditTeamController implements Initializable {
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
     }
-    private boolean isTableSelected() {
-        if (tableTeams.getSelectionModel().isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+
+    /**
+     * Adds a listener to tableTeams.
+     */
+    private void setListeners() {
+        tableTeams.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Team>() {
+            @Override
+            public void changed(ObservableValue<? extends Team> observable, Team oldValue, Team newValue) {
+                if (newValue != null) {
+                    displayTeamInfo();
+                }
+            }
+        });
     }
+
     /**
      * Display the information of the team.
      */
@@ -90,14 +150,84 @@ public class EditTeamController implements Initializable {
         txtTeamField.setText(team.getHomeField());
         txtTeamSchool.setText(team.getSchool());
     }
-    
-    
+
+    /**
+     * Makes the textfields editable when clicked, then changes the button to
+     * "save" and saves the data in the textfields in the teams list.
+     *
+     * @param event
+     */
+    @FXML
+    private void handleEditSelectedTeam(ActionEvent event) throws NullPointerException {
+        try {
+            if (isTableSelected()) {
+                if (btnEdit.getText().equals("Rediger")) {
+                    for (TextField textField : txtFieldList) {
+                        textField.setDisable(false);
+                    }
+                    btnEdit.setText("Gem");
+                } else if (btnEdit.getText().equals("Gem")) {
+                    for (TextField textField : txtFieldList) {
+                        textField.setDisable(true);
+                    }
+                    btnEdit.setText("Rediger");
+                }
+                tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
+                tableTeams.getSelectionModel().getSelectedItem().setTeamName(txtTeamName.getText());
+                refreshTable();
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Choose a team to edit.");
+        }
+    }
+
+    /**
+     * Create a dialog to remove many items
+     *
+     * @return
+     */
+    private Alert removeManyItems() {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdene?");
+        alert.setContentText("Tryk 'OK' for at slette.");
+        return alert;
+    }
+
+    /**
+     * Create a team remove dialog
+     *
+     * @param teamToDelete
+     * @return
+     */
+    private Alert teamRemoveDialog(Team teamToDelete) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTeamName());
+        alert.setContentText("Tryk 'OK' for at slette.");
+        return alert;
+    }
+
+    private boolean isTableSelected() {
+        if (tableTeams.getSelectionModel().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Deletes the selected team(s).
+     *
+     * @param event
+     */
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
+        fileManager.saveTeams(teamModel.getTeamsAsArrayList());
     }
-    
-    @FXML
+
     public void deleteTeam() throws NullPointerException {
         try {
             ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
@@ -143,28 +273,6 @@ public class EditTeamController implements Initializable {
     }
 
     /**
-     * Makes the textfields editable when clicked, then changes the button to
-     * "save" and saves the data in the textfields in the teams list.
-     *
-     * @param event
-     */
-    @FXML
-    private void handleEditSelectedTeam(ActionEvent event) {
-        mcController.editSave();
-    }
-
-    /**
-     * Deletes the selected teams.
-     *
-     * @param event
-     */
-
-    @FXML
-    private void handleFinish(ActionEvent event) {
-
-    }
-
-    /**
      * Pops up a warning dialog telling the user, there are missing information.
      */
     private void warningDialog() {
@@ -174,36 +282,21 @@ public class EditTeamController implements Initializable {
         alert.setContentText("Vær venlig at udfylde alle informationerne.");
         alert.showAndWait();
     }
+
     /**
-     * Create a dialog to remove many items
-     *
-     * @return
+     * Refreshes the table on changes
      */
-    private Alert removeManyItems() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Bekræftelsesdialog");
-        alert.setHeaderText("Er du sikker på du vil slette holdene?");
-        alert.setContentText("Tryk 'OK' for at slette.");
-        return alert;
+    public void refreshTable() {
+        for (int i = 0; i < tableTeams.getColumns().size(); i++) {
+            ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(false);
+            ((TableColumn) (tableTeams.getColumns().get(i))).setVisible(true);
+        }
     }
-    /**
-     * Create a team remove dialog
-     *
-     * @param teamToDelete
-     * @return
-     */
-    private Alert teamRemoveDialog(Team teamToDelete) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Bekræftelsesdialog");
-        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTeamName());
-        alert.setContentText("Tryk 'OK' for at slette.");
-        return alert;
-    }
+
     /**
      * Updates the teams total
      */
     public void updateTeamMount() {
         lblTeamAmount.setText("" + teamModel.getTeams().size());
     }
-    
 }

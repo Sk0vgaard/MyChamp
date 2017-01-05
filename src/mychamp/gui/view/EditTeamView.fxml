@@ -46,7 +46,6 @@
                   <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" text="Slet" />
                </children>
             </Pane>
-            <JFXButton layoutX="406.0" layoutY="459.0" onAction="#handleFinish" prefHeight="78.0" prefWidth="153.0" text="Færdig" />
             <Separator layoutY="138.0" prefHeight="5.0" prefWidth="717.0" />
          </children>
       </AnchorPane>

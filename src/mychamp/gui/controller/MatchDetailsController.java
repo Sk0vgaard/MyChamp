@@ -51,7 +51,7 @@ public class MatchDetailsController implements Initializable {
     private Match match;
     private Team homeTeam;
     private Team awayTeam;
-
+    
     ObservableList<Team> teamsToDelete;
 
     private final TeamModel teamModel;
