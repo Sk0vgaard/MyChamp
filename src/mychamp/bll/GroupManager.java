@@ -158,7 +158,7 @@ public class GroupManager {
             roundSixMatches.add(groups.get(i).getGroupMatches().get(11));
         }
         for (Match roundSixMatch : roundSixMatches) {
-            if (roundSixMatch.isPlayed()) {
+            if (!roundSixMatch.isPlayed()) {
                 allMatchesPlayed = false;
             }
         }

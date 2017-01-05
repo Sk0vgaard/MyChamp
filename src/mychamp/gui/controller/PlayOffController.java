@@ -553,7 +553,7 @@ public class PlayOffController implements Initializable {
 
     private Stage primStage;
 
-    private FinalsController fController = FinalsController.getInstance();
+    private FinalsController fController;
 
     private GroupModel groupModel = GroupModel.getInstance();
 
@@ -601,8 +601,11 @@ public class PlayOffController implements Initializable {
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         if (groupModel.isGroupPlayOver()) {
-            fController.setQuarterFinals(groupModel.getQuarterMatches());
             goToView("FinalsView");
+            fController = FinalsController.getInstance();
+            fController.setQuarterFinals(groupModel.getQuarterMatches());
+        } else {
+            System.out.println("We're not done yet!");
         }
     }
 
