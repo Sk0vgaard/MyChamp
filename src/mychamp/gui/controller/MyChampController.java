@@ -262,77 +262,73 @@ public class MyChampController implements Initializable {
         }
     }
 
-        /**
-         * Select more than one team
-         */
-        @FXML
-        private void handleKeyShortCuts
-        (KeyEvent event
-        
-            ) {
+    /**
+     * Select more than one team
+     */
+    @FXML
+    private void handleKeyShortCuts(KeyEvent event) {
         if (event.isControlDown() | event.isShiftDown()) {
-                tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-            } else {
-                tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-            }
-            if (event.getCode().equals(KeyCode.DELETE)) {
-                deleteTeam();
-            }
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        } else {
+            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
-
-        /**
-         * Switches to the PlayOffView.
-         *
-         * @param event
-         * @throws IOException
-         */
-        @FXML
-        private void handleStartTournament
-        (ActionEvent event) throws IOException {
-            groupModel.createRandomGroups();
-
-            MyChamp.switchScene("PlayOffView");
-            playOffController = PlayOffController.getInstance();
-            playOffController.setRandomGroups(groupModel.getGroups());
-            playOffController.setPlayOffInformation();
+        if (event.getCode().equals(KeyCode.DELETE)) {
+            deleteTeam();
         }
+    }
+    
+      
 
-        /**
-         * Adds a Team.
-         *
-         * @param event
-         */
-        @FXML
-        private void handleAddTeam
-        (ActionEvent event
-        
-            ) {
+    /**
+     * Switches to the PlayOffView.
+     *
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    private void handleStartTournament(ActionEvent event) throws IOException {
+        groupModel.createRandomGroups();
+
+        MyChamp.switchScene("PlayOffView");
+        playOffController = PlayOffController.getInstance();
+        playOffController.setRandomGroups(groupModel.getGroups());
+        playOffController.setPlayOffInformation();
+    }
+
+    /**
+     * Adds a Team.
+     *
+     * @param event
+     */
+    @FXML
+    private void handleAddTeam(ActionEvent event
+    ) {
         //Check to see if all information is present.
         if (!txtNewTeamName.getText().equals("")
-                    || !txtNewTeamField.getText().equals("")
-                    || !txtNewTeamSchool.getText().equals("")) {
-                teamModel.addTeam(new Team(
-                        txtNewTeamName.getText(),
-                        txtNewTeamField.getText(),
-                        txtNewTeamSchool.getText()));
-                //Clears the fields for information.
-                txtNewTeamName.clear();
-                txtNewTeamField.clear();
-                txtNewTeamSchool.clear();
-            } else {
-                warningDialog();
-            }
-            updateTeamMount();
+                || !txtNewTeamField.getText().equals("")
+                || !txtNewTeamSchool.getText().equals("")) {
+            teamModel.addTeam(new Team(
+                    txtNewTeamName.getText(),
+                    txtNewTeamField.getText(),
+                    txtNewTeamSchool.getText()));
+            //Clears the fields for information.
+            txtNewTeamName.clear();
+            txtNewTeamField.clear();
+            txtNewTeamSchool.clear();
+        } else {
+            warningDialog();
         }
-        /**
-         * Pops up a warning dialog telling the user, there are missing
-         * information.
-         */
+        updateTeamMount();
+    }
+
+    /**
+     * Pops up a warning dialog telling the user, there are missing information.
+     */
     private void warningDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Advarsel");
         alert.setTitle("Manglende information.");
-        alert.setContentText("Vær venlig at udfylde alle informationer.");
+        alert.setContentText("Vær venlig at udfylde alle informationerne.");
         alert.showAndWait();
     }
 
