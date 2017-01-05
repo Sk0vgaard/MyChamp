@@ -583,7 +583,6 @@ public class PlayOffController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
-        addLabelsToArrayList();
     }
 
     /**
@@ -630,35 +629,99 @@ public class PlayOffController implements Initializable {
      * Update PlayOffView information
      */
     public void setPlayOffInformation() {
+        addLabelsToArrayList();
         setRoundOne();
         setRoundTwo();
         setRoundThree();
         setRoundFour();
         setRoundFive();
         setRoundSix();
-        setGoals();
+        updateGoals();
     }
 
     /**
-     * Set goals for all teams
+     * This is to be updated and redesigned!
      */
-    private void setGoals() {
-        for (int i = 0; i < 16; i++) {
-            //Start all teams with 0 goals
-            round1teamGoalLabels.get(0).setText("0");
-            round1teamGoalLabels.remove(0);
-            round2teamGoalLabels.get(0).setText("0");
-            round2teamGoalLabels.remove(0);
-            round3teamGoalLabels.get(0).setText("0");
-            round3teamGoalLabels.remove(0);
-            round4teamGoalLabels.get(0).setText("0");
-            round4teamGoalLabels.remove(0);
-            round5teamGoalLabels.get(0).setText("0");
-            round5teamGoalLabels.remove(0);
-            round6teamGoalLabels.get(0).setText("0");
-            round6teamGoalLabels.remove(0);
+    public void updateNewGoals() {
+        round1teamGoalLabels.get(0).setText("" + randomGroups.get(0).getGroupMatches().get(0).getHomeTeamScore());
+        round1teamGoalLabels.get(1).setText("" + randomGroups.get(0).getGroupMatches().get(0).getAwayTeamScore());
+        round1teamGoalLabels.get(2).setText("" + randomGroups.get(0).getGroupMatches().get(1).getHomeTeamScore());
+        round1teamGoalLabels.get(3).setText("" + randomGroups.get(0).getGroupMatches().get(1).getAwayTeamScore());
+        round1teamGoalLabels.get(4).setText("" + randomGroups.get(1).getGroupMatches().get(0).getHomeTeamScore());
+        round1teamGoalLabels.get(5).setText("" + randomGroups.get(1).getGroupMatches().get(0).getAwayTeamScore());
+        round1teamGoalLabels.get(6).setText("" + randomGroups.get(1).getGroupMatches().get(1).getHomeTeamScore());
+        round1teamGoalLabels.get(7).setText("" + randomGroups.get(1).getGroupMatches().get(1).getAwayTeamScore());
+        round1teamGoalLabels.get(8).setText("" + randomGroups.get(2).getGroupMatches().get(0).getHomeTeamScore());
+        round1teamGoalLabels.get(9).setText("" + randomGroups.get(2).getGroupMatches().get(0).getAwayTeamScore());
+        round1teamGoalLabels.get(10).setText("" + randomGroups.get(2).getGroupMatches().get(1).getHomeTeamScore());
+        round1teamGoalLabels.get(11).setText("" + randomGroups.get(2).getGroupMatches().get(1).getAwayTeamScore());
+        round1teamGoalLabels.get(12).setText("" + randomGroups.get(3).getGroupMatches().get(0).getHomeTeamScore());
+        round1teamGoalLabels.get(13).setText("" + randomGroups.get(3).getGroupMatches().get(0).getAwayTeamScore());
+        round1teamGoalLabels.get(14).setText("" + randomGroups.get(3).getGroupMatches().get(1).getHomeTeamScore());
+        round1teamGoalLabels.get(15).setText("" + randomGroups.get(3).getGroupMatches().get(1).getAwayTeamScore());
 
+    }
+
+    /**
+     * Updates all the goals
+     */
+    public void updateGoals() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 11; j++) {
+                //Set goals for the round
+                round1teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round1teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round1teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round1teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+                round2teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round2teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round2teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round2teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+                round3teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round3teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round3teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round3teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+                round4teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round4teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round4teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round4teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+                round5teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round5teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round5teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round5teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+                round6teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
+                round6teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
+                round6teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
+                round6teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
+            }
+
+            //Remove labels already set to get ready to set next group
+            round1teamGoalLabels.remove(0);
+            round1teamGoalLabels.remove(0);
+            round1teamGoalLabels.remove(0);
+            round1teamGoalLabels.remove(0);
+            round2teamGoalLabels.remove(0);
+            round2teamGoalLabels.remove(0);
+            round2teamGoalLabels.remove(0);
+            round2teamGoalLabels.remove(0);
+            round3teamGoalLabels.remove(0);
+            round3teamGoalLabels.remove(0);
+            round3teamGoalLabels.remove(0);
+            round3teamGoalLabels.remove(0);
+            round4teamGoalLabels.remove(0);
+            round4teamGoalLabels.remove(0);
+            round4teamGoalLabels.remove(0);
+            round4teamGoalLabels.remove(0);
+            round5teamGoalLabels.remove(0);
+            round5teamGoalLabels.remove(0);
+            round5teamGoalLabels.remove(0);
+            round5teamGoalLabels.remove(0);
+            round6teamGoalLabels.remove(0);
+            round6teamGoalLabels.remove(0);
+            round6teamGoalLabels.remove(0);
+            round6teamGoalLabels.remove(0);
         }
+        addGoalLabels();
     }
 
     /**
@@ -695,7 +758,7 @@ public class PlayOffController implements Initializable {
             round1teamNameLabels.remove(0);
             //Add group matches to the array
             randomGroups.get(i).addGroupMatches(groupMatches);
-            //Clear current groupMatchs
+            //Clear current groupMatches
             groupMatches.clear();
         }
     }
@@ -736,6 +799,7 @@ public class PlayOffController implements Initializable {
             randomGroups.get(i).addGroupMatches(groupMatches);
             //Clear current groupMatchs
             groupMatches.clear();
+
         }
     }
 
@@ -899,114 +963,40 @@ public class PlayOffController implements Initializable {
      * Fill up ArrayLists with labels
      */
     private void addLabelsToArrayList() {
-        //Team names for round 1
-        round1teamNameLabels.add(lblRound1GroupATeam1);
-        round1teamNameLabels.add(lblRound1GroupATeam2);
-        round1teamNameLabels.add(lblRound1GroupATeam3);
-        round1teamNameLabels.add(lblRound1GroupATeam4);
-        round1teamNameLabels.add(lblRound1GroupBTeam1);
-        round1teamNameLabels.add(lblRound1GroupBTeam2);
-        round1teamNameLabels.add(lblRound1GroupBTeam3);
-        round1teamNameLabels.add(lblRound1GroupBTeam4);
-        round1teamNameLabels.add(lblRound1GroupCTeam1);
-        round1teamNameLabels.add(lblRound1GroupCTeam2);
-        round1teamNameLabels.add(lblRound1GroupCTeam3);
-        round1teamNameLabels.add(lblRound1GroupCTeam4);
-        round1teamNameLabels.add(lblRound1GroupDTeam1);
-        round1teamNameLabels.add(lblRound1GroupDTeam2);
-        round1teamNameLabels.add(lblRound1GroupDTeam3);
-        round1teamNameLabels.add(lblRound1GroupDTeam4);
+        addTeamNameLabels();
 
-        //Team names for round 2
-        round2teamNameLabels.add(lblRound2GroupATeam1);
-        round2teamNameLabels.add(lblRound2GroupATeam2);
-        round2teamNameLabels.add(lblRound2GroupATeam3);
-        round2teamNameLabels.add(lblRound2GroupATeam4);
-        round2teamNameLabels.add(lblRound2GroupBTeam1);
-        round2teamNameLabels.add(lblRound2GroupBTeam2);
-        round2teamNameLabels.add(lblRound2GroupBTeam3);
-        round2teamNameLabels.add(lblRound2GroupBTeam4);
-        round2teamNameLabels.add(lblRound2GroupCTeam1);
-        round2teamNameLabels.add(lblRound2GroupCTeam2);
-        round2teamNameLabels.add(lblRound2GroupCTeam3);
-        round2teamNameLabels.add(lblRound2GroupCTeam4);
-        round2teamNameLabels.add(lblRound2GroupDTeam1);
-        round2teamNameLabels.add(lblRound2GroupDTeam2);
-        round2teamNameLabels.add(lblRound2GroupDTeam3);
-        round2teamNameLabels.add(lblRound2GroupDTeam4);
+        addGoalLabels();
 
-        //Team names for round 3
-        round3teamNameLabels.add(lblRound3GroupATeam1);
-        round3teamNameLabels.add(lblRound3GroupATeam2);
-        round3teamNameLabels.add(lblRound3GroupATeam3);
-        round3teamNameLabels.add(lblRound3GroupATeam4);
-        round3teamNameLabels.add(lblRound3GroupBTeam1);
-        round3teamNameLabels.add(lblRound3GroupBTeam2);
-        round3teamNameLabels.add(lblRound3GroupBTeam3);
-        round3teamNameLabels.add(lblRound3GroupBTeam4);
-        round3teamNameLabels.add(lblRound3GroupCTeam1);
-        round3teamNameLabels.add(lblRound3GroupCTeam2);
-        round3teamNameLabels.add(lblRound3GroupCTeam3);
-        round3teamNameLabels.add(lblRound3GroupCTeam4);
-        round3teamNameLabels.add(lblRound3GroupDTeam1);
-        round3teamNameLabels.add(lblRound3GroupDTeam2);
-        round3teamNameLabels.add(lblRound3GroupDTeam3);
-        round3teamNameLabels.add(lblRound3GroupDTeam4);
+        addRankingLabels();
+    }
 
-        //Team names for round 4
-        round4teamNameLabels.add(lblRound4GroupATeam1);
-        round4teamNameLabels.add(lblRound4GroupATeam2);
-        round4teamNameLabels.add(lblRound4GroupATeam3);
-        round4teamNameLabels.add(lblRound4GroupATeam4);
-        round4teamNameLabels.add(lblRound4GroupBTeam1);
-        round4teamNameLabels.add(lblRound4GroupBTeam2);
-        round4teamNameLabels.add(lblRound4GroupBTeam3);
-        round4teamNameLabels.add(lblRound4GroupBTeam4);
-        round4teamNameLabels.add(lblRound4GroupCTeam1);
-        round4teamNameLabels.add(lblRound4GroupCTeam2);
-        round4teamNameLabels.add(lblRound4GroupCTeam3);
-        round4teamNameLabels.add(lblRound4GroupCTeam4);
-        round4teamNameLabels.add(lblRound4GroupDTeam1);
-        round4teamNameLabels.add(lblRound4GroupDTeam2);
-        round4teamNameLabels.add(lblRound4GroupDTeam3);
-        round4teamNameLabels.add(lblRound4GroupDTeam4);
+    private void addRankingLabels() {
+        //Group A ranking.
+        rankingsGroupA.add(lblGroupATeam1);
+        rankingsGroupA.add(lblGroupATeam2);
+        rankingsGroupA.add(lblGroupATeam3);
+        rankingsGroupA.add(lblGroupATeam4);
 
-        //Team names for round 5
-        round5teamNameLabels.add(lblRound5GroupATeam1);
-        round5teamNameLabels.add(lblRound5GroupATeam2);
-        round5teamNameLabels.add(lblRound5GroupATeam3);
-        round5teamNameLabels.add(lblRound5GroupATeam4);
-        round5teamNameLabels.add(lblRound5GroupBTeam1);
-        round5teamNameLabels.add(lblRound5GroupBTeam2);
-        round5teamNameLabels.add(lblRound5GroupBTeam3);
-        round5teamNameLabels.add(lblRound5GroupBTeam4);
-        round5teamNameLabels.add(lblRound5GroupCTeam1);
-        round5teamNameLabels.add(lblRound5GroupCTeam2);
-        round5teamNameLabels.add(lblRound5GroupCTeam3);
-        round5teamNameLabels.add(lblRound5GroupCTeam4);
-        round5teamNameLabels.add(lblRound5GroupDTeam1);
-        round5teamNameLabels.add(lblRound5GroupDTeam2);
-        round5teamNameLabels.add(lblRound5GroupDTeam3);
-        round5teamNameLabels.add(lblRound5GroupDTeam4);
+        //Group B ranking
+        rankingsGroupB.add(lblGroupBTeam1);
+        rankingsGroupB.add(lblGroupBTeam2);
+        rankingsGroupB.add(lblGroupBTeam3);
+        rankingsGroupB.add(lblGroupBTeam4);
 
-        //Team names for round 5
-        round6teamNameLabels.add(lblRound6GroupATeam1);
-        round6teamNameLabels.add(lblRound6GroupATeam2);
-        round6teamNameLabels.add(lblRound6GroupATeam3);
-        round6teamNameLabels.add(lblRound6GroupATeam4);
-        round6teamNameLabels.add(lblRound6GroupBTeam1);
-        round6teamNameLabels.add(lblRound6GroupBTeam2);
-        round6teamNameLabels.add(lblRound6GroupBTeam3);
-        round6teamNameLabels.add(lblRound6GroupBTeam4);
-        round6teamNameLabels.add(lblRound6GroupCTeam1);
-        round6teamNameLabels.add(lblRound6GroupCTeam2);
-        round6teamNameLabels.add(lblRound6GroupCTeam3);
-        round6teamNameLabels.add(lblRound6GroupCTeam4);
-        round6teamNameLabels.add(lblRound6GroupDTeam1);
-        round6teamNameLabels.add(lblRound6GroupDTeam2);
-        round6teamNameLabels.add(lblRound6GroupDTeam3);
-        round6teamNameLabels.add(lblRound6GroupDTeam4);
+        //Group C ranking
+        rankingsGroupC.add(lblGroupCTeam1);
+        rankingsGroupC.add(lblGroupCTeam2);
+        rankingsGroupC.add(lblGroupCTeam3);
+        rankingsGroupC.add(lblGroupCTeam4);
 
+        //Group D ranking
+        rankingsGroupD.add(lblGroupDTeam1);
+        rankingsGroupD.add(lblGroupDTeam2);
+        rankingsGroupD.add(lblGroupDTeam3);
+        rankingsGroupD.add(lblGroupDTeam4);
+    }
+
+    private void addGoalLabels() {
         //Team goals round 1
         round1teamGoalLabels.add(lblRound1GroupAGoals1);
         round1teamGoalLabels.add(lblRound1GroupAGoals2);
@@ -1114,30 +1104,116 @@ public class PlayOffController implements Initializable {
         round6teamGoalLabels.add(lblRound6GroupDGoals2);
         round6teamGoalLabels.add(lblRound6GroupDGoals3);
         round6teamGoalLabels.add(lblRound6GroupDGoals4);
+    }
 
-        //Group A ranking.
-        rankingsGroupA.add(lblGroupATeam1);
-        rankingsGroupA.add(lblGroupATeam2);
-        rankingsGroupA.add(lblGroupATeam3);
-        rankingsGroupA.add(lblGroupATeam4);
+    private void addTeamNameLabels() {
+        //Team names for round 1
+        round1teamNameLabels.add(lblRound1GroupATeam1);
+        round1teamNameLabels.add(lblRound1GroupATeam2);
+        round1teamNameLabels.add(lblRound1GroupATeam3);
+        round1teamNameLabels.add(lblRound1GroupATeam4);
+        round1teamNameLabels.add(lblRound1GroupBTeam1);
+        round1teamNameLabels.add(lblRound1GroupBTeam2);
+        round1teamNameLabels.add(lblRound1GroupBTeam3);
+        round1teamNameLabels.add(lblRound1GroupBTeam4);
+        round1teamNameLabels.add(lblRound1GroupCTeam1);
+        round1teamNameLabels.add(lblRound1GroupCTeam2);
+        round1teamNameLabels.add(lblRound1GroupCTeam3);
+        round1teamNameLabels.add(lblRound1GroupCTeam4);
+        round1teamNameLabels.add(lblRound1GroupDTeam1);
+        round1teamNameLabels.add(lblRound1GroupDTeam2);
+        round1teamNameLabels.add(lblRound1GroupDTeam3);
+        round1teamNameLabels.add(lblRound1GroupDTeam4);
 
-        //Group B ranking
-        rankingsGroupB.add(lblGroupBTeam1);
-        rankingsGroupB.add(lblGroupBTeam2);
-        rankingsGroupB.add(lblGroupBTeam3);
-        rankingsGroupB.add(lblGroupBTeam4);
+        //Team names for round 2
+        round2teamNameLabels.add(lblRound2GroupATeam1);
+        round2teamNameLabels.add(lblRound2GroupATeam2);
+        round2teamNameLabels.add(lblRound2GroupATeam3);
+        round2teamNameLabels.add(lblRound2GroupATeam4);
+        round2teamNameLabels.add(lblRound2GroupBTeam1);
+        round2teamNameLabels.add(lblRound2GroupBTeam2);
+        round2teamNameLabels.add(lblRound2GroupBTeam3);
+        round2teamNameLabels.add(lblRound2GroupBTeam4);
+        round2teamNameLabels.add(lblRound2GroupCTeam1);
+        round2teamNameLabels.add(lblRound2GroupCTeam2);
+        round2teamNameLabels.add(lblRound2GroupCTeam3);
+        round2teamNameLabels.add(lblRound2GroupCTeam4);
+        round2teamNameLabels.add(lblRound2GroupDTeam1);
+        round2teamNameLabels.add(lblRound2GroupDTeam2);
+        round2teamNameLabels.add(lblRound2GroupDTeam3);
+        round2teamNameLabels.add(lblRound2GroupDTeam4);
 
-        //Group C ranking
-        rankingsGroupC.add(lblGroupCTeam1);
-        rankingsGroupC.add(lblGroupCTeam2);
-        rankingsGroupC.add(lblGroupCTeam3);
-        rankingsGroupC.add(lblGroupCTeam4);
+        //Team names for round 3
+        round3teamNameLabels.add(lblRound3GroupATeam1);
+        round3teamNameLabels.add(lblRound3GroupATeam2);
+        round3teamNameLabels.add(lblRound3GroupATeam3);
+        round3teamNameLabels.add(lblRound3GroupATeam4);
+        round3teamNameLabels.add(lblRound3GroupBTeam1);
+        round3teamNameLabels.add(lblRound3GroupBTeam2);
+        round3teamNameLabels.add(lblRound3GroupBTeam3);
+        round3teamNameLabels.add(lblRound3GroupBTeam4);
+        round3teamNameLabels.add(lblRound3GroupCTeam1);
+        round3teamNameLabels.add(lblRound3GroupCTeam2);
+        round3teamNameLabels.add(lblRound3GroupCTeam3);
+        round3teamNameLabels.add(lblRound3GroupCTeam4);
+        round3teamNameLabels.add(lblRound3GroupDTeam1);
+        round3teamNameLabels.add(lblRound3GroupDTeam2);
+        round3teamNameLabels.add(lblRound3GroupDTeam3);
+        round3teamNameLabels.add(lblRound3GroupDTeam4);
 
-        //Group D ranking
-        rankingsGroupD.add(lblGroupDTeam1);
-        rankingsGroupD.add(lblGroupDTeam2);
-        rankingsGroupD.add(lblGroupDTeam3);
-        rankingsGroupD.add(lblGroupDTeam4);
+        //Team names for round 4
+        round4teamNameLabels.add(lblRound4GroupATeam1);
+        round4teamNameLabels.add(lblRound4GroupATeam2);
+        round4teamNameLabels.add(lblRound4GroupATeam3);
+        round4teamNameLabels.add(lblRound4GroupATeam4);
+        round4teamNameLabels.add(lblRound4GroupBTeam1);
+        round4teamNameLabels.add(lblRound4GroupBTeam2);
+        round4teamNameLabels.add(lblRound4GroupBTeam3);
+        round4teamNameLabels.add(lblRound4GroupBTeam4);
+        round4teamNameLabels.add(lblRound4GroupCTeam1);
+        round4teamNameLabels.add(lblRound4GroupCTeam2);
+        round4teamNameLabels.add(lblRound4GroupCTeam3);
+        round4teamNameLabels.add(lblRound4GroupCTeam4);
+        round4teamNameLabels.add(lblRound4GroupDTeam1);
+        round4teamNameLabels.add(lblRound4GroupDTeam2);
+        round4teamNameLabels.add(lblRound4GroupDTeam3);
+        round4teamNameLabels.add(lblRound4GroupDTeam4);
+
+        //Team names for round 5
+        round5teamNameLabels.add(lblRound5GroupATeam1);
+        round5teamNameLabels.add(lblRound5GroupATeam2);
+        round5teamNameLabels.add(lblRound5GroupATeam3);
+        round5teamNameLabels.add(lblRound5GroupATeam4);
+        round5teamNameLabels.add(lblRound5GroupBTeam1);
+        round5teamNameLabels.add(lblRound5GroupBTeam2);
+        round5teamNameLabels.add(lblRound5GroupBTeam3);
+        round5teamNameLabels.add(lblRound5GroupBTeam4);
+        round5teamNameLabels.add(lblRound5GroupCTeam1);
+        round5teamNameLabels.add(lblRound5GroupCTeam2);
+        round5teamNameLabels.add(lblRound5GroupCTeam3);
+        round5teamNameLabels.add(lblRound5GroupCTeam4);
+        round5teamNameLabels.add(lblRound5GroupDTeam1);
+        round5teamNameLabels.add(lblRound5GroupDTeam2);
+        round5teamNameLabels.add(lblRound5GroupDTeam3);
+        round5teamNameLabels.add(lblRound5GroupDTeam4);
+
+        //Team names for round 6
+        round6teamNameLabels.add(lblRound6GroupATeam1);
+        round6teamNameLabels.add(lblRound6GroupATeam2);
+        round6teamNameLabels.add(lblRound6GroupATeam3);
+        round6teamNameLabels.add(lblRound6GroupATeam4);
+        round6teamNameLabels.add(lblRound6GroupBTeam1);
+        round6teamNameLabels.add(lblRound6GroupBTeam2);
+        round6teamNameLabels.add(lblRound6GroupBTeam3);
+        round6teamNameLabels.add(lblRound6GroupBTeam4);
+        round6teamNameLabels.add(lblRound6GroupCTeam1);
+        round6teamNameLabels.add(lblRound6GroupCTeam2);
+        round6teamNameLabels.add(lblRound6GroupCTeam3);
+        round6teamNameLabels.add(lblRound6GroupCTeam4);
+        round6teamNameLabels.add(lblRound6GroupDTeam1);
+        round6teamNameLabels.add(lblRound6GroupDTeam2);
+        round6teamNameLabels.add(lblRound6GroupDTeam3);
+        round6teamNameLabels.add(lblRound6GroupDTeam4);
     }
 
     /**
@@ -1170,7 +1246,7 @@ public class PlayOffController implements Initializable {
 
             //Shows the modal and waits for it to close before continuing reading the code.
             editStage.showAndWait();
-            
+
             //Updates the group rankings.
             updateGroupRankings(group);
 
@@ -1178,10 +1254,11 @@ public class PlayOffController implements Initializable {
             System.out.println(ioe);
         }
     }
-    
+
     /**
      * Update the rankings for the selected group.
-     * @param group 
+     *
+     * @param group
      */
     private void updateGroupRankings(int group) {
         ArrayList<Team> teamsToRank = RankingManager.getInstance().sortTeamRankingOrder(group);

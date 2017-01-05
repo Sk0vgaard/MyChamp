@@ -46,6 +46,8 @@ public class MatchDetailsController implements Initializable {
     private Team homeTeam;
     private Team awayTeam;
 
+    private final PlayOffController poController = PlayOffController.getInstance();
+
     /**
      * Initializes the controller class.
      */
@@ -87,6 +89,8 @@ public class MatchDetailsController implements Initializable {
             givePointsToWinner();
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
+//            poController.updateGoals();
+            poController.updateNewGoals();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ugyldige informationer");
@@ -123,13 +127,13 @@ public class MatchDetailsController implements Initializable {
     }
 
     /**
-     * Grants the teams their points, respective to a win, loss or draw
-     * Also records the goal scored for the match.
+     * Grants the teams their points, respective to a win, loss or draw Also
+     * records the goal scored for the match.
      */
     private void givePointsToWinner() {
         int homeScore = Integer.parseInt(txtOneScore.getText());
         int awayScore = Integer.parseInt(txtTwoScore.getText());
-        
+
         match.setHomeTeamScore(homeScore);
         match.setAwayTeamScore(awayScore);
 
