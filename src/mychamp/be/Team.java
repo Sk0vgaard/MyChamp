@@ -27,8 +27,6 @@ public class Team {
 
     private int losses;
 
-    private int matchesPlayed;
-
     private IDCreator getNewID = IDCreator.getInstance();
 
     /**
@@ -46,7 +44,6 @@ public class Team {
         points = 0;
         this.wins = 0;
         this.losses = 0;
-        this.matchesPlayed = 0;
     }
 
     /**
@@ -89,7 +86,7 @@ public class Team {
      * @param goalsTaken
      */
     public void setGoalsTaken(int goalsTaken) {
-        this.goalsTaken = goalsTaken;
+        this.goalsTaken += goalsTaken;
     }
 
     /**
@@ -166,23 +163,6 @@ public class Team {
         this.losses += losses;
     }
 
-    /**
-     *
-     * @return matches played
-     */
-    public int getMatchesPlayed() {
-        return matchesPlayed;
-    }
-
-    /**
-     * Add to total matches played
-     *
-     * @param matchesPlayed
-     */
-    public void setMatchesPlayed(int matchesPlayed) {
-        this.matchesPlayed = matchesPlayed;
-    }
-
     public void setTeamName(String TEAM_NAME) {
         this.teamName = TEAM_NAME;
     }
@@ -194,5 +174,20 @@ public class Team {
     public void setHomeField(String HOME_FIELD) {
         this.HOME_FIELD = HOME_FIELD;
     }
-
+    
+    /**
+     * Return the goaldifference.
+     * @return 
+     */
+    public int getGoalDifference(){
+        return goalsScored - goalsTaken;
+    }
+    
+    /**
+     * Returns the win/loses ratio of the team.
+     * @return 
+     */
+    public int getWinLossRatio(){
+        return wins - losses;
+    }
 }
