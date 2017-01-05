@@ -6,16 +6,22 @@
 package mychamp.gui.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
@@ -45,7 +51,16 @@ public class MatchDetailsController implements Initializable {
     private Match match;
     private Team homeTeam;
     private Team awayTeam;
+    
+    ObservableList<Team> teamsToDelete;
+    
+    private final TeamModel teamModel;
 
+    public MatchDetailsController() {
+        teamModel = TeamModel.getInstance();
+        teamsToDelete = FXCollections.observableArrayList();
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -53,7 +68,6 @@ public class MatchDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-
     /**
      * Set the Teams so it's possible to get the data.
      *
@@ -143,5 +157,45 @@ public class MatchDetailsController implements Initializable {
             awayTeam.setPoints(WINNER_POINTS);
         }
 
+    }
+    
+    private Alert teamRemoveDialog(Team teamToDelete) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Bekræftelsesdialog");
+        alert.setHeaderText("Er du sikker på du vil slette holdet: " + "\n\n" + teamToDelete.getTeamName());
+        alert.setContentText("Tryk 'OK' for at slette.");
+        return alert;
+    }
+
+    @FXML
+    private void handleDeleteHomeTeam(ActionEvent event) {
+        Alert alert;
+        alert = teamRemoveDialog(homeTeam);
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.get() == ButtonType.OK) {
+            teamsToDelete.add(homeTeam);
+            teamModel.deleteTeam(teamsToDelete);
+            for (Team team : teamModel.getTeams()) {
+                System.out.println(team.getTeamName());
+            }
+        }
+    }
+    
+    @FXML
+    private void handleDeleteAwayTeam(ActionEvent event) {
+        Alert alert;
+        alert = teamRemoveDialog(awayTeam);
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.get() == ButtonType.OK) {
+            teamsToDelete.add(awayTeam);
+            teamModel.deleteTeam(teamsToDelete);
+            for (Team team : teamModel.getTeams()) {
+                System.out.println(team.getTeamName());
+            }
+        }
     }
 }
