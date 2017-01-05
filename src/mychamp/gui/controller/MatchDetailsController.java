@@ -109,7 +109,7 @@ public class MatchDetailsController implements Initializable {
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
 //            poController.updateGoals();
-            poController.updateNewGoals();
+            poController.updateGoals();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ugyldige informationer");
