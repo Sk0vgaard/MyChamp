@@ -25,8 +25,10 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
+import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
@@ -572,6 +574,8 @@ public class PlayOffController implements Initializable {
     private final ArrayList<Label> rankingsGroupD = new ArrayList();
 
     private static PlayOffController instance;
+    
+    private final TeamModel teamModel = TeamModel.getInstance();
 
     public static PlayOffController getInstance() {
         return instance;
@@ -1222,6 +1226,7 @@ public class PlayOffController implements Initializable {
 
             //Updates the group rankings.
             updateGroupRankings(group);
+            FileManager.getInstance().saveTeams(teamModel.getTeamsAsArrayList());
 
         } catch (IOException ioe) {
             System.out.println(ioe);
