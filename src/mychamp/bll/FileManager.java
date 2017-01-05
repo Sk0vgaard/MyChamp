@@ -33,4 +33,20 @@ public class FileManager {
     public void saveTeams(ArrayList<Team> teams){
         daoManager.saveTeams(teams);
     }
+    
+    /**
+     * Calls the data acces layer and loads the saved teams.
+     * @return 
+     */
+    public ArrayList<Team> getTeamsFromFile(){
+        return daoManager.getTeamsFromFile();
+    }
+    
+    /**
+     * Checks if the file is there.
+     * @return 
+     */
+    public boolean isTeamsThere(){
+        return daoManager.isTeamsThere();
+    }
 }

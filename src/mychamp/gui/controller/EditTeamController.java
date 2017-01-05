@@ -29,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -60,15 +61,18 @@ public class EditTeamController implements Initializable {
     private JFXTextField txtNewTeamSchool;
     @FXML
     private TextField txtTeamSchool;
-
+    @FXML
+    private JFXButton btnEdit;
+    
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
     private static EditTeamController instance;
+    
+    private final FileManager fileManager = FileManager.getInstance();
 
     private final ArrayList<TextField> txtFieldList;
-    @FXML
-    private JFXButton btnEdit;
+    
 
     public static EditTeamController getIntance() {
         return instance;
@@ -221,6 +225,7 @@ public class EditTeamController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
+        fileManager.saveTeams(teamModel.getTeamsAsArrayList());
     }
 
     public void deleteTeam() throws NullPointerException {
