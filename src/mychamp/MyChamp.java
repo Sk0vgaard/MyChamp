@@ -95,6 +95,7 @@ public class MyChamp extends Application {
      * @throws IOException
      */
     private void createScenes() throws IOException {
+        System.out.println(getClass().getResource("gui/view/EditTeamView.fxml"));
         playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
         finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
         menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));

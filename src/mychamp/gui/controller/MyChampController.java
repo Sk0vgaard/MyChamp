@@ -31,7 +31,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
-import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -160,11 +159,7 @@ public class MyChampController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleEditSelectedTeam(ActionEvent event) {
-        editSave();
-    }
-
-    public void editSave() throws NullPointerException {
+    private void handleEditSelectedTeam(ActionEvent event) throws NullPointerException {
         try {
             if (isTableSelected()) {
                 if (btnEdit.getText().equals("Rediger")) {
@@ -172,7 +167,7 @@ public class MyChampController implements Initializable {
                         textField.setDisable(false);
                     }
                     btnEdit.setText("Gem");
-                } else {
+                } else if (btnEdit.getText().equals("Gem")) {
                     for (TextField textField : txtFieldList) {
                         textField.setDisable(true);
                     }
@@ -187,6 +182,7 @@ public class MyChampController implements Initializable {
             System.out.println("Choose a team to edit.");
         }
     }
+
 
     /**
      * Create a dialog to remove many items
@@ -276,8 +272,6 @@ public class MyChampController implements Initializable {
             deleteTeam();
         }
     }
-    
-      
 
     /**
      * Switches to the PlayOffView.

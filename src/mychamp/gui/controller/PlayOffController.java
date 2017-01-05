@@ -25,8 +25,10 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
+import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
@@ -572,6 +574,8 @@ public class PlayOffController implements Initializable {
     private final ArrayList<Label> rankingsGroupD = new ArrayList();
 
     private static PlayOffController instance;
+    
+    private final TeamModel teamModel = TeamModel.getInstance();
 
     public static PlayOffController getInstance() {
         return instance;
@@ -642,86 +646,59 @@ public class PlayOffController implements Initializable {
     /**
      * This is to be updated and redesigned!
      */
-    public void updateNewGoals() {
-        round1teamGoalLabels.get(0).setText("" + randomGroups.get(0).getGroupMatches().get(0).getHomeTeamScore());
-        round1teamGoalLabels.get(1).setText("" + randomGroups.get(0).getGroupMatches().get(0).getAwayTeamScore());
-        round1teamGoalLabels.get(2).setText("" + randomGroups.get(0).getGroupMatches().get(1).getHomeTeamScore());
-        round1teamGoalLabels.get(3).setText("" + randomGroups.get(0).getGroupMatches().get(1).getAwayTeamScore());
-        round1teamGoalLabels.get(4).setText("" + randomGroups.get(1).getGroupMatches().get(0).getHomeTeamScore());
-        round1teamGoalLabels.get(5).setText("" + randomGroups.get(1).getGroupMatches().get(0).getAwayTeamScore());
-        round1teamGoalLabels.get(6).setText("" + randomGroups.get(1).getGroupMatches().get(1).getHomeTeamScore());
-        round1teamGoalLabels.get(7).setText("" + randomGroups.get(1).getGroupMatches().get(1).getAwayTeamScore());
-        round1teamGoalLabels.get(8).setText("" + randomGroups.get(2).getGroupMatches().get(0).getHomeTeamScore());
-        round1teamGoalLabels.get(9).setText("" + randomGroups.get(2).getGroupMatches().get(0).getAwayTeamScore());
-        round1teamGoalLabels.get(10).setText("" + randomGroups.get(2).getGroupMatches().get(1).getHomeTeamScore());
-        round1teamGoalLabels.get(11).setText("" + randomGroups.get(2).getGroupMatches().get(1).getAwayTeamScore());
-        round1teamGoalLabels.get(12).setText("" + randomGroups.get(3).getGroupMatches().get(0).getHomeTeamScore());
-        round1teamGoalLabels.get(13).setText("" + randomGroups.get(3).getGroupMatches().get(0).getAwayTeamScore());
-        round1teamGoalLabels.get(14).setText("" + randomGroups.get(3).getGroupMatches().get(1).getHomeTeamScore());
-        round1teamGoalLabels.get(15).setText("" + randomGroups.get(3).getGroupMatches().get(1).getAwayTeamScore());
-
-    }
-
-    /**
-     * Updates all the goals
-     */
     public void updateGoals() {
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 11; j++) {
-                //Set goals for the round
-                round1teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round1teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round1teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round1teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-                round2teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round2teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round2teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round2teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-                round3teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round3teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round3teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round3teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-                round4teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round4teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round4teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round4teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-                round5teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round5teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round5teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round5teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-                round6teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(j).getHomeTeamScore());
-                round6teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(j).getAwayTeamScore());
-                round6teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getHomeTeamScore());
-                round6teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(j + 1).getAwayTeamScore());
-            }
-
-            //Remove labels already set to get ready to set next group
+            round1teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(0).getHomeTeamScore());
+            round1teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(0).getAwayTeamScore());
+            round1teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(1).getHomeTeamScore());
+            round1teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(1).getAwayTeamScore());
             round1teamGoalLabels.remove(0);
             round1teamGoalLabels.remove(0);
             round1teamGoalLabels.remove(0);
             round1teamGoalLabels.remove(0);
+            round2teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(2).getHomeTeamScore());
+            round2teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(2).getAwayTeamScore());
+            round2teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(3).getHomeTeamScore());
+            round2teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(3).getAwayTeamScore());
             round2teamGoalLabels.remove(0);
             round2teamGoalLabels.remove(0);
             round2teamGoalLabels.remove(0);
             round2teamGoalLabels.remove(0);
+            round3teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(4).getHomeTeamScore());
+            round3teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(4).getAwayTeamScore());
+            round3teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(5).getHomeTeamScore());
+            round3teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(5).getAwayTeamScore());
             round3teamGoalLabels.remove(0);
             round3teamGoalLabels.remove(0);
             round3teamGoalLabels.remove(0);
             round3teamGoalLabels.remove(0);
+            round4teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(6).getHomeTeamScore());
+            round4teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(6).getAwayTeamScore());
+            round4teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(7).getHomeTeamScore());
+            round4teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(7).getAwayTeamScore());
             round4teamGoalLabels.remove(0);
             round4teamGoalLabels.remove(0);
             round4teamGoalLabels.remove(0);
             round4teamGoalLabels.remove(0);
+            round5teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(8).getHomeTeamScore());
+            round5teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(8).getAwayTeamScore());
+            round5teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(9).getHomeTeamScore());
+            round5teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(9).getAwayTeamScore());
             round5teamGoalLabels.remove(0);
             round5teamGoalLabels.remove(0);
             round5teamGoalLabels.remove(0);
             round5teamGoalLabels.remove(0);
+            round6teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(10).getHomeTeamScore());
+            round6teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(10).getAwayTeamScore());
+            round6teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(11).getHomeTeamScore());
+            round6teamGoalLabels.get(3).setText("" + randomGroups.get(i).getGroupMatches().get(11).getAwayTeamScore());
             round6teamGoalLabels.remove(0);
             round6teamGoalLabels.remove(0);
             round6teamGoalLabels.remove(0);
             round6teamGoalLabels.remove(0);
         }
         addGoalLabels();
+
     }
 
     /**
@@ -1249,6 +1226,7 @@ public class PlayOffController implements Initializable {
 
             //Updates the group rankings.
             updateGroupRankings(group);
+            FileManager.getInstance().saveTeams(teamModel.getTeamsAsArrayList());
 
         } catch (IOException ioe) {
             System.out.println(ioe);

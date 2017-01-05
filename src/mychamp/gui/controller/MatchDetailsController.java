@@ -6,7 +6,6 @@
 package mychamp.gui.controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -54,7 +53,7 @@ public class MatchDetailsController implements Initializable {
     private Team awayTeam;
     
     ObservableList<Team> teamsToDelete;
-    
+
     private final TeamModel teamModel;
 
     public MatchDetailsController() {
@@ -71,6 +70,7 @@ public class MatchDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+
     /**
      * Set the Teams so it's possible to get the data.
      *
@@ -105,7 +105,7 @@ public class MatchDetailsController implements Initializable {
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
 //            poController.updateGoals();
-            poController.updateNewGoals();
+            poController.updateGoals();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ugyldige informationer");
@@ -173,7 +173,7 @@ public class MatchDetailsController implements Initializable {
         }
 
     }
-    
+
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
@@ -186,9 +186,9 @@ public class MatchDetailsController implements Initializable {
     private void handleDeleteHomeTeam(ActionEvent event) {
         Alert alert;
         alert = teamRemoveDialog(homeTeam);
-        
+
         Optional<ButtonType> result = alert.showAndWait();
-        
+
         if (result.get() == ButtonType.OK) {
             teamsToDelete.add(homeTeam);
             teamModel.deleteTeam(teamsToDelete);
@@ -197,14 +197,14 @@ public class MatchDetailsController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void handleDeleteAwayTeam(ActionEvent event) {
         Alert alert;
         alert = teamRemoveDialog(awayTeam);
-        
+
         Optional<ButtonType> result = alert.showAndWait();
-        
+
         if (result.get() == ButtonType.OK) {
             teamsToDelete.add(awayTeam);
             teamModel.deleteTeam(teamsToDelete);
