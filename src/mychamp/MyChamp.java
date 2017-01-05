@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mychamp.dal.DAOManager;
+import mychamp.gui.model.TeamModel;
 
 /**
  *
@@ -41,6 +43,8 @@ public class MyChamp extends Application {
 
         stage.setScene(scene);
         stage.show();
+        
+        loadSavedData();
     }
 
     /**
@@ -48,6 +52,19 @@ public class MyChamp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    /**
+     * If there is any previous data. Load it.
+     */
+    private void loadSavedData(){
+        DAOManager daoManager = DAOManager.getInstance();
+        TeamModel teamModel = TeamModel.getInstance();
+        
+        if(daoManager.isTeamsThere()){
+            teamModel.addNewListOfTeams(daoManager.getTeamsFromFile());
+        }
+        System.out.println("Main method calling");
     }
 
     /**

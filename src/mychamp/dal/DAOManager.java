@@ -5,10 +5,15 @@
  */
 package mychamp.dal;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mychamp.be.Team;
 
 /**
@@ -18,6 +23,8 @@ import mychamp.be.Team;
 public class DAOManager {
     
     public static DAOManager instance;
+    
+    private ArrayList<Team> savedTeams;
     
     public static DAOManager getInstance(){
         if(instance == null){
@@ -37,5 +44,27 @@ public class DAOManager {
         } catch (IOException ex) {
             System.out.println("Teams save Error " + ex);
         }
+    }
+    
+    /**
+     * Load "teams.data" and return it in an ArrayList.
+     * @return 
+     */
+    public ArrayList<Team> getTeamsFromFile(){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("teams.data"))){
+            savedTeams = (ArrayList<Team>) ois.readObject();
+            System.out.println("Loadedd songs!");
+        } catch (ClassNotFoundException | IOException ex) {
+            System.out.println("Teams read Error: " + ex);
+        }
+        return savedTeams;
+    }
+    
+    /**
+     * Checks if "teams.data" exits.
+     * @return 
+     */
+    public boolean isTeamsThere(){
+        return new File("teams.data").exists();        
     }
 }
