@@ -39,6 +39,7 @@ public class MatchDetailsController implements Initializable {
 
     private final int WINNER_POINTS = 3;
     private final int DRAW_POINTS = 1;
+    private final int MATCH_OVER = 1;
 
     private Stage stage;
 
@@ -133,14 +134,24 @@ public class MatchDetailsController implements Initializable {
         //Save the goals of the match to the match.
         match.setHomeTeamScore(homeScore);
         match.setAwayTeamScore(awayScore);
+        
+        //Save the amount of goals scored and taken for the teams.
+        homeTeam.setGoalsScored(homeScore);
+        homeTeam.setGoalsTaken(awayScore);
+        awayTeam.setGoalsScored(awayScore);
+        awayTeam.setGoalsTaken(homeScore);
 
         if (homeScore > awayScore) {
             homeTeam.setPoints(WINNER_POINTS);
+            homeTeam.setWins(MATCH_OVER);
+            awayTeam.setLosses(MATCH_OVER);
         } else if (homeScore == awayScore) {
             homeTeam.setPoints(DRAW_POINTS);
             awayTeam.setPoints(DRAW_POINTS);
         } else {
             awayTeam.setPoints(WINNER_POINTS);
+            awayTeam.setWins(MATCH_OVER);
+            homeTeam.setLosses(MATCH_OVER);
         }
 
     }

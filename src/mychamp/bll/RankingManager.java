@@ -6,6 +6,7 @@
 package mychamp.bll;
 
 import java.util.ArrayList;
+import java.util.Random;
 import mychamp.be.Team;
 
 /**
@@ -54,15 +55,34 @@ public class RankingManager {
                 if (i == teams.size()) { //Checks if it's the last in the list.
                     teams.add(teamToBeChecked);
                     i = teams.size();
-                } else if (teamToBeChecked.getPoints() < teams.get(i).getPoints()) { //Checks the points difference.
+                }else if(teamToBeChecked.getPoints() < teams.get(i).getPoints()){ //Checks if the points aren't equal.
                     teams.add(i + 1, teamToBeChecked);
-                } else if (teamToBeChecked.getGoalDifference() < teams.get(i).getGoalDifference()) { //Checks the goal difference.
-                    teams.add(i + 1, teamToBeChecked);
-                } else if(teamToBeChecked.getGoalsScored() < teams.get(i).getGoalsScored()){ //Checks the goalScored difference.
-                    teams.add(i + 1, teamToBeChecked);
-                }else if(teamToBeChecked.getWinLossRatio() < teams.get(i).getWinLossRatio()){ //Checks the mutual results.
-                    teams.add(i + 1, teamToBeChecked);
-                }else {
+                }else if(teamToBeChecked.getPoints() == teams.get(i).getPoints()){ //Checks if the points are equal.                    
+                    if(teamToBeChecked.getGoalDifference() < teams.get(i).getGoalDifference()){ //Checks if the goalDifference aren't equal.
+                        teams.add(i + 1, teamToBeChecked);
+                    }else if(teamToBeChecked.getGoalDifference() == teams.get(i).getGoalDifference()){ //Checks if the goalDifference is the same.
+                        if(teamToBeChecked.getGoalsScored() < teams.get(i).getGoalsScored()){ //Checks if the goalScored isn't equal.
+                            teams.add(i + 1, teamToBeChecked);
+                        }else if(teamToBeChecked.getGoalsScored() == teams.get(i).getGoalsScored()){ //Checks if the goalsScored is equal.
+                            if(teamToBeChecked.getWinLossRatio() < teams.get(i).getWinLossRatio()){ //Checks if the win/lose isn't equal.
+                                teams.add(i + 1, teamToBeChecked);
+                            }else if(teamToBeChecked.getWinLossRatio() == teams.get(i).getWinLossRatio()){ //Checks if the win/lose is equal.
+                                Random rand = new Random();
+                                if(rand.nextInt(2) == 0){
+                                    teams.add(i + 1, teamToBeChecked);
+                                }else{
+                                    teams.add(i, teamToBeChecked);
+                                }
+                            }else{
+                                teams.add(i, teamToBeChecked);
+                            }
+                        }else{
+                            teams.add(i, teamToBeChecked);
+                        }
+                    }else{
+                        teams.add(i, teamToBeChecked);
+                    }
+                }else{
                     teams.add(i, teamToBeChecked);
                 }
             }
@@ -70,8 +90,15 @@ public class RankingManager {
 
         //Testing purpose only. Shows the ranking in console TODO: Remove.
         for (Team team : teams) {
-            System.out.println(team.getPoints() + "");
+            System.out.println( 
+                    + team.getPoints() + " : " 
+                    + team.getGoalDifference() + " : " 
+                    + team.getGoalsScored() + " : " 
+                    + team.getWinLossRatio() + " : " 
+                    + team.getGoalsTaken() + " : "
+                    + team.getTeamName());
         }
+        System.out.println("------------------------------");
 
         return teams;
     }
