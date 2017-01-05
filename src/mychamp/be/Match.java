@@ -23,6 +23,8 @@ public class Match {
 
     private Team winnerTeam;
 
+    private boolean isPlayed;
+
     private final IDCreator getNewID = IDCreator.getInstance();
 
     public Match(String LOCATION, Team home, Team away) {
@@ -30,6 +32,7 @@ public class Match {
         this.LOCATION = LOCATION;
         homeTeam = home;
         awayTeam = away;
+        isPlayed = false;
     }
 
     public Team getHomeTeam() {
@@ -70,6 +73,14 @@ public class Match {
 
     public void setWinnerTeam(Team winnerTeam) {
         this.winnerTeam = winnerTeam;
+    }
+
+    public void setIsPlayed() {
+        this.isPlayed = true;
+    }
+
+    public boolean isPlayed() {
+        return isPlayed;
     }
 
 }

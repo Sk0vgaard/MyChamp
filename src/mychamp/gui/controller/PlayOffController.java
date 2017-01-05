@@ -25,7 +25,6 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
-import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
 
 /**
@@ -552,6 +551,10 @@ public class PlayOffController implements Initializable {
 
     private Stage primStage;
 
+    private FinalsController fController = FinalsController.getInstance();
+
+    private GroupModel groupModel = GroupModel.getInstance();
+
     private final ArrayList<Label> round1teamNameLabels = new ArrayList();
     private final ArrayList<Label> round2teamNameLabels = new ArrayList();
     private final ArrayList<Label> round3teamNameLabels = new ArrayList();
@@ -593,7 +596,10 @@ public class PlayOffController implements Initializable {
      */
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
-        goToView("FinalsView");
+        if (groupModel.isGroupPlayOver()) {
+            fController.setQuarterFinals(groupModel.getQuarterMatches());
+            goToView("FinalsView");
+        }
     }
 
     @FXML
@@ -1234,30 +1240,30 @@ public class PlayOffController implements Initializable {
      * @param group
      */
     private void updateGroupRankings(int group) {
-        ArrayList<Team> teamsToRank = RankingManager.getInstance().sortTeamRankingOrder(group);
+        ArrayList<Team> rankedTeams = groupModel.getRankings(group);
 
         switch (group) {
             case 0: {
-                for (int i = 0; i < teamsToRank.size(); i++) {
-                    rankingsGroupA.get(i).setText(teamsToRank.get(i).getTeamName());
+                for (int i = 0; i < rankedTeams.size(); i++) {
+                    rankingsGroupA.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 1: {
-                for (int i = 0; i < teamsToRank.size(); i++) {
-                    rankingsGroupB.get(i).setText(teamsToRank.get(i).getTeamName());
+                for (int i = 0; i < rankedTeams.size(); i++) {
+                    rankingsGroupB.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 2: {
-                for (int i = 0; i < teamsToRank.size(); i++) {
-                    rankingsGroupC.get(i).setText(teamsToRank.get(i).getTeamName());
+                for (int i = 0; i < rankedTeams.size(); i++) {
+                    rankingsGroupC.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 3: {
-                for (int i = 0; i < teamsToRank.size(); i++) {
-                    rankingsGroupD.get(i).setText(teamsToRank.get(i).getTeamName());
+                for (int i = 0; i < rankedTeams.size(); i++) {
+                    rankingsGroupD.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }

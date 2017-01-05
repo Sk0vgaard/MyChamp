@@ -104,7 +104,7 @@ public class MatchDetailsController implements Initializable {
             givePointsToWinner();
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
-//            poController.updateGoals();
+            match.setIsPlayed();
             poController.updateGoals();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

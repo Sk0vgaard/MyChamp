@@ -62,29 +62,29 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamA1" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamB2" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamA2" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamB1" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamC1" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamD2" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamC2" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamD1" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
                </children>
             </Pane>

@@ -7,17 +7,26 @@ package mychamp.gui.model;
 
 import java.util.ArrayList;
 import mychamp.be.Group;
+import mychamp.be.Match;
+import mychamp.be.Team;
 import mychamp.bll.GroupManager;
+import mychamp.bll.RankingManager;
 
 public class GroupModel {
 
     private ArrayList<Group> randomGroups;
 
+    private ArrayList<Match> quarterMatches;
+
     private static GroupModel instance;
 
-    private GroupManager groupManager;
+    private GroupManager groupManager = GroupManager.getInstance();
 
     private final TeamModel teamModel = TeamModel.getInstance();
+
+    private final RankingManager rankingManager = RankingManager.getInstance();
+
+    private boolean groupPlayOver;
 
     public static GroupModel getInstance() {
         if (instance == null) {
@@ -28,6 +37,8 @@ public class GroupModel {
 
     private GroupModel() {
         randomGroups = new ArrayList<>();
+        quarterMatches = new ArrayList<>();
+        groupPlayOver = false;
     }
 
     /**
@@ -42,8 +53,37 @@ public class GroupModel {
      * Sends a request to the GroupManager for new random teams
      */
     public void createRandomGroups() {
-        groupManager = GroupManager.getInstance(teamModel.getTeamsAsArrayList());
+        groupManager.setTeamIDS(teamModel.getTeamsAsArrayList());
         randomGroups = groupManager.getNewRandomGroups();
+    }
+
+    /**
+     *
+     * @return state of group plays
+     */
+    public boolean isGroupPlayOver() {
+        groupPlayOver = groupManager.checkIfGroupPlayIsOver(randomGroups);
+        if (groupPlayOver) {
+            quarterMatches = groupManager.getQuarterFinalMatches();
+        }
+        return groupPlayOver;
+    }
+
+    /**
+     *
+     * @param group
+     * @return group rankings
+     */
+    public ArrayList<Team> getRankings(int group) {
+        return rankingManager.sortTeamRankingOrder(group);
+    }
+
+    /**
+     *
+     * @return Matches for the quarter final
+     */
+    public ArrayList<Match> getQuarterMatches() {
+        return quarterMatches;
     }
 
 }
