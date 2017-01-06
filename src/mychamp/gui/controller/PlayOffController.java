@@ -466,8 +466,6 @@ public class PlayOffController implements Initializable {
     @FXML
     private Label lblRound6GroupCGoals1;
     @FXML
-    private Label lblRound5GroupCWinner11;
-    @FXML
     private Label lblRound6GroupCTeam2;
     @FXML
     private Label lblRound6GroupCGoals2;
@@ -475,8 +473,6 @@ public class PlayOffController implements Initializable {
     private Label lblRound6GroupCTeam3;
     @FXML
     private Label lblRound6GroupCGoals3;
-    @FXML
-    private Label lblRound5GroupCWinner21;
     @FXML
     private Label lblRound6GroupCTeam4;
     @FXML
@@ -543,6 +539,12 @@ public class PlayOffController implements Initializable {
     private Label lblGroupDTeam3;
     @FXML
     private Label lblGroupDTeam4;
+    @FXML
+    private Label lblRound6GroupCWinner1;
+    @FXML
+    private Label lblRound6GroupCWinner2;
+
+    private ArrayList<Label> winnerLabels = new ArrayList<>();
 
     private ArrayList<Group> randomGroups;
 
@@ -550,7 +552,11 @@ public class PlayOffController implements Initializable {
 
     private FinalsController fController;
 
-    private GroupModel groupModel = GroupModel.getInstance();
+    private static final String WINNER_TEAM_TEXT = "Vinder: ";
+
+    private static final String WINNER_DRAW_TEXT = "Uafgjort";
+
+    private final GroupModel groupModel = GroupModel.getInstance();
 
     private final ArrayList<Label> round1teamNameLabels = new ArrayList();
     private final ArrayList<Label> round2teamNameLabels = new ArrayList();
@@ -578,6 +584,8 @@ public class PlayOffController implements Initializable {
     public static PlayOffController getInstance() {
         return instance;
     }
+    @FXML
+    private Label lblRound2GroupDWinner2;
 
     /**
      * Initializes the controller class.
@@ -1204,7 +1212,7 @@ public class PlayOffController implements Initializable {
      * @param match
      * @throws IOException
      */
-    private void MatchClicked(int group, int match) throws IOException {
+    private void MatchClicked(int group, int match, Label winnerLabel) throws IOException {
         try {
             //Grab hold of the curret stage.
             primStage = (Stage) lblRound1GroupATeam1.getScene().getWindow();
@@ -1227,6 +1235,13 @@ public class PlayOffController implements Initializable {
 
             //Shows the modal and waits for it to close before continuing reading the code.
             editStage.showAndWait();
+
+            //Set the winner of the match
+            if (matchToSend.getWinnerTeam() != null) {
+                winnerLabel.setText(WINNER_TEAM_TEXT + matchToSend.getWinnerTeam().getTeamName());
+            } else {
+                winnerLabel.setText(WINNER_DRAW_TEXT);
+            }
 
             //Updates the group rankings.
             updateGroupRankings(group);
@@ -1293,148 +1308,148 @@ public class PlayOffController implements Initializable {
             //Send the clicked button to MatchClicked method to open information with info about the clicked match
             switch (buttonId) {
                 case "00":
-                    MatchClicked(0, 0);
+                    MatchClicked(0, 0, lblRound1GroupAWinner1);
                     break;
                 case "01":
-                    MatchClicked(0, 1);
+                    MatchClicked(0, 1, lblRound1GroupAWinner2);
                     break;
                 case "02":
-                    MatchClicked(1, 0);
+                    MatchClicked(1, 0, lblRound1GroupBWinner1);
                     break;
                 case "03":
-                    MatchClicked(1, 1);
+                    MatchClicked(1, 1, lblRound1GroupBWinner2);
                     break;
                 case "04":
-                    MatchClicked(2, 0);
+                    MatchClicked(2, 0, lblRound1GroupCWinner1);
                     break;
                 case "05":
-                    MatchClicked(2, 1);
+                    MatchClicked(2, 1, lblRound1GroupCWinner2);
                     break;
                 case "06":
-                    MatchClicked(3, 0);
+                    MatchClicked(3, 0, lblRound1GroupDWinner1);
                     break;
                 case "07":
-                    MatchClicked(3, 1);
+                    MatchClicked(3, 1, lblRound1GroupDWinner2);
                     break;
                 case "10":
-                    MatchClicked(0, 2);
+                    MatchClicked(0, 2, lblRound2GroupAWinner1);
                     break;
                 case "11":
-                    MatchClicked(0, 3);
+                    MatchClicked(0, 3, lblRound2GroupAWinner2);
                     break;
                 case "12":
-                    MatchClicked(1, 2);
+                    MatchClicked(1, 2, lblRound2GroupBWinner1);
                     break;
                 case "13":
-                    MatchClicked(1, 3);
+                    MatchClicked(1, 3, lblRound2GroupBWinner2);
                     break;
                 case "14":
-                    MatchClicked(2, 2);
+                    MatchClicked(2, 2, lblRound2GroupCWinner1);
                     break;
                 case "15":
-                    MatchClicked(2, 3);
+                    MatchClicked(2, 3, lblRound2GroupCWinner2);
                     break;
                 case "16":
-                    MatchClicked(3, 2);
+                    MatchClicked(3, 2, lblRound2GroupDWinner1);
                     break;
                 case "17":
-                    MatchClicked(3, 3);
+                    MatchClicked(3, 3, lblRound2GroupDWinner2);
                     break;
                 case "20":
-                    MatchClicked(0, 4);
+                    MatchClicked(0, 4, lblRound3GroupAWinner1);
                     break;
                 case "21":
-                    MatchClicked(0, 5);
+                    MatchClicked(0, 5, lblRound3GroupAWinner2);
                     break;
                 case "22":
-                    MatchClicked(1, 4);
+                    MatchClicked(1, 4, lblRound3GroupBWinner1);
                     break;
                 case "23":
-                    MatchClicked(1, 5);
+                    MatchClicked(1, 5, lblRound3GroupBWinner2);
                     break;
                 case "24":
-                    MatchClicked(2, 4);
+                    MatchClicked(2, 4, lblRound3GroupCWinner1);
                     break;
                 case "25":
-                    MatchClicked(2, 5);
+                    MatchClicked(2, 5, lblRound3GroupCWinner2);
                     break;
                 case "26":
-                    MatchClicked(3, 4);
+                    MatchClicked(3, 4, lblRound3GroupDWinner1);
                     break;
                 case "27":
-                    MatchClicked(3, 5);
+                    MatchClicked(3, 5, lblRound3GroupDWinner2);
                     break;
                 case "30":
-                    MatchClicked(0, 6);
+                    MatchClicked(0, 6, lblRound4GroupAWinner1);
                     break;
                 case "31":
-                    MatchClicked(0, 7);
+                    MatchClicked(0, 7, lblRound4GroupAWinner2);
                     break;
                 case "32":
-                    MatchClicked(1, 6);
+                    MatchClicked(1, 6, lblRound4GroupBWinner1);
                     break;
                 case "33":
-                    MatchClicked(1, 7);
+                    MatchClicked(1, 7, lblRound4GroupBWinner2);
                     break;
                 case "34":
-                    MatchClicked(2, 6);
+                    MatchClicked(2, 6, lblRound4GroupCWinner1);
                     break;
                 case "35":
-                    MatchClicked(2, 7);
+                    MatchClicked(2, 7, lblRound4GroupCWinner2);
                     break;
                 case "36":
-                    MatchClicked(3, 6);
+                    MatchClicked(3, 6, lblRound4GroupDWinner1);
                     break;
                 case "37":
-                    MatchClicked(3, 7);
+                    MatchClicked(3, 7, lblRound4GroupDWinner2);
                     break;
                 case "40":
-                    MatchClicked(0, 8);
+                    MatchClicked(0, 8, lblRound5GroupAWinner1);
                     break;
                 case "41":
-                    MatchClicked(0, 9);
+                    MatchClicked(0, 9, lblRound5GroupAWinner2);
                     break;
                 case "42":
-                    MatchClicked(1, 8);
+                    MatchClicked(1, 8, lblRound5GroupBWinner1);
                     break;
                 case "43":
-                    MatchClicked(1, 9);
+                    MatchClicked(1, 9, lblRound5GroupBWinner2);
                     break;
                 case "44":
-                    MatchClicked(2, 8);
+                    MatchClicked(2, 8, lblRound5GroupCWinner1);
                     break;
                 case "45":
-                    MatchClicked(2, 9);
+                    MatchClicked(2, 9, lblRound5GroupCWinner2);
                     break;
                 case "46":
-                    MatchClicked(3, 8);
+                    MatchClicked(3, 8, lblRound5GroupDWinner1);
                     break;
                 case "47":
-                    MatchClicked(3, 9);
+                    MatchClicked(3, 9, lblRound5GroupDWinner2);
                     break;
                 case "50":
-                    MatchClicked(0, 10);
+                    MatchClicked(0, 10, lblRound6GroupAWinner1);
                     break;
                 case "51":
-                    MatchClicked(0, 11);
+                    MatchClicked(0, 11, lblRound6GroupAWinner2);
                     break;
                 case "52":
-                    MatchClicked(1, 10);
+                    MatchClicked(1, 10, lblRound6GroupBWinner1);
                     break;
                 case "53":
-                    MatchClicked(1, 11);
+                    MatchClicked(1, 11, lblRound6GroupBWinner2);
                     break;
                 case "54":
-                    MatchClicked(2, 10);
+                    MatchClicked(2, 10, lblRound6GroupCWinner1);
                     break;
                 case "55":
-                    MatchClicked(2, 11);
+                    MatchClicked(2, 11, lblRound6GroupCWinner2);
                     break;
                 case "56":
-                    MatchClicked(3, 10);
+                    MatchClicked(3, 10, lblRound6GroupDWinner1);
                     break;
                 case "57":
-                    MatchClicked(3, 11);
+                    MatchClicked(3, 11, lblRound6GroupDWinner2);
                     break;
                 default:
                     System.out.println("WTF?");
@@ -1487,7 +1502,6 @@ public class PlayOffController implements Initializable {
         Group groupToSend = gModel.getGroups().get(group);
 
         //Loads the modals controller to send match.
-        GroupScheduleController gsController = GroupScheduleController.getInstance();
-        gsController.setGroup(groupToSend);
+        GroupScheduleController.getInstance().setGroup(groupToSend);
     }
 }

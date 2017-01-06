@@ -162,6 +162,7 @@ public class MatchDetailsController implements Initializable {
             homeTeam.setPoints(WINNER_POINTS);
             homeTeam.setWins(MATCH_OVER);
             awayTeam.setLosses(MATCH_OVER);
+            match.setWinnerTeam(homeTeam);
         } else if (homeScore == awayScore) {
             homeTeam.setPoints(DRAW_POINTS);
             awayTeam.setPoints(DRAW_POINTS);
@@ -169,6 +170,7 @@ public class MatchDetailsController implements Initializable {
             awayTeam.setPoints(WINNER_POINTS);
             awayTeam.setWins(MATCH_OVER);
             homeTeam.setLosses(MATCH_OVER);
+            match.setWinnerTeam(awayTeam);
         }
 
     }
