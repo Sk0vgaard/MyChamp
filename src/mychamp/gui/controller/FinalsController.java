@@ -11,9 +11,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import mychamp.MyChamp;
 import mychamp.be.Match;
 import mychamp.be.Team;
@@ -83,6 +88,26 @@ public class FinalsController implements Initializable {
     @FXML
     private Label lblFinalGoal2;
     @FXML
+    private Label lblQuarterGoalC2;
+    @FXML
+    private Label lblQuarterGoalD1;
+    @FXML
+    private Label lblQuarterWinner1;
+    @FXML
+    private Label lblQuarterWinner2;
+    @FXML
+    private Label lblQuarterWinner3;
+    @FXML
+    private Label lblQuarterWinner4;
+    @FXML
+    private Label lblSemiWinner1;
+    @FXML
+    private Label lblSemiWinner2;
+    @FXML
+    private Label lblWinner;
+    @FXML
+    private Button btnBack;
+    @FXML
     private Label lblRank1;
     @FXML
     private Label lblRank2;
@@ -117,9 +142,9 @@ public class FinalsController implements Initializable {
 
     private static FinalsController instance;
 
-    private TeamModel teamModel = TeamModel.getInstance();
+    private final TeamModel teamModel = TeamModel.getInstance();
 
-    private GroupModel groupModel = GroupModel.getInstance();
+    private final GroupModel groupModel = GroupModel.getInstance();
 
     private ArrayList<Match> quarterFinalMatches;
     
@@ -127,16 +152,39 @@ public class FinalsController implements Initializable {
     
     private final ArrayList<Label> last8Labels = new ArrayList<>();
 
+    private final ArrayList<Match> semiFinalMatches;
+
+    private final ArrayList<Match> finalMatches;
+
+    private final ArrayList<ArrayList<Match>> allMatches;
+
+    private final Team mockTeam;
+
+    private final Match semiMatch1;
+
+    private final Match semiMatch2;
+
+    private final Match finalMatch;
+
+    private Stage primStage;
+
     public static FinalsController getInstance() {
         return instance;
     }
-    @FXML
-    private Label lblQuarterGoalC2;
-    @FXML
-    private Label lblQuarterGoalD1;
-    @FXML
-    private Button btnBack;
     
+
+    public FinalsController() {
+        mockTeam = new Team("", "", "");
+        semiFinalMatches = new ArrayList<>();
+        finalMatches = new ArrayList<>();
+        allMatches = new ArrayList<>();
+        semiMatch1 = new Match("", mockTeam, mockTeam);
+        semiMatch2 = new Match("", mockTeam, mockTeam);
+        semiFinalMatches.add(semiMatch1);
+        semiFinalMatches.add(semiMatch2);
+        finalMatch = new Match(null, mockTeam, mockTeam);
+        finalMatches.add(finalMatch);
+    }
 
     /**
      * Initializes the controller class.
@@ -205,6 +253,9 @@ public class FinalsController implements Initializable {
     public void setQuarterFinals(ArrayList<Match> quarterFinalMatches) {
         this.quarterFinalMatches = quarterFinalMatches;
         updateQuarterFinals();
+        allMatches.add(quarterFinalMatches);
+        allMatches.add(semiFinalMatches);
+        allMatches.add(finalMatches);
     }
 
     /**
@@ -233,14 +284,124 @@ public class FinalsController implements Initializable {
         MyChamp.switchScene(view);
     }
 
+    /**
+     * Opens the match details window
+     */
+    private void matchClicked(int stage, int match, Label winnerLabel) {
+        try {
+            //Grab hold of the curret stage.
+            primStage = (Stage) lblQuarterGoalA1.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/MatchDetailsView.fxml"));
+            Parent root = loader.load();
+            Stage editStage = new Stage();
+            editStage.setScene(new Scene(root));
+
+            //Create new modal window from the FXMLLoader.
+            editStage.initModality(Modality.WINDOW_MODAL);
+            editStage.initOwner(primStage);
+
+            //Finds the match that has been clicked on
+            Match matchToSend = quarterFinalMatches.get(0);
+
+            //Loads the modals controller to send match.
+            MatchDetailsController mdController = loader.getController();
+            mdController.setCurrentMatch(matchToSend);
+
+            //Shows the modal and waits for it to close before continuing reading the code.
+            editStage.showAndWait();
+
+            //Update goal information
+            updateQuarterFinals();
+
+            //Set the winner of the match
+            if (matchToSend.getWinnerTeam() != null) {
+                winnerLabel.setText(PlayOffController.WINNER_TEAM_TEXT + matchToSend.getWinnerTeam().getTeamName());
+            } else {
+                winnerLabel.setText(PlayOffController.WINNER_DRAW_TEXT);
+            }
+
+            //Advance the winner
+            switch (match) {
+                case 0:
+                    lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblSemiGoal1.setText("" + matchToSend.getHomeTeamScore());
+                    semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    break;
+                case 1:
+                    lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblSemiGoal2.setText("" + matchToSend.getHomeTeamScore());
+                    semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    break;
+                case 2:
+                    lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblSemiGoal3.setText("" + matchToSend.getHomeTeamScore());
+                    semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
+                    break;
+                case 3:
+                    lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblSemiGoal4.setText("" + matchToSend.getHomeTeamScore());
+                    semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
+                    break;
+                case 4:
+                    lblFinalTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblFinalGoal1.setText("" + matchToSend.getHomeTeamScore());
+                    finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    break;
+                case 5:
+                    lblFinalTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
+                    lblFinalGoal2.setText("" + matchToSend.getHomeTeamScore());
+                    finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    break;
+                default:
+                    System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
+            }
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }
+    }
+
+    /**
+     * Handle the match clicked
+     *
+     * @param event
+     */
     @FXML
-    private void handleMatchClick(ActionEvent event) {
+    private void handleMatchClick(ActionEvent event
+    ) {
         Button clickedButton = (Button) event.getSource();
-        System.out.println("You clicked button " + clickedButton.getId());
+
+        String buttonId = clickedButton.getId();
+
+        switch (buttonId) {
+            case "11":
+                matchClicked(0, 0, lblQuarterWinner1);
+                break;
+            case "13":
+                matchClicked(0, 1, lblQuarterWinner2);
+                break;
+            case "15":
+                matchClicked(0, 2, lblQuarterWinner3);
+                break;
+            case "17":
+                matchClicked(0, 3, lblQuarterWinner4);
+                break;
+            case "33":
+                matchClicked(1, 0, lblSemiWinner1);
+                break;
+            case "35":
+                matchClicked(1, 1, lblSemiWinner2);
+                break;
+            case "54":
+                matchClicked(2, 0, lblWinner);
+                break;
+            default:
+                System.out.println("WTF!?");
+                break;
+        }
     }
 
     @FXML
-    private void handleBackToMenu(ActionEvent event) throws IOException{
+    private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
     }    
     
