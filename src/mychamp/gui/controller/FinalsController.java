@@ -336,4 +336,9 @@ public class FinalsController implements Initializable {
                 break;
         }
     }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException {
+        goToView("MenuView");
+    }
 }

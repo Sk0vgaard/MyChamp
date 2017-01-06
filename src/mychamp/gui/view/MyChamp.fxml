@@ -58,5 +58,6 @@
       </Pane>
       <JFXButton layoutX="406.0" layoutY="459.0" onAction="#handleStartTournament" prefHeight="78.0" prefWidth="153.0" text="START TURNERING" />
       <Separator layoutX="-3.0" layoutY="150.0" prefHeight="3.0" prefWidth="717.0" />
+      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="2.0" onAction="#handleBackToMenu" text="Tilbage" />
    </children>
 </AnchorPane>

@@ -80,18 +80,57 @@ public class RankingManager {
             }
         }
 
-        //Testing purpose only. Shows the ranking in console TODO: Remove.
-        for (Team team : teams) {
-            System.out.println(
-                    +team.getPoints() + " : "
-                    + team.getGoalDifference() + " : "
-                    + team.getGoalsScored() + " : "
-                    + team.getWinLossRatio() + " : "
-                    + team.getGoalsTaken() + " : "
-                    + team.getTeamName());
-        }
-        System.out.println("------------------------------");
+//        //Testing purpose only. Shows the ranking in console TODO: Remove.
+//        for (Team team : teams) {
+//            System.out.println(
+//                    +team.getPoints() + " : "
+//                    + team.getGoalDifference() + " : "
+//                    + team.getGoalsScored() + " : "
+//                    + team.getWinLossRatio() + " : "
+//                    + team.getGoalsTaken() + " : "
+//                    + team.getTeamName());
+//        }
+//        System.out.println("------------------------------");
 
         return teams;
+    }
+    
+    /**
+     * Compares to teams against each other, to see which one has the higher ranking.
+     * @param firstTeam to compare
+     * @param secondTeam to compare
+     * @return the higesht ranked team of the two teams.
+     */
+    public Team rankTwoTeamsAgainstEachOther(Team firstTeam, Team secondTeam){
+        if(firstTeam.getPoints() < secondTeam.getPoints()){
+            return secondTeam;
+        }else if(firstTeam.getPoints() == secondTeam.getPoints()){
+            if(firstTeam.getGoalDifference() < secondTeam.getGoalDifference()){
+                return secondTeam;
+            }else if(firstTeam.getGoalDifference() == secondTeam.getGoalDifference()){
+                if(firstTeam.getGoalsScored() < secondTeam.getGoalsScored()){
+                    return secondTeam;
+                }else if(firstTeam.getGoalsScored() == secondTeam.getGoalsScored()){
+                    if(firstTeam.getWinLossRatio() < secondTeam.getWinLossRatio()){
+                        return secondTeam;
+                    }else if(firstTeam.getWinLossRatio() == secondTeam.getWinLossRatio()){
+                        Random rand = new Random();
+                        if(rand.nextInt(2) == 0){
+                            return secondTeam;
+                        }else{
+                            return firstTeam;
+                        }
+                    }else{
+                        return firstTeam;
+                    }
+                }else{
+                    return firstTeam;
+                }
+            }else{
+                return firstTeam;
+            }
+        }else{
+            return firstTeam;
+        }
     }
 }
