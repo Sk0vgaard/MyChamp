@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -20,11 +19,6 @@ import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
 
-/**
- * FXML Controller class
- *
- * @author Rasmus
- */
 public class TeamScheduleController implements Initializable {
 
     @FXML
@@ -93,10 +87,10 @@ public class TeamScheduleController implements Initializable {
     private Label lblTeamPlacement;
     @FXML
     private ComboBox<String> comboTeamName;
-    
+
     ArrayList<Team> listOfTeams;
     ArrayList<String> listOfTeamNames;
-    
+
     private final TeamModel teamModel;
 
     public TeamScheduleController() {
@@ -112,8 +106,8 @@ public class TeamScheduleController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         listOfTeams.addAll(teamModel.getTeams());
         initializeTeamNames();
-    }    
-    
+    }
+
     private void initializeTeamNames() {
         for (Team team : listOfTeams) {
             String teamToAdd;
@@ -127,7 +121,7 @@ public class TeamScheduleController implements Initializable {
     private void handleBackButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
     }
-    
+
     /**
      * Goes to the view that is parsed.
      *
@@ -143,5 +137,5 @@ public class TeamScheduleController implements Initializable {
         String test = comboTeamName.getValue();
         System.out.println(test);
     }
-    
+
 }

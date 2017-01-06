@@ -9,44 +9,43 @@ import java.util.ArrayList;
 import mychamp.be.Team;
 import mychamp.dal.DAOManager;
 
-/**
- *
- * @author Rasmus
- */
 public class FileManager {
-    
+
     public static FileManager instance;
-    
+
     private DAOManager daoManager = DAOManager.getInstance();
-    
-    public static FileManager getInstance(){
-        if(instance == null){
+
+    public static FileManager getInstance() {
+        if (instance == null) {
             instance = new FileManager();
         }
         return instance;
     }
-    
+
     /**
      * Calls the data acces layer to save the songs.
-     * @param teams 
+     *
+     * @param teams
      */
-    public void saveTeams(ArrayList<Team> teams){
+    public void saveTeams(ArrayList<Team> teams) {
         daoManager.saveTeams(teams);
     }
-    
+
     /**
      * Calls the data acces layer and loads the saved teams.
-     * @return 
+     *
+     * @return
      */
-    public ArrayList<Team> getTeamsFromFile(){
+    public ArrayList<Team> getTeamsFromFile() {
         return daoManager.getTeamsFromFile();
     }
-    
+
     /**
      * Checks if the file is there.
-     * @return 
+     *
+     * @return
      */
-    public boolean isTeamsThere(){
+    public boolean isTeamsThere() {
         return daoManager.isTeamsThere();
     }
 }

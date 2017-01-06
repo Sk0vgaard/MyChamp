@@ -29,11 +29,6 @@ import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
-/**
- * FXML Controller class
- *
- * @author Rasmus
- */
 public class PlayOffController implements Initializable {
 
     @FXML
