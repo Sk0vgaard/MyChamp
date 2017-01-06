@@ -16,22 +16,22 @@
       <Button layoutX="1070.0" layoutY="748.0" mnemonicParsing="false" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" text="Play Off" />
       <VBox layoutX="1070.0" layoutY="65.0" prefHeight="656.0" prefWidth="223.0">
          <children>
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team5&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team6&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team7&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team8&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team9&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team10&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team11&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team12&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team13&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team14&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team15&gt;" />
-            <Label alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team16&gt;" />
+            <Label fx:id="lblRank1" alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
+            <Label fx:id="lblRank2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
+            <Label fx:id="lblRank3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
+            <Label fx:id="lblRank4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
+            <Label fx:id="lblRank5" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team5&gt;" />
+            <Label fx:id="lblRank6" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team6&gt;" />
+            <Label fx:id="lblRank7" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team7&gt;" />
+            <Label fx:id="lblRank8" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team8&gt;" />
+            <Label fx:id="lblRank9" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team9&gt;" />
+            <Label fx:id="lblRank10" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team10&gt;" />
+            <Label fx:id="lblRank11" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team11&gt;" />
+            <Label fx:id="lblRank12" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team12&gt;" />
+            <Label fx:id="lblRank13" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team13&gt;" />
+            <Label fx:id="lblRank14" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team14&gt;" />
+            <Label fx:id="lblRank15" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team15&gt;" />
+            <Label fx:id="lblRank16" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team16&gt;" />
          </children>
       </VBox>
       <Label fx:id="lblRankings" layoutX="1137.0" layoutY="35.0" text="Rangliste">

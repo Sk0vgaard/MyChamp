@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import mychamp.MyChamp;
 import mychamp.be.Match;
+import mychamp.be.Team;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -81,6 +82,38 @@ public class FinalsController implements Initializable {
     private Label lblFinalGoal1;
     @FXML
     private Label lblFinalGoal2;
+    @FXML
+    private Label lblRank1;
+    @FXML
+    private Label lblRank2;
+    @FXML
+    private Label lblRank3;
+    @FXML
+    private Label lblRank4;
+    @FXML
+    private Label lblRank5;
+    @FXML
+    private Label lblRank6;
+    @FXML
+    private Label lblRank7;
+    @FXML
+    private Label lblRank8;
+    @FXML
+    private Label lblRank9;
+    @FXML
+    private Label lblRank10;
+    @FXML
+    private Label lblRank11;
+    @FXML
+    private Label lblRank12;
+    @FXML
+    private Label lblRank13;
+    @FXML
+    private Label lblRank14;
+    @FXML
+    private Label lblRank15;
+    @FXML
+    private Label lblRank16;
 
     private static FinalsController instance;
 
@@ -89,6 +122,10 @@ public class FinalsController implements Initializable {
     private GroupModel groupModel = GroupModel.getInstance();
 
     private ArrayList<Match> quarterFinalMatches;
+    
+    private final ArrayList<Label> top8Labels = new ArrayList<>();
+    
+    private final ArrayList<Label> last8Labels = new ArrayList<>();
 
     public static FinalsController getInstance() {
         return instance;
@@ -99,6 +136,7 @@ public class FinalsController implements Initializable {
     private Label lblQuarterGoalD1;
     @FXML
     private Button btnBack;
+    
 
     /**
      * Initializes the controller class.
@@ -106,7 +144,31 @@ public class FinalsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
-        // TODO
+        addLabelsToArrayList();
+    }
+    
+    /**
+     * Add labels to arrays.
+     */
+    private void addLabelsToArrayList(){
+        //Add labels to top8Labels.
+        top8Labels.add(lblRank1);
+        top8Labels.add(lblRank2);
+        top8Labels.add(lblRank3);
+        top8Labels.add(lblRank4);
+        top8Labels.add(lblRank5);
+        top8Labels.add(lblRank6);
+        top8Labels.add(lblRank7);
+        top8Labels.add(lblRank8);
+        //Add labels to last8Labels.
+        last8Labels.add(lblRank9);
+        last8Labels.add(lblRank10);
+        last8Labels.add(lblRank11);
+        last8Labels.add(lblRank12);
+        last8Labels.add(lblRank13);
+        last8Labels.add(lblRank14);
+        last8Labels.add(lblRank15);
+        last8Labels.add(lblRank16);
     }
 
     /**
@@ -180,5 +242,15 @@ public class FinalsController implements Initializable {
     @FXML
     private void handleBackToMenu(ActionEvent event) throws IOException{
         goToView("MenuView");
+    }    
+    
+    /**
+     * Set the names of the 8 baddest teams. 
+     */
+    public void setLast8RankNames(){
+        ArrayList<Team> teams = teamModel.getSortedUnqualifiedTeams();
+        for(int i = 0; i < teams.size(); i++){
+            last8Labels.get(i).setText(teams.get(i).getTeamName());
+        }
     }
 }

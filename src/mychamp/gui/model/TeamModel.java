@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import mychamp.be.MockData;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
+import mychamp.bll.GroupManager;
 
 public class TeamModel {
 
@@ -25,6 +26,8 @@ public class TeamModel {
     private static TeamModel instance;
 
     private final FileManager fileManager = FileManager.getInstance();
+    
+    private final GroupManager groupManager = GroupManager.getInstance();
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
@@ -139,7 +142,6 @@ public class TeamModel {
      */
     public void saveTeamsToFile() {
         fileManager.saveTeams(getTeamsAsArrayList());
-        System.out.println("Teams saved");
     }
 
     /**
@@ -156,5 +158,13 @@ public class TeamModel {
             System.out.println("Could not find \"teams.data\"...");
         }
         return loadedTeams;
+    }
+    
+    /**
+     * Get the unqualified teams sorted after rankings.
+     * @return 
+     */
+    public ArrayList<Team> getSortedUnqualifiedTeams(){
+        return groupManager.getSortedUnqualifiedTeams();
     }
 }

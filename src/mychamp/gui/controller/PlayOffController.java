@@ -607,6 +607,7 @@ public class PlayOffController implements Initializable {
             goToView("FinalsView");
             fController = FinalsController.getInstance();
             fController.setQuarterFinals(groupModel.getQuarterMatches());
+            fController.setLast8RankNames();
         } else {
             System.out.println("We're not done yet!");
         }
