@@ -6,6 +6,8 @@
 package mychamp.bll;
 
 import java.util.ArrayList;
+import mychamp.be.Group;
+import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.dal.DAOManager;
 
@@ -41,11 +43,37 @@ public class FileManager {
     }
 
     /**
-     * Checks if the file is there.
-     *
+     * Checks if the file "teams.data" is there.
      * @return
      */
     public boolean isTeamsThere() {
         return daoManager.isTeamsThere();
+    }
+    
+    /**
+     * Save the parsed ArrayList to "groups.data".
+     * @param groups 
+     * @param fileName 
+     */
+    public void saveGroups(ArrayList<Group> groups, String fileName){
+        daoManager.saveGroups(groups, fileName);
+    }
+    
+    /**
+     * Calls the data acces layer and loads "groups.data".
+     * @param fileName
+     * @return 
+     */
+    public ArrayList<Group> getGroupsFromFile(String fileName){
+        return daoManager.getGroupsFromFile(fileName);
+    }
+    
+    /**
+     * Checks if "groups.data" exist. Return true if yes.
+     * @param fileName
+     * @return 
+     */
+    public boolean isGroupsThere(String fileName){
+        return daoManager.isGroupsThere(fileName);
     }
 }

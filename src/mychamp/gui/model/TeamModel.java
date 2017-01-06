@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mychamp.be.MockData;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 
 public class TeamModel {
 
@@ -22,6 +23,8 @@ public class TeamModel {
     private ArrayList<Team> finalTeams;
 
     private static TeamModel instance;
+
+    private final FileManager fileManager = FileManager.getInstance();
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
@@ -81,7 +84,7 @@ public class TeamModel {
     }
 
     /**
-     * Set quarter final teams
+     * <<<<<<< HEAD Set quarter final teams
      *
      * @param quarterTeams
      */
@@ -131,4 +134,27 @@ public class TeamModel {
         return finalTeams;
     }
 
+    /**
+     * Save the teams to the file
+     */
+    public void saveTeamsToFile() {
+        fileManager.saveTeams(getTeamsAsArrayList());
+        System.out.println("Teams saved");
+    }
+
+    /**
+     * Return an ArrayList with all the teams. If "teams.data" does not exits,
+     * it returns null.
+     *
+     * @return
+     */
+    public ArrayList<Team> getTeamsFromFile() {
+        ArrayList<Team> loadedTeams = null;
+        if (fileManager.isTeamsThere()) {
+            loadedTeams = fileManager.getTeamsFromFile();
+        } else {
+            System.out.println("Could not find \"teams.data\"...");
+        }
+        return loadedTeams;
+    }
 }

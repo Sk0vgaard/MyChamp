@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.bll.GroupManager;
 import mychamp.bll.RankingManager;
 
@@ -22,11 +23,13 @@ public class GroupModel {
 
     private static GroupModel instance;
 
-    private GroupManager groupManager = GroupManager.getInstance();
+    private final GroupManager groupManager = GroupManager.getInstance();
 
     private final TeamModel teamModel = TeamModel.getInstance();
 
     private final RankingManager rankingManager = RankingManager.getInstance();
+
+    private final FileManager fileManager = FileManager.getInstance();
 
     private boolean groupPlayOver;
 
@@ -53,6 +56,15 @@ public class GroupModel {
      */
     public ArrayList<Group> getGroups() {
         return randomGroups;
+    }
+
+    /**
+     * Sets the parse groups. Used to store the loaded group data.
+     *
+     * @param groups
+     */
+    public void setGroups(ArrayList<Group> groups) {
+        randomGroups = groups;
     }
 
     /**
@@ -100,4 +112,27 @@ public class GroupModel {
         return finalGroups;
     }
 
+    /**
+     * Saves the groups in the playfOff in "playOffGroups.data".
+     */
+    public void savePlayOffGroups() {
+        fileManager.saveGroups(randomGroups, "playOffGroups");
+        System.out.println("PlayOffGroups saved!");
+    }
+
+    /**
+     * Returns an ArrayList with the groups in the playOff. If
+     * "playOffGroups.data" does not exits, it returns null.
+     *
+     * @return
+     */
+    public ArrayList<Group> getPlayOffGroupsFromFil() {
+        ArrayList<Group> loadedGroups = null;
+        if (fileManager.isGroupsThere("playOffGroups")) {
+            loadedGroups = fileManager.getGroupsFromFile("playOffGroups");
+        } else {
+            System.out.println("Could not find \"playOffGroups.data\"...");
+        }
+        return loadedGroups;
+    }
 }
