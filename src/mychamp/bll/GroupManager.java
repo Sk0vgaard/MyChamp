@@ -32,8 +32,8 @@ public class GroupManager {
     private ArrayList<Team> groupDTeams;
 
     private final ArrayList<Match> quarterMatches = new ArrayList<>();
-    
-    private final  ArrayList<Team> unqualifiedTeams = new ArrayList<>();
+
+    private final ArrayList<Team> unqualifiedTeams = new ArrayList<>();
 
     /**
      * Fills an arraylist with teamIDS
@@ -42,10 +42,6 @@ public class GroupManager {
      */
     public GroupManager() {
         playOffGroups = new ArrayList<>();
-        groupATeams = new ArrayList<>();
-        groupBTeams = new ArrayList<>();
-        groupCTeams = new ArrayList<>();
-        groupDTeams = new ArrayList<>();
     }
 
     /**
@@ -83,6 +79,11 @@ public class GroupManager {
      */
     private void createRandomGroups() {
         Collections.shuffle(teamIDS);
+        groupATeams = new ArrayList<>();
+        groupBTeams = new ArrayList<>();
+        groupCTeams = new ArrayList<>();
+        groupDTeams = new ArrayList<>();
+        playOffGroups.clear();
 
         //Fill teams
         while (teamIDS.size() > 0) {
@@ -138,7 +139,8 @@ public class GroupManager {
             }
             case 3: {
                 return groupDTeams;
-            }case 4:{
+            }
+            case 4: {
                 return unqualifiedTeams;
             }
             default: {
@@ -170,14 +172,15 @@ public class GroupManager {
 
     /**
      * Set the quarter final matches
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Match> getQuarterFinalMatches() {
         ArrayList<Team> rankedA = RankingManager.getInstance().sortTeamRankingOrder(0);
         ArrayList<Team> rankedB = RankingManager.getInstance().sortTeamRankingOrder(1);
         ArrayList<Team> rankedC = RankingManager.getInstance().sortTeamRankingOrder(2);
         ArrayList<Team> rankedD = RankingManager.getInstance().sortTeamRankingOrder(3);
-        
+
         //Put the unqualififed teams in an ArrayList.
         setUnqualifiedTeams(rankedA);
         setUnqualifiedTeams(rankedB);
@@ -191,22 +194,24 @@ public class GroupManager {
         quarterMatches.add(new Match(rankedD.get(0).getHomeField(), rankedD.get(0), rankedC.get(1)));
         return quarterMatches;
     }
-    
+
     /**
      * Adds the parsed ArrayList to the unqualified teams array.
-     * @param team 
+     *
+     * @param team
      */
-    private void setUnqualifiedTeams(ArrayList<Team> team){
-        for(int i = 2; i < team.size(); i++){
+    private void setUnqualifiedTeams(ArrayList<Team> team) {
+        for (int i = 2; i < team.size(); i++) {
             unqualifiedTeams.add(team.get(i));
         }
     }
-    
+
     /**
      * Gets the unqualifiedTeams sorted in ranking.
-     * @return 
+     *
+     * @return
      */
-    public ArrayList<Team> getSortedUnqualifiedTeams(){        
+    public ArrayList<Team> getSortedUnqualifiedTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(4);
     }
 }

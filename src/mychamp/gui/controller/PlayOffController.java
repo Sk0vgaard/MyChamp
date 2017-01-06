@@ -542,6 +542,8 @@ public class PlayOffController implements Initializable {
     private Label lblRound6GroupCWinner1;
     @FXML
     private Label lblRound6GroupCWinner2;
+    @FXML
+    private Label lblRound2GroupDWinner2;
 
     private ArrayList<Group> randomGroups;
 
@@ -581,10 +583,6 @@ public class PlayOffController implements Initializable {
     public static PlayOffController getInstance() {
         return instance;
     }
-    @FXML
-    private Label lblRound2GroupDWinner2;
-    @FXML
-    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -645,6 +643,7 @@ public class PlayOffController implements Initializable {
      * Update PlayOffView information
      */
     public void setPlayOffInformation() {
+        resetTournament();
         addLabelsToArrayList();
         setRoundOne();
         setRoundTwo();
@@ -1505,8 +1504,34 @@ public class PlayOffController implements Initializable {
         GroupScheduleController.getInstance().setGroup(groupToSend);
     }
 
-    @FXML
-    private void handleBackToMenu(ActionEvent event) throws IOException{
+    private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
+    }
+
+    /**
+     * resets the tournament
+     */
+    private void resetTournament() {
+        //Clear Team name labels
+        round1teamNameLabels.clear();
+        round2teamNameLabels.clear();
+        round3teamNameLabels.clear();
+        round4teamNameLabels.clear();
+        round5teamNameLabels.clear();
+        round6teamNameLabels.clear();
+
+        //Clear team goal labels
+        round1teamGoalLabels.clear();
+        round2teamGoalLabels.clear();
+        round3teamGoalLabels.clear();
+        round4teamGoalLabels.clear();
+        round5teamGoalLabels.clear();
+        round6teamGoalLabels.clear();
+
+        //Clear rankings
+        rankingsGroupA.clear();
+        rankingsGroupB.clear();
+        rankingsGroupC.clear();
+        rankingsGroupD.clear();
     }
 }

@@ -343,9 +343,10 @@ public class MyChampController implements Initializable {
     }
 
     @FXML
-    private void handleBackToMenu(ActionEvent event) throws IOException{
+    private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
     }
+
     private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
     }

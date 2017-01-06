@@ -19,7 +19,7 @@ public class GroupModel {
 
     private ArrayList<Match> quarterMatches;
 
-    private ArrayList<Group> finalGroups;
+    private final ArrayList<Group> finalGroups;
 
     private static GroupModel instance;
 
