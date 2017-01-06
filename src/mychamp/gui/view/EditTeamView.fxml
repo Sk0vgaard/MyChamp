@@ -47,6 +47,7 @@
                </children>
             </Pane>
             <Separator layoutY="138.0" prefHeight="5.0" prefWidth="717.0" />
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="52.0" onAction="#handleBackToMenu" text="Tilbage" />
          </children>
       </AnchorPane>
    </children>

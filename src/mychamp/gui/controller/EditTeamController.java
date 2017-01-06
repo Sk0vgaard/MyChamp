@@ -7,6 +7,7 @@ package mychamp.gui.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -28,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
@@ -50,12 +52,6 @@ public class EditTeamController implements Initializable {
     @FXML
     private TextField txtTeamField;
     @FXML
-    private JFXTextField txtNewTeamName;
-    @FXML
-    private JFXTextField txtNewTeamField;
-    @FXML
-    private JFXTextField txtNewTeamSchool;
-    @FXML
     private TextField txtTeamSchool;
     @FXML
     private JFXButton btnEdit;
@@ -72,6 +68,8 @@ public class EditTeamController implements Initializable {
     public static EditTeamController getIntance() {
         return instance;
     }
+    @FXML
+    private JFXButton btnBack;
 
     public EditTeamController() {
 
@@ -294,5 +292,13 @@ public class EditTeamController implements Initializable {
      */
     public void updateTeamMount() {
         lblTeamAmount.setText("" + teamModel.getTeams().size());
+    }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException{
+        goToView("MenuView");
+    }
+    private void goToView(String view) throws IOException {
+        MyChamp.switchScene(view);
     }
 }
