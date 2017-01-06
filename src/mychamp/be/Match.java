@@ -8,7 +8,7 @@ package mychamp.be;
 import java.io.Serializable;
 import mychamp.bll.IDCreator;
 
-public class Match implements Serializable{
+public class Match implements Serializable {
 
     private final int ID;
 
@@ -34,6 +34,7 @@ public class Match implements Serializable{
         homeTeam = home;
         awayTeam = away;
         isPlayed = false;
+        winnerTeam = null;
     }
 
     public Team getHomeTeam() {

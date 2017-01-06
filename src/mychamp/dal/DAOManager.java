@@ -23,9 +23,9 @@ import mychamp.be.Team;
  * @author Rasmus
  */
 public class DAOManager {
-    
+
     public static DAOManager instance;
-    
+
     private ArrayList<Team> savedTeams;
     private ArrayList<Group> savedGroups;
     
@@ -35,26 +35,28 @@ public class DAOManager {
         }
         return instance;
     }
-    
+
     /**
      * Save the ArrayLists that is parsed.
-     * @param teams 
+     *
+     * @param teams
      */
-    public void saveTeams(ArrayList<Team> teams){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("teams.data"))){
+    public void saveTeams(ArrayList<Team> teams) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("teams.data"))) {
             oos.writeObject(teams);
             System.out.println("Teams saved");
         } catch (IOException ex) {
             System.out.println("Teams save Error " + ex);
         }
     }
-    
+
     /**
      * Load "teams.data" and return it in an ArrayList.
-     * @return 
+     *
+     * @return
      */
-    public ArrayList<Team> getTeamsFromFile(){
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("teams.data"))){
+    public ArrayList<Team> getTeamsFromFile() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("teams.data"))) {
             savedTeams = (ArrayList<Team>) ois.readObject();
             System.out.println("Loaded teams!");
         } catch (ClassNotFoundException | IOException ex) {
@@ -62,13 +64,14 @@ public class DAOManager {
         }
         return savedTeams;
     }
-    
+
     /**
      * Checks if "teams.data" exits.
-     * @return 
+     *
+     * @return
      */
-    public boolean isTeamsThere(){
-        return new File("teams.data").exists();        
+    public boolean isTeamsThere() {
+        return new File("teams.data").exists();
     }
     
     /**

@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import mychamp.be.Team;
 
-/**
- *
- * @author Rasmus
- */
 public class RankingManager {
 
     public static RankingManager instance;

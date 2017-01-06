@@ -16,11 +16,6 @@ import javafx.scene.control.Label;
 import mychamp.MyChamp;
 import mychamp.be.Match;
 
-/**
- * FXML Controller class
- *
- * @author Rasmus
- */
 public class FinalsController implements Initializable {
 
     @FXML

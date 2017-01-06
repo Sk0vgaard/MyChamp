@@ -34,10 +34,6 @@ import mychamp.be.Team;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
-/**
- *
- * @author gta1
- */
 public class MyChampController implements Initializable {
 
     @FXML
@@ -182,7 +178,6 @@ public class MyChampController implements Initializable {
             System.out.println("Choose a team to edit.");
         }
     }
-
 
     /**
      * Create a dialog to remove many items

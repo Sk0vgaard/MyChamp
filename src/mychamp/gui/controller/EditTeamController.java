@@ -33,10 +33,6 @@ import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
-/**
- *
- * @author gta1
- */
 public class EditTeamController implements Initializable {
 
     @FXML
@@ -63,16 +59,15 @@ public class EditTeamController implements Initializable {
     private TextField txtTeamSchool;
     @FXML
     private JFXButton btnEdit;
-    
+
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
     private static EditTeamController instance;
-    
+
     private final FileManager fileManager = FileManager.getInstance();
 
     private final ArrayList<TextField> txtFieldList;
-    
 
     public static EditTeamController getIntance() {
         return instance;
