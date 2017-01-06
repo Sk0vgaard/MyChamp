@@ -544,8 +544,6 @@ public class PlayOffController implements Initializable {
     @FXML
     private Label lblRound6GroupCWinner2;
 
-    private ArrayList<Label> winnerLabels = new ArrayList<>();
-
     private ArrayList<Group> randomGroups;
 
     private Stage primStage;

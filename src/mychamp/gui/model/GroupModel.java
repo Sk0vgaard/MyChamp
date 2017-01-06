@@ -18,6 +18,8 @@ public class GroupModel {
 
     private ArrayList<Match> quarterMatches;
 
+    private ArrayList<Group> finalGroups;
+
     private static GroupModel instance;
 
     private GroupManager groupManager = GroupManager.getInstance();
@@ -38,6 +40,10 @@ public class GroupModel {
     private GroupModel() {
         randomGroups = new ArrayList<>();
         quarterMatches = new ArrayList<>();
+        finalGroups = new ArrayList<>();
+        finalGroups.add(new Group("Quarter Finals", teamModel.getQuarterFinalTeams()));
+        finalGroups.add(new Group("Semi finals", teamModel.getSemiFinalTeams()));
+        finalGroups.add(new Group("Finale", teamModel.getFinalTeams()));
         groupPlayOver = false;
     }
 
@@ -84,6 +90,14 @@ public class GroupModel {
      */
     public ArrayList<Match> getQuarterMatches() {
         return quarterMatches;
+    }
+
+    /**
+     *
+     * @return the final groups
+     */
+    public ArrayList<Group> getFinalGroups() {
+        return finalGroups;
     }
 
 }

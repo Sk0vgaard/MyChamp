@@ -15,11 +15,19 @@ public class TeamModel {
 
     private final ObservableList<Team> teams;
 
+    private ArrayList<Team> quarterFinalTeams;
+
+    private ArrayList<Team> semiFinalTeams;
+
+    private ArrayList<Team> finalTeams;
+
     private static TeamModel instance;
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
         teams.addAll(MockData.getMockTeams());
+        quarterFinalTeams = new ArrayList<>();
+        semiFinalTeams = new ArrayList<>();
     }
 
     /**
@@ -61,13 +69,66 @@ public class TeamModel {
     public void deleteTeam(ObservableList<Team> teamsToDelete) {
         teams.removeAll(teamsToDelete);
     }
-    
+
     /**
      * Clears the ObservableList and then adds the ArrayList that is parsed.
-     * @param teams 
+     *
+     * @param teams
      */
-    public void addNewListOfTeams(ArrayList<Team> teams){
+    public void addNewListOfTeams(ArrayList<Team> teams) {
         this.teams.clear();
         this.teams.addAll(teams);
     }
+
+    /**
+     * Set quarter final teams
+     *
+     * @param quarterTeams
+     */
+    public void addToQuarterFinalTeams(ArrayList<Team> quarterTeams) {
+        quarterFinalTeams = quarterTeams;
+    }
+
+    /**
+     *
+     * @return the teams in the quarter finals
+     */
+    public ArrayList<Team> getQuarterFinalTeams() {
+        return quarterFinalTeams;
+    }
+
+    /**
+     * Set semi final teams
+     *
+     * @param semiTeams
+     */
+    public void setSemiFinalTeams(ArrayList<Team> semiTeams) {
+        semiFinalTeams = semiTeams;
+    }
+
+    /**
+     * Set final teams
+     *
+     * @param finalTeams
+     */
+    public void setFinalTeams(ArrayList<Team> finalTeams) {
+        this.finalTeams = finalTeams;
+    }
+
+    /**
+     *
+     * @return semiFinalTeam
+     */
+    public ArrayList<Team> getSemiFinalTeams() {
+        return semiFinalTeams;
+    }
+
+    /**
+     *
+     * @return finalTeams
+     */
+    public ArrayList<Team> getFinalTeams() {
+        return finalTeams;
+    }
+
 }

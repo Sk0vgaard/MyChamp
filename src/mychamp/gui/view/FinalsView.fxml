@@ -62,51 +62,72 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="lblQuarterTeamA1" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label fx:id="lblQuarterTeamB2" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamA1" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamB2" layoutX="14.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblQuarterGoalA1" layoutX="98.0" layoutY="14.0" text="goal1" />
+                  <Label fx:id="lblQuarterGoalB2" layoutX="98.0" layoutY="49.0" text="goal2" />
+                  <Button id="11" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label fx:id="lblQuarterTeamA2" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label fx:id="lblQuarterTeamB1" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamA2" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamB1" layoutX="14.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblQuarterGoalB1" layoutX="93.0" layoutY="14.0" text="goal1" />
+                  <Label fx:id="lblQuarterGoalA2" layoutX="93.0" layoutY="49.0" text="goal1" />
+                  <Button id="13" layoutX="1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Label fx:id="lblQuarterTeamC1" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label fx:id="lblQuarterTeamD2" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamC1" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamD2" layoutX="10.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblQuarterGoalC1" layoutX="89.0" layoutY="14.0" text="goal1" />
+                  <Label fx:id="lblQuarterGoalD2" layoutX="89.0" layoutY="49.0" text="goal1" />
+                  <Button id="15" layoutX="5.0" layoutY="-2.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <Label fx:id="lblQuarterTeamC2" layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label fx:id="lblQuarterTeamD1" layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblQuarterTeamC2" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblQuarterTeamD1" layoutX="10.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblQuarterGoalC2" layoutX="91.0" layoutY="16.0" text="goal1" />
+                  <Label fx:id="lblQuarterGoalD1" layoutX="91.0" layoutY="49.0" text="goal1" />
+                  <Button id="17" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblSemiTeam1" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblSemiTeam2" layoutX="10.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblSemiGoal1" layoutX="95.0" layoutY="17.0" text="goal1" />
+                  <Label fx:id="lblSemiGoal2" layoutX="95.0" layoutY="49.0" text="goal1" />
+                  <Button id="33" layoutX="2.0" layoutY="-3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblSemiTeam3" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblSemiTeam4" layoutX="14.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblSemiGoal3" layoutX="97.0" layoutY="16.0" text="goal1" />
+                  <Label fx:id="lblSemiGoal4" layoutX="97.0" layoutY="49.0" text="goal1" />
+                  <Button id="35" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <children>
-                  <Label layoutX="36.0" layoutY="10.0" text="&lt;name1&gt;" />
-                  <Label layoutX="36.0" layoutY="47.0" text="&lt;name2&gt;" />
+                  <Label fx:id="lblFinalTeam1" layoutX="3.0" layoutY="14.0" text="&lt;name1&gt;" />
+                  <Label fx:id="lblFinalTeam2" layoutX="3.0" layoutY="49.0" text="&lt;name2&gt;" />
                   <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                  <Label fx:id="lblFinalGoal1" layoutX="91.0" layoutY="16.0" text="goal1" />
+                  <Label fx:id="lblFinalGoal2" layoutX="91.0" layoutY="49.0" text="goal1" />
+                  <Button id="54" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
                </children>
             </Pane>
          </children>
