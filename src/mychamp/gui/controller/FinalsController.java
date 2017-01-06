@@ -97,6 +97,8 @@ public class FinalsController implements Initializable {
     private Label lblQuarterGoalC2;
     @FXML
     private Label lblQuarterGoalD1;
+    @FXML
+    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -173,5 +175,10 @@ public class FinalsController implements Initializable {
     private void handleMatchClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         System.out.println("You clicked button " + clickedButton.getId());
+    }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException{
+        goToView("MenuView");
     }
 }

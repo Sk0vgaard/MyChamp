@@ -584,6 +584,8 @@ public class PlayOffController implements Initializable {
     }
     @FXML
     private Label lblRound2GroupDWinner2;
+    @FXML
+    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -1501,5 +1503,10 @@ public class PlayOffController implements Initializable {
 
         //Loads the modals controller to send match.
         GroupScheduleController.getInstance().setGroup(groupToSend);
+    }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException{
+        goToView("MenuView");
     }
 }

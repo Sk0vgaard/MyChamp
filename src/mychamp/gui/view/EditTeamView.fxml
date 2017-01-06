@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.EditTeamController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="-43.0" prefHeight="626.0" prefWidth="717.0">
+      <AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="727.0">
          <children>
             <Label layoutX="29.0" layoutY="573.0" text="Hold" />
             <Label fx:id="lblTeamAmount" layoutX="83.0" layoutY="573.0" text="NaN" />
@@ -47,7 +47,7 @@
                </children>
             </Pane>
             <Separator layoutY="138.0" prefHeight="5.0" prefWidth="717.0" />
-            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="52.0" onAction="#handleBackToMenu" text="Tilbage" />
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="2.0" onAction="#handleBackToMenu" text="Tilbage" />
          </children>
       </AnchorPane>
    </children>

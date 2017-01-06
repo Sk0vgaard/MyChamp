@@ -73,6 +73,8 @@ public class MyChampController implements Initializable {
     public static MyChampController getIntance() {
         return instance;
     }
+    @FXML
+    private JFXButton btnBack;
 
     public MyChampController() {
         teamModel = TeamModel.getInstance();
@@ -338,5 +340,13 @@ public class MyChampController implements Initializable {
      */
     public void updateTeamMount() {
         lblTeamAmount.setText("" + teamModel.getTeams().size());
+    }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException{
+        goToView("MenuView");
+    }
+    private void goToView(String view) throws IOException {
+        MyChamp.switchScene(view);
     }
 }
