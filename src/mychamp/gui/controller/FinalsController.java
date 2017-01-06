@@ -301,7 +301,7 @@ public class FinalsController implements Initializable {
             editStage.initOwner(primStage);
 
             //Finds the match that has been clicked on
-            Match matchToSend = quarterFinalMatches.get(0);
+            Match matchToSend = allMatches.get(stage).get(match);
 
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
@@ -324,32 +324,32 @@ public class FinalsController implements Initializable {
             switch (match) {
                 case 0:
                     lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal1.setText("" + matchToSend.getHomeTeamScore());
+                    lblSemiGoal1.setText("0");
                     semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     break;
                 case 1:
                     lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal2.setText("" + matchToSend.getHomeTeamScore());
+                    lblSemiGoal2.setText("0");
                     semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     break;
                 case 2:
                     lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal3.setText("" + matchToSend.getHomeTeamScore());
+                    lblSemiGoal3.setText("0");
                     semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
                     break;
                 case 3:
                     lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal4.setText("" + matchToSend.getHomeTeamScore());
+                    lblSemiGoal4.setText("0");
                     semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
                     break;
                 case 4:
                     lblFinalTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblFinalGoal1.setText("" + matchToSend.getHomeTeamScore());
+                    lblFinalGoal1.setText("0");
                     finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     break;
                 case 5:
                     lblFinalTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblFinalGoal2.setText("" + matchToSend.getHomeTeamScore());
+                    lblFinalGoal2.setText("0");
                     finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     break;
                 default:
