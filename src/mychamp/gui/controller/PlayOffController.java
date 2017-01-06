@@ -25,7 +25,6 @@ import mychamp.MyChamp;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
-import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -550,9 +549,9 @@ public class PlayOffController implements Initializable {
 
     private FinalsController fController;
 
-    private static final String WINNER_TEAM_TEXT = "Vinder: ";
+    public static final String WINNER_TEAM_TEXT = "Vinder: ";
 
-    private static final String WINNER_DRAW_TEXT = "Uafgjort";
+    public static final String WINNER_DRAW_TEXT = "Uafgjort";
 
     private final GroupModel groupModel = GroupModel.getInstance();
 
