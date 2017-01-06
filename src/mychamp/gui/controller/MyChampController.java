@@ -287,6 +287,8 @@ public class MyChampController implements Initializable {
         playOffController = PlayOffController.getInstance();
         playOffController.setRandomGroups(groupModel.getGroups());
         playOffController.setPlayOffInformation();
+        teamModel.saveTeamsToFile();
+        groupModel.savePlayOffGroups();
     }
 
     /**

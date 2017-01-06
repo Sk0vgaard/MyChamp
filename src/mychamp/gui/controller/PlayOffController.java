@@ -1235,7 +1235,7 @@ public class PlayOffController implements Initializable {
 
             //Updates the group rankings.
             updateGroupRankings(group);
-            FileManager.getInstance().saveTeams(teamModel.getTeamsAsArrayList());
+            teamModel.saveTeamsToFile();
 
         } catch (IOException ioe) {
             System.out.println(ioe);

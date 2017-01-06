@@ -171,6 +171,7 @@ public class EditTeamController implements Initializable {
                         textField.setDisable(true);
                     }
                     btnEdit.setText("Rediger");
+                    teamModel.saveTeamsToFile();
                 }
                 tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
                 tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
@@ -225,7 +226,7 @@ public class EditTeamController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
-        fileManager.saveTeams(teamModel.getTeamsAsArrayList());
+        teamModel.saveTeamsToFile();
     }
 
     public void deleteTeam() throws NullPointerException {
