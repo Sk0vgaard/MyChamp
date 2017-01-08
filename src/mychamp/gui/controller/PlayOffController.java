@@ -579,6 +579,8 @@ public class PlayOffController implements Initializable {
     private static PlayOffController instance;
 
     private final TeamModel teamModel = TeamModel.getInstance();
+    
+    private boolean unqualifiedRankingsSet = false;
 
     public static PlayOffController getInstance() {
         return instance;
@@ -604,7 +606,10 @@ public class PlayOffController implements Initializable {
             goToView("FinalsView");
             fController = FinalsController.getInstance();
             fController.setQuarterFinals(groupModel.getQuarterMatches());
-            fController.setLast8RankNames();
+            if(!unqualifiedRankingsSet){
+                fController.setLast8RankNames();
+                unqualifiedRankingsSet = true;
+            }            
         } else {
             System.out.println("We're not done yet!");
         }
