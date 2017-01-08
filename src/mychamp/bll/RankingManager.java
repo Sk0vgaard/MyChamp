@@ -80,18 +80,6 @@ public class RankingManager {
             }
         }
 
-//        //Testing purpose only. Shows the ranking in console TODO: Remove.
-//        for (Team team : teams) {
-//            System.out.println(
-//                    +team.getPoints() + " : "
-//                    + team.getGoalDifference() + " : "
-//                    + team.getGoalsScored() + " : "
-//                    + team.getWinLossRatio() + " : "
-//                    + team.getGoalsTaken() + " : "
-//                    + team.getTeamName());
-//        }
-//        System.out.println("------------------------------");
-
         return teams;
     }
     

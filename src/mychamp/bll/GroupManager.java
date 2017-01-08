@@ -34,6 +34,8 @@ public class GroupManager {
     private final ArrayList<Match> quarterMatches = new ArrayList<>();
 
     private final ArrayList<Team> unqualifiedTeams = new ArrayList<>();
+    
+    private final ArrayList<Team> top8Teams = new ArrayList<>();
 
     /**
      * Fills an arraylist with teamIDS
@@ -143,6 +145,9 @@ public class GroupManager {
             case 4: {
                 return unqualifiedTeams;
             }
+            case 5:{
+                return top8Teams;
+            }
             default: {
                 System.out.println("Something went wrong!");
                 return null;
@@ -213,5 +218,21 @@ public class GroupManager {
      */
     public ArrayList<Team> getSortedUnqualifiedTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(4);
+    }
+    
+    /**
+     * Return the List containing all qualified teams that can't advance more.
+     * @return 
+     */
+    public ArrayList<Team> getSortedTopTeams() {
+        return RankingManager.getInstance().sortTeamRankingOrder(5);
+    }
+    
+    /**
+     * Add a team to the top8Team array.
+     * @param teamToAdd 
+     */
+    public void addATop8Team(Team teamToAdd){
+        top8Teams.add(teamToAdd);
     }
 }

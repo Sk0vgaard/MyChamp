@@ -313,7 +313,7 @@ public class FinalsController implements Initializable {
             //Update goal information
             updateQuarterFinals();
 
-            //Set the winner of the match
+            //Set the winnerLabel of the match
             if (matchToSend.getWinnerTeam() != null) {
                 winnerLabel.setText(PlayOffController.WINNER_TEAM_TEXT + matchToSend.getWinnerTeam().getTeamName());
             } else {
@@ -326,34 +326,56 @@ public class FinalsController implements Initializable {
                     lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblSemiGoal1.setText("0");
                     semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 case 1:
                     lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblSemiGoal2.setText("0");
                     semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 case 2:
                     lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblSemiGoal3.setText("0");
                     semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 case 3:
                     lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblSemiGoal4.setText("0");
                     semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 case 4:
                     lblFinalTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblFinalGoal1.setText("0");
                     finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 case 5:
                     lblFinalTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
                     lblFinalGoal2.setText("0");
                     finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
                     break;
                 default:
                     System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
+                    //Updates the rankings
+                    teamModel.addTeamToTop8Teams(matchToSend.getWinnerTeam());
+                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
+                    setTop8Rankings();
             }
         } catch (IOException ioe) {
             System.out.println(ioe);
@@ -413,5 +435,28 @@ public class FinalsController implements Initializable {
         for(int i = 0; i < teams.size(); i++){
             last8Labels.get(i).setText(teams.get(i).getTeamName());
         }
+    }
+    
+    /**
+     * Set the names of the 8 best teams.
+     */
+    public void setTop8Rankings(){
+        ArrayList<Team> teams = teamModel.getSortedTopTeams();
+        int startingValue = top8Labels.size() - teams.size();
+        for(int i = startingValue; i < top8Labels.size(); i++){
+            top8Labels.get(i).setText(teams.get(i - startingValue).getTeamName());
+        }
+        
+        
+        //Stuff to check if rankings is correct
+        for(int i = 0; i < teams.size(); i++){
+            System.out.println(teams.get(i).getPoints() + " : " 
+                    + teams.get(i).getGoalDifference() + " : " 
+                    + teams.get(i).getGoalsScored() + " : " 
+                    + teams.get(i).getWinLossRatio() + " : " 
+                    + teams.get(i).getGoalsTaken() + " : " 
+                    + teams.get(i).getTeamName());
+        }
+        System.out.println("--------------------------------------");
     }
 }

@@ -167,4 +167,20 @@ public class TeamModel {
     public ArrayList<Team> getSortedUnqualifiedTeams(){
         return groupManager.getSortedUnqualifiedTeams();
     }
+    
+    /**
+     * Get the teams that are done playing and ended in top 8.
+     * @return 
+     */
+    public ArrayList<Team> getSortedTopTeams() {
+        return groupManager.getSortedTopTeams();
+    }
+    
+    /**
+     * Add a team to top8Teams in GroupManager.
+     * @param teamToAdd 
+     */
+    public void addTeamToTop8Teams(Team teamToAdd){
+        groupManager.addATop8Team(teamToAdd);
+    }
 }

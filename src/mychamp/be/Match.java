@@ -84,5 +84,16 @@ public class Match implements Serializable {
     public boolean isPlayed() {
         return isPlayed;
     }
-
+    
+    /**
+     * Return the losing team.
+     * @return 
+     */
+    public Team getLoserTeam(){
+        if(winnerTeam == homeTeam){
+            return awayTeam;
+        }else{
+            return homeTeam;
+        }
+    }
 }
