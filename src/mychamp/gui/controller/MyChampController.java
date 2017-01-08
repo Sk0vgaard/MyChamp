@@ -58,7 +58,9 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamSchool;
     @FXML
     private TextField txtTeamSchool;
-
+    
+    private final int MINIMUM_NUMBER_OF_TEAMS = 12;
+    
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
@@ -278,7 +280,9 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
-        groupModel.createRandomGroups();
+        //Checks if there is the minimum required numbers of teams in the tournament.
+        if(teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS){
+            groupModel.createRandomGroups();
 
         MyChamp.switchScene("PlayOffView");
         playOffController = PlayOffController.getInstance();
@@ -286,6 +290,13 @@ public class MyChampController implements Initializable {
         playOffController.setPlayOffInformation();
         teamModel.saveTeamsToFile();
         groupModel.savePlayOffGroups();
+        }else{
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Turneringen kan ikke startes");
+            alert.setHeaderText("Der er for få hold til at turneringen kan startes...");
+            alert.setContentText("Tilføj flere hold for at starte turneringen.");
+            alert.show();
+        }        
     }
 
     /**

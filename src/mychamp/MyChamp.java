@@ -49,7 +49,7 @@ public class MyChamp extends Application {
         stage.setScene(scene);
         stage.show();
         
-//        loadSavedData();
+        loadSavedData();
     }
 
     /**
