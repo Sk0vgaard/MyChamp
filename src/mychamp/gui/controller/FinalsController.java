@@ -357,6 +357,9 @@ public class FinalsController implements Initializable {
                         semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblSemiTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
@@ -370,8 +373,12 @@ public class FinalsController implements Initializable {
                         semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblSemiTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                        
                     }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
@@ -382,6 +389,9 @@ public class FinalsController implements Initializable {
                         semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblSemiTeam3.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(1).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
@@ -394,6 +404,9 @@ public class FinalsController implements Initializable {
                         semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblSemiTeam4.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(1).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
@@ -406,6 +419,9 @@ public class FinalsController implements Initializable {
                         finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblFinalTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         finalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
@@ -418,6 +434,9 @@ public class FinalsController implements Initializable {
                         finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     } else {
                         //Get the best of the two teams who played
+                        //Using these lines to get the "winning" team in case of draw to update rankings. TODO RKL: Clean this method. You wanna do it Adam or should I?
+                        Team winningTeam = rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam());
+                        matchToSend.setWinnerTeam(winningTeam);
                         lblFinalTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         finalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
@@ -425,6 +444,9 @@ public class FinalsController implements Initializable {
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 default:
+                    if(matchToSend.getWinnerTeam() == null){
+                        matchToSend.setWinnerTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getWinnerTeam());

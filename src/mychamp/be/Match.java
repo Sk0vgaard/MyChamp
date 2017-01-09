@@ -84,16 +84,22 @@ public class Match implements Serializable {
     public boolean isPlayed() {
         return isPlayed;
     }
-    
+
     /**
      * Return the losing team.
-     * @return 
+     * Returns null if no winning team is set.
+     *
+     * @return
      */
-    public Team getLoserTeam(){
-        if(winnerTeam == homeTeam){
-            return awayTeam;
+    public Team getLoserTeam() {
+        if (winnerTeam != null) {
+            if (winnerTeam == homeTeam) {
+                return awayTeam;
+            } else {
+                return homeTeam;
+            }
         }else{
-            return homeTeam;
+            return null;
         }
     }
 }

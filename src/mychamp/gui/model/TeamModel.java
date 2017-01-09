@@ -181,6 +181,8 @@ public class TeamModel {
      * @param teamToAdd 
      */
     public void addTeamToTop8Teams(Team teamToAdd){
-        groupManager.addATop8Team(teamToAdd);
+        if(teamToAdd != null){
+            groupManager.addATop8Team(teamToAdd);
+        }        
     }
 }
