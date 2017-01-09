@@ -89,7 +89,7 @@ public class TeamScheduleController implements Initializable {
     @FXML
     private ComboBox<String> comboTeamName;
 
-    ArrayList<Team> listOfTeams;
+    ArrayList<Team> listOfAllTeams;
     
     ArrayList<Match> listOfAllMatches;
     ArrayList<Match> listOfMatchesForSchedule;
@@ -114,7 +114,7 @@ public class TeamScheduleController implements Initializable {
         
         
         //Initializes all lists.
-        listOfTeams = new ArrayList();
+        listOfAllTeams = new ArrayList();
         
         listOfAllMatches = new ArrayList();
         listOfMatchesForSchedule = new ArrayList();
@@ -144,12 +144,12 @@ public class TeamScheduleController implements Initializable {
     private void initializeTeamLists() {
         
         //Configures the the names for the ComboBox
-        listOfTeams.addAll(teamModel.getTeams());
+        listOfAllTeams.addAll(teamModel.getTeams());
         initializeTeamNames();
     }
 
     private void initializeTeamNames() {
-        for (Team team : listOfTeams) {
+        for (Team team : listOfAllTeams) {
             String teamToAdd;
             teamToAdd = team.getTeamName();
             listOfTeamNames.add(teamToAdd);
@@ -248,6 +248,9 @@ public class TeamScheduleController implements Initializable {
         
         //Displays the matches of the selected team.
         displaySchedule(listOfMatchesForSchedule);
+        
+        //Displays the team's points.
+        displayPoints(teamToView);
     }
     
     private void makeMatchListForSpecificTeam(String teamToView){
@@ -284,4 +287,21 @@ public class TeamScheduleController implements Initializable {
             }
         }
     }
+
+    /**
+     * Sets the points label.
+     * @param teamToView 
+     */
+    private void displayPoints(String teamToView) {
+        
+        //TODO MSP: Fix the list with teams. It only contains 1 team, many times.
+        for (Team team : teamModel.getTeamsAsArrayList()) {
+                System.out.println(teamToView + " " + team.getPoints());
+            if (team.getTeamName().equals(teamToView)) {
+                lblTeamPoints.setText("" + team.getPoints());
+            }
+        }
+    }
+    
+    
 }
