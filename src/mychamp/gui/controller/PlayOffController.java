@@ -560,7 +560,7 @@ public class PlayOffController implements Initializable {
     private final ArrayList<Label> round4teamNameLabels = new ArrayList();
     private final ArrayList<Label> round5teamNameLabels = new ArrayList();
     private final ArrayList<Label> round6teamNameLabels = new ArrayList();
-
+    
     private final ArrayList<Label> round1teamGoalLabels = new ArrayList();
     private final ArrayList<Label> round2teamGoalLabels = new ArrayList();
     private final ArrayList<Label> round3teamGoalLabels = new ArrayList();
@@ -699,6 +699,11 @@ public class PlayOffController implements Initializable {
         }
         addGoalLabels();
 
+    }
+    
+    public ArrayList<Group> getRandomGroups()
+    {
+        return randomGroups;
     }
 
     /**
@@ -1101,7 +1106,7 @@ public class PlayOffController implements Initializable {
         round1teamNameLabels.add(lblRound1GroupDTeam2);
         round1teamNameLabels.add(lblRound1GroupDTeam3);
         round1teamNameLabels.add(lblRound1GroupDTeam4);
-
+        
         //Team names for round 2
         round2teamNameLabels.add(lblRound2GroupATeam1);
         round2teamNameLabels.add(lblRound2GroupATeam2);
@@ -1155,7 +1160,7 @@ public class PlayOffController implements Initializable {
         round4teamNameLabels.add(lblRound4GroupDTeam2);
         round4teamNameLabels.add(lblRound4GroupDTeam3);
         round4teamNameLabels.add(lblRound4GroupDTeam4);
-
+        
         //Team names for round 5
         round5teamNameLabels.add(lblRound5GroupATeam1);
         round5teamNameLabels.add(lblRound5GroupATeam2);
@@ -1173,7 +1178,7 @@ public class PlayOffController implements Initializable {
         round5teamNameLabels.add(lblRound5GroupDTeam2);
         round5teamNameLabels.add(lblRound5GroupDTeam3);
         round5teamNameLabels.add(lblRound5GroupDTeam4);
-
+        
         //Team names for round 6
         round6teamNameLabels.add(lblRound6GroupATeam1);
         round6teamNameLabels.add(lblRound6GroupATeam2);
@@ -1192,7 +1197,7 @@ public class PlayOffController implements Initializable {
         round6teamNameLabels.add(lblRound6GroupDTeam3);
         round6teamNameLabels.add(lblRound6GroupDTeam4);
     }
-
+    
     /**
      * Opens the MatchDetails window and loads the details for the match
      *
