@@ -58,9 +58,10 @@ public class MyChampController implements Initializable {
     private JFXTextField txtNewTeamSchool;
     @FXML
     private TextField txtTeamSchool;
-    
+
     private final int MINIMUM_NUMBER_OF_TEAMS = 12;
-    
+    private final int MAX_NUMBER_OF_TEAMS = 16;
+
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
@@ -281,22 +282,22 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
         //Checks if there is the minimum required numbers of teams in the tournament.
-        if(teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS){
+        if (teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS) {
             groupModel.createRandomGroups();
 
-        MyChamp.switchScene("PlayOffView");
-        playOffController = PlayOffController.getInstance();
-        playOffController.setRandomGroups(groupModel.getGroups());
-        playOffController.setPlayOffInformation();
-        teamModel.saveTeamsToFile();
-        groupModel.savePlayOffGroups();
-        }else{
+            MyChamp.switchScene("PlayOffView");
+            playOffController = PlayOffController.getInstance();
+            playOffController.setRandomGroups(groupModel.getGroups());
+            playOffController.setPlayOffInformation();
+            teamModel.saveTeamsToFile();
+            groupModel.savePlayOffGroups();
+        } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Turneringen kan ikke startes");
             alert.setHeaderText("Der er for få hold til at turneringen kan startes...");
             alert.setContentText("Tilføj flere hold for at starte turneringen.");
             alert.show();
-        }        
+        }
     }
 
     /**
@@ -305,24 +306,30 @@ public class MyChampController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleAddTeam(ActionEvent event
-    ) {
-        //Check to see if all information is present.
-        if (!txtNewTeamName.getText().equals("")
-                || !txtNewTeamField.getText().equals("")
-                || !txtNewTeamSchool.getText().equals("")) {
-            teamModel.addTeam(new Team(
-                    txtNewTeamName.getText(),
-                    txtNewTeamField.getText(),
-                    txtNewTeamSchool.getText()));
-            //Clears the fields for information.
-            txtNewTeamName.clear();
-            txtNewTeamField.clear();
-            txtNewTeamSchool.clear();
+    private void handleAddTeam(ActionEvent event) {
+        // Only adds teams when it is lower than MAX_NUMBER_OF_TEAMS (16).
+        if (tableTeams.getItems().size() < MAX_NUMBER_OF_TEAMS) {
+            //Check to see if all information is present.
+            if (!txtNewTeamName.getText().equals("")
+                    || !txtNewTeamField.getText().equals("")
+                    || !txtNewTeamSchool.getText().equals("")) {
+                teamModel.addTeam(new Team(
+                        txtNewTeamName.getText(),
+                        txtNewTeamField.getText(),
+                        txtNewTeamSchool.getText()));
+                //Clears the fields for information.
+                txtNewTeamName.clear();
+                txtNewTeamField.clear();
+                txtNewTeamSchool.clear();
+            } else {
+                warningDialog();
+            }
+            updateTeamMount();
         } else {
-            warningDialog();
+            maxTeamsDialog();
+            
         }
-        updateTeamMount();
+
     }
 
     /**
@@ -333,6 +340,13 @@ public class MyChampController implements Initializable {
         alert.setHeaderText("Advarsel");
         alert.setTitle("Manglende information.");
         alert.setContentText("Vær venlig at udfylde alle informationerne.");
+        alert.showAndWait();
+    }
+    private void maxTeamsDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Der kan ikke blive tilføjet flere teams.");
+        alert.setTitle("Advarsel");
+        alert.setContentText("Max antal teams er: " + MAX_NUMBER_OF_TEAMS);
         alert.showAndWait();
     }
 
