@@ -11,7 +11,7 @@ import mychamp.be.Team;
 
 public class RankingManager {
 
-    public static RankingManager instance;
+    private static RankingManager instance;
 
     private final GroupManager groupManager = GroupManager.getInstance();
 
@@ -82,42 +82,44 @@ public class RankingManager {
 
         return teams;
     }
-    
+
     /**
-     * Compares to teams against each other, to see which one has the higher ranking.
+     * Compares to teams against each other, to see which one has the higher
+     * ranking.
+     *
      * @param firstTeam to compare
      * @param secondTeam to compare
      * @return the higesht ranked team of the two teams.
      */
-    public Team rankTwoTeamsAgainstEachOther(Team firstTeam, Team secondTeam){
-        if(firstTeam.getPoints() < secondTeam.getPoints()){
+    public Team rankTwoTeamsAgainstEachOther(Team firstTeam, Team secondTeam) {
+        if (firstTeam.getPoints() < secondTeam.getPoints()) {
             return secondTeam;
-        }else if(firstTeam.getPoints() == secondTeam.getPoints()){
-            if(firstTeam.getGoalDifference() < secondTeam.getGoalDifference()){
+        } else if (firstTeam.getPoints() == secondTeam.getPoints()) {
+            if (firstTeam.getGoalDifference() < secondTeam.getGoalDifference()) {
                 return secondTeam;
-            }else if(firstTeam.getGoalDifference() == secondTeam.getGoalDifference()){
-                if(firstTeam.getGoalsScored() < secondTeam.getGoalsScored()){
+            } else if (firstTeam.getGoalDifference() == secondTeam.getGoalDifference()) {
+                if (firstTeam.getGoalsScored() < secondTeam.getGoalsScored()) {
                     return secondTeam;
-                }else if(firstTeam.getGoalsScored() == secondTeam.getGoalsScored()){
-                    if(firstTeam.getWinLossRatio() < secondTeam.getWinLossRatio()){
+                } else if (firstTeam.getGoalsScored() == secondTeam.getGoalsScored()) {
+                    if (firstTeam.getWinLossRatio() < secondTeam.getWinLossRatio()) {
                         return secondTeam;
-                    }else if(firstTeam.getWinLossRatio() == secondTeam.getWinLossRatio()){
+                    } else if (firstTeam.getWinLossRatio() == secondTeam.getWinLossRatio()) {
                         Random rand = new Random();
-                        if(rand.nextInt(2) == 0){
+                        if (rand.nextInt(2) == 0) {
                             return secondTeam;
-                        }else{
+                        } else {
                             return firstTeam;
                         }
-                    }else{
+                    } else {
                         return firstTeam;
                     }
-                }else{
+                } else {
                     return firstTeam;
                 }
-            }else{
+            } else {
                 return firstTeam;
             }
-        }else{
+        } else {
             return firstTeam;
         }
     }

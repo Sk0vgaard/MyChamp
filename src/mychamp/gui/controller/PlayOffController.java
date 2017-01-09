@@ -576,11 +576,13 @@ public class PlayOffController implements Initializable {
     //Add winner labels to an array
     private final ArrayList<Label> winnerLabels = new ArrayList();
 
-    //Create arrays forgroup ranking
+    //Create arrays for group ranking
     private final ArrayList<Label> rankingsGroupA = new ArrayList();
     private final ArrayList<Label> rankingsGroupB = new ArrayList();
     private final ArrayList<Label> rankingsGroupC = new ArrayList();
     private final ArrayList<Label> rankingsGroupD = new ArrayList();
+
+    private final ArrayList<ArrayList<Label>> rankingLabels = new ArrayList();
 
     private static PlayOffController instance;
 
@@ -598,6 +600,10 @@ public class PlayOffController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
+        rankingLabels.add(rankingsGroupA);
+        rankingLabels.add(rankingsGroupB);
+        rankingLabels.add(rankingsGroupC);
+        rankingLabels.add(rankingsGroupD);
     }
 
     /**
@@ -1645,4 +1651,13 @@ public class PlayOffController implements Initializable {
             winnerLabel.setText("Ikke spillet");
         }
     }
+
+    /**
+     *
+     * @return ranking labels
+     */
+    public ArrayList<ArrayList<Label>> getRankingLabels() {
+        return rankingLabels;
+    }
+
 }

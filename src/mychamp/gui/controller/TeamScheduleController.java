@@ -89,12 +89,12 @@ public class TeamScheduleController implements Initializable {
     @FXML
     private ComboBox<String> comboTeamName;
 
-    private final ArrayList<Team> listOfTeams;
-
     private final ArrayList<Match> listOfAllMatches;
     private final ArrayList<Match> listOfMatchesForSchedule;
 
     private final ArrayList<String> listOfTeamNames;
+
+    private ArrayList<Team> listOfAllTeams;
 
     private final ArrayList<Label> homeTeamNameLabels;
     private final ArrayList<Label> awayTeamNameLabels;
@@ -113,9 +113,8 @@ public class TeamScheduleController implements Initializable {
     public TeamScheduleController() {
         teamModel = TeamModel.getInstance();
         playOffController = PlayOffController.getInstance();
-
         //Initializes all lists.
-        listOfTeams = teamModel.getTeamsAsArrayList();
+        listOfAllTeams = teamModel.getTeamsAsArrayList();
 
         listOfAllMatches = new ArrayList();
         listOfMatchesForSchedule = new ArrayList();
@@ -146,7 +145,7 @@ public class TeamScheduleController implements Initializable {
      */
     private void initializeTeamLists() {
         //Configures the the names for the ComboBox
-        listOfTeams.addAll(teamModel.getTeams());
+        listOfAllTeams.addAll(teamModel.getTeams());
         initializeTeamNames();
     }
 
@@ -154,7 +153,7 @@ public class TeamScheduleController implements Initializable {
      * Fill the array list with team names
      */
     private void initializeTeamNames() {
-        for (Team team : listOfTeams) {
+        for (Team team : listOfAllTeams) {
             String teamToAdd;
             teamToAdd = team.getTeamName();
             listOfTeamNames.add(teamToAdd);
@@ -260,6 +259,8 @@ public class TeamScheduleController implements Initializable {
 
         //Displays the matches of the selected team.
         displaySchedule(listOfMatchesForSchedule);
+
+        SetPlacementForTeam(teamToView);
     }
 
     /**
@@ -306,5 +307,24 @@ public class TeamScheduleController implements Initializable {
         }
         //Set points for team
         lblTeamPoints.setText("" + selectedTeam.getPoints());
+
     }
+
+    /**
+     * Displays the teams placement
+     */
+    private void SetPlacementForTeam(String teamToView) {
+        int teamPlacement = 0;
+        //Set placement for team
+        for (ArrayList<Label> groupRanking : playOffController.getRankingLabels()) {
+            for (Label teamInGroup : groupRanking) {
+                if (teamInGroup.getText().equals(teamToView)) {
+                    teamPlacement = groupRanking.indexOf(teamInGroup) + 1;
+                }
+            }
+        }
+
+        lblTeamPlacement.setText("" + teamPlacement);
+    }
+
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.TeamScheduleController">
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.TeamScheduleController">
    <children>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="258.0" spacing="10.0">
          <children>
@@ -183,7 +183,7 @@
          </font>
       </Label>
       <Button layoutX="680.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="31.0" prefWidth="223.0" text="Tilbage" />
-      <HBox layoutX="14.0" layoutY="241.0" prefHeight="21.0" prefWidth="424.0" spacing="10.0">
+      <HBox layoutX="14.0" layoutY="241.0" prefHeight="30.0" prefWidth="546.0" spacing="10.0">
          <children>
             <Label text="Points:">
                <font>
@@ -195,7 +195,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label text="Placering:">
+            <Label prefHeight="30.0" prefWidth="219.0" text="Placering i gruppe:">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
