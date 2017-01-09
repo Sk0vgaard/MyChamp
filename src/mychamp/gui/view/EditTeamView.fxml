@@ -25,12 +25,12 @@
             <Pane layoutX="348.0" layoutY="67.0" prefHeight="204.0" prefWidth="303.0">
                <children>
                   <TextField fx:id="txtTeamName" layoutX="113.0" layoutY="68.0" />
-                  <Label layoutX="14.0" layoutY="73.0" text="Holdnavn" />
+                  <Label layoutX="12.0" layoutY="72.0" text="Holdnavn" />
                   <TextField fx:id="txtTeamID" layoutX="113.0" layoutY="24.0" />
                   <Label layoutX="12.0" layoutY="28.0" text="ID" />
                   <TextField fx:id="txtTeamField" layoutX="113.0" layoutY="116.0" />
-                  <Label layoutX="14.0" layoutY="121.0" text="H. bane" />
-                  <Label layoutX="18.0" layoutY="165.0" text="Skole:" />
+                  <Label layoutX="12.0" layoutY="120.0" text="H. bane" />
+                  <Label layoutX="12.0" layoutY="165.0" text="Skolens navn:" />
                   <TextField fx:id="txtTeamSchool" layoutX="113.0" layoutY="161.0" />
                </children>
             </Pane>
