@@ -237,6 +237,9 @@ public class FinalsController implements Initializable {
 
     }
 
+    /**
+     * Update goals for the finals
+     */
     public void updateGoals() {
         //Update goals for quarter finals
         //First match
@@ -322,10 +325,6 @@ public class FinalsController implements Initializable {
 
             //Finds the match that has been clicked on
             Match matchToSend = allMatches.get(stage).get(groupMatch);
-            System.out.println("Current HomeTeam: " + matchToSend.getHomeTeam().getTeamName());
-            System.out.println("Current AwayTeam: " + matchToSend.getAwayTeam().getTeamName());
-            System.out.println("Final team 1: " + finalMatches.get(0).getHomeTeam().getTeamName());
-            System.out.println("Final team 2: " + finalMatches.get(0).getAwayTeam().getTeamName());
 
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();

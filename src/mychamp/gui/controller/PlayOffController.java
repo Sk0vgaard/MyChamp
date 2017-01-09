@@ -579,7 +579,7 @@ public class PlayOffController implements Initializable {
     private static PlayOffController instance;
 
     private final TeamModel teamModel = TeamModel.getInstance();
-    
+
     private boolean unqualifiedRankingsSet = false;
 
     public static PlayOffController getInstance() {
@@ -606,10 +606,10 @@ public class PlayOffController implements Initializable {
             goToView("FinalsView");
             fController = FinalsController.getInstance();
             fController.setQuarterFinals(groupModel.getQuarterMatches());
-            if(!unqualifiedRankingsSet){
+            if (!unqualifiedRankingsSet) {
                 fController.setLast8RankNames();
                 unqualifiedRankingsSet = true;
-            }            
+            }
         } else {
             System.out.println("We're not done yet!");
         }
@@ -732,17 +732,20 @@ public class PlayOffController implements Initializable {
             //Set label for second team in current group
             round1teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(0).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
             teamOne = randomGroups.get(i).getGroupTeams().get(2);
-            teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            teamTwo = new Team("", "", "");
             //Set label for third team in current group
             round1teamNameLabels.get(2).setText(teamOne.getTeamName());
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            }
             //Set label for fourth team in current group
             round1teamNameLabels.get(3).setText(teamTwo.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(2).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round1teamNameLabels.remove(0);
@@ -771,17 +774,20 @@ public class PlayOffController implements Initializable {
             //Set label for second team in current group
             round2teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(0).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
-            teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            teamOne = new Team("", "", "");
             teamTwo = randomGroups.get(i).getGroupTeams().get(1);
-            //Set label for third team in current group
-            round2teamNameLabels.get(2).setText(teamOne.getTeamName());
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            }
             //Set label for fourth team in current group
             round2teamNameLabels.get(3).setText(teamTwo.getTeamName());
+            //Set label for third team in current group
+            round2teamNameLabels.get(2).setText(teamOne.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(3).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round2teamNameLabels.remove(0);
@@ -811,17 +817,20 @@ public class PlayOffController implements Initializable {
             //Set label for second team in current group
             round3teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(1).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
-            teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            teamOne = new Team("", "", "");
             teamTwo = randomGroups.get(i).getGroupTeams().get(2);
-            //Set label for third team in current group
-            round3teamNameLabels.get(2).setText(teamOne.getTeamName());
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            }
             //Set label for fourth team in current group
             round3teamNameLabels.get(3).setText(teamTwo.getTeamName());
+            //Set label for third team in current group
+            round3teamNameLabels.get(2).setText(teamOne.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(3).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round3teamNameLabels.remove(0);
@@ -844,13 +853,16 @@ public class PlayOffController implements Initializable {
         Team teamTwo = null;
         for (int i = 0; i < 4; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
-            teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            teamTwo = new Team("", "", "");
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            }
             //Set label for first team in current group
             round4teamNameLabels.get(0).setText(teamOne.getTeamName());
             //Set label for second team in current group
             round4teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(0).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
             teamOne = randomGroups.get(i).getGroupTeams().get(1);
@@ -860,7 +872,7 @@ public class PlayOffController implements Initializable {
             //Set label for fourth team in current group
             round4teamNameLabels.get(3).setText(teamTwo.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(1).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round4teamNameLabels.remove(0);
@@ -889,17 +901,20 @@ public class PlayOffController implements Initializable {
             //Set label for second team in current group
             round5teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(2).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
             teamOne = randomGroups.get(i).getGroupTeams().get(1);
-            teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            teamTwo = new Team("", "", "");
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamTwo = randomGroups.get(i).getGroupTeams().get(3);
+            }
             //Set label for third team in current group
             round5teamNameLabels.get(2).setText(teamOne.getTeamName());
             //Set label for fourth team in current group
             round5teamNameLabels.get(3).setText(teamTwo.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(1).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round5teamNameLabels.remove(0);
@@ -921,14 +936,17 @@ public class PlayOffController implements Initializable {
         Team teamOne = null;
         Team teamTwo = null;
         for (int i = 0; i < 4; i++) {
-            teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            teamOne = new Team("", "", "");
+            if (randomGroups.get(i).getGroupTeams().size() > 3) {
+                teamOne = randomGroups.get(i).getGroupTeams().get(3);
+            }
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);
             //Set label for first team in current group
             round6teamNameLabels.get(0).setText(teamOne.getTeamName());
             //Set label for second team in current group
             round6teamNameLabels.get(1).setText(teamTwo.getTeamName());
             //Create the first match of the group
-            Match groupMatch1 = new Match(randomGroups.get(i).getGroupTeams().get(3).getHomeField(), teamOne, teamTwo);
+            Match groupMatch1 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupMatch1);
             //Clear the match teams to ge ready for the second match in the group
             teamOne = randomGroups.get(i).getGroupTeams().get(2);
@@ -938,7 +956,7 @@ public class PlayOffController implements Initializable {
             //Set label for fourth team in current group
             round6teamNameLabels.get(3).setText(teamTwo.getTeamName());
             //Create the second match of the group
-            Match groupmatch2 = new Match(randomGroups.get(i).getGroupTeams().get(2).getHomeField(), teamOne, teamTwo);
+            Match groupmatch2 = new Match(teamOne.getHomeField(), teamOne, teamTwo);
             groupMatches.add(groupmatch2);
             //Remove labels from the list
             round6teamNameLabels.remove(0);
