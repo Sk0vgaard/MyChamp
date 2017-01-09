@@ -94,6 +94,7 @@ public class MyChampController implements Initializable {
         initializeDesign();
         initializeTables();
         setListeners();
+        tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
 
@@ -264,9 +265,6 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleKeyShortCuts(KeyEvent event) {
         if (event.isControlDown() | event.isShiftDown()) {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } else {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
         if (event.getCode().equals(KeyCode.DELETE)) {
             deleteTeam();

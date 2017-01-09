@@ -43,6 +43,16 @@
                   <Label fx:id="lblRound1Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound1Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1">
@@ -52,6 +62,16 @@
                   <Label fx:id="lblRound2Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound2Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2">
@@ -61,6 +81,16 @@
                   <Label fx:id="lblRound3Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound3Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3">
@@ -70,6 +100,16 @@
                   <Label fx:id="lblRound4Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound4Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4">
@@ -79,6 +119,16 @@
                   <Label fx:id="lblRound5Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound5Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
@@ -88,6 +138,16 @@
                   <Label fx:id="lblRound6Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound6Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
                   <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

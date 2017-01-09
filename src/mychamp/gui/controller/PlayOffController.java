@@ -723,6 +723,10 @@ public class PlayOffController implements Initializable {
 
     }
 
+    public ArrayList<Group> getRandomGroups() {
+        return randomGroups;
+    }
+
     /**
      * Set information for round 1
      */

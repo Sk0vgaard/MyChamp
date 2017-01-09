@@ -233,7 +233,6 @@ public class GroupScheduleController implements Initializable {
         homeTeamGoalsLabels.add(lblRound5Goal3);
         homeTeamGoalsLabels.add(lblRound6Goal1);
         homeTeamGoalsLabels.add(lblRound6Goal3);
-
         //Away team
         awayTeamNameLabels.add(lblRound1Team2);
         awayTeamNameLabels.add(lblRound1Team4);
