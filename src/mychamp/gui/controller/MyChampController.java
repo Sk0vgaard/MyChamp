@@ -94,6 +94,7 @@ public class MyChampController implements Initializable {
         initializeDesign();
         initializeTables();
         setListeners();
+        tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
 
@@ -264,9 +265,6 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleKeyShortCuts(KeyEvent event) {
         if (event.isControlDown() | event.isShiftDown()) {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } else {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
         if (event.getCode().equals(KeyCode.DELETE)) {
             deleteTeam();
@@ -327,7 +325,7 @@ public class MyChampController implements Initializable {
             updateTeamMount();
         } else {
             maxTeamsDialog();
-            
+
         }
 
     }
@@ -342,6 +340,7 @@ public class MyChampController implements Initializable {
         alert.setContentText("Vær venlig at udfylde alle informationerne.");
         alert.showAndWait();
     }
+
     private void maxTeamsDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Der kan ikke blive tilføjet flere teams.");
