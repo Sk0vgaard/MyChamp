@@ -89,44 +89,45 @@ public class TeamScheduleController implements Initializable {
     @FXML
     private ComboBox<String> comboTeamName;
 
-    ArrayList<Team> listOfTeams;
-    
-    ArrayList<Match> listOfAllMatches;
-    ArrayList<Match> listOfMatchesForSchedule;
-    
-    ArrayList<String> listOfTeamNames;
-    
+    private final ArrayList<Team> listOfTeams;
+
+    private final ArrayList<Match> listOfAllMatches;
+    private final ArrayList<Match> listOfMatchesForSchedule;
+
+    private final ArrayList<String> listOfTeamNames;
+
     private final ArrayList<Label> homeTeamNameLabels;
     private final ArrayList<Label> awayTeamNameLabels;
-    
+
     private final ArrayList<Label> homeTeamGoalsLabels;
     private final ArrayList<Label> awayTeamGoalsLabels;
-    
+
     private final ArrayList<Label> winnerLabels;
-    
+
+    private Team selectedTeam;
+
     private final TeamModel teamModel;
-    
+
     private final PlayOffController playOffController;
 
     public TeamScheduleController() {
         teamModel = TeamModel.getInstance();
         playOffController = PlayOffController.getInstance();
-        
-        
+
         //Initializes all lists.
-        listOfTeams = new ArrayList();
-        
+        listOfTeams = teamModel.getTeamsAsArrayList();
+
         listOfAllMatches = new ArrayList();
         listOfMatchesForSchedule = new ArrayList();
-        
+
         listOfTeamNames = new ArrayList();
-        
+
         homeTeamNameLabels = new ArrayList();
         awayTeamNameLabels = new ArrayList();
-        
+
         homeTeamGoalsLabels = new ArrayList();
         awayTeamGoalsLabels = new ArrayList();
-        
+
         winnerLabels = new ArrayList();
     }
 
@@ -138,16 +139,20 @@ public class TeamScheduleController implements Initializable {
         initializeTeamLists();
         fillLabelArray();
     }
+
     /**
-     * Pulls out the teams from the teamModel and puts their teamNames in the comboBox.
+     * Pulls out the teams from the teamModel and puts their teamNames in the
+     * comboBox.
      */
     private void initializeTeamLists() {
-        
         //Configures the the names for the ComboBox
         listOfTeams.addAll(teamModel.getTeams());
         initializeTeamNames();
     }
 
+    /**
+     * Fill the array list with team names
+     */
     private void initializeTeamNames() {
         for (Team team : listOfTeams) {
             String teamToAdd;
@@ -156,7 +161,7 @@ public class TeamScheduleController implements Initializable {
         }
         comboTeamName.getItems().addAll(listOfTeamNames);
     }
-    
+
     /**
      * Gets all matches and adds them to an ArrayList.
      */
@@ -165,7 +170,7 @@ public class TeamScheduleController implements Initializable {
             listOfAllMatches.addAll(playOffController.getRandomGroups().get(i).getGroupMatches());
         }
     }
-    
+
     /**
      * Loads labels into an ArrayList
      */
@@ -210,8 +215,14 @@ public class TeamScheduleController implements Initializable {
         winnerLabels.add(Round4Winner);
         winnerLabels.add(Round5Winner);
         winnerLabels.add(Round6Winner);
-        }
-    
+    }
+
+    /**
+     * Moves back to the playoff view
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleBackButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
@@ -229,50 +240,60 @@ public class TeamScheduleController implements Initializable {
 
     /**
      * Shows the team's info when chosen in the comboBox.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleOnHidden(Event event) {
         //Clears the lists
         listOfAllMatches.clear();
         listOfMatchesForSchedule.clear();
-        
+
         //Adds all matches to an ArrayList
         initializeAllMatches();
-        
+
         //Finds out which team to show.
         String teamToView = comboTeamName.getValue();
-        
+
         //Adds the matches the team is involved in to an ArrayList.
         makeMatchListForSpecificTeam(teamToView);
-        
+
         //Displays the matches of the selected team.
         displaySchedule(listOfMatchesForSchedule);
     }
-    
-    private void makeMatchListForSpecificTeam(String teamToView){
+
+    /**
+     * Fill list of matches for a specific team
+     *
+     * @param teamToView
+     */
+    private void makeMatchListForSpecificTeam(String teamToView) {
         for (Match match : listOfAllMatches) {
             if (teamToView.equals(match.getAwayTeam().getTeamName()) || teamToView.equals(match.getHomeTeam().getTeamName())) {
                 listOfMatchesForSchedule.add(match);
+                if (teamToView.equals(match.getHomeTeam().getTeamName())) {
+                    selectedTeam = match.getHomeTeam();
+                } else {
+                    selectedTeam = match.getAwayTeam();
+                }
             }
         }
     }
 
+    /**
+     * Displays the schedule for a specific team
+     *
+     * @param listOfMatchesForSchedule
+     */
     private void displaySchedule(ArrayList<Match> listOfMatchesForSchedule) {
-        //Set home team names
         for (int i = 0; i < listOfMatchesForSchedule.size(); i++) {
+            //Set home team names
             homeTeamNameLabels.get(i).setText(listOfMatchesForSchedule.get(i).getHomeTeam().getTeamName());
-        }
-        //Set away team names
-        for (int i = 0; i < listOfMatchesForSchedule.size(); i++) {
+            //Set away team names
             awayTeamNameLabels.get(i).setText(listOfMatchesForSchedule.get(i).getAwayTeam().getTeamName());
-        }
-        //Set home team goals
-        for (int i = 0; i < listOfMatchesForSchedule.size(); i++) {
+            //Set home team goals
             homeTeamGoalsLabels.get(i).setText("" + listOfMatchesForSchedule.get(i).getHomeTeamScore());
-        }
-        //Set away team goals
-        for (int i = 0; i < listOfMatchesForSchedule.size(); i++) {
+            //Set away team goals
             awayTeamGoalsLabels.get(i).setText("" + listOfMatchesForSchedule.get(i).getAwayTeamScore());
         }
         //Set winner
@@ -283,5 +304,7 @@ public class TeamScheduleController implements Initializable {
                 winnerLabels.get(i).setText("Ikke spillet");
             }
         }
+        //Set points for team
+        lblTeamPoints.setText("" + selectedTeam.getPoints());
     }
 }
