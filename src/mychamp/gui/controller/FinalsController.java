@@ -57,10 +57,6 @@ public class FinalsController implements Initializable {
     @FXML
     private Label lblQuarterGoalB2;
     @FXML
-    private Label lblQuarterGoalB1;
-    @FXML
-    private Label lblQuarterGoalA2;
-    @FXML
     private Label lblQuarterGoalC1;
     @FXML
     private Label lblQuarterGoalD2;
@@ -174,6 +170,10 @@ public class FinalsController implements Initializable {
     public static FinalsController getInstance() {
         return instance;
     }
+    @FXML
+    private Label lblQuarterGoalB1;
+    @FXML
+    private Label lblQuarterGoalA2;
 
     public FinalsController() {
         mockTeam = new Team("", "", "");
@@ -230,8 +230,8 @@ public class FinalsController implements Initializable {
         lblQuarterTeamA1.setText(quarterFinalMatches.get(0).getHomeTeam().getTeamName());
         lblQuarterTeamB2.setText(quarterFinalMatches.get(0).getAwayTeam().getTeamName());
         //Set second match
-        lblQuarterTeamB1.setText(quarterFinalMatches.get(1).getHomeTeam().getTeamName());
-        lblQuarterTeamA2.setText(quarterFinalMatches.get(1).getAwayTeam().getTeamName());
+        lblQuarterTeamA2.setText(quarterFinalMatches.get(1).getHomeTeam().getTeamName());
+        lblQuarterTeamB1.setText(quarterFinalMatches.get(1).getAwayTeam().getTeamName());
         //Set third match
         lblQuarterTeamC1.setText(quarterFinalMatches.get(2).getHomeTeam().getTeamName());
         lblQuarterTeamD2.setText(quarterFinalMatches.get(2).getAwayTeam().getTeamName());
