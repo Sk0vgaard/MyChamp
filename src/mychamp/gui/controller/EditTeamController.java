@@ -31,10 +31,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
-public class MyChampController implements Initializable {
+public class EditTeamController implements Initializable {
 
     @FXML
     private Label lblTeamAmount;
@@ -51,39 +52,30 @@ public class MyChampController implements Initializable {
     @FXML
     private TextField txtTeamField;
     @FXML
-    private JFXTextField txtNewTeamName;
-    @FXML
-    private JFXTextField txtNewTeamField;
-    @FXML
-    private JFXTextField txtNewTeamSchool;
-    @FXML
     private TextField txtTeamSchool;
-
-    private final int MINIMUM_NUMBER_OF_TEAMS = 12;
-    private final int MAX_NUMBER_OF_TEAMS = 16;
+    @FXML
+    private JFXButton btnEdit;
 
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
-    private PlayOffController playOffController;
-    private static MyChampController instance;
-    private TableView.TableViewSelectionModel<Team> selectedView;
+    private static EditTeamController instance;
+
+    private final FileManager fileManager = FileManager.getInstance();
 
     private final ArrayList<TextField> txtFieldList;
-    @FXML
-    private JFXButton btnEdit;
 
-    public static MyChampController getIntance() {
+    public static EditTeamController getIntance() {
         return instance;
     }
     @FXML
     private JFXButton btnBack;
 
-    public MyChampController() {
+    public EditTeamController() {
+
         teamModel = TeamModel.getInstance();
         groupModel = GroupModel.getInstance();
-        txtFieldList = new ArrayList<>();
-
+        this.txtFieldList = new ArrayList<>();
     }
 
     @Override
@@ -126,7 +118,6 @@ public class MyChampController implements Initializable {
         tableTeams.setItems(teamModel.getTeams());
         clmID.setCellValueFactory(new PropertyValueFactory<>("ID"));
         clmTeam.setCellValueFactory(new PropertyValueFactory<>("teamName"));
-
     }
 
     /**
@@ -174,6 +165,7 @@ public class MyChampController implements Initializable {
                         textField.setDisable(true);
                     }
                     btnEdit.setText("Rediger");
+                    teamModel.saveTeamsToFile();
                 }
                 tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
                 tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
@@ -228,6 +220,7 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
+        teamModel.saveTeamsToFile();
     }
 
     public void deleteTeam() throws NullPointerException {
@@ -272,67 +265,6 @@ public class MyChampController implements Initializable {
     }
 
     /**
-     * Switches to the PlayOffView.
-     *
-     * @param event
-     * @throws IOException
-     */
-    @FXML
-    private void handleStartTournament(ActionEvent event) throws IOException {
-        //Reset tournament
-        FinalsController.getInstance().initilizeDesign();
-        //Checks if there is the minimum required numbers of teams in the tournament.
-        if (teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS) {
-            groupModel.createRandomGroups();
-
-            MyChamp.switchScene("PlayOffView");
-            playOffController = PlayOffController.getInstance();
-            playOffController.setRandomGroups(groupModel.getGroups());
-            playOffController.setPlayOffInformation();
-            teamModel.saveTeamsToFile();
-            groupModel.savePlayOffGroups();
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Turneringen kan ikke startes");
-            alert.setHeaderText("Der er for få hold til at turneringen kan startes...");
-            alert.setContentText("Tilføj flere hold for at starte turneringen.");
-            alert.show();
-        }
-    }
-
-    /**
-     * Adds a Team.
-     *
-     * @param event
-     */
-    @FXML
-    private void handleAddTeam(ActionEvent event) {
-        // Only adds teams when it is lower than MAX_NUMBER_OF_TEAMS (16).
-        if (tableTeams.getItems().size() < MAX_NUMBER_OF_TEAMS) {
-            //Check to see if all information is present.
-            if (!txtNewTeamName.getText().equals("")
-                    || !txtNewTeamField.getText().equals("")
-                    || !txtNewTeamSchool.getText().equals("")) {
-                teamModel.addTeam(new Team(
-                        txtNewTeamName.getText(),
-                        txtNewTeamField.getText(),
-                        txtNewTeamSchool.getText()));
-                //Clears the fields for information.
-                txtNewTeamName.clear();
-                txtNewTeamField.clear();
-                txtNewTeamSchool.clear();
-            } else {
-                warningDialog();
-            }
-            updateTeamMount();
-        } else {
-            maxTeamsDialog();
-
-        }
-
-    }
-
-    /**
      * Pops up a warning dialog telling the user, there are missing information.
      */
     private void warningDialog() {
@@ -340,14 +272,6 @@ public class MyChampController implements Initializable {
         alert.setHeaderText("Advarsel");
         alert.setTitle("Manglende information.");
         alert.setContentText("Vær venlig at udfylde alle informationerne.");
-        alert.showAndWait();
-    }
-
-    private void maxTeamsDialog() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText("Der kan ikke blive tilføjet flere teams.");
-        alert.setTitle("Advarsel");
-        alert.setContentText("Max antal teams er: " + MAX_NUMBER_OF_TEAMS);
         alert.showAndWait();
     }
 
@@ -369,10 +293,9 @@ public class MyChampController implements Initializable {
     }
 
     @FXML
-    private void handleBackToMenu(ActionEvent event) throws IOException {
+    private void handleBackToMenu(ActionEvent event) throws IOException{
         goToView("MenuView");
     }
-
     private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
     }

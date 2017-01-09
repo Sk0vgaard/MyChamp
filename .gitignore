@@ -3,6 +3,7 @@
 
 # MyChamp
 !jfoenix*.jar
+*.data
 
 ### Eclipse ###
 
@@ -2013,3 +2014,4 @@ hs_err_pid*
 
 # ImageProcessor DiskCache
 **/App_Data/cache/
+*.data

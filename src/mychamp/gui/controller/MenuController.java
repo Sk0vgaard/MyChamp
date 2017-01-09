@@ -10,13 +10,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import mychamp.MyChamp;
 
 /**
  * FXML Controller class
@@ -24,10 +20,10 @@ import javafx.stage.Stage;
  * @author Rasmus
  */
 public class MenuController implements Initializable {
-    
+
     @FXML
     private Label lblMenuBanner;
-    
+
     /**
      * Initializes the controller class.
      */
@@ -47,18 +43,21 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
-        goToView("MyChamp");        
-    }    
-    
+        goToView("MyChamp");
+    }
+
+    @FXML
+    private void handleTeamEditButton(ActionEvent event) throws IOException {
+        goToView("EditTeamView");
+    }
+
     /**
      * Goes to the view that is parsed.
+     *
      * @param view
-     * @throws IOException 
+     * @throws IOException
      */
-    private void goToView(String view) throws IOException{
-        Stage primStage = (Stage) lblMenuBanner.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/" + view + ".fxml"));
-        Parent root = loader.load();
-        primStage.setScene(new Scene(root));
-    }    
+    private void goToView(String view) throws IOException {
+        MyChamp.switchScene(view);
+    }
 }

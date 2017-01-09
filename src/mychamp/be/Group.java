@@ -5,13 +5,16 @@
  */
 package mychamp.be;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Group {
+public class Group implements Serializable{
 
-    private final String GROUP_NAME;
+    private final String groupName;
 
     private ArrayList<Team> groupTeams;
+
+    private ArrayList<Match> groupMatches;
 
     /**
      * Construct a group for the matchups
@@ -20,8 +23,9 @@ public class Group {
      * @param groupTeams
      */
     public Group(String groupName, ArrayList<Team> groupTeams) {
-        this.GROUP_NAME = groupName;
+        this.groupName = groupName;
         this.groupTeams = groupTeams;
+        groupMatches = new ArrayList<>();
     }
 
     /**
@@ -39,6 +43,31 @@ public class Group {
      */
     public void setGroupTeams(ArrayList<Team> groupTeams) {
         this.groupTeams = groupTeams;
+    }
+
+    /**
+     *
+     * @return group matches
+     */
+    public ArrayList<Match> getGroupMatches() {
+        return groupMatches;
+    }
+
+    /**
+     * Adds new matches to the group
+     *
+     * @param newMatches
+     */
+    public void addGroupMatches(ArrayList<Match> newMatches) {
+        groupMatches.addAll(newMatches);
+    }
+
+    /**
+     *
+     * @return the name of the group
+     */
+    public String getGroupName() {
+        return groupName;
     }
 
 }

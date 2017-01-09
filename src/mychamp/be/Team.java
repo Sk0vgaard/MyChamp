@@ -5,17 +5,18 @@
  */
 package mychamp.be;
 
+import java.io.Serializable;
 import mychamp.bll.IDCreator;
 
-public class Team {
+public class Team implements Serializable{
 
-    private final int ID;
+    private int ID;
 
-    private final String TEAM_NAME;
+    private String teamName;
 
-    private final String SCHOOL;
+    private String SCHOOL;
 
-    private final String HOME_FIELD;
+    private String HOME_FIELD;
 
     private int points;
 
@@ -26,8 +27,6 @@ public class Team {
     private int wins;
 
     private int losses;
-
-    private int matchesPlayed;
 
     private IDCreator getNewID = IDCreator.getInstance();
 
@@ -40,13 +39,12 @@ public class Team {
      */
     public Team(String teamName, String HOME_FIELD, String SCHOOL) {
         this.ID = getNewID.getTeamID();
-        this.TEAM_NAME = teamName;
+        this.teamName = teamName;
         this.HOME_FIELD = HOME_FIELD;
         this.SCHOOL = SCHOOL;
         points = 0;
         this.wins = 0;
         this.losses = 0;
-        this.matchesPlayed = 0;
     }
 
     /**
@@ -55,7 +53,7 @@ public class Team {
      * @param points
      */
     public void setPoints(int points) {
-        this.points = points;
+        this.points += points;
     }
 
     /**
@@ -72,7 +70,7 @@ public class Team {
      * @param goalsScored
      */
     public void setGoalsScored(int goalsScored) {
-        this.goalsScored = goalsScored;
+        this.goalsScored += goalsScored;
     }
 
     /**
@@ -89,7 +87,7 @@ public class Team {
      * @param goalsTaken
      */
     public void setGoalsTaken(int goalsTaken) {
-        this.goalsTaken = goalsTaken;
+        this.goalsTaken += goalsTaken;
     }
 
     /**
@@ -104,15 +102,15 @@ public class Team {
      *
      * @return the name of the team
      */
-    public String getTEAM_NAME() {
-        return TEAM_NAME;
+    public String getTeamName() {
+        return teamName;
     }
 
     /**
      *
      * @return the home field
      */
-    public String getHOME_FIELD() {
+    public String getHomeField() {
         return HOME_FIELD;
     }
 
@@ -120,7 +118,7 @@ public class Team {
      *
      * @return the school of the team
      */
-    public String getSCHOOL() {
+    public String getSchool() {
         return SCHOOL;
     }
 
@@ -146,7 +144,7 @@ public class Team {
      * @param wins
      */
     public void setWins(int wins) {
-        this.wins = wins;
+        this.wins += wins;
     }
 
     /**
@@ -163,24 +161,34 @@ public class Team {
      * @param losses
      */
     public void setLosses(int losses) {
-        this.losses = losses;
+        this.losses += losses;
     }
 
+    public void setTeamName(String TEAM_NAME) {
+        this.teamName = TEAM_NAME;
+    }
+
+    public void setSchool(String SCHOOL) {
+        this.SCHOOL = SCHOOL;
+    }
+
+    public void setHomeField(String HOME_FIELD) {
+        this.HOME_FIELD = HOME_FIELD;
+    }
+    
     /**
-     *
-     * @return matches played
+     * Return the goaldifference.
+     * @return 
      */
-    public int getMatchesPlayed() {
-        return matchesPlayed;
+    public int getGoalDifference(){
+        return goalsScored - goalsTaken;
     }
-
+    
     /**
-     * Add to total matches played
-     *
-     * @param matchesPlayed
+     * Returns the win/loses ratio of the team.
+     * @return 
      */
-    public void setMatchesPlayed(int matchesPlayed) {
-        this.matchesPlayed = matchesPlayed;
+    public int getWinLossRatio(){
+        return wins - losses;
     }
-
 }

@@ -5,66 +5,95 @@
  */
 package mychamp.be;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import mychamp.bll.IDCreator;
 
-public class Match {
+public class Match implements Serializable {
 
     private final int ID;
 
     private final String LOCATION;
 
-    private final ArrayList<Team> TEAMS;
+    private Team homeTeam;
 
-    private final int FINAL_SCORE;
+    private Team awayTeam;
 
-    private final String WINNER_TEAM;
+    private int homeTeamScore;
 
-    public Match(int ID, String LOCATION, ArrayList<Team> TEAMS, int FINAL_SCORE, String WINNER_TEAM) {
-        this.ID = ID;
+    private int awayTeamScore;
+
+    private Team winnerTeam;
+
+    private boolean isPlayed;
+
+    private final IDCreator getNewID = IDCreator.getInstance();
+
+    public Match(String LOCATION, Team home, Team away) {
+        this.ID = getNewID.getMatchID();
         this.LOCATION = LOCATION;
-        this.TEAMS = TEAMS;
-        this.FINAL_SCORE = FINAL_SCORE;
-        this.WINNER_TEAM = WINNER_TEAM;
+        homeTeam = home;
+        awayTeam = away;
+        isPlayed = false;
+        winnerTeam = null;
     }
 
+    public Team getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public Team getAwayTeam() {
+        return awayTeam;
+    }
+
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
+    }
+
+    public int getHomeTeamScore() {
+        return homeTeamScore;
+    }
+
+    public void setHomeTeamScore(int homeTeamScore) {
+        this.homeTeamScore = homeTeamScore;
+    }
+
+    public int getAwayTeamScore() {
+        return awayTeamScore;
+    }
+
+    public void setAwayTeamScore(int awayTeamScore) {
+        this.awayTeamScore = awayTeamScore;
+    }
+
+    public Team getWinnerTeam() {
+        return winnerTeam;
+    }
+
+    public void setWinnerTeam(Team winnerTeam) {
+        this.winnerTeam = winnerTeam;
+    }
+
+    public void setIsPlayed() {
+        this.isPlayed = true;
+    }
+
+    public boolean isPlayed() {
+        return isPlayed;
+    }
+    
     /**
-     *
-     * @return ID
+     * Return the losing team.
+     * @return 
      */
-    public int getId() {
-        return ID;
+    public Team getLoserTeam(){
+        if(winnerTeam == homeTeam){
+            return awayTeam;
+        }else{
+            return homeTeam;
+        }
     }
-
-    /**
-     *
-     * @return location of the match
-     */
-    public String getLocation() {
-        return LOCATION;
-    }
-
-    /**
-     *
-     * @return TEAMS playing
-     */
-    public ArrayList<Team> getTeams() {
-        return TEAMS;
-    }
-
-    /**
-     *
-     * @return final score of the match
-     */
-    public int getFinalScore() {
-        return FINAL_SCORE;
-    }
-
-    /**
-     *
-     * @return the winner team
-     */
-    public String getWinnerTeam() {
-        return WINNER_TEAM;
-    }
-
 }

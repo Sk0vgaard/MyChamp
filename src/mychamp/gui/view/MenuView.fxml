@@ -16,7 +16,12 @@
       </Label>
       <VBox layoutX="54.0" layoutY="82.0" prefHeight="575.0" prefWidth="414.0" spacing="70.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Hold">
+            <Button mnemonicParsing="false" onAction="#handleNewTournamentButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Ny Tunering">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleTeamEditButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Hold">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -27,11 +32,6 @@
                </font>
             </Button>
             <Button mnemonicParsing="false" onAction="#handleFinalsButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Finaler">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#handleNewTournamentButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Ny Tunering">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
