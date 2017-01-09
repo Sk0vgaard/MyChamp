@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
       <GridPane fx:id="PlayOffGridPane" layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0">
         <columnConstraints>
@@ -46,7 +46,7 @@
                         <Label fx:id="lblRound1GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -78,7 +78,7 @@
                         <Label fx:id="lblRound1GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -110,7 +110,7 @@
                         <Label fx:id="lblRound1GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -142,7 +142,7 @@
                         <Label fx:id="lblRound1GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -174,7 +174,7 @@
                         <Label fx:id="lblRound1GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -206,7 +206,7 @@
                         <Label fx:id="lblRound1GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -238,7 +238,7 @@
                         <Label fx:id="lblRound1GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -270,7 +270,7 @@
                         <Label fx:id="lblRound1GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound1GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound1GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -302,7 +302,7 @@
                         <Label fx:id="lblRound2GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -334,7 +334,7 @@
                         <Label fx:id="lblRound2GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -366,7 +366,7 @@
                         <Label fx:id="lblRound2GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -398,7 +398,7 @@
                         <Label fx:id="lblRound2GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -430,7 +430,7 @@
                         <Label fx:id="lblRound2GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -462,7 +462,7 @@
                         <Label fx:id="lblRound2GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -494,7 +494,7 @@
                         <Label fx:id="lblRound2GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -526,7 +526,7 @@
                         <Label fx:id="lblRound2GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound2GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound2GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -558,7 +558,7 @@
                         <Label fx:id="lblRound3GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -590,7 +590,7 @@
                         <Label fx:id="lblRound3GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -622,7 +622,7 @@
                         <Label fx:id="lblRound3GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -654,7 +654,7 @@
                         <Label fx:id="lblRound3GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -686,7 +686,7 @@
                         <Label fx:id="lblRound3GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -718,7 +718,7 @@
                         <Label fx:id="lblRound3GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -750,7 +750,7 @@
                         <Label fx:id="lblRound3GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -782,7 +782,7 @@
                         <Label fx:id="lblRound3GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound3GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound3GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -814,7 +814,7 @@
                         <Label fx:id="lblRound4GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -846,7 +846,7 @@
                         <Label fx:id="lblRound4GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -878,7 +878,7 @@
                         <Label fx:id="lblRound4GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -910,7 +910,7 @@
                         <Label fx:id="lblRound4GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -942,7 +942,7 @@
                         <Label fx:id="lblRound4GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -974,7 +974,7 @@
                         <Label fx:id="lblRound4GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1006,7 +1006,7 @@
                         <Label fx:id="lblRound4GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1038,7 +1038,7 @@
                         <Label fx:id="lblRound4GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound4GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound4GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1070,7 +1070,7 @@
                         <Label fx:id="lblRound5GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1102,7 +1102,7 @@
                         <Label fx:id="lblRound5GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1134,7 +1134,7 @@
                         <Label fx:id="lblRound5GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1166,7 +1166,7 @@
                         <Label fx:id="lblRound5GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1198,7 +1198,7 @@
                         <Label fx:id="lblRound5GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupCWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1230,7 +1230,7 @@
                         <Label fx:id="lblRound5GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupCWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1262,7 +1262,7 @@
                         <Label fx:id="lblRound5GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1294,7 +1294,7 @@
                         <Label fx:id="lblRound5GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound5GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1326,7 +1326,7 @@
                         <Label fx:id="lblRound6GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupAWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1358,7 +1358,7 @@
                         <Label fx:id="lblRound6GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupAWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1390,7 +1390,7 @@
                         <Label fx:id="lblRound6GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupBWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1411,11 +1411,6 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <children>
-                  <Button id="53" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Button>
                   <Pane prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="9.0" layoutY="6.0" text="H">
@@ -1427,7 +1422,7 @@
                         <Label fx:id="lblRound6GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupBWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1439,6 +1434,11 @@
                         <Label fx:id="lblRound6GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
                      </children>
                   </Pane>
+                  <Button id="53" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="4">
@@ -1454,7 +1454,7 @@
                         <Label fx:id="lblRound6GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupCWinner11" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1486,7 +1486,7 @@
                         <Label fx:id="lblRound6GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound5GroupCWinner21" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1518,7 +1518,7 @@
                         <Label fx:id="lblRound6GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupDWinner1" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">
@@ -1550,7 +1550,7 @@
                         <Label fx:id="lblRound6GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
                      </children>
                   </Pane>
-                  <Label fx:id="lblRound6GroupDWinner2" layoutX="38.0" layoutY="60.0" text="&lt;winnerLabel&gt;" />
+                  <Label fx:id="lblRound6GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
                   <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
                      <children>
                         <Label layoutX="10.0" layoutY="6.0" text="U">

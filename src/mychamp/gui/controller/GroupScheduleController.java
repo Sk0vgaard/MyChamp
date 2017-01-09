@@ -16,11 +16,6 @@ import javafx.scene.control.Label;
 import mychamp.MyChamp;
 import mychamp.be.Group;
 
-/**
- * FXML Controller class
- *
- * @author gta1
- */
 public class GroupScheduleController implements Initializable {
 
     @FXML

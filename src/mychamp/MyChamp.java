@@ -6,12 +6,17 @@
 package mychamp;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mychamp.be.Group;
+import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.dal.DAOManager;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -58,13 +63,21 @@ public class MyChamp extends Application {
      * If there is any previous data. Load it.
      */
     private void loadSavedData(){
-        DAOManager daoManager = DAOManager.getInstance();
         TeamModel teamModel = TeamModel.getInstance();
+        GroupModel groupModel = GroupModel.getInstance();
         
-        if(daoManager.isTeamsThere()){
-            teamModel.addNewListOfTeams(daoManager.getTeamsFromFile());
+        ArrayList<Team> loadedTeams = teamModel.getTeamsFromFile();
+        if(loadedTeams != null){
+            teamModel.addNewListOfTeams(loadedTeams);
         }
-        System.out.println("Main method calling");
+        
+        ArrayList<Group> loadedPlayOffGroups = groupModel.getPlayOffGroupsFromFil();
+        if(loadedPlayOffGroups != null){
+            groupModel.setGroups(loadedPlayOffGroups);
+            System.out.println("PlayOffGroups loaded!");
+        }else{
+            System.out.println("PlayOffGroups not loaded!");
+        }
     }
 
     /**
@@ -112,7 +125,6 @@ public class MyChamp extends Application {
      * @throws IOException
      */
     private void createScenes() throws IOException {
-        System.out.println(getClass().getResource("gui/view/EditTeamView.fxml"));
         playOffView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/PlayOffView.fxml")));
         finalsView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/FinalsView.fxml")));
         menuView = new Scene(FXMLLoader.load(getClass().getResource("gui/view/MenuView.fxml")));

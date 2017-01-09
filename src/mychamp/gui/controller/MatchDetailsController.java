@@ -24,8 +24,6 @@ import mychamp.gui.model.TeamModel;
 
 /**
  * FXML Controller class
- *
- * @author Rasmus
  */
 public class MatchDetailsController implements Initializable {
 
@@ -51,17 +49,18 @@ public class MatchDetailsController implements Initializable {
     private Match match;
     private Team homeTeam;
     private Team awayTeam;
-    
-    ObservableList<Team> teamsToDelete;
+
+    private final ObservableList<Team> teamsToDelete;
 
     private final TeamModel teamModel;
+
+    private final PlayOffController poController;
 
     public MatchDetailsController() {
         teamModel = TeamModel.getInstance();
         teamsToDelete = FXCollections.observableArrayList();
+        poController = PlayOffController.getInstance();
     }
-
-    private final PlayOffController poController = PlayOffController.getInstance();
 
     /**
      * Initializes the controller class.
@@ -104,7 +103,7 @@ public class MatchDetailsController implements Initializable {
             givePointsToWinner();
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
-//            poController.updateGoals();
+            match.setIsPlayed();
             poController.updateGoals();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -163,6 +162,7 @@ public class MatchDetailsController implements Initializable {
             homeTeam.setPoints(WINNER_POINTS);
             homeTeam.setWins(MATCH_OVER);
             awayTeam.setLosses(MATCH_OVER);
+            match.setWinnerTeam(homeTeam);
         } else if (homeScore == awayScore) {
             homeTeam.setPoints(DRAW_POINTS);
             awayTeam.setPoints(DRAW_POINTS);
@@ -170,10 +170,17 @@ public class MatchDetailsController implements Initializable {
             awayTeam.setPoints(WINNER_POINTS);
             awayTeam.setWins(MATCH_OVER);
             homeTeam.setLosses(MATCH_OVER);
+            match.setWinnerTeam(awayTeam);
         }
 
     }
 
+    /**
+     * Display an alert dialog to remove a team
+     *
+     * @param teamToDelete
+     * @return
+     */
     private Alert teamRemoveDialog(Team teamToDelete) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Bekræftelsesdialog");
@@ -182,6 +189,11 @@ public class MatchDetailsController implements Initializable {
         return alert;
     }
 
+    /**
+     * Display an alert to delete the home team
+     *
+     * @param event
+     */
     @FXML
     private void handleDeleteHomeTeam(ActionEvent event) {
         Alert alert;
@@ -198,6 +210,11 @@ public class MatchDetailsController implements Initializable {
         }
     }
 
+    /**
+     * Display an alert to delete the away team
+     *
+     * @param event
+     */
     @FXML
     private void handleDeleteAwayTeam(ActionEvent event) {
         Alert alert;

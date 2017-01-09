@@ -20,11 +20,6 @@ import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
 
-/**
- * FXML Controller class
- *
- * @author Rasmus
- */
 public class TeamScheduleController implements Initializable {
 
     @FXML
@@ -93,7 +88,7 @@ public class TeamScheduleController implements Initializable {
     private Label lblTeamPlacement;
     @FXML
     private ComboBox<String> comboTeamName;
-    
+
     ArrayList<Team> listOfTeams;
     
     ArrayList<Match> listOfAllMatches;
@@ -150,7 +145,10 @@ public class TeamScheduleController implements Initializable {
         
         //Configures the the names for the ComboBox
         listOfTeams.addAll(teamModel.getTeams());
-        
+        initializeTeamNames();
+    }
+
+    private void initializeTeamNames() {
         for (Team team : listOfTeams) {
             String teamToAdd;
             teamToAdd = team.getTeamName();
@@ -218,7 +216,7 @@ public class TeamScheduleController implements Initializable {
     private void handleBackButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
     }
-    
+
     /**
      * Goes to the view that is parsed.
      *

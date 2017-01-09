@@ -8,13 +8,14 @@ package mychamp.bll;
 import java.util.ArrayList;
 import java.util.Collections;
 import mychamp.be.Group;
+import mychamp.be.Match;
 import mychamp.be.Team;
 
 public class GroupManager {
-    
-    public static GroupManager instance;
 
-    private final ArrayList<Team> teamIDS;
+    private static GroupManager instance;
+
+    private ArrayList<Team> teamIDS;
 
     private ArrayList<Group> playOffGroups;
 
@@ -30,28 +31,38 @@ public class GroupManager {
     private Group D;
     private ArrayList<Team> groupDTeams;
 
+    private final ArrayList<Match> quarterMatches = new ArrayList<>();
+
+    private final ArrayList<Team> unqualifiedTeams = new ArrayList<>();
+    
+    private final ArrayList<Team> top8Teams = new ArrayList<>();
+
     /**
      * Fills an arraylist with teamIDS
      *
      * @param teams
      */
-    public GroupManager(ArrayList<Team> teams) {
-        teamIDS = teams;
+    public GroupManager() {
         playOffGroups = new ArrayList<>();
-        groupATeams = new ArrayList<>();
-        groupBTeams = new ArrayList<>();
-        groupCTeams = new ArrayList<>();
-        groupDTeams = new ArrayList<>();
     }
-    
+
+    /**
+     * SetTeamIDs
+     *
+     * @param teams
+     */
+    public void setTeamIDS(ArrayList<Team> teams) {
+        teamIDS = teams;
+    }
+
     /**
      * Gets the instance of the GroupManager.
-     * @param teams Pass null as paramter unless in the GroupModel.
-     * @return 
+     *
+     * @return
      */
-    public static GroupManager getInstance(ArrayList<Team> teams){
-        if(instance == null){
-            instance = new GroupManager(teams);
+    public static GroupManager getInstance() {
+        if (instance == null) {
+            instance = new GroupManager();
         }
         return instance;
     }
@@ -70,6 +81,11 @@ public class GroupManager {
      */
     private void createRandomGroups() {
         Collections.shuffle(teamIDS);
+        groupATeams = new ArrayList<>();
+        groupBTeams = new ArrayList<>();
+        groupCTeams = new ArrayList<>();
+        groupDTeams = new ArrayList<>();
+        playOffGroups.clear();
 
         //Fill teams
         while (teamIDS.size() > 0) {
@@ -104,30 +120,119 @@ public class GroupManager {
         playOffGroups.add(C);
         playOffGroups.add(D);
     }
-    
+
     /**
      * Returns an ArrayList whit the teams of the specified group.
-     * @param groupToGetFrom String as the capital letter of the group to get from. Example "A".
-     * @return 
+     *
+     * @param groupToGetFrom String as the capital letter of the group to get
+     * from. Example "A".
+     * @return
      */
-    public ArrayList<Team> getTeamsOfGroup(int groupToGetFrom){
-        switch (groupToGetFrom){
-            case 0:{
+    public ArrayList<Team> getTeamsOfGroup(int groupToGetFrom) {
+        switch (groupToGetFrom) {
+            case 0: {
                 return groupATeams;
             }
-            case 1:{
+            case 1: {
                 return groupBTeams;
             }
-            case 2:{
+            case 2: {
                 return groupCTeams;
             }
-            case 3:{
+            case 3: {
                 return groupDTeams;
+            }
+            case 4: {
+                return unqualifiedTeams;
+            }
+            case 5:{
+                return top8Teams;
             }
             default: {
                 System.out.println("Something went wrong!");
                 return null;
             }
         }
+    }
+
+    /**
+     * Check if all matches in round 6 are played
+     *
+     * @param groups
+     */
+    public boolean checkIfGroupPlayIsOver(ArrayList<Group> groups) {
+        ArrayList<Match> roundSixMatches = new ArrayList<>();
+        boolean allMatchesPlayed = true;
+        for (int i = 0; i < groups.size(); i++) {
+            roundSixMatches.add(groups.get(i).getGroupMatches().get(10));
+            roundSixMatches.add(groups.get(i).getGroupMatches().get(11));
+        }
+        for (Match roundSixMatch : roundSixMatches) {
+            if (!roundSixMatch.isPlayed()) {
+                allMatchesPlayed = false;
+            }
+        }
+        return allMatchesPlayed;
+    }
+
+    /**
+     * Set the quarter final matches
+     *
+     * @return
+     */
+    public ArrayList<Match> getQuarterFinalMatches() {
+        ArrayList<Team> rankedA = RankingManager.getInstance().sortTeamRankingOrder(0);
+        ArrayList<Team> rankedB = RankingManager.getInstance().sortTeamRankingOrder(1);
+        ArrayList<Team> rankedC = RankingManager.getInstance().sortTeamRankingOrder(2);
+        ArrayList<Team> rankedD = RankingManager.getInstance().sortTeamRankingOrder(3);
+
+        //Put the unqualififed teams in an ArrayList.
+        setUnqualifiedTeams(rankedA);
+        setUnqualifiedTeams(rankedB);
+        setUnqualifiedTeams(rankedC);
+        setUnqualifiedTeams(rankedD);
+
+        //Team A1 vs B2
+        quarterMatches.add(new Match(rankedA.get(0).getHomeField(), rankedA.get(0), rankedB.get(1)));
+        quarterMatches.add(new Match(rankedB.get(0).getHomeField(), rankedB.get(0), rankedA.get(1)));
+        quarterMatches.add(new Match(rankedC.get(0).getHomeField(), rankedC.get(0), rankedD.get(1)));
+        quarterMatches.add(new Match(rankedD.get(0).getHomeField(), rankedD.get(0), rankedC.get(1)));
+        return quarterMatches;
+    }
+
+    /**
+     * Adds the parsed ArrayList to the unqualified teams array.
+     *
+     * @param team
+     */
+    private void setUnqualifiedTeams(ArrayList<Team> team) {
+        for (int i = 2; i < team.size(); i++) {
+            unqualifiedTeams.add(team.get(i));
+        }
+    }
+
+    /**
+     * Gets the unqualifiedTeams sorted in ranking.
+     *
+     * @return
+     */
+    public ArrayList<Team> getSortedUnqualifiedTeams() {
+        return RankingManager.getInstance().sortTeamRankingOrder(4);
+    }
+    
+    /**
+     * Return the List containing all qualified teams that can't advance more.
+     * @return 
+     */
+    public ArrayList<Team> getSortedTopTeams() {
+        return RankingManager.getInstance().sortTeamRankingOrder(5);
+    }
+    
+    /**
+     * Add a team to the top8Team array.
+     * @param teamToAdd 
+     */
+    public void addATop8Team(Team teamToAdd){
+        top8Teams.add(teamToAdd);
     }
 }

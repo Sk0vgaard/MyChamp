@@ -8,7 +8,7 @@ package mychamp.be;
 import java.io.Serializable;
 import mychamp.bll.IDCreator;
 
-public class Match implements Serializable{
+public class Match implements Serializable {
 
     private final int ID;
 
@@ -24,6 +24,8 @@ public class Match implements Serializable{
 
     private Team winnerTeam;
 
+    private boolean isPlayed;
+
     private final IDCreator getNewID = IDCreator.getInstance();
 
     public Match(String LOCATION, Team home, Team away) {
@@ -31,6 +33,8 @@ public class Match implements Serializable{
         this.LOCATION = LOCATION;
         homeTeam = home;
         awayTeam = away;
+        isPlayed = false;
+        winnerTeam = null;
     }
 
     public Team getHomeTeam() {
@@ -73,4 +77,23 @@ public class Match implements Serializable{
         this.winnerTeam = winnerTeam;
     }
 
+    public void setIsPlayed() {
+        this.isPlayed = true;
+    }
+
+    public boolean isPlayed() {
+        return isPlayed;
+    }
+    
+    /**
+     * Return the losing team.
+     * @return 
+     */
+    public Team getLoserTeam(){
+        if(winnerTeam == homeTeam){
+            return awayTeam;
+        }else{
+            return homeTeam;
+        }
+    }
 }

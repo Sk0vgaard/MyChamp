@@ -20,10 +20,10 @@ import mychamp.MyChamp;
  * @author Rasmus
  */
 public class MenuController implements Initializable {
-    
+
     @FXML
     private Label lblMenuBanner;
-    
+
     /**
      * Initializes the controller class.
      */
@@ -43,20 +43,21 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
-        goToView("MyChamp");        
-    }    
+        goToView("MyChamp");
+    }
+
     @FXML
-    private void handleTeamEditButton(ActionEvent event) throws IOException
-    {
+    private void handleTeamEditButton(ActionEvent event) throws IOException {
         goToView("EditTeamView");
     }
-    
+
     /**
      * Goes to the view that is parsed.
+     *
      * @param view
-     * @throws IOException 
+     * @throws IOException
      */
-    private void goToView(String view) throws IOException{        
+    private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
-    }    
+    }
 }

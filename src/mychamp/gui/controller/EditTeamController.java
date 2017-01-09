@@ -7,6 +7,7 @@ package mychamp.gui.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -28,15 +29,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
-/**
- *
- * @author gta1
- */
 public class EditTeamController implements Initializable {
 
     @FXML
@@ -54,29 +52,24 @@ public class EditTeamController implements Initializable {
     @FXML
     private TextField txtTeamField;
     @FXML
-    private JFXTextField txtNewTeamName;
-    @FXML
-    private JFXTextField txtNewTeamField;
-    @FXML
-    private JFXTextField txtNewTeamSchool;
-    @FXML
     private TextField txtTeamSchool;
     @FXML
     private JFXButton btnEdit;
-    
+
     private final TeamModel teamModel;
     private final GroupModel groupModel;
 
     private static EditTeamController instance;
-    
+
     private final FileManager fileManager = FileManager.getInstance();
 
     private final ArrayList<TextField> txtFieldList;
-    
 
     public static EditTeamController getIntance() {
         return instance;
     }
+    @FXML
+    private JFXButton btnBack;
 
     public EditTeamController() {
 
@@ -93,6 +86,7 @@ public class EditTeamController implements Initializable {
         initializeDesign();
         initializeTables();
         setListeners();
+        tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
 
@@ -171,6 +165,7 @@ public class EditTeamController implements Initializable {
                         textField.setDisable(true);
                     }
                     btnEdit.setText("Rediger");
+                    teamModel.saveTeamsToFile();
                 }
                 tableTeams.getSelectionModel().getSelectedItem().setHomeField(txtTeamField.getText());
                 tableTeams.getSelectionModel().getSelectedItem().setSchool(txtTeamSchool.getText());
@@ -225,7 +220,7 @@ public class EditTeamController implements Initializable {
     @FXML
     private void handleDeleteSelectedTeam(ActionEvent event) {
         deleteTeam();
-        fileManager.saveTeams(teamModel.getTeamsAsArrayList());
+        teamModel.saveTeamsToFile();
     }
 
     public void deleteTeam() throws NullPointerException {
@@ -263,9 +258,6 @@ public class EditTeamController implements Initializable {
     @FXML
     private void handleKeyShortCuts(KeyEvent event) {
         if (event.isControlDown() | event.isShiftDown()) {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        } else {
-            tableTeams.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         }
         if (event.getCode().equals(KeyCode.DELETE)) {
             deleteTeam();
@@ -298,5 +290,13 @@ public class EditTeamController implements Initializable {
      */
     public void updateTeamMount() {
         lblTeamAmount.setText("" + teamModel.getTeams().size());
+    }
+
+    @FXML
+    private void handleBackToMenu(ActionEvent event) throws IOException{
+        goToView("MenuView");
+    }
+    private void goToView(String view) throws IOException {
+        MyChamp.switchScene(view);
     }
 }

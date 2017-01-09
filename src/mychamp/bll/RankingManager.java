@@ -9,19 +9,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import mychamp.be.Team;
 
-/**
- *
- * @author Rasmus
- */
 public class RankingManager {
 
     public static RankingManager instance;
 
-    private GroupManager groupManager;
-
-    public RankingManager() {
-        groupManager = GroupManager.getInstance(null);
-    }
+    private final GroupManager groupManager = GroupManager.getInstance();
 
     /**
      * Singleton of the RankingManager. Returns the instance of it.
@@ -55,51 +47,78 @@ public class RankingManager {
                 if (i == teams.size()) { //Checks if it's the last in the list.
                     teams.add(teamToBeChecked);
                     i = teams.size();
-                }else if(teamToBeChecked.getPoints() < teams.get(i).getPoints()){ //Checks if the points aren't equal.
+                } else if (teamToBeChecked.getPoints() < teams.get(i).getPoints()) { //Checks if the points aren't equal.
                     teams.add(i + 1, teamToBeChecked);
-                }else if(teamToBeChecked.getPoints() == teams.get(i).getPoints()){ //Checks if the points are equal.                    
-                    if(teamToBeChecked.getGoalDifference() < teams.get(i).getGoalDifference()){ //Checks if the goalDifference aren't equal.
+                } else if (teamToBeChecked.getPoints() == teams.get(i).getPoints()) { //Checks if the points are equal.
+                    if (teamToBeChecked.getGoalDifference() < teams.get(i).getGoalDifference()) { //Checks if the goalDifference aren't equal.
                         teams.add(i + 1, teamToBeChecked);
-                    }else if(teamToBeChecked.getGoalDifference() == teams.get(i).getGoalDifference()){ //Checks if the goalDifference is the same.
-                        if(teamToBeChecked.getGoalsScored() < teams.get(i).getGoalsScored()){ //Checks if the goalScored isn't equal.
+                    } else if (teamToBeChecked.getGoalDifference() == teams.get(i).getGoalDifference()) { //Checks if the goalDifference is the same.
+                        if (teamToBeChecked.getGoalsScored() < teams.get(i).getGoalsScored()) { //Checks if the goalScored isn't equal.
                             teams.add(i + 1, teamToBeChecked);
-                        }else if(teamToBeChecked.getGoalsScored() == teams.get(i).getGoalsScored()){ //Checks if the goalsScored is equal.
-                            if(teamToBeChecked.getWinLossRatio() < teams.get(i).getWinLossRatio()){ //Checks if the win/lose isn't equal.
+                        } else if (teamToBeChecked.getGoalsScored() == teams.get(i).getGoalsScored()) { //Checks if the goalsScored is equal.
+                            if (teamToBeChecked.getWinLossRatio() < teams.get(i).getWinLossRatio()) { //Checks if the win/lose isn't equal.
                                 teams.add(i + 1, teamToBeChecked);
-                            }else if(teamToBeChecked.getWinLossRatio() == teams.get(i).getWinLossRatio()){ //Checks if the win/lose is equal.
+                            } else if (teamToBeChecked.getWinLossRatio() == teams.get(i).getWinLossRatio()) { //Checks if the win/lose is equal.
                                 Random rand = new Random();
-                                if(rand.nextInt(2) == 0){
+                                if (rand.nextInt(2) == 0) {
                                     teams.add(i + 1, teamToBeChecked);
-                                }else{
+                                } else {
                                     teams.add(i, teamToBeChecked);
                                 }
-                            }else{
+                            } else {
                                 teams.add(i, teamToBeChecked);
                             }
-                        }else{
+                        } else {
                             teams.add(i, teamToBeChecked);
                         }
-                    }else{
+                    } else {
                         teams.add(i, teamToBeChecked);
                     }
-                }else{
+                } else {
                     teams.add(i, teamToBeChecked);
                 }
             }
         }
 
-        //Testing purpose only. Shows the ranking in console TODO: Remove.
-        for (Team team : teams) {
-            System.out.println( 
-                    + team.getPoints() + " : " 
-                    + team.getGoalDifference() + " : " 
-                    + team.getGoalsScored() + " : " 
-                    + team.getWinLossRatio() + " : " 
-                    + team.getGoalsTaken() + " : "
-                    + team.getTeamName());
-        }
-        System.out.println("------------------------------");
-
         return teams;
+    }
+    
+    /**
+     * Compares to teams against each other, to see which one has the higher ranking.
+     * @param firstTeam to compare
+     * @param secondTeam to compare
+     * @return the higesht ranked team of the two teams.
+     */
+    public Team rankTwoTeamsAgainstEachOther(Team firstTeam, Team secondTeam){
+        if(firstTeam.getPoints() < secondTeam.getPoints()){
+            return secondTeam;
+        }else if(firstTeam.getPoints() == secondTeam.getPoints()){
+            if(firstTeam.getGoalDifference() < secondTeam.getGoalDifference()){
+                return secondTeam;
+            }else if(firstTeam.getGoalDifference() == secondTeam.getGoalDifference()){
+                if(firstTeam.getGoalsScored() < secondTeam.getGoalsScored()){
+                    return secondTeam;
+                }else if(firstTeam.getGoalsScored() == secondTeam.getGoalsScored()){
+                    if(firstTeam.getWinLossRatio() < secondTeam.getWinLossRatio()){
+                        return secondTeam;
+                    }else if(firstTeam.getWinLossRatio() == secondTeam.getWinLossRatio()){
+                        Random rand = new Random();
+                        if(rand.nextInt(2) == 0){
+                            return secondTeam;
+                        }else{
+                            return firstTeam;
+                        }
+                    }else{
+                        return firstTeam;
+                    }
+                }else{
+                    return firstTeam;
+                }
+            }else{
+                return firstTeam;
+            }
+        }else{
+            return firstTeam;
+        }
     }
 }
