@@ -147,9 +147,9 @@ public class FinalsController implements Initializable {
     private final GroupModel groupModel = GroupModel.getInstance();
 
     private ArrayList<Match> quarterFinalMatches;
-    
+
     private final ArrayList<Label> top8Labels = new ArrayList<>();
-    
+
     private final ArrayList<Label> last8Labels = new ArrayList<>();
 
     private final ArrayList<Match> semiFinalMatches;
@@ -171,7 +171,6 @@ public class FinalsController implements Initializable {
     public static FinalsController getInstance() {
         return instance;
     }
-    
 
     public FinalsController() {
         mockTeam = new Team("", "", "");
@@ -194,11 +193,11 @@ public class FinalsController implements Initializable {
         instance = this;
         addLabelsToArrayList();
     }
-    
+
     /**
      * Add labels to arrays.
      */
-    private void addLabelsToArrayList(){
+    private void addLabelsToArrayList() {
         //Add labels to top8Labels.
         top8Labels.add(lblRank1);
         top8Labels.add(lblRank2);
@@ -225,24 +224,45 @@ public class FinalsController implements Initializable {
     public void updateQuarterFinals() {
         //Set first match
         lblQuarterTeamA1.setText(quarterFinalMatches.get(0).getHomeTeam().getTeamName());
-        lblQuarterGoalA1.setText("" + quarterFinalMatches.get(0).getHomeTeamScore());
         lblQuarterTeamB2.setText(quarterFinalMatches.get(0).getAwayTeam().getTeamName());
-        lblQuarterGoalB2.setText("" + quarterFinalMatches.get(0).getAwayTeamScore());
         //Set second match
         lblQuarterTeamB1.setText(quarterFinalMatches.get(1).getHomeTeam().getTeamName());
-        lblQuarterGoalB1.setText("" + quarterFinalMatches.get(1).getHomeTeamScore());
         lblQuarterTeamA2.setText(quarterFinalMatches.get(1).getAwayTeam().getTeamName());
-        lblQuarterGoalA2.setText("" + quarterFinalMatches.get(1).getAwayTeamScore());
         //Set third match
         lblQuarterTeamC1.setText(quarterFinalMatches.get(2).getHomeTeam().getTeamName());
-        lblQuarterGoalC1.setText("" + quarterFinalMatches.get(2).getHomeTeamScore());
         lblQuarterTeamD2.setText(quarterFinalMatches.get(2).getAwayTeam().getTeamName());
-        lblQuarterGoalD2.setText("" + quarterFinalMatches.get(2).getAwayTeamScore());
         //Set fourth match
         lblQuarterTeamC2.setText(quarterFinalMatches.get(3).getHomeTeam().getTeamName());
-        lblQuarterGoalC2.setText("" + quarterFinalMatches.get(3).getHomeTeamScore());
         lblQuarterTeamD1.setText(quarterFinalMatches.get(3).getAwayTeam().getTeamName());
+
+    }
+
+    public void updateGoals() {
+        //Update goals for quarter finals
+        //First match
+        lblQuarterGoalA1.setText("" + quarterFinalMatches.get(0).getHomeTeamScore());
+        lblQuarterGoalB2.setText("" + quarterFinalMatches.get(0).getAwayTeamScore());
+        //Second match
+        lblQuarterGoalB1.setText("" + quarterFinalMatches.get(1).getHomeTeamScore());
+        lblQuarterGoalA2.setText("" + quarterFinalMatches.get(1).getAwayTeamScore());
+        //Third match
+        lblQuarterGoalC1.setText("" + quarterFinalMatches.get(2).getHomeTeamScore());
+        lblQuarterGoalD2.setText("" + quarterFinalMatches.get(2).getAwayTeamScore());
+        //Fourth match
+        lblQuarterGoalC2.setText("" + quarterFinalMatches.get(3).getHomeTeamScore());
         lblQuarterGoalD1.setText("" + quarterFinalMatches.get(3).getAwayTeamScore());
+
+        //Update semi finals
+        //First match
+        lblSemiGoal1.setText("" + semiFinalMatches.get(0).getHomeTeamScore());
+        lblSemiGoal2.setText("" + semiFinalMatches.get(0).getAwayTeamScore());
+        //Second match
+        lblSemiGoal3.setText("" + semiFinalMatches.get(1).getHomeTeamScore());
+        lblSemiGoal4.setText("" + semiFinalMatches.get(1).getAwayTeamScore());
+
+        //Update Finale
+        lblFinalGoal1.setText("" + finalMatches.get(0).getHomeTeamScore());
+        lblFinalGoal2.setText("" + finalMatches.get(0).getAwayTeamScore());
     }
 
     /**
@@ -287,7 +307,7 @@ public class FinalsController implements Initializable {
     /**
      * Opens the match details window
      */
-    private void matchClicked(int stage, int match, Label winnerLabel) {
+    private void matchClicked(int matchNumber, int stage, int groupMatch, Label winnerLabel) {
         try {
             //Grab hold of the curret stage.
             primStage = (Stage) lblQuarterGoalA1.getScene().getWindow();
@@ -301,7 +321,11 @@ public class FinalsController implements Initializable {
             editStage.initOwner(primStage);
 
             //Finds the match that has been clicked on
-            Match matchToSend = allMatches.get(stage).get(match);
+            Match matchToSend = allMatches.get(stage).get(groupMatch);
+            System.out.println("Current HomeTeam: " + matchToSend.getHomeTeam().getTeamName());
+            System.out.println("Current AwayTeam: " + matchToSend.getAwayTeam().getTeamName());
+            System.out.println("Final team 1: " + finalMatches.get(0).getHomeTeam().getTeamName());
+            System.out.println("Final team 2: " + finalMatches.get(0).getAwayTeam().getTeamName());
 
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
@@ -312,6 +336,7 @@ public class FinalsController implements Initializable {
 
             //Update goal information
             updateQuarterFinals();
+            updateGoals();
 
             //Set the winnerLabel of the match
             if (matchToSend.getWinnerTeam() != null) {
@@ -321,65 +346,55 @@ public class FinalsController implements Initializable {
             }
 
             //Advance the winner
-            switch (match) {
+            switch (matchNumber) {
                 case 0:
+                    //Get the winner of the match send it to the first team on semifinal match 1
                     lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal1.setText("0");
                     semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 case 1:
                     lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal2.setText("0");
                     semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 case 2:
                     lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal3.setText("0");
                     semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 case 3:
                     lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblSemiGoal4.setText("0");
                     semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 case 4:
-                    lblFinalTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblFinalGoal1.setText("0");
+                    lblFinalTeam1.setText(semiFinalMatches.get(0).getWinnerTeam().getTeamName());
                     finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 case 5:
-                    lblFinalTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
-                    lblFinalGoal2.setText("0");
+                    lblFinalTeam2.setText(semiFinalMatches.get(1).getWinnerTeam().getTeamName());
                     finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
                     break;
                 default:
                     System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getWinnerTeam());
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
-                    setTop8Rankings();
             }
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
+        //Update the top 8 rankings
+        setTop8Rankings();
     }
 
     /**
@@ -396,25 +411,25 @@ public class FinalsController implements Initializable {
 
         switch (buttonId) {
             case "11":
-                matchClicked(0, 0, lblQuarterWinner1);
+                matchClicked(0, 0, 0, lblQuarterWinner1);
                 break;
             case "13":
-                matchClicked(0, 1, lblQuarterWinner2);
+                matchClicked(1, 0, 1, lblQuarterWinner2);
                 break;
             case "15":
-                matchClicked(0, 2, lblQuarterWinner3);
+                matchClicked(2, 0, 2, lblQuarterWinner3);
                 break;
             case "17":
-                matchClicked(0, 3, lblQuarterWinner4);
+                matchClicked(3, 0, 3, lblQuarterWinner4);
                 break;
             case "33":
-                matchClicked(1, 0, lblSemiWinner1);
+                matchClicked(4, 1, 0, lblSemiWinner1);
                 break;
             case "35":
-                matchClicked(1, 1, lblSemiWinner2);
+                matchClicked(5, 1, 1, lblSemiWinner2);
                 break;
             case "54":
-                matchClicked(2, 0, lblWinner);
+                matchClicked(6, 2, 0, lblWinner);
                 break;
             default:
                 System.out.println("WTF!?");
@@ -425,36 +440,35 @@ public class FinalsController implements Initializable {
     @FXML
     private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
-    }    
-    
+    }
+
     /**
-     * Set the names of the 8 baddest teams. 
+     * Set the names of the 8 baddest teams.
      */
-    public void setLast8RankNames(){
+    public void setLast8RankNames() {
         ArrayList<Team> teams = teamModel.getSortedUnqualifiedTeams();
-        for(int i = 0; i < teams.size(); i++){
+        for (int i = 0; i < teams.size(); i++) {
             last8Labels.get(i).setText(teams.get(i).getTeamName());
         }
     }
-    
+
     /**
      * Set the names of the 8 best teams.
      */
-    public void setTop8Rankings(){
+    public void setTop8Rankings() {
         ArrayList<Team> teams = teamModel.getSortedTopTeams();
         int startingValue = top8Labels.size() - teams.size();
-        for(int i = startingValue; i < top8Labels.size(); i++){
+        for (int i = startingValue; i < top8Labels.size(); i++) {
             top8Labels.get(i).setText(teams.get(i - startingValue).getTeamName());
         }
-        
-        
+
         //Stuff to check if rankings is correct
-        for(int i = 0; i < teams.size(); i++){
-            System.out.println(teams.get(i).getPoints() + " : " 
-                    + teams.get(i).getGoalDifference() + " : " 
-                    + teams.get(i).getGoalsScored() + " : " 
-                    + teams.get(i).getWinLossRatio() + " : " 
-                    + teams.get(i).getGoalsTaken() + " : " 
+        for (int i = 0; i < teams.size(); i++) {
+            System.out.println(teams.get(i).getPoints() + " : "
+                    + teams.get(i).getGoalDifference() + " : "
+                    + teams.get(i).getGoalsScored() + " : "
+                    + teams.get(i).getWinLossRatio() + " : "
+                    + teams.get(i).getGoalsTaken() + " : "
                     + teams.get(i).getTeamName());
         }
         System.out.println("--------------------------------------");
