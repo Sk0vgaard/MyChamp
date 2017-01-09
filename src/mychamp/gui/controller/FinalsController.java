@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import mychamp.MyChamp;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -145,6 +146,8 @@ public class FinalsController implements Initializable {
     private final TeamModel teamModel = TeamModel.getInstance();
 
     private final GroupModel groupModel = GroupModel.getInstance();
+
+    private RankingManager rankingManager = RankingManager.getInstance();
 
     private ArrayList<Match> quarterFinalMatches;
 
@@ -347,39 +350,77 @@ public class FinalsController implements Initializable {
             //Advance the winner
             switch (matchNumber) {
                 case 0:
-                    //Get the winner of the match send it to the first team on semifinal match 1
-                    lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
-                    semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    //If the match is not a draw
+                    if (matchToSend.getWinnerTeam() != null) {
+                        //Get the winner of the match send it to the first team on semifinal match 1
+                        lblSemiTeam1.setText(matchToSend.getWinnerTeam().getTeamName());
+                        semiFinalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblSemiTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        semiFinalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 1:
-                    lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
-                    semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    if (matchToSend.getWinnerTeam() != null) {
+                        //Get the winner of the match send it to the first team on semifinal match 1
+                        lblSemiTeam2.setText(matchToSend.getWinnerTeam().getTeamName());
+                        semiFinalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblSemiTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        semiFinalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 2:
-                    lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
-                    semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
+                    if (matchToSend.getWinnerTeam() != null) {
+                        lblSemiTeam3.setText(matchToSend.getWinnerTeam().getTeamName());
+                        semiFinalMatches.get(1).setHomeTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblSemiTeam3.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        semiFinalMatches.get(1).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 3:
-                    lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
-                    semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
+                    if (matchToSend.getWinnerTeam() != null) {
+                        lblSemiTeam4.setText(matchToSend.getWinnerTeam().getTeamName());
+                        semiFinalMatches.get(1).setAwayTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblSemiTeam4.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        semiFinalMatches.get(1).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 4:
-                    lblFinalTeam1.setText(semiFinalMatches.get(0).getWinnerTeam().getTeamName());
-                    finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    if (matchToSend.getWinnerTeam() != null) {
+                        lblFinalTeam1.setText(semiFinalMatches.get(0).getWinnerTeam().getTeamName());
+                        finalMatches.get(0).setHomeTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblFinalTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        finalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 5:
-                    lblFinalTeam2.setText(semiFinalMatches.get(1).getWinnerTeam().getTeamName());
-                    finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    if (matchToSend.getWinnerTeam() != null) {
+                        lblFinalTeam2.setText(semiFinalMatches.get(1).getWinnerTeam().getTeamName());
+                        finalMatches.get(0).setAwayTeam(matchToSend.getWinnerTeam());
+                    } else {
+                        //Get the best of the two teams who played
+                        lblFinalTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
+                        finalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
+                    }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
