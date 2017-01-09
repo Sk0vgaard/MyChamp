@@ -147,7 +147,7 @@ public class FinalsController implements Initializable {
 
     private final GroupModel groupModel = GroupModel.getInstance();
 
-    private RankingManager rankingManager = RankingManager.getInstance();
+    private final RankingManager rankingManager = RankingManager.getInstance();
 
     private ArrayList<Match> quarterFinalMatches;
 
@@ -195,6 +195,7 @@ public class FinalsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
         addLabelsToArrayList();
+        initilizeDesign();
     }
 
     /**
@@ -237,7 +238,6 @@ public class FinalsController implements Initializable {
         //Set fourth match
         lblQuarterTeamC2.setText(quarterFinalMatches.get(3).getHomeTeam().getTeamName());
         lblQuarterTeamD1.setText(quarterFinalMatches.get(3).getAwayTeam().getTeamName());
-
     }
 
     /**
@@ -512,5 +512,65 @@ public class FinalsController implements Initializable {
                     + teams.get(i).getTeamName());
         }
         System.out.println("--------------------------------------");
+    }
+
+    /**
+     * Initialize design of all labels
+     */
+    public void initilizeDesign() {
+        lblQuarterTeamA1.setText("");
+        lblQuarterTeamA2.setText("");
+        lblQuarterTeamB1.setText("");
+        lblQuarterTeamB2.setText("");
+        lblQuarterTeamC1.setText("");
+        lblQuarterTeamC2.setText("");
+        lblQuarterTeamD1.setText("");
+        lblQuarterTeamD2.setText("");
+        lblQuarterWinner1.setText("");
+        lblQuarterWinner2.setText("");
+        lblQuarterWinner3.setText("");
+        lblQuarterWinner4.setText("");
+        lblQuarterGoalA1.setText("0");
+        lblQuarterGoalA2.setText("0");
+        lblQuarterGoalB1.setText("0");
+        lblQuarterGoalB1.setText("0");
+        lblQuarterGoalB2.setText("0");
+        lblQuarterGoalC1.setText("0");
+        lblQuarterGoalC2.setText("0");
+        lblQuarterGoalD1.setText("0");
+        lblQuarterGoalD2.setText("0");
+        lblSemiTeam1.setText("");
+        lblSemiTeam2.setText("");
+        lblSemiTeam3.setText("");
+        lblSemiTeam4.setText("");
+        lblSemiWinner1.setText("");
+        lblSemiWinner2.setText("");
+        lblSemiGoal1.setText("0");
+        lblSemiGoal2.setText("0");
+        lblSemiGoal3.setText("0");
+        lblSemiGoal4.setText("0");
+        lblFinalTeam1.setText("");
+        lblFinalTeam2.setText("");
+        lblFinalGoal1.setText("0");
+        lblFinalGoal2.setText("0");
+        lblWinner.setText("");
+        //Reset rankings
+        lblRank1.setText("");
+        lblRank2.setText("");
+        lblRank3.setText("");
+        lblRank4.setText("");
+        lblRank5.setText("");
+        lblRank6.setText("");
+        lblRank7.setText("");
+        lblRank8.setText("");
+        lblRank9.setText("");
+        lblRank10.setText("");
+        lblRank11.setText("");
+        lblRank11.setText("");
+        lblRank12.setText("");
+        lblRank13.setText("");
+        lblRank14.setText("");
+        lblRank15.setText("");
+        lblRank16.setText("");
     }
 }

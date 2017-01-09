@@ -557,6 +557,7 @@ public class PlayOffController implements Initializable {
 
     private final GroupModel groupModel = GroupModel.getInstance();
 
+    //Create arrays of team name labels
     private final ArrayList<Label> round1teamNameLabels = new ArrayList();
     private final ArrayList<Label> round2teamNameLabels = new ArrayList();
     private final ArrayList<Label> round3teamNameLabels = new ArrayList();
@@ -564,6 +565,7 @@ public class PlayOffController implements Initializable {
     private final ArrayList<Label> round5teamNameLabels = new ArrayList();
     private final ArrayList<Label> round6teamNameLabels = new ArrayList();
 
+    //Create arrays of team goal labels
     private final ArrayList<Label> round1teamGoalLabels = new ArrayList();
     private final ArrayList<Label> round2teamGoalLabels = new ArrayList();
     private final ArrayList<Label> round3teamGoalLabels = new ArrayList();
@@ -571,6 +573,10 @@ public class PlayOffController implements Initializable {
     private final ArrayList<Label> round5teamGoalLabels = new ArrayList();
     private final ArrayList<Label> round6teamGoalLabels = new ArrayList();
 
+    //Add winner labels to an array
+    private final ArrayList<Label> winnerLabels = new ArrayList();
+
+    //Create arrays forgroup ranking
     private final ArrayList<Label> rankingsGroupA = new ArrayList();
     private final ArrayList<Label> rankingsGroupB = new ArrayList();
     private final ArrayList<Label> rankingsGroupC = new ArrayList();
@@ -979,6 +985,8 @@ public class PlayOffController implements Initializable {
         addGoalLabels();
 
         addRankingLabels();
+
+        addWinnerLabelsToArrays();
     }
 
     private void addRankingLabels() {
@@ -1225,6 +1233,63 @@ public class PlayOffController implements Initializable {
         round6teamNameLabels.add(lblRound6GroupDTeam2);
         round6teamNameLabels.add(lblRound6GroupDTeam3);
         round6teamNameLabels.add(lblRound6GroupDTeam4);
+    }
+
+    /**
+     * Add winner labels to arrays
+     */
+    private void addWinnerLabelsToArrays() {
+        //Group A round 1-6
+        winnerLabels.add(lblRound1GroupAWinner1);
+        winnerLabels.add(lblRound1GroupAWinner2);
+        winnerLabels.add(lblRound2GroupAWinner1);
+        winnerLabels.add(lblRound2GroupAWinner2);
+        winnerLabels.add(lblRound3GroupAWinner1);
+        winnerLabels.add(lblRound3GroupAWinner2);
+        winnerLabels.add(lblRound4GroupAWinner1);
+        winnerLabels.add(lblRound4GroupAWinner2);
+        winnerLabels.add(lblRound5GroupAWinner1);
+        winnerLabels.add(lblRound5GroupAWinner2);
+        winnerLabels.add(lblRound6GroupAWinner1);
+        winnerLabels.add(lblRound6GroupAWinner2);
+        //Group B round 1-6
+        winnerLabels.add(lblRound1GroupBWinner1);
+        winnerLabels.add(lblRound1GroupBWinner2);
+        winnerLabels.add(lblRound2GroupBWinner1);
+        winnerLabels.add(lblRound2GroupBWinner2);
+        winnerLabels.add(lblRound3GroupBWinner1);
+        winnerLabels.add(lblRound3GroupBWinner2);
+        winnerLabels.add(lblRound4GroupBWinner1);
+        winnerLabels.add(lblRound4GroupBWinner2);
+        winnerLabels.add(lblRound5GroupBWinner1);
+        winnerLabels.add(lblRound5GroupBWinner2);
+        winnerLabels.add(lblRound6GroupBWinner1);
+        winnerLabels.add(lblRound6GroupBWinner2);
+        //Group C round 1-6
+        winnerLabels.add(lblRound1GroupCWinner1);
+        winnerLabels.add(lblRound1GroupCWinner2);
+        winnerLabels.add(lblRound2GroupCWinner1);
+        winnerLabels.add(lblRound2GroupCWinner2);
+        winnerLabels.add(lblRound3GroupCWinner1);
+        winnerLabels.add(lblRound3GroupCWinner2);
+        winnerLabels.add(lblRound4GroupCWinner1);
+        winnerLabels.add(lblRound4GroupCWinner2);
+        winnerLabels.add(lblRound5GroupCWinner1);
+        winnerLabels.add(lblRound5GroupCWinner2);
+        winnerLabels.add(lblRound6GroupCWinner1);
+        winnerLabels.add(lblRound6GroupCWinner2);
+        //Group D round 1-6
+        winnerLabels.add(lblRound1GroupDWinner1);
+        winnerLabels.add(lblRound1GroupDWinner2);
+        winnerLabels.add(lblRound2GroupDWinner1);
+        winnerLabels.add(lblRound2GroupDWinner2);
+        winnerLabels.add(lblRound3GroupDWinner1);
+        winnerLabels.add(lblRound3GroupDWinner2);
+        winnerLabels.add(lblRound4GroupDWinner1);
+        winnerLabels.add(lblRound4GroupDWinner2);
+        winnerLabels.add(lblRound5GroupDWinner2);
+        winnerLabels.add(lblRound6GroupDWinner1);
+        winnerLabels.add(lblRound6GroupDWinner2);
     }
 
     /**
@@ -1534,7 +1599,7 @@ public class PlayOffController implements Initializable {
     /**
      * resets the tournament
      */
-    private void resetTournament() {
+    public void resetTournament() {
         //Clear Team name labels
         round1teamNameLabels.clear();
         round2teamNameLabels.clear();
@@ -1551,10 +1616,29 @@ public class PlayOffController implements Initializable {
         round5teamGoalLabels.clear();
         round6teamGoalLabels.clear();
 
+        //Reset Ranking teams
+        for (Label group : rankingsGroupA) {
+            group.setText("");
+        }
+        for (Label group : rankingsGroupB) {
+            group.setText("");
+        }
+        for (Label group : rankingsGroupC) {
+            group.setText("");
+        }
+        for (Label group : rankingsGroupD) {
+            group.setText("");
+        }
+
         //Clear rankings
         rankingsGroupA.clear();
         rankingsGroupB.clear();
         rankingsGroupC.clear();
         rankingsGroupD.clear();
+
+        //Reset winners
+        for (Label winnerLabel : winnerLabels) {
+            winnerLabel.setText("Ikke spillet");
+        }
     }
 }

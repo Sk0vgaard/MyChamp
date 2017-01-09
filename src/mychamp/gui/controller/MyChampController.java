@@ -281,6 +281,8 @@ public class MyChampController implements Initializable {
      */
     @FXML
     private void handleStartTournament(ActionEvent event) throws IOException {
+        //Reset tournament
+        FinalsController.getInstance().initilizeDesign();
         //Checks if there is the minimum required numbers of teams in the tournament.
         if (teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS) {
             groupModel.createRandomGroups();
@@ -327,7 +329,7 @@ public class MyChampController implements Initializable {
             updateTeamMount();
         } else {
             maxTeamsDialog();
-            
+
         }
 
     }
@@ -342,6 +344,7 @@ public class MyChampController implements Initializable {
         alert.setContentText("Vær venlig at udfylde alle informationerne.");
         alert.showAndWait();
     }
+
     private void maxTeamsDialog() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Der kan ikke blive tilføjet flere teams.");
