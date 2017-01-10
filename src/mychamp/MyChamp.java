@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import mychamp.be.Group;
 import mychamp.be.Team;
-import mychamp.bll.FileManager;
-import mychamp.dal.DAOManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -117,6 +117,9 @@ public class MyChamp extends Application {
                 break;
             }
         }
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        primStage.setX((primScreenBounds.getWidth() - primStage.getWidth()) / 2);
+        primStage.setY((primScreenBounds.getHeight() - primStage.getHeight()) / 2);
     }
 
     /**
