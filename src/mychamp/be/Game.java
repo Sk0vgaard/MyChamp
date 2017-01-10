@@ -11,6 +11,8 @@ public class Game {
 
     public static final String WINNER_DRAW_TEXT = "Uafgjort";
 
+    public static final String BENCHED_MATCH_TEXT = "Sidder over";
+
     public static final int WINNER_POINTS = 3;
 
     public static final int DRAW_POINTS = 1;

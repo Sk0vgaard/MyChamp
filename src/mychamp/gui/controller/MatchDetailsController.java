@@ -53,10 +53,16 @@ public class MatchDetailsController implements Initializable {
 
     private final PlayOffController poController;
 
+    private final FinalsController finalsController;
+
+    private boolean inFinals;
+
     public MatchDetailsController() {
         teamModel = TeamModel.getInstance();
         teamsToDelete = FXCollections.observableArrayList();
         poController = PlayOffController.getInstance();
+        finalsController = FinalsController.getInstance();
+        inFinals = false;
     }
 
     /**
@@ -121,6 +127,9 @@ public class MatchDetailsController implements Initializable {
 
     }
 
+    /**
+     * Give points to teams
+     */
     private void givePoints() {
         //Check if there is text in the input fields
         if (isTextPresent()) {
@@ -196,18 +205,34 @@ public class MatchDetailsController implements Initializable {
             homeTeam.addWin();
             awayTeam.addLoss();
             match.setWinnerTeam(homeTeam);
-            poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            //If we're not in the finals update winner label in PlayOff
+            if (!inFinals) {
+                poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            } else {
+                //Else we'll update the winner label in the finals
+                finalsController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            }
         } else if (homeScore < awayScore) {
             awayTeam.addPoints(Game.WINNER_POINTS);
             awayTeam.addWin();
             homeTeam.addLoss();
             match.setWinnerTeam(awayTeam);
-            poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            if (!inFinals) {
+                poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            } else {
+                //Else we'll update the winner label in the finals
+                finalsController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+            }
         } else if (homeScore == awayScore && homeScore != 0) {
             //Set draw text
             homeTeam.addPoints(Game.DRAW_POINTS);
             awayTeam.addPoints(Game.DRAW_POINTS);
-            poController.setWinnerLabel(Game.WINNER_DRAW_TEXT);
+            if (!inFinals) {
+                poController.setWinnerLabel(Game.WINNER_DRAW_TEXT);
+            } else {
+                //Else we'll update the winner label in the finals
+                finalsController.setWinnerLabel(Game.WINNER_DRAW_TEXT);
+            }
         } else {
             //Do absolutely nothing, since user most likely regretted his actions!
         }
@@ -268,5 +293,12 @@ public class MatchDetailsController implements Initializable {
                 System.out.println(team.getTeamName());
             }
         }
+    }
+
+    /**
+     * Set the finals as being active
+     */
+    public void setFinalsActive() {
+        inFinals = true;
     }
 }

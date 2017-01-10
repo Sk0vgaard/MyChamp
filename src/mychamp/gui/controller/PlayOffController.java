@@ -667,6 +667,7 @@ public class PlayOffController implements Initializable {
         setRoundFive();
         setRoundSix();
         updateGoals();
+        checkBenchMatch();
     }
 
     /**
@@ -981,6 +982,21 @@ public class PlayOffController implements Initializable {
             randomGroups.get(i).addGroupMatches(groupMatches);
             //Clear current groupMatchs
             groupMatches.clear();
+        }
+    }
+
+    /**
+     * Check if a match should be sat over/benched
+     */
+    private void checkBenchMatch() {
+        //Check if a match only has 1 team
+        for (Group group : groupModel.getGroups()) {
+            for (Match groupMatch : group.getGroupMatches()) {
+                if (groupMatch.getHomeTeam().getTeamName().equals("")
+                        || groupMatch.getAwayTeam().getTeamName().equals("")) {
+                    groupMatch.benchMatch();
+                }
+            }
         }
     }
 

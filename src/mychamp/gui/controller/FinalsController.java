@@ -136,6 +136,10 @@ public class FinalsController implements Initializable {
     private Label lblRank15;
     @FXML
     private Label lblRank16;
+    @FXML
+    private Label lblQuarterGoalB1;
+    @FXML
+    private Label lblQuarterGoalA2;
 
     private static FinalsController instance;
 
@@ -165,15 +169,13 @@ public class FinalsController implements Initializable {
 
     private final Match finalMatch;
 
+    private Label winnerLabel;
+
     private Stage primStage;
 
     public static FinalsController getInstance() {
         return instance;
     }
-    @FXML
-    private Label lblQuarterGoalB1;
-    @FXML
-    private Label lblQuarterGoalA2;
 
     public FinalsController() {
         mockTeam = new Team("", "", "");
@@ -314,6 +316,8 @@ public class FinalsController implements Initializable {
      * Opens the match details window
      */
     private void matchClicked(int matchNumber, int stage, int groupMatch, Label winnerLabel) {
+        //Set the current winner label
+        this.winnerLabel = winnerLabel;
         try {
             //Grab hold of the curret stage.
             primStage = (Stage) lblQuarterGoalA1.getScene().getWindow();
@@ -331,6 +335,7 @@ public class FinalsController implements Initializable {
 
             //Loads the modals controller to send match.
             MatchDetailsController mdController = loader.getController();
+            mdController.setFinalsActive();
             mdController.setCurrentMatch(matchToSend);
 
             //Shows the modal and waits for it to close before continuing reading the code.
@@ -371,7 +376,7 @@ public class FinalsController implements Initializable {
                         matchToSend.setWinnerTeam(winningTeam);
                         lblSemiTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
-                        
+
                     }
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
@@ -437,7 +442,7 @@ public class FinalsController implements Initializable {
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 default:
-                    if(matchToSend.getWinnerTeam() == null){
+                    if (matchToSend.getWinnerTeam() == null) {
                         matchToSend.setWinnerTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
                     System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
@@ -527,6 +532,15 @@ public class FinalsController implements Initializable {
                     + teams.get(i).getTeamName());
         }
         System.out.println("--------------------------------------");
+    }
+
+    /**
+     * Set text on the current winner label
+     *
+     * @param text
+     */
+    public void setWinnerLabel(String text) {
+        winnerLabel.setText(text);
     }
 
     /**

@@ -86,8 +86,7 @@ public class Match implements Serializable {
     }
 
     /**
-     * Return the losing team.
-     * Returns null if no winning team is set.
+     * Return the losing team. Returns null if no winning team is set.
      *
      * @return
      */
@@ -98,8 +97,15 @@ public class Match implements Serializable {
             } else {
                 return homeTeam;
             }
-        }else{
+        } else {
             return null;
         }
+    }
+
+    /**
+     * Mark the match as benched if there is no opponent
+     */
+    public void benchMatch() {
+        isPlayed = true;
     }
 }
