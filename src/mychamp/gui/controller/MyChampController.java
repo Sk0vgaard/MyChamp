@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
@@ -308,7 +309,7 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleAddTeam(ActionEvent event) {
         // Only adds teams when it is lower than MAX_NUMBER_OF_TEAMS (16).
-        if (tableTeams.getItems().size() < MAX_NUMBER_OF_TEAMS) {
+        if (teamModel.getTeamsAsArrayList().size() < MAX_NUMBER_OF_TEAMS) {
             //Check to see if all information is present.
             if (!txtNewTeamName.getText().equals("")
                     || !txtNewTeamField.getText().equals("")

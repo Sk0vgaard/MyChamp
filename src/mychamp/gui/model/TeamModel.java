@@ -26,7 +26,7 @@ public class TeamModel {
     private static TeamModel instance;
 
     private final FileManager fileManager = FileManager.getInstance();
-    
+
     private final GroupManager groupManager = GroupManager.getInstance();
 
     public TeamModel() {
@@ -47,6 +47,13 @@ public class TeamModel {
         }
         return instance;
 
+    }
+
+    /**
+     * Will clear all the teams.
+     */
+    public void clearTeams() {
+        teams.clear();
     }
 
     /**
@@ -159,30 +166,33 @@ public class TeamModel {
         }
         return loadedTeams;
     }
-    
+
     /**
      * Get the unqualified teams sorted after rankings.
-     * @return 
+     *
+     * @return
      */
-    public ArrayList<Team> getSortedUnqualifiedTeams(){
+    public ArrayList<Team> getSortedUnqualifiedTeams() {
         return groupManager.getSortedUnqualifiedTeams();
     }
-    
+
     /**
      * Get the teams that are done playing and ended in top 8.
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Team> getSortedTopTeams() {
         return groupManager.getSortedTopTeams();
     }
-    
+
     /**
      * Add a team to top8Teams in GroupManager.
-     * @param teamToAdd 
+     *
+     * @param teamToAdd
      */
-    public void addTeamToTop8Teams(Team teamToAdd){
-        if(teamToAdd != null){
+    public void addTeamToTop8Teams(Team teamToAdd) {
+        if (teamToAdd != null) {
             groupManager.addATop8Team(teamToAdd);
-        }        
+        }
     }
 }
