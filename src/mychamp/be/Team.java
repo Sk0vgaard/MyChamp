@@ -8,9 +8,9 @@ package mychamp.be;
 import java.io.Serializable;
 import mychamp.bll.IDCreator;
 
-public class Team implements Serializable{
+public class Team implements Serializable {
 
-    private int ID;
+    private final int ID;
 
     private String teamName;
 
@@ -52,8 +52,17 @@ public class Team implements Serializable{
      *
      * @param points
      */
-    public void setPoints(int points) {
+    public void addPoints(int points) {
         this.points += points;
+    }
+
+    /**
+     * Retract points if corrections are made
+     *
+     * @param points
+     */
+    public void retractPoints(int points) {
+        this.points -= points;
     }
 
     /**
@@ -74,6 +83,15 @@ public class Team implements Serializable{
     }
 
     /**
+     * Retracts goals scores for corrections
+     *
+     * @param goalsScored
+     */
+    public void retractGoalsScored(int goalsScored) {
+        this.goalsScored -= goalsScored;
+    }
+
+    /**
      *
      * @return goals taken against the team
      */
@@ -88,6 +106,15 @@ public class Team implements Serializable{
      */
     public void setGoalsTaken(int goalsTaken) {
         this.goalsTaken += goalsTaken;
+    }
+
+    /**
+     * Retracts goals taken for corrections
+     *
+     * @param goalsTaken
+     */
+    public void retractGoalsTaken(int goalsTaken) {
+        this.goalsTaken -= goalsTaken;
     }
 
     /**
@@ -143,8 +170,8 @@ public class Team implements Serializable{
      *
      * @param wins
      */
-    public void setWins(int wins) {
-        this.wins += wins;
+    public void addWin() {
+        this.wins++;
     }
 
     /**
@@ -160,8 +187,8 @@ public class Team implements Serializable{
      *
      * @param losses
      */
-    public void setLosses(int losses) {
-        this.losses += losses;
+    public void addLoss() {
+        this.losses++;
     }
 
     public void setTeamName(String TEAM_NAME) {
@@ -175,20 +202,22 @@ public class Team implements Serializable{
     public void setHomeField(String HOME_FIELD) {
         this.HOME_FIELD = HOME_FIELD;
     }
-    
+
     /**
      * Return the goaldifference.
-     * @return 
+     *
+     * @return
      */
-    public int getGoalDifference(){
+    public int getGoalDifference() {
         return goalsScored - goalsTaken;
     }
-    
+
     /**
      * Returns the win/loses ratio of the team.
-     * @return 
+     *
+     * @return
      */
-    public int getWinLossRatio(){
+    public int getWinLossRatio() {
         return wins - losses;
     }
 }

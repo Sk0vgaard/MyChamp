@@ -340,13 +340,6 @@ public class FinalsController implements Initializable {
             updateQuarterFinals();
             updateGoals();
 
-            //Set the winnerLabel of the match
-            if (matchToSend.getWinnerTeam() != null) {
-                winnerLabel.setText(PlayOffController.WINNER_TEAM_TEXT + matchToSend.getWinnerTeam().getTeamName());
-            } else {
-                winnerLabel.setText(PlayOffController.WINNER_DRAW_TEXT);
-            }
-
             //Advance the winner
             switch (matchNumber) {
                 case 0:

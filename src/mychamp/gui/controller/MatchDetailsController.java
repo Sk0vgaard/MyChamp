@@ -18,6 +18,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
@@ -39,10 +40,6 @@ public class MatchDetailsController implements Initializable {
     private TextField txtOneScore;
     @FXML
     private TextField txtTwoScore;
-
-    private final int WINNER_POINTS = 3;
-    private final int DRAW_POINTS = 1;
-    private final int MATCH_OVER = 1;
 
     private Stage stage;
 
@@ -99,19 +96,54 @@ public class MatchDetailsController implements Initializable {
      */
     @FXML
     private void handleSaveButton(ActionEvent event) {
-        if (isDataPresent()) {
+        //Check if match is played
+        if (!match.isPlayed()) {
+            givePoints();
+        } else {
+            //If the match is already played just update the score and points
+            if (match.getHomeTeamScore() > match.getAwayTeamScore()) {
+                //Take away the last winning points from winner
+                homeTeam.retractPoints(Game.WINNER_POINTS);
+            } else if (match.getHomeTeamScore() < match.getAwayTeamScore()) {
+                //Take away the last winning points from winner
+                awayTeam.retractPoints(Game.WINNER_POINTS);
+            } else {
+                //If it was a draw, retract draw points from both teams
+                homeTeam.retractPoints(Game.DRAW_POINTS);
+                awayTeam.retractPoints(Game.DRAW_POINTS);
+            }
+            //Retract goals scored
+            homeTeam.retractGoalsScored(match.getHomeTeamScore());
+            awayTeam.retractGoalsScored(match.getAwayTeamScore());
+            //Give new points to teams
+            givePoints();
+        }
+
+    }
+
+    private void givePoints() {
+        //Check if there is text in the input fields
+        if (isTextPresent()) {
             givePointsToWinner();
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
             match.setIsPlayed();
             poController.updateGoals();
+            //If there is no text display input validation warning
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ugyldige informationer");
-            alert.setHeaderText("De indtastede informationer er ikke gyldige");
-            alert.setContentText("Indtast venligst gyldige informationer");
-            alert.showAndWait();
+            displayInvalidInputWarning();
         }
+    }
+
+    /**
+     * Display a warning for invalid input
+     */
+    private void displayInvalidInputWarning() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ugyldige informationer");
+        alert.setHeaderText("De indtastede informationer er ikke gyldige");
+        alert.setContentText("Indtast venligst gyldige informationer");
+        alert.showAndWait();
     }
 
     /**
@@ -130,7 +162,7 @@ public class MatchDetailsController implements Initializable {
      *
      * @return
      */
-    private boolean isDataPresent() {
+    private boolean isTextPresent() {
         if (txtOneScore.getText().equals("")
                 || !txtOneScore.getText().matches("[0-9]*[0-9]")
                 || txtTwoScore.getText().equals("")
@@ -159,18 +191,25 @@ public class MatchDetailsController implements Initializable {
         awayTeam.setGoalsTaken(homeScore);
 
         if (homeScore > awayScore) {
-            homeTeam.setPoints(WINNER_POINTS);
-            homeTeam.setWins(MATCH_OVER);
-            awayTeam.setLosses(MATCH_OVER);
+            //Set the winner of the match label
+            homeTeam.addPoints(Game.WINNER_POINTS);
+            homeTeam.addWin();
+            awayTeam.addLoss();
             match.setWinnerTeam(homeTeam);
-        } else if (homeScore == awayScore) {
-            homeTeam.setPoints(DRAW_POINTS);
-            awayTeam.setPoints(DRAW_POINTS);
-        } else {
-            awayTeam.setPoints(WINNER_POINTS);
-            awayTeam.setWins(MATCH_OVER);
-            homeTeam.setLosses(MATCH_OVER);
+            poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+        } else if (homeScore < awayScore) {
+            awayTeam.addPoints(Game.WINNER_POINTS);
+            awayTeam.addWin();
+            homeTeam.addLoss();
             match.setWinnerTeam(awayTeam);
+            poController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+        } else if (homeScore == awayScore && homeScore != 0) {
+            //Set draw text
+            homeTeam.addPoints(Game.DRAW_POINTS);
+            awayTeam.addPoints(Game.DRAW_POINTS);
+            poController.setWinnerLabel(Game.WINNER_DRAW_TEXT);
+        } else {
+            //Do absolutely nothing, since user most likely regretted his actions!
         }
 
     }

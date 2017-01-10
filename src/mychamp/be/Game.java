@@ -5,6 +5,16 @@
  */
 package mychamp.be;
 
-public abstract class Game {
+public class Game {
+
+    public static final String WINNER_TEAM_TEXT = "Vinder: ";
+
+    public static final String WINNER_DRAW_TEXT = "Uafgjort";
+
+    public static final int WINNER_POINTS = 3;
+
+    public static final int DRAW_POINTS = 1;
+
+    public static final int NOT_PLAYABLE_MATCH = 0;
 
 }
