@@ -88,9 +88,8 @@ public class TeamModel {
      *
      * @param teamsToDelete
      */
-    public void deleteTeam(ObservableList<Team> teamsToDelete) {
+    public void deleteTeam(ArrayList<Team> teamsToDelete) {
         teams.removeAll(teamsToDelete);
-        //TODO ALH: Make sure the team is removed from the playoffs / finals
     }
 
     /**

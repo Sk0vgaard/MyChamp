@@ -6,10 +6,9 @@
 package mychamp.gui.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +20,7 @@ import javafx.stage.Stage;
 import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
-import mychamp.gui.model.GroupModel;
+import mychamp.bll.TournamentManager;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -263,18 +262,11 @@ public class MatchDetailsController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
 
-        ObservableList<Team> teamsToDelete = FXCollections.observableArrayList();
+        ArrayList<Team> teamsToDelete = new ArrayList<>();
         teamsToDelete.add(homeTeam);
 
         if (result.get() == ButtonType.OK) {
-            //Remove team from teams
-            teamModel.deleteTeam(teamsToDelete);
-            //Remove team name labels
-            poController.removeTeamLabelsFromTournament(homeTeam);
-            //Remove team from matches
-            GroupModel.getInstance().removeTeamFromGroupMatches(homeTeam);
-            //Update benched games
-            poController.checkBenchMatch();
+            TournamentManager.deleteTeamFromTournament(teamsToDelete);
         }
     }
 
@@ -289,13 +281,11 @@ public class MatchDetailsController implements Initializable {
         alert = teamRemoveDialog(awayTeam);
 
         Optional<ButtonType> result = alert.showAndWait();
-        ObservableList<Team> teamsToDelete = FXCollections.observableArrayList();
+        ArrayList<Team> teamsToDelete = new ArrayList<>();
         teamsToDelete.add(awayTeam);
 
         if (result.get() == ButtonType.OK) {
-            teamModel.deleteTeam(teamsToDelete);
-            poController.removeTeamLabelsFromTournament(awayTeam);
-            GroupModel.getInstance().removeTeamFromGroupMatches(awayTeam);
+            TournamentManager.deleteTeamFromTournament(teamsToDelete);
         }
     }
 

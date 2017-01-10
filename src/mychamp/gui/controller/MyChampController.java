@@ -20,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
@@ -32,6 +31,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
+import mychamp.bll.TournamentManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -233,18 +233,19 @@ public class MyChampController implements Initializable {
 
     public void deleteTeam() throws NullPointerException {
         try {
-            ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+            ObservableList<Team> selectedTeams = tableTeams.getSelectionModel().getSelectedItems();
+            ArrayList<Team> teamsToDelete = new ArrayList<>(selectedTeams);
             Alert alert;
-            if (teamsToDelete.size() > 1) {
+            if (selectedTeams.size() > 1) {
                 alert = removeManyItems();
             } else {
-                alert = teamRemoveDialog(teamsToDelete.get(0));
+                alert = teamRemoveDialog(selectedTeams.get(0));
             }
 
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                teamModel.deleteTeam(teamsToDelete);
+                TournamentManager.deleteTeamFromTournament(teamsToDelete);
                 if (!isTableSelected()) {
                     txtTeamName.clear();
                     txtTeamField.clear();
