@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -47,8 +48,6 @@ public class MatchDetailsController implements Initializable {
     private Team homeTeam;
     private Team awayTeam;
 
-    private final ObservableList<Team> teamsToDelete;
-
     private final TeamModel teamModel;
 
     private final PlayOffController poController;
@@ -59,7 +58,6 @@ public class MatchDetailsController implements Initializable {
 
     public MatchDetailsController() {
         teamModel = TeamModel.getInstance();
-        teamsToDelete = FXCollections.observableArrayList();
         poController = PlayOffController.getInstance();
         finalsController = FinalsController.getInstance();
         inFinals = false;
@@ -265,12 +263,18 @@ public class MatchDetailsController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
 
+        ObservableList<Team> teamsToDelete = FXCollections.observableArrayList();
+        teamsToDelete.add(homeTeam);
+
         if (result.get() == ButtonType.OK) {
-            teamsToDelete.add(homeTeam);
+            //Remove team from teams
             teamModel.deleteTeam(teamsToDelete);
-            for (Team team : teamModel.getTeams()) {
-                System.out.println(team.getTeamName());
-            }
+            //Remove team name labels
+            poController.removeTeamLabelsFromTournament(homeTeam);
+            //Remove team from matches
+            GroupModel.getInstance().removeTeamFromGroupMatches(homeTeam);
+            //Update benched games
+            poController.checkBenchMatch();
         }
     }
 
@@ -285,13 +289,13 @@ public class MatchDetailsController implements Initializable {
         alert = teamRemoveDialog(awayTeam);
 
         Optional<ButtonType> result = alert.showAndWait();
+        ObservableList<Team> teamsToDelete = FXCollections.observableArrayList();
+        teamsToDelete.add(awayTeam);
 
         if (result.get() == ButtonType.OK) {
-            teamsToDelete.add(awayTeam);
             teamModel.deleteTeam(teamsToDelete);
-            for (Team team : teamModel.getTeams()) {
-                System.out.println(team.getTeamName());
-            }
+            poController.removeTeamLabelsFromTournament(awayTeam);
+            GroupModel.getInstance().removeTeamFromGroupMatches(awayTeam);
         }
     }
 

@@ -71,7 +71,7 @@ public class MyChamp extends Application {
             teamModel.addNewListOfTeams(loadedTeams);
         }
         
-        ArrayList<Group> loadedPlayOffGroups = groupModel.getPlayOffGroupsFromFil();
+        ArrayList<Group> loadedPlayOffGroups = groupModel.getPlayOffGroupsFromFile();
         if(loadedPlayOffGroups != null){
             groupModel.setGroups(loadedPlayOffGroups);
             System.out.println("PlayOffGroups loaded!");

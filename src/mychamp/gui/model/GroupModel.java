@@ -126,7 +126,7 @@ public class GroupModel {
      *
      * @return
      */
-    public ArrayList<Group> getPlayOffGroupsFromFil() {
+    public ArrayList<Group> getPlayOffGroupsFromFile() {
         ArrayList<Group> loadedGroups = null;
         if (fileManager.isGroupsThere("playOffGroups")) {
             loadedGroups = fileManager.getGroupsFromFile("playOffGroups");
@@ -134,5 +134,14 @@ public class GroupModel {
             System.out.println("Could not find \"playOffGroups.data\"...");
         }
         return loadedGroups;
+    }
+
+    /**
+     * Remove team from all group matches
+     *
+     * @param teamToRemove
+     */
+    public void removeTeamFromGroupMatches(Team teamToRemove) {
+        groupManager.removeTeamFromMatches(teamToRemove);
     }
 }

@@ -73,14 +73,24 @@ public class TeamModel {
         return teams;
     }
 
+    /**
+     *
+     * @return teams as an array list
+     */
     public ArrayList<Team> getTeamsAsArrayList() {
         ArrayList<Team> teamsAsArrayList = new ArrayList<>();
         teamsAsArrayList.addAll(teams);
         return teamsAsArrayList;
     }
 
+    /**
+     * Removes the team from the tournament
+     *
+     * @param teamsToDelete
+     */
     public void deleteTeam(ObservableList<Team> teamsToDelete) {
         teams.removeAll(teamsToDelete);
+        //TODO ALH: Make sure the team is removed from the playoffs / finals
     }
 
     /**

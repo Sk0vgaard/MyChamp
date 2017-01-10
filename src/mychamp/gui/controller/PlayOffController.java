@@ -988,7 +988,7 @@ public class PlayOffController implements Initializable {
     /**
      * Check if a match should be sat over/benched
      */
-    private void checkBenchMatch() {
+    public void checkBenchMatch() {
         //Check if a match only has 1 team
         for (Group group : groupModel.getGroups()) {
             for (Match groupMatch : group.getGroupMatches()) {
@@ -1046,7 +1046,7 @@ public class PlayOffController implements Initializable {
             editStage.showAndWait();
 
             //Updates the group rankings.
-            updateGroupRankings(group);
+            updateGroupRankings(group, null);
 
             //Save teams to file
             teamModel.saveTeamsToFile();
@@ -1061,29 +1061,45 @@ public class PlayOffController implements Initializable {
      *
      * @param group
      */
-    private void updateGroupRankings(int group) {
+    private void updateGroupRankings(int group, Team removedTeam) {
         ArrayList<Team> rankedTeams = groupModel.getRankings(group);
+        //If there is a team to remove in the group, it shall be gone!
+        if (rankedTeams.contains(removedTeam)) {
+            rankedTeams.remove(removedTeam);
+        }
 
         switch (group) {
             case 0: {
+                for (Label label : rankingsGroupA) {
+                    label.setText("");
+                }
                 for (int i = 0; i < rankedTeams.size(); i++) {
                     rankingsGroupA.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 1: {
+                for (Label label : rankingsGroupB) {
+                    label.setText("");
+                }
                 for (int i = 0; i < rankedTeams.size(); i++) {
                     rankingsGroupB.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 2: {
+                for (Label label : rankingsGroupC) {
+                    label.setText("");
+                }
                 for (int i = 0; i < rankedTeams.size(); i++) {
                     rankingsGroupC.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
                 break;
             }
             case 3: {
+                for (Label label : rankingsGroupD) {
+                    label.setText("");
+                }
                 for (int i = 0; i < rankedTeams.size(); i++) {
                     rankingsGroupD.get(i).setText(rankedTeams.get(i).getTeamName());
                 }
@@ -1365,6 +1381,50 @@ public class PlayOffController implements Initializable {
      */
     public ArrayList<ArrayList<Label>> getRankingLabels() {
         return rankingLabels;
+    }
+
+    /**
+     * Removes the team from matches and marks the game as benched
+     *
+     * @param teamToRemove
+     */
+    public void removeTeamLabelsFromTournament(Team teamToRemove) {
+        addTeamNameLabels();
+        for (int i = 0; i < round1teamNameLabels.size(); i++) {
+            if (round1teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round1teamNameLabels.get(i).setText("");
+            }
+        }
+        for (int i = 0; i < round2teamNameLabels.size(); i++) {
+            if (round2teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round2teamNameLabels.get(i).setText("");
+            }
+        }
+        for (int i = 0; i < round3teamNameLabels.size(); i++) {
+            if (round3teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round3teamNameLabels.get(i).setText("");
+            }
+        }
+        for (int i = 0; i < round4teamNameLabels.size(); i++) {
+            if (round4teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round4teamNameLabels.get(i).setText("");
+            }
+        }
+        for (int i = 0; i < round5teamNameLabels.size(); i++) {
+            if (round5teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round5teamNameLabels.get(i).setText("");
+            }
+        }
+        for (int i = 0; i < round6teamNameLabels.size(); i++) {
+            if (round6teamNameLabels.get(i).getText().equals(teamToRemove.getTeamName())) {
+                round6teamNameLabels.get(i).setText("");
+            }
+        }
+        updateGroupRankings(0, teamToRemove);
+        updateGroupRankings(1, teamToRemove);
+        updateGroupRankings(2, teamToRemove);
+        updateGroupRankings(3, teamToRemove);
+        checkBenchMatch();
     }
 
     /**

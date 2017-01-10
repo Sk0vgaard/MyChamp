@@ -17,7 +17,7 @@ public class GroupManager {
 
     private ArrayList<Team> teamIDS;
 
-    private ArrayList<Group> playOffGroups;
+    private final ArrayList<Group> playOffGroups;
 
     private Group A;
     private ArrayList<Team> groupATeams;
@@ -34,7 +34,7 @@ public class GroupManager {
     private final ArrayList<Match> quarterMatches = new ArrayList<>();
 
     private final ArrayList<Team> unqualifiedTeams = new ArrayList<>();
-    
+
     private final ArrayList<Team> top8Teams = new ArrayList<>();
 
     /**
@@ -145,7 +145,7 @@ public class GroupManager {
             case 4: {
                 return unqualifiedTeams;
             }
-            case 5:{
+            case 5: {
                 return top8Teams;
             }
             default: {
@@ -219,20 +219,40 @@ public class GroupManager {
     public ArrayList<Team> getSortedUnqualifiedTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(4);
     }
-    
+
     /**
      * Return the List containing all qualified teams that can't advance more.
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Team> getSortedTopTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(5);
     }
-    
+
     /**
      * Add a team to the top8Team array.
-     * @param teamToAdd 
+     *
+     * @param teamToAdd
      */
-    public void addATop8Team(Team teamToAdd){
+    public void addATop8Team(Team teamToAdd) {
         top8Teams.add(teamToAdd);
+    }
+
+    /**
+     * Removes the parsed team from all matches
+     *
+     * @param teamToRemove
+     */
+    public void removeTeamFromMatches(Team teamToRemove) {
+        Team emptyTeam = new Team("", "", "");
+        for (Group playOffGroup : playOffGroups) {
+            for (Match groupMatch : playOffGroup.getGroupMatches()) {
+                if (groupMatch.getHomeTeam().equals(teamToRemove)) {
+                    groupMatch.setHomeTeam(emptyTeam);
+                } else if (groupMatch.getAwayTeam().equals(teamToRemove)) {
+                    groupMatch.setAwayTeam(emptyTeam);
+                }
+            }
+        }
     }
 }
