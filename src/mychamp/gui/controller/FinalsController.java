@@ -5,6 +5,12 @@
  */
 package mychamp.gui.controller;
 
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import mychamp.MyChamp;
 import mychamp.be.Match;
 import mychamp.be.Team;
@@ -601,5 +608,24 @@ public class FinalsController implements Initializable {
         lblRank14.setText("");
         lblRank15.setText("");
         lblRank16.setText("");
+    }
+    @FXML
+    private void handleScreenshotBtn(ActionEvent event) throws
+            AWTException, IOException {
+        // capture the whole screen
+        
+        BufferedImage screencapture = new Robot().createScreenCapture(
+           new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()) );
+
+        // Save as PNG
+        File file = new File("Screenshot.png");
+        ImageIO.write(screencapture, "png", file);
+
+        // Save as JPEG
+        //File file = new File("screencapture.jpg");
+        //ImageIO.write(screencapture, "jpg", file);
+        System.out.println("Det Virker");
+
+        //Kilde http://www.rgagnon.com/javadetails/java-0489.html
     }
 }

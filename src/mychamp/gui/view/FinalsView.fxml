@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.FinalsController">
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.FinalsController">
    <children>
       <Button layoutX="1070.0" layoutY="748.0" mnemonicParsing="false" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" text="Play Off" />
       <VBox layoutX="1100.0" layoutY="65.0" prefHeight="656.0" prefWidth="193.0">
@@ -270,5 +270,6 @@
             </Label>
          </children>
       </VBox>
+      <Button layoutX="950.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleScreenshotBtn" text="Screenshot" />
    </children>
 </AnchorPane>
