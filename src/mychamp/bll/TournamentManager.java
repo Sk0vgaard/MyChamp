@@ -7,6 +7,7 @@ package mychamp.bll;
 
 import java.util.ArrayList;
 import mychamp.be.Team;
+import mychamp.gui.controller.FinalsController;
 import mychamp.gui.controller.PlayOffController;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
@@ -24,6 +25,7 @@ public class TournamentManager {
         for (Team team : teamsToDelete) {
             //Remove team name labels
             PlayOffController.getInstance().removeTeamLabelsFromTournament(team);
+            FinalsController.getInstance().removeTeamLabelsFromTournament(team);
             //Remove team from matches
             GroupModel.getInstance().removeTeamFromGroupMatches(team);
         }
