@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import mychamp.be.Group;
 import mychamp.be.Team;
@@ -117,6 +119,10 @@ public class MyChamp extends Application {
                 break;
             }
         }
+        //Sets the stage in the middle of the screen
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        primStage.setX((primScreenBounds.getWidth() - primStage.getWidth()) / 2);
+        primStage.setY((primScreenBounds.getHeight() - primStage.getHeight()) / 2);
     }
 
     /**
