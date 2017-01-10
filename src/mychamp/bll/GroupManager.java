@@ -10,6 +10,7 @@ import java.util.Collections;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.gui.controller.FinalsController;
 
 public class GroupManager {
 
@@ -245,12 +246,23 @@ public class GroupManager {
      */
     public void removeTeamFromMatches(Team teamToRemove) {
         Team emptyTeam = new Team("", "", "");
+        //Remove from playoffs
         for (Group playOffGroup : playOffGroups) {
             for (Match groupMatch : playOffGroup.getGroupMatches()) {
                 if (groupMatch.getHomeTeam().equals(teamToRemove)) {
                     groupMatch.setHomeTeam(emptyTeam);
                 } else if (groupMatch.getAwayTeam().equals(teamToRemove)) {
                     groupMatch.setAwayTeam(emptyTeam);
+                }
+            }
+        }
+        //Remove from finals
+        for (ArrayList<Match> stageMatches : FinalsController.getInstance().getAllMatches()) {
+            for (Match stageMatch : stageMatches) {
+                if (stageMatch.getHomeTeam().equals(teamToRemove)) {
+                    stageMatch.setHomeTeam(emptyTeam);
+                } else if (stageMatch.getAwayTeam().equals(teamToRemove)) {
+                    stageMatch.setAwayTeam(emptyTeam);
                 }
             }
         }

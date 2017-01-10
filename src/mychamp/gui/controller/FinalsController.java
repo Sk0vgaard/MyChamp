@@ -151,6 +151,8 @@ public class FinalsController implements Initializable {
 
     private ArrayList<Match> quarterFinalMatches;
 
+    private final ArrayList<Label> teamNameLabels = new ArrayList<>();
+
     private final ArrayList<Label> top8Labels = new ArrayList<>();
 
     private final ArrayList<Label> last8Labels = new ArrayList<>();
@@ -523,15 +525,15 @@ public class FinalsController implements Initializable {
         }
 
         //Stuff to check if rankings is correct
-        for (int i = 0; i < teams.size(); i++) {
-            System.out.println(teams.get(i).getPoints() + " : "
-                    + teams.get(i).getGoalDifference() + " : "
-                    + teams.get(i).getGoalsScored() + " : "
-                    + teams.get(i).getWinLossRatio() + " : "
-                    + teams.get(i).getGoalsTaken() + " : "
-                    + teams.get(i).getTeamName());
-        }
-        System.out.println("--------------------------------------");
+//        for (int i = 0; i < teams.size(); i++) {
+//            System.out.println(teams.get(i).getPoints() + " : "
+//                    + teams.get(i).getGoalDifference() + " : "
+//                    + teams.get(i).getGoalsScored() + " : "
+//                    + teams.get(i).getWinLossRatio() + " : "
+//                    + teams.get(i).getGoalsTaken() + " : "
+//                    + teams.get(i).getTeamName());
+//        }
+//        System.out.println("--------------------------------------");
     }
 
     /**
@@ -544,17 +546,34 @@ public class FinalsController implements Initializable {
     }
 
     /**
+     * Add all team labels to array
+     */
+    private void addNameLabelsToArray() {
+        teamNameLabels.add(lblQuarterTeamA1);
+        teamNameLabels.add(lblQuarterTeamA2);
+        teamNameLabels.add(lblQuarterTeamB1);
+        teamNameLabels.add(lblQuarterTeamB2);
+        teamNameLabels.add(lblQuarterTeamC1);
+        teamNameLabels.add(lblQuarterTeamC2);
+        teamNameLabels.add(lblQuarterTeamD1);
+        teamNameLabels.add(lblQuarterTeamD2);
+        teamNameLabels.add(lblSemiTeam1);
+        teamNameLabels.add(lblSemiTeam2);
+        teamNameLabels.add(lblSemiTeam3);
+        teamNameLabels.add(lblSemiTeam4);
+        teamNameLabels.add(lblFinalTeam1);
+        teamNameLabels.add(lblFinalTeam2);
+    }
+
+    /**
      * Initialize design of all labels
      */
     public void initilizeDesign() {
-        lblQuarterTeamA1.setText("");
-        lblQuarterTeamA2.setText("");
-        lblQuarterTeamB1.setText("");
-        lblQuarterTeamB2.setText("");
-        lblQuarterTeamC1.setText("");
-        lblQuarterTeamC2.setText("");
-        lblQuarterTeamD1.setText("");
-        lblQuarterTeamD2.setText("");
+        addNameLabelsToArray();
+        //Reset Team name labels
+        for (Label teamNameLabel : teamNameLabels) {
+            teamNameLabel.setText("");
+        }
         lblQuarterWinner1.setText("");
         lblQuarterWinner2.setText("");
         lblQuarterWinner3.setText("");
@@ -568,38 +587,43 @@ public class FinalsController implements Initializable {
         lblQuarterGoalC2.setText("0");
         lblQuarterGoalD1.setText("0");
         lblQuarterGoalD2.setText("0");
-        lblSemiTeam1.setText("");
-        lblSemiTeam2.setText("");
-        lblSemiTeam3.setText("");
-        lblSemiTeam4.setText("");
         lblSemiWinner1.setText("");
         lblSemiWinner2.setText("");
         lblSemiGoal1.setText("0");
         lblSemiGoal2.setText("0");
         lblSemiGoal3.setText("0");
         lblSemiGoal4.setText("0");
-        lblFinalTeam1.setText("");
-        lblFinalTeam2.setText("");
         lblFinalGoal1.setText("0");
         lblFinalGoal2.setText("0");
         lblWinner.setText("");
         //Reset rankings
-        lblRank1.setText("");
-        lblRank2.setText("");
-        lblRank3.setText("");
-        lblRank4.setText("");
-        lblRank5.setText("");
-        lblRank6.setText("");
-        lblRank7.setText("");
-        lblRank8.setText("");
-        lblRank9.setText("");
-        lblRank10.setText("");
-        lblRank11.setText("");
-        lblRank11.setText("");
-        lblRank12.setText("");
-        lblRank13.setText("");
-        lblRank14.setText("");
-        lblRank15.setText("");
-        lblRank16.setText("");
+        for (Label top8Label : top8Labels) {
+            top8Label.setText("");
+        }
+        for (Label last8Label : last8Labels) {
+            last8Label.setText("");
+        }
     }
+
+    /**
+     * Removes the team labels from the tournament
+     *
+     * @param team
+     */
+    public void removeTeamLabelsFromTournament(Team team) {
+        for (Label teamNameLabel : teamNameLabels) {
+            if (teamNameLabel.getText().equals(team.getTeamName())) {
+                teamNameLabel.setText("");
+            }
+        }
+    }
+
+    /**
+     *
+     * @return all matches from finals
+     */
+    public ArrayList<ArrayList<Match>> getAllMatches() {
+        return allMatches;
+    }
+
 }
