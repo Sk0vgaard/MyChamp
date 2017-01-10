@@ -117,6 +117,7 @@ public class MyChamp extends Application {
                 break;
             }
         }
+        //Sets the stage in the middle of the screen
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         primStage.setX((primScreenBounds.getWidth() - primStage.getWidth()) / 2);
         primStage.setY((primScreenBounds.getHeight() - primStage.getHeight()) / 2);
