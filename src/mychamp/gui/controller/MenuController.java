@@ -49,6 +49,13 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
+        if (TeamModel.getInstance().getTeamsAsArrayList().isEmpty()) {
+                try {
+                    goToView("MyChamp");
+                } catch (IOException ex) {
+                    System.out.println(ex);
+                }
+            } else {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("ADVARSEL");
         alert.setHeaderText(" Tryk 'Ja' for at starte en ny turnering. \n Tryk 'Nej' for at tilføje/fjerne hold til/fra turneringen. \n "
@@ -58,6 +65,7 @@ public class MenuController implements Initializable {
         ButtonType cancelButton = new ButtonType("Fortryd", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(yesButton, noButton, cancelButton);
         alert.showAndWait().ifPresent(type -> {
+            
             if (type == yesButton) {
                 if (TeamModel.getInstance().getTeamsAsArrayList().size() > 0) {
                     TeamModel.getInstance().clearTeams();
@@ -76,6 +84,7 @@ public class MenuController implements Initializable {
                 }
             }
         });
+    }
     }
 
     @FXML
