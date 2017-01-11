@@ -12,7 +12,7 @@ import mychamp.dal.DAOManager;
 
 public class FileManager {
 
-    public static FileManager instance;
+    private static FileManager instance;
 
     private final DAOManager daoManager = DAOManager.getInstance();
 

@@ -41,7 +41,7 @@ public class GroupModel {
     }
 
     private GroupModel() {
-        randomGroups = new ArrayList<>();
+        randomGroups = getPlayOffGroupsFromFile();
         quarterMatches = new ArrayList<>();
         finalGroups = new ArrayList<>();
         finalGroups.add(new Group("Quarter Finals", teamModel.getQuarterFinalTeams()));

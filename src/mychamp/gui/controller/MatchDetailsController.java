@@ -21,6 +21,7 @@ import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.bll.TournamentManager;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -121,7 +122,7 @@ public class MatchDetailsController implements Initializable {
             //Give new points to teams
             givePoints();
         }
-
+        GroupModel.getInstance().savePlayOffGroups();
     }
 
     /**

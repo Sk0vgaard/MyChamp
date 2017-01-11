@@ -96,7 +96,6 @@ public class MyChampController implements Initializable {
         initializeTables();
         setListeners();
         tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
 
     /**
@@ -331,6 +330,7 @@ public class MyChampController implements Initializable {
             maxTeamsDialog();
 
         }
+        teamModel.saveTeamsToFile();
 
     }
 

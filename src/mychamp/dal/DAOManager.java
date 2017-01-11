@@ -71,11 +71,11 @@ public class DAOManager {
         File teams = new File("teams.data");
         File groups = new File("playOffGroups.data");
         //TODO ALH: Remove this again!
-        if (teams.exists()) {
-            teams.delete();
-            groups.delete();
-            System.out.println("Deleted files for testing purposes, remember to remove this!!!");
-        }
+//        if (teams.exists()) {
+//            teams.delete();
+//            groups.delete();
+//            System.out.println("Deleted files for testing purposes, remember to remove this!!!");
+//        }
         return new File("teams.data").exists();
     }
 

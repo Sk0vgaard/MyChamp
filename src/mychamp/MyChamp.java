@@ -14,11 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import mychamp.be.Group;
 import mychamp.be.Team;
-import mychamp.bll.FileManager;
-import mychamp.dal.DAOManager;
-import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -50,7 +46,7 @@ public class MyChamp extends Application {
 
         stage.setScene(scene);
         stage.show();
-        
+
         loadSavedData();
     }
 
@@ -60,25 +56,16 @@ public class MyChamp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
     /**
      * If there is any previous data. Load it.
      */
-    private void loadSavedData(){
+    private void loadSavedData() {
         TeamModel teamModel = TeamModel.getInstance();
-        GroupModel groupModel = GroupModel.getInstance();
-        
+
         ArrayList<Team> loadedTeams = teamModel.getTeamsFromFile();
-        if(loadedTeams != null){
+        if (loadedTeams != null) {
             teamModel.addNewListOfTeams(loadedTeams);
-        }
-        
-        ArrayList<Group> loadedPlayOffGroups = groupModel.getPlayOffGroupsFromFile();
-        if(loadedPlayOffGroups != null){
-            groupModel.setGroups(loadedPlayOffGroups);
-            System.out.println("PlayOffGroups loaded!");
-        }else{
-            System.out.println("PlayOffGroups not loaded!");
         }
     }
 

@@ -11,6 +11,7 @@ import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.gui.controller.FinalsController;
+import mychamp.gui.model.GroupModel;
 
 public class GroupManager {
 
@@ -132,16 +133,16 @@ public class GroupManager {
     public ArrayList<Team> getTeamsOfGroup(int groupToGetFrom) {
         switch (groupToGetFrom) {
             case 0: {
-                return groupATeams;
+                return GroupModel.getInstance().getGroups().get(0).getGroupTeams();
             }
             case 1: {
-                return groupBTeams;
+                return GroupModel.getInstance().getGroups().get(1).getGroupTeams();
             }
             case 2: {
-                return groupCTeams;
+                return GroupModel.getInstance().getGroups().get(2).getGroupTeams();
             }
             case 3: {
-                return groupDTeams;
+                return GroupModel.getInstance().getGroups().get(3).getGroupTeams();
             }
             case 4: {
                 return unqualifiedTeams;
