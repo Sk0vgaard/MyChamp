@@ -254,14 +254,15 @@ public class MyChampController implements Initializable {
                     displayTeamInfo();
                 }
             }
-            updateTeamMount();
         } catch (NullPointerException e) {
             System.out.println("Choose a team to delete.");
         }
+        updateTeamMount();
+        System.out.println("DELETING.....");
     }
 
     /**
-     * Select more than one team
+     * Select more than one team and deletes by key.
      */
     @FXML
     private void handleKeyShortCuts(KeyEvent event) {

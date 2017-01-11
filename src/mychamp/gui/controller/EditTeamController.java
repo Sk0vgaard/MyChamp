@@ -247,10 +247,11 @@ public class EditTeamController implements Initializable {
                     displayTeamInfo();
                 }
             }
-            updateTeamAmount();
         } catch (NullPointerException e) {
             System.out.println("Choose a team to delete.");
         }
+        updateTeamAmount();
+        System.out.println("Deleting...");
     }
 
     /**

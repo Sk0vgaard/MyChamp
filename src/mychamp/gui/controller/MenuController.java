@@ -49,46 +49,48 @@ public class MenuController implements Initializable {
     @FXML
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
         if (TeamModel.getInstance().getTeamsAsArrayList().isEmpty()) {
-                try {
-                    goToView("MyChamp");
-                } catch (IOException ex) {
-                    System.out.println(ex);
-                }
-            } else {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("ADVARSEL");
-        alert.setHeaderText(" Tryk 'Ja' for at starte en ny turnering. \n Tryk 'Nej' for at tilføje/fjerne hold til/fra turneringen. \n "
-                + "Tryk 'Fortryd' for at komme tilbage til menuen.");
-        ButtonType yesButton = new ButtonType("Ja", ButtonBar.ButtonData.YES);
-        ButtonType noButton = new ButtonType("Nej", ButtonBar.ButtonData.NO);
-        ButtonType cancelButton = new ButtonType("Fortryd", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(yesButton, noButton, cancelButton);
-        alert.showAndWait().ifPresent(type -> {
-            
-            if (type == yesButton) {
-                if (TeamModel.getInstance().getTeamsAsArrayList().size() > 0) {
-                    TeamModel.getInstance().clearTeams();
+            try {
+                goToView("MyChamp");
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("ADVARSEL");
+            alert.setHeaderText(" Tryk 'Ja' for at starte en ny turnering. \n Tryk 'Nej' for at tilføje/fjerne hold til/fra turneringen. \n "
+                    + "Tryk 'Fortryd' for at komme tilbage til menuen.");
+            ButtonType yesButton = new ButtonType("Ja", ButtonBar.ButtonData.YES);
+            ButtonType noButton = new ButtonType("Nej", ButtonBar.ButtonData.NO);
+            ButtonType cancelButton = new ButtonType("Fortryd", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(yesButton, noButton, cancelButton);
+            alert.showAndWait().ifPresent(type -> {
+
+                if (type == yesButton) {
+                    if (TeamModel.getInstance().getTeamsAsArrayList().size() > 0) {
+                        TeamModel.getInstance().clearTeams();
+                        try {
+                            goToView("MyChamp");
+                        } catch (IOException ex) {
+                            System.out.println(ex);
+                        }
+                    }
+
+                } else if (type == noButton) {
                     try {
                         goToView("MyChamp");
                     } catch (IOException ex) {
-                        System.out.println(ex);
+                        System.out.println("Fejl: " + ex);
                     }
                 }
-
-            } else if (type == noButton) {
-                try {
-                    goToView("MyChamp");
-                } catch (IOException ex) {
-                    System.out.println("Fejl: " + ex);
-                }
-            }
-        });
-    }
+            });
+        }
+        MyChampController.getIntance().updateTeamMount();
     }
 
     @FXML
     private void handleTeamEditButton(ActionEvent event) throws IOException {
         goToView("EditTeamView");
+        EditTeamController.getIntance().updateTeamAmount();
     }
 
     /**
