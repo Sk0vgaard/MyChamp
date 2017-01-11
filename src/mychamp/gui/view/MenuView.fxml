@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="689.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="689.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MenuController">
    <children>
-      <Label fx:id="lblMenuBanner" layoutX="27.0" layoutY="30.0" text="Esbjerg School Football Championship">
+      <Label fx:id="lblMenuBanner" alignment="CENTER" layoutX="58.0" layoutY="30.0" text="Esbjerg School Football Championship" AnchorPane.bottomAnchor="624.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="30.0">
          <font>
             <Font name="Elephant" size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="54.0" layoutY="82.0" prefHeight="575.0" prefWidth="414.0" spacing="70.0">
+      <VBox alignment="CENTER" layoutX="54.0" layoutY="82.0" prefHeight="575.0" prefWidth="414.0" spacing="70.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="82.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNewTournamentButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Ny Turnering">
+            <Button mnemonicParsing="false" onAction="#handleNewTournamentButton" prefHeight="60.0" prefWidth="430.0" style="-fx-background-radius: 25, 25, 25, 25;" text="Ny Turnering" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -37,9 +36,6 @@
                </font>
             </Button>
          </children>
-         <padding>
-            <Insets top="50.0" />
-         </padding>
       </VBox>
    </children>
 </AnchorPane>

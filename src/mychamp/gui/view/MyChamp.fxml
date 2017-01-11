@@ -11,17 +11,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MyChampController">
+<AnchorPane id="AnchorPane" prefHeight="615.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MyChampController">
    <children>
-      <Label layoutX="29.0" layoutY="582.0" text="Hold" />
-      <Label fx:id="lblTeamAmount" layoutX="75.0" layoutY="582.0" text="NaN" />
-      <TableView fx:id="tableTeams" layoutX="29.0" layoutY="162.0" onKeyPressed="#handleKeyShortCuts" prefHeight="410.0" prefWidth="244.0">
+      <Label layoutX="29.0" layoutY="582.0" text="Hold" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="29.0" />
+      <Label fx:id="lblTeamAmount" layoutX="64.0" layoutY="582.0" text="NaN" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="64.0" />
+      <TableView fx:id="tableTeams" layoutX="29.0" layoutY="162.0" onKeyPressed="#handleKeyShortCuts" prefHeight="410.0" prefWidth="244.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="162.0">
         <columns>
           <TableColumn fx:id="clmID" prefWidth="54.0" text="ID" />
           <TableColumn fx:id="clmTeam" prefWidth="187.0" text="Holdnavn" />
         </columns>
       </TableView>
-      <Pane layoutX="328.0" layoutY="195.0" prefHeight="204.0" prefWidth="303.0">
+      <Pane layoutX="328.0" layoutY="195.0" prefHeight="204.0" prefWidth="303.0" AnchorPane.bottomAnchor="216.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="195.0">
          <children>
             <TextField fx:id="txtTeamName" layoutX="113.0" layoutY="68.0" />
             <Label layoutX="14.0" layoutY="72.0" text="Holdnavn" />
@@ -33,8 +33,8 @@
             <TextField fx:id="txtTeamSchool" layoutX="113.0" layoutY="161.0" />
          </children>
       </Pane>
-      <Label layoutX="445.0" layoutY="162.0" text="Holdinfo" />
-      <Pane layoutX="29.0" layoutY="44.0" prefHeight="100.0" prefWidth="623.0">
+      <Label layoutX="445.0" layoutY="162.0" text="Holdinfo" AnchorPane.rightAnchor="225.0" />
+      <Pane layoutX="29.0" layoutY="44.0" prefHeight="100.0" prefWidth="623.0" AnchorPane.topAnchor="44.0">
          <children>
             <JFXTextField fx:id="txtNewTeamName" layoutX="81.0" layoutY="-4.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <Label layoutX="14.0" layoutY="8.0" text="Holdnavn:" />
@@ -50,14 +50,14 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Pane layoutX="423.0" layoutY="392.0" prefHeight="57.0" prefWidth="153.0">
+      <Pane layoutX="423.0" layoutY="392.0" prefHeight="57.0" prefWidth="153.0" AnchorPane.bottomAnchor="166.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="392.0">
          <children>
             <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="14.0" layoutY="13.0" onAction="#handleEditSelectedTeam" text="Rediger" />
             <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" text="Slet" />
          </children>
       </Pane>
-      <JFXButton layoutX="406.0" layoutY="459.0" onAction="#handleStartTournament" prefHeight="78.0" prefWidth="153.0" text="START TURNERING" />
-      <Separator layoutX="-3.0" layoutY="150.0" prefHeight="3.0" prefWidth="717.0" />
-      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="2.0" onAction="#handleBackToMenu" text="Tilbage" />
+      <JFXButton layoutX="406.0" layoutY="459.0" onAction="#handleStartTournament" prefHeight="78.0" prefWidth="153.0" text="START TURNERING" AnchorPane.bottomAnchor="78.0" AnchorPane.rightAnchor="158.0" AnchorPane.topAnchor="450.0" />
+      <Separator layoutX="-3.0" layoutY="150.0" prefHeight="3.0" prefWidth="717.0" AnchorPane.topAnchor="150.0" />
+      <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="2.0" layoutY="2.0" onAction="#handleBackToMenu" text="Tilbage" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" />
    </children>
 </AnchorPane>
