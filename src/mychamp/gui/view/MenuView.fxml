@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="testing" prefHeight="689.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MenuController">
+<AnchorPane id="AnchorPane" fx:id="testing" prefHeight="689.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.MenuController">
    <children>
       <VBox alignment="CENTER" layoutX="54.0" layoutY="207.0" prefHeight="486.0" prefWidth="412.0" spacing="70.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="207.0">
          <children>
@@ -21,7 +21,7 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#handlePlayOffButton" prefHeight="134.0" prefWidth="410.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gruppe Spil">
+            <JFXButton buttonType="RAISED" onAction="#handlePlayOffButton" prefHeight="134.0" prefWidth="410.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gruppespil">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
