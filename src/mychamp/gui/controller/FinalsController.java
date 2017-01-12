@@ -30,6 +30,7 @@ import mychamp.MyChamp;
 import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.FileManager;
 import mychamp.bll.GroupManager;
 import mychamp.bll.RankingManager;
 import mychamp.gui.model.GroupModel;
@@ -216,7 +217,9 @@ public class FinalsController implements Initializable {
     public void loadSavedFinals() {
         addLabelsToArrayList();
         allMatches = GroupModel.getInstance().getFinalMatchesFromFile();
-        GroupManager.getInstance().loadSavedTop8();
+        if (FileManager.getInstance().isTop8There()) {
+            GroupManager.getInstance().loadSavedTop8();
+        }
         loadSavedMatchesIntoTournament();
         updateFinalsInformation();
     }
@@ -545,6 +548,13 @@ public class FinalsController implements Initializable {
         }
         //Update the top 8 rankings
         setTop8Rankings();
+        saveFinals();
+    }
+
+    /**
+     * Save finals data
+     */
+    public void saveFinals() {
         //Save finals
         GroupModel.getInstance().setFinalMatches(allMatches);
         GroupModel.getInstance().saveFinalMatches();

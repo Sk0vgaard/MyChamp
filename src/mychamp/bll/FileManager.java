@@ -123,4 +123,11 @@ public class FileManager {
     public ArrayList<Team> getTop8TeamsFromFile() {
         return daoManager.getTop8TeamsFromFile();
     }
+
+    /**
+     * Checks if finalMatches exists
+     */
+    public boolean isTop8There() {
+        return daoManager.isTop8There();
+    }
 }

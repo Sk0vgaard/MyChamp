@@ -176,4 +176,8 @@ public class DAOManager {
         }
         return savedTop8;
     }
+
+    public boolean isTop8There() {
+        return new File("top8Teams.data").exists();
+    }
 }
