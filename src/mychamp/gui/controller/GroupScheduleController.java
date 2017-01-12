@@ -143,13 +143,25 @@ public class GroupScheduleController implements Initializable {
 
     private static GroupScheduleController instance;
 
-    private final ArrayList<Label> homeTeamNameLabels = new ArrayList<>();
-    private final ArrayList<Label> homeTeamGoalsLabels = new ArrayList<>();
-    private final ArrayList<Label> awayTeamNameLabels = new ArrayList<>();
-    private final ArrayList<Label> awayTeamGoalsLabels = new ArrayList<>();
+    private final ArrayList<Label> homeTeamNameLabels;
+    private final ArrayList<Label> homeTeamGoalsLabels;
+    private final ArrayList<Label> awayTeamNameLabels;
+    private final ArrayList<Label> awayTeamGoalsLabels;
+
+    private final ArrayList<Label> winnerLabels;
 
     public static GroupScheduleController getInstance() {
         return instance;
+    }
+    @FXML
+    private Label Round5Winner2;
+
+    public GroupScheduleController() {
+        homeTeamNameLabels = new ArrayList<>();
+        homeTeamGoalsLabels = new ArrayList<>();
+        awayTeamNameLabels = new ArrayList<>();
+        awayTeamGoalsLabels = new ArrayList<>();
+        winnerLabels = new ArrayList<>();
     }
 
     /**
@@ -200,6 +212,19 @@ public class GroupScheduleController implements Initializable {
         for (int i = 0; i < selectedGroup.getGroupMatches().size(); i++) {
             awayTeamNameLabels.get(i).setText(selectedGroup.getGroupMatches().get(i).getAwayTeam().getTeamName());
             awayTeamGoalsLabels.get(i).setText("" + selectedGroup.getGroupMatches().get(i).getAwayTeamScore());
+        }
+        //Set winner
+        for (int i = 0; i < selectedGroup.getGroupMatches().size(); i++) {
+            //If the match has been played
+            if (selectedGroup.getGroupMatches().get(i).getWinnerTeam() != null) {
+                //Display the winner
+                winnerLabels.get(i).setText(selectedGroup.getGroupMatches().get(i).getWinnerTeam().getTeamName());
+            } else {
+                //Or display draw if that is the case
+                if (selectedGroup.getGroupMatches().get(i).getHomeTeamScore() == selectedGroup.getGroupMatches().get(i).getAwayTeamScore() && selectedGroup.getGroupMatches().get(i).getHomeTeamScore() != 0) {
+                    winnerLabels.get(i).setText("Uafgjort");
+                }
+            }
         }
     }
 
@@ -260,6 +285,19 @@ public class GroupScheduleController implements Initializable {
         awayTeamGoalsLabels.add(lblRound6Goal2);
         awayTeamGoalsLabels.add(lblRound6Goal4);
 
+        //Winner labels
+        winnerLabels.add(Round1Winner);
+        winnerLabels.add(Round1Winner2);
+        winnerLabels.add(Round2Winner);
+        winnerLabels.add(Round2Winner2);
+        winnerLabels.add(Round3Winner);
+        winnerLabels.add(Round3Winner2);
+        winnerLabels.add(Round4Winner);
+        winnerLabels.add(Round4Winner2);
+        winnerLabels.add(Round5Winner);
+        winnerLabels.add(Round5Winner2);
+        winnerLabels.add(Round6Winner);
+        winnerLabels.add(Round6Winner2);
     }
 
 }

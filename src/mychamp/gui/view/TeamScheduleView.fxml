@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.TeamScheduleController">
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.TeamScheduleController">
    <children>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="258.0" spacing="10.0">
          <children>
@@ -42,7 +42,7 @@
                   <Label fx:id="lblRound1Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound1Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound1Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -61,7 +61,7 @@
                   <Label fx:id="lblRound2Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound2Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound2Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -80,7 +80,7 @@
                   <Label fx:id="lblRound3Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound3Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound3Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -99,7 +99,7 @@
                   <Label fx:id="lblRound4Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound4Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound4Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -118,7 +118,7 @@
                   <Label fx:id="lblRound5Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound5Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound5Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -137,7 +137,7 @@
                   <Label fx:id="lblRound6Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound6Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound6Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                   <Label layoutX="9.0" layoutY="-2.0" text="H">
                      <font>
                         <Font name="System Bold" size="12.0" />

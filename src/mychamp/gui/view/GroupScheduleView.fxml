@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="394.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.GroupScheduleController">
+<AnchorPane id="AnchorPane" prefHeight="394.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.GroupScheduleController">
    <children>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="212.0" spacing="10.0">
          <children>
@@ -50,7 +50,7 @@
                   <Label fx:id="lblRound1Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound1Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound1Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1">
@@ -59,7 +59,7 @@
                   <Label fx:id="lblRound2Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound2Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound2Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2">
@@ -68,7 +68,7 @@
                   <Label fx:id="lblRound3Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound3Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound3Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3">
@@ -77,7 +77,7 @@
                   <Label fx:id="lblRound4Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound4Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound4Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4">
@@ -86,7 +86,7 @@
                   <Label fx:id="lblRound5Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound5Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound5Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
@@ -95,7 +95,7 @@
                   <Label fx:id="lblRound6Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound6Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound6Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="1">
@@ -104,7 +104,7 @@
                   <Label fx:id="lblRound1Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound1Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound1Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round1Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round1Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -113,7 +113,7 @@
                   <Label fx:id="lblRound2Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound2Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound2Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round2Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round2Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -122,7 +122,7 @@
                   <Label fx:id="lblRound3Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound3Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound3Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round3Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round3Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -131,7 +131,7 @@
                   <Label fx:id="lblRound4Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound4Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound4Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round4Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round4Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -140,7 +140,7 @@
                   <Label fx:id="lblRound5Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound5Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound5Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round4Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round5Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="1">
@@ -149,7 +149,7 @@
                   <Label fx:id="lblRound6Team4" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
                   <Label fx:id="lblRound6Goal3" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
                   <Label fx:id="lblRound6Goal4" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
-                  <Label fx:id="Round6Winner2" layoutX="42.0" layoutY="95.0" text="&lt;winner&gt;" />
+                  <Label fx:id="Round6Winner2" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
                </children>
             </Pane>
          </children>

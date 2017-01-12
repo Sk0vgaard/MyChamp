@@ -144,6 +144,7 @@ public class TeamScheduleController implements Initializable {
      */
     public void loadTeamInfo() {
         initializeTeamLists();
+        initializeAllMatches();
     }
 
     /**
@@ -321,10 +322,15 @@ public class TeamScheduleController implements Initializable {
         }
         //Set winner
         for (int i = 0; i < listOfMatchesForSchedule.size(); i++) {
+            //If the match has been played
             if (listOfMatchesForSchedule.get(i).getWinnerTeam() != null) {
+                //Display the winner
                 winnerLabels.get(i).setText(listOfMatchesForSchedule.get(i).getWinnerTeam().getTeamName());
             } else {
-                winnerLabels.get(i).setText("Ikke spillet");
+                //Or display draw if that is the case
+                if (listOfMatchesForSchedule.get(i).getHomeTeamScore() == listOfMatchesForSchedule.get(i).getAwayTeamScore() && listOfMatchesForSchedule.get(i).getHomeTeamScore() != 0) {
+                    winnerLabels.get(i).setText("Uafgjort");
+                }
             }
         }
         //Set points for team
