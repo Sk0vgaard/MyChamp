@@ -40,7 +40,7 @@
             <JFXTextField fx:id="txtNewTeamSchool" layoutX="81.0" layoutY="45.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <JFXTextField fx:id="txtNewTeamField" layoutX="321.0" layoutY="32.0" maxWidth="178.0" minWidth="127.0" prefHeight="37.0" prefWidth="171.0" />
             <Label layoutX="268.0" layoutY="42.0" text="H. bane:" />
-            <JFXButton defaultButton="true" layoutX="534.0" layoutY="21.0" onAction="#handleAddTeam" prefHeight="43.0" prefWidth="65.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilføj">
+            <JFXButton buttonType="RAISED" defaultButton="true" layoutX="534.0" layoutY="21.0" onAction="#handleAddTeam" prefHeight="43.0" prefWidth="65.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilføj">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></JFXButton>
@@ -54,14 +54,25 @@
       </Label>
       <Pane layoutX="423.0" layoutY="392.0" prefHeight="57.0" prefWidth="153.0" AnchorPane.bottomAnchor="166.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="392.0">
          <children>
-            <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="14.0" layoutY="13.0" onAction="#handleEditSelectedTeam" text="Rediger" />
-            <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" text="Slet" />
+            <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="14.0" layoutY="13.0" onAction="#handleEditSelectedTeam" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Rediger">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Slet">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXButton>
          </children>
       </Pane>
-      <JFXButton layoutX="319.0" layoutY="465.0" onAction="#handleStartTournament" prefHeight="117.0" prefWidth="347.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="START TURNERING" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="465.0">
+      <JFXButton buttonType="RAISED" layoutX="326.0" layoutY="449.0" onAction="#handleStartTournament" prefHeight="117.0" prefWidth="347.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="START TURNERING" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="449.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></JFXButton>
       <Separator layoutX="-3.0" layoutY="150.0" prefHeight="3.0" prefWidth="717.0" AnchorPane.topAnchor="150.0" />
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="4.0" layoutY="6.0" onAction="#handleBackToMenu" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilbage">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
