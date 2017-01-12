@@ -112,8 +112,6 @@ public class FinalsController implements Initializable {
     @FXML
     private Label lblWinner;
     @FXML
-    private Button btnBack;
-    @FXML
     private Label lblRank1;
     @FXML
     private Label lblRank2;
@@ -592,7 +590,6 @@ public class FinalsController implements Initializable {
         }
     }
 
-    @FXML
     private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
     }
@@ -708,7 +705,6 @@ public class FinalsController implements Initializable {
         }
     }
 
-    @FXML
     private void handleScreenshotBtn(ActionEvent event) throws
             AWTException, IOException {
         // capture the whole screen
