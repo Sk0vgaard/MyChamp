@@ -1659,17 +1659,17 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="84.0" layoutY="748.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" ripplerFill="WHITE" style="-fx-background-color: lightblue;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
+      <JFXButton layoutX="84.0" layoutY="748.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" ripplerFill="WHITE" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="605.0" layoutY="704.0" onAction="#handleTeamButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue;" text="Hold" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="327.0">
+      <JFXButton layoutX="605.0" layoutY="704.0" onAction="#handleTeamButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Hold" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="327.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="654.0" layoutY="704.0" onAction="#handleFinalsButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue;" text="Finale" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
+      <JFXButton layoutX="654.0" layoutY="704.0" onAction="#handleFinalsButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Finale" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

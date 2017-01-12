@@ -109,6 +109,12 @@ public class TeamScheduleController implements Initializable {
     private final TeamModel teamModel;
 
     private final PlayOffController playOffController;
+    @FXML
+    private Label lblMatchesPlayed;
+    @FXML
+    private Label lblGoalDifferences;
+    @FXML
+    private Label lblTeamID;
 
     public TeamScheduleController() {
         teamModel = TeamModel.getInstance();
@@ -260,7 +266,13 @@ public class TeamScheduleController implements Initializable {
         //Displays the matches of the selected team.
         displaySchedule(listOfMatchesForSchedule);
 
-        SetPlacementForTeam(teamToView);
+        setPlacementForTeam(teamToView);
+        
+        setMatchesPlayedForTeam();
+        
+        setGoalDiffences();
+        
+        setTeamID();
     }
 
     /**
@@ -313,7 +325,7 @@ public class TeamScheduleController implements Initializable {
     /**
      * Displays the teams placement
      */
-    private void SetPlacementForTeam(String teamToView) {
+    private void setPlacementForTeam(String teamToView) {
         int teamPlacement = 0;
         //Set placement for team
         for (ArrayList<Label> groupRanking : playOffController.getRankingLabels()) {
@@ -326,5 +338,17 @@ public class TeamScheduleController implements Initializable {
 
         lblTeamPlacement.setText("" + teamPlacement);
     }
+    
+    private void setMatchesPlayedForTeam() {
+        int totalGames = selectedTeam.getWins()+selectedTeam.getLosses();
+        lblMatchesPlayed.setText("" + totalGames);
+    }
 
+    private void setGoalDiffences() {
+        lblGoalDifferences.setText("" + selectedTeam.getGoalDifference());
+    }
+    
+    private void setTeamID() {
+        lblTeamID.setText("" + selectedTeam.getID());
+    }
 }
