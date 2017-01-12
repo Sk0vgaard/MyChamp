@@ -21,6 +21,8 @@ public class GroupModel {
 
     private final ArrayList<Group> finalGroups;
 
+    private ArrayList<ArrayList<Match>> finalMatches;
+
     private static GroupModel instance;
 
     private final GroupManager groupManager = GroupManager.getInstance();
@@ -41,7 +43,8 @@ public class GroupModel {
     }
 
     private GroupModel() {
-        randomGroups = new ArrayList<>();
+        randomGroups = getPlayOffGroupsFromFile();
+        finalMatches = getFinalMatchesFromFile();
         quarterMatches = new ArrayList<>();
         finalGroups = new ArrayList<>();
         finalGroups.add(new Group("Quarter Finals", teamModel.getQuarterFinalTeams()));
@@ -121,12 +124,37 @@ public class GroupModel {
     }
 
     /**
+     * Save the final groups
+     */
+    public void saveFinalMatches() {
+        fileManager.saveMatches(finalMatches);
+        //TODO ALH: Also save other stages
+        System.out.println("Final matches saved!");
+    }
+
+    /**
+     * Return an ArrayList with all the teams. If "teams.data" does not exits,
+     * it returns null.
+     *
+     * @return
+     */
+    public ArrayList<ArrayList<Match>> getFinalMatchesFromFile() {
+        ArrayList<ArrayList<Match>> loadedMatches = null;
+        if (fileManager.isFinalMatchesThere()) {
+            loadedMatches = fileManager.getFinalMatchesFromFile();
+        } else {
+            System.out.println("Could not find \"finalMatches.data\"...");
+        }
+        return loadedMatches;
+    }
+
+    /**
      * Returns an ArrayList with the groups in the playOff. If
      * "playOffGroups.data" does not exits, it returns null.
      *
      * @return
      */
-    public ArrayList<Group> getPlayOffGroupsFromFil() {
+    public ArrayList<Group> getPlayOffGroupsFromFile() {
         ArrayList<Group> loadedGroups = null;
         if (fileManager.isGroupsThere("playOffGroups")) {
             loadedGroups = fileManager.getGroupsFromFile("playOffGroups");
@@ -135,4 +163,40 @@ public class GroupModel {
         }
         return loadedGroups;
     }
+
+    /**
+     * Remove team from all group matches
+     *
+     * @param teamToRemove
+     */
+    public void removeTeamFromGroupMatches(Team teamToRemove) {
+        groupManager.removeTeamFromMatches(teamToRemove);
+    }
+
+    /**
+     * Check if playoffs data is available
+     */
+    public boolean isGroupsDataThere() {
+        return fileManager.isGroupsThere("playOffGroups");
+    }
+
+    /**
+     * Checks if data for finals exists
+     */
+    public boolean isFinalDataThere() {
+        return fileManager.isFinalMatchesThere();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<ArrayList<Match>> getFinalMatches() {
+        return finalMatches;
+    }
+
+    public void setFinalMatches(ArrayList<ArrayList<Match>> finalMatches) {
+        this.finalMatches = finalMatches;
+    }
+
 }

@@ -31,6 +31,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
+import mychamp.bll.TournamentManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -95,7 +96,6 @@ public class MyChampController implements Initializable {
         initializeTables();
         setListeners();
         tableTeams.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
 
     /**
@@ -232,18 +232,19 @@ public class MyChampController implements Initializable {
 
     public void deleteTeam() throws NullPointerException {
         try {
-            ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+            ObservableList<Team> selectedTeams = tableTeams.getSelectionModel().getSelectedItems();
+            ArrayList<Team> teamsToDelete = new ArrayList<>(selectedTeams);
             Alert alert;
-            if (teamsToDelete.size() > 1) {
+            if (selectedTeams.size() > 1) {
                 alert = removeManyItems();
             } else {
-                alert = teamRemoveDialog(teamsToDelete.get(0));
+                alert = teamRemoveDialog(selectedTeams.get(0));
             }
 
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                teamModel.deleteTeam(teamsToDelete);
+                TournamentManager.deleteTeamFromTournament(teamsToDelete);
                 if (!isTableSelected()) {
                     txtTeamName.clear();
                     txtTeamField.clear();
@@ -253,14 +254,15 @@ public class MyChampController implements Initializable {
                     displayTeamInfo();
                 }
             }
-            updateTeamMount();
         } catch (NullPointerException e) {
             System.out.println("Choose a team to delete.");
         }
+        updateTeamMount();
+        System.out.println("DELETING.....");
     }
 
     /**
-     * Select more than one team
+     * Select more than one team and deletes by key.
      */
     @FXML
     private void handleKeyShortCuts(KeyEvent event) {
@@ -308,7 +310,7 @@ public class MyChampController implements Initializable {
     @FXML
     private void handleAddTeam(ActionEvent event) {
         // Only adds teams when it is lower than MAX_NUMBER_OF_TEAMS (16).
-        if (tableTeams.getItems().size() < MAX_NUMBER_OF_TEAMS) {
+        if (teamModel.getTeamsAsArrayList().size() < MAX_NUMBER_OF_TEAMS) {
             //Check to see if all information is present.
             if (!txtNewTeamName.getText().equals("")
                     || !txtNewTeamField.getText().equals("")
@@ -329,6 +331,7 @@ public class MyChampController implements Initializable {
             maxTeamsDialog();
 
         }
+        teamModel.saveTeamsToFile();
 
     }
 

@@ -84,16 +84,28 @@ public class Match implements Serializable {
     public boolean isPlayed() {
         return isPlayed;
     }
-    
+
     /**
-     * Return the losing team.
-     * @return 
+     * Return the losing team. Returns null if no winning team is set.
+     *
+     * @return
      */
-    public Team getLoserTeam(){
-        if(winnerTeam == homeTeam){
-            return awayTeam;
-        }else{
-            return homeTeam;
+    public Team getLoserTeam() {
+        if (winnerTeam != null) {
+            if (winnerTeam == homeTeam) {
+                return awayTeam;
+            } else {
+                return homeTeam;
+            }
+        } else {
+            return null;
         }
+    }
+
+    /**
+     * Mark the match as benched if there is no opponent
+     */
+    public void benchMatch() {
+        isPlayed = true;
     }
 }

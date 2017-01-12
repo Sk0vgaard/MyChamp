@@ -13,9 +13,9 @@ import mychamp.dal.DAOManager;
 
 public class FileManager {
 
-    public static FileManager instance;
+    private static FileManager instance;
 
-    private DAOManager daoManager = DAOManager.getInstance();
+    private final DAOManager daoManager = DAOManager.getInstance();
 
     public static FileManager getInstance() {
         if (instance == null) {
@@ -25,12 +25,21 @@ public class FileManager {
     }
 
     /**
-     * Calls the data acces layer to save the songs.
+     * Calls the data acces layer to save the teams.
      *
      * @param teams
      */
     public void saveTeams(ArrayList<Team> teams) {
         daoManager.saveTeams(teams);
+    }
+
+    /**
+     * Calls the data acces layer to save the teams.
+     *
+     * @param teams
+     */
+    public void saveTop8Teams(ArrayList<Team> teams) {
+        daoManager.saveTop8(teams);
     }
 
     /**
@@ -44,36 +53,81 @@ public class FileManager {
 
     /**
      * Checks if the file "teams.data" is there.
+     *
      * @return
      */
     public boolean isTeamsThere() {
         return daoManager.isTeamsThere();
     }
-    
+
     /**
      * Save the parsed ArrayList to "groups.data".
-     * @param groups 
-     * @param fileName 
+     *
+     * @param groups
+     * @param fileName
      */
-    public void saveGroups(ArrayList<Group> groups, String fileName){
+    public void saveGroups(ArrayList<Group> groups, String fileName) {
         daoManager.saveGroups(groups, fileName);
     }
-    
+
+    /**
+     * Save the parsed matches to finalMatches.data
+     *
+     * @param matches
+     */
+    public void saveMatches(ArrayList<ArrayList<Match>> matches) {
+        daoManager.saveMatches(matches);
+    }
+
     /**
      * Calls the data acces layer and loads "groups.data".
+     *
      * @param fileName
-     * @return 
+     * @return
      */
-    public ArrayList<Group> getGroupsFromFile(String fileName){
+    public ArrayList<Group> getGroupsFromFile(String fileName) {
         return daoManager.getGroupsFromFile(fileName);
     }
-    
+
+    /**
+     * Calls the data acces layer and loads "finalMatches.data".
+     *
+     * @return
+     */
+    public ArrayList<ArrayList<Match>> getFinalMatchesFromFile() {
+        return daoManager.getMatchesFromFile();
+    }
+
     /**
      * Checks if "groups.data" exist. Return true if yes.
+     *
      * @param fileName
-     * @return 
+     * @return
      */
-    public boolean isGroupsThere(String fileName){
+    public boolean isGroupsThere(String fileName) {
         return daoManager.isGroupsThere(fileName);
+    }
+
+    /**
+     * Checks if finalMatches exists
+     */
+    public boolean isFinalMatchesThere() {
+        return daoManager.isFinalMatchesThere();
+    }
+
+    /**
+     * Loads the top 8 teams
+     *
+     * @return
+     */
+    public ArrayList<Team> getTop8TeamsFromFile() {
+        return daoManager.getTop8TeamsFromFile();
+    }
+
+    /**
+     * Checks if finalMatches exists
+     */
+    public boolean isTop8There() {
+        return daoManager.isTop8There();
     }
 }

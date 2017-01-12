@@ -6,7 +6,6 @@
 package mychamp.gui.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ import javafx.scene.input.KeyEvent;
 import mychamp.MyChamp;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
+import mychamp.bll.TournamentManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -104,7 +104,7 @@ public class EditTeamController implements Initializable {
      */
     private void initializeDesign() {
         lblTeamAmount.setText("0");
-        updateTeamMount();
+        updateTeamAmount();
 
         for (TextField textField : txtFieldList) {
             textField.setDisable(true);
@@ -225,7 +225,8 @@ public class EditTeamController implements Initializable {
 
     public void deleteTeam() throws NullPointerException {
         try {
-            ObservableList<Team> teamsToDelete = tableTeams.getSelectionModel().getSelectedItems();
+            ObservableList<Team> selectedTeams = tableTeams.getSelectionModel().getSelectedItems();
+            ArrayList<Team> teamsToDelete = new ArrayList<>(selectedTeams);
             Alert alert;
             if (teamsToDelete.size() > 1) {
                 alert = removeManyItems();
@@ -236,7 +237,7 @@ public class EditTeamController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                teamModel.deleteTeam(teamsToDelete);
+                TournamentManager.deleteTeamFromTournament(teamsToDelete);
                 if (!isTableSelected()) {
                     txtTeamName.clear();
                     txtTeamField.clear();
@@ -246,10 +247,11 @@ public class EditTeamController implements Initializable {
                     displayTeamInfo();
                 }
             }
-            updateTeamMount();
         } catch (NullPointerException e) {
             System.out.println("Choose a team to delete.");
         }
+        updateTeamAmount();
+        System.out.println("Deleting...");
     }
 
     /**
@@ -288,14 +290,15 @@ public class EditTeamController implements Initializable {
     /**
      * Updates the teams total
      */
-    public void updateTeamMount() {
+    public void updateTeamAmount() {
         lblTeamAmount.setText("" + teamModel.getTeams().size());
     }
 
     @FXML
-    private void handleBackToMenu(ActionEvent event) throws IOException{
+    private void handleBackToMenu(ActionEvent event) throws IOException {
         goToView("MenuView");
     }
+
     private void goToView(String view) throws IOException {
         MyChamp.switchScene(view);
     }

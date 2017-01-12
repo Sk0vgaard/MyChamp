@@ -8,7 +8,6 @@ package mychamp.gui.model;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import mychamp.be.MockData;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
 import mychamp.bll.GroupManager;
@@ -26,12 +25,12 @@ public class TeamModel {
     private static TeamModel instance;
 
     private final FileManager fileManager = FileManager.getInstance();
-    
+
     private final GroupManager groupManager = GroupManager.getInstance();
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
-        teams.addAll(MockData.getMockTeams());
+//        teams.addAll(MockData.getMockTeams());
         quarterFinalTeams = new ArrayList<>();
         semiFinalTeams = new ArrayList<>();
     }
@@ -47,6 +46,13 @@ public class TeamModel {
         }
         return instance;
 
+    }
+
+    /**
+     * Will clear all the teams.
+     */
+    public void clearTeams() {
+        teams.clear();
     }
 
     /**
@@ -66,13 +72,22 @@ public class TeamModel {
         return teams;
     }
 
+    /**
+     *
+     * @return teams as an array list
+     */
     public ArrayList<Team> getTeamsAsArrayList() {
         ArrayList<Team> teamsAsArrayList = new ArrayList<>();
         teamsAsArrayList.addAll(teams);
         return teamsAsArrayList;
     }
 
-    public void deleteTeam(ObservableList<Team> teamsToDelete) {
+    /**
+     * Removes the team from the tournament
+     *
+     * @param teamsToDelete
+     */
+    public void deleteTeam(ArrayList<Team> teamsToDelete) {
         teams.removeAll(teamsToDelete);
     }
 
@@ -159,28 +174,33 @@ public class TeamModel {
         }
         return loadedTeams;
     }
-    
+
     /**
      * Get the unqualified teams sorted after rankings.
-     * @return 
+     *
+     * @return
      */
-    public ArrayList<Team> getSortedUnqualifiedTeams(){
+    public ArrayList<Team> getSortedUnqualifiedTeams() {
         return groupManager.getSortedUnqualifiedTeams();
     }
-    
+
     /**
      * Get the teams that are done playing and ended in top 8.
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Team> getSortedTopTeams() {
         return groupManager.getSortedTopTeams();
     }
-    
+
     /**
      * Add a team to top8Teams in GroupManager.
-     * @param teamToAdd 
+     *
+     * @param teamToAdd
      */
-    public void addTeamToTop8Teams(Team teamToAdd){
-        groupManager.addATop8Team(teamToAdd);
+    public void addTeamToTop8Teams(Team teamToAdd) {
+        if (teamToAdd != null) {
+            groupManager.addATop8Team(teamToAdd);
+        }
     }
 }

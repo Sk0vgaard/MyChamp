@@ -10,6 +10,8 @@ import java.util.Collections;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.gui.controller.FinalsController;
+import mychamp.gui.model.GroupModel;
 
 public class GroupManager {
 
@@ -17,33 +19,50 @@ public class GroupManager {
 
     private ArrayList<Team> teamIDS;
 
-    private ArrayList<Group> playOffGroups;
+    private final ArrayList<Group> playOffGroups;
 
     private Group A;
     private ArrayList<Team> groupATeams;
+    private ArrayList<Team> rankedA;
 
     private Group B;
     private ArrayList<Team> groupBTeams;
+    private ArrayList<Team> rankedB;
 
     private Group C;
     private ArrayList<Team> groupCTeams;
+    private ArrayList<Team> rankedC;
 
     private Group D;
     private ArrayList<Team> groupDTeams;
+    private ArrayList<Team> rankedD;
 
     private final ArrayList<Match> quarterMatches = new ArrayList<>();
 
     private final ArrayList<Team> unqualifiedTeams = new ArrayList<>();
-    
-    private final ArrayList<Team> top8Teams = new ArrayList<>();
+
+    private ArrayList<Team> top8Teams = new ArrayList<>();
 
     /**
      * Fills an arraylist with teamIDS
      *
-     * @param teams
      */
     public GroupManager() {
         playOffGroups = new ArrayList<>();
+    }
+
+    /**
+     * Load the saved top 8 teams
+     */
+    public void loadSavedTop8() {
+        top8Teams = FileManager.getInstance().getTop8TeamsFromFile();
+    }
+
+    /**
+     * Save the top 8 teams
+     */
+    public void saveTop8Teams() {
+        FileManager.getInstance().saveTop8Teams(top8Teams);
     }
 
     /**
@@ -131,21 +150,21 @@ public class GroupManager {
     public ArrayList<Team> getTeamsOfGroup(int groupToGetFrom) {
         switch (groupToGetFrom) {
             case 0: {
-                return groupATeams;
+                return GroupModel.getInstance().getGroups().get(0).getGroupTeams();
             }
             case 1: {
-                return groupBTeams;
+                return GroupModel.getInstance().getGroups().get(1).getGroupTeams();
             }
             case 2: {
-                return groupCTeams;
+                return GroupModel.getInstance().getGroups().get(2).getGroupTeams();
             }
             case 3: {
-                return groupDTeams;
+                return GroupModel.getInstance().getGroups().get(3).getGroupTeams();
             }
             case 4: {
                 return unqualifiedTeams;
             }
-            case 5:{
+            case 5: {
                 return top8Teams;
             }
             default: {
@@ -181,16 +200,7 @@ public class GroupManager {
      * @return
      */
     public ArrayList<Match> getQuarterFinalMatches() {
-        ArrayList<Team> rankedA = RankingManager.getInstance().sortTeamRankingOrder(0);
-        ArrayList<Team> rankedB = RankingManager.getInstance().sortTeamRankingOrder(1);
-        ArrayList<Team> rankedC = RankingManager.getInstance().sortTeamRankingOrder(2);
-        ArrayList<Team> rankedD = RankingManager.getInstance().sortTeamRankingOrder(3);
-
-        //Put the unqualififed teams in an ArrayList.
-        setUnqualifiedTeams(rankedA);
-        setUnqualifiedTeams(rankedB);
-        setUnqualifiedTeams(rankedC);
-        setUnqualifiedTeams(rankedD);
+        setRankedGroups();
 
         //Team A1 vs B2
         quarterMatches.add(new Match(rankedA.get(0).getHomeField(), rankedA.get(0), rankedB.get(1)));
@@ -198,6 +208,22 @@ public class GroupManager {
         quarterMatches.add(new Match(rankedC.get(0).getHomeField(), rankedC.get(0), rankedD.get(1)));
         quarterMatches.add(new Match(rankedD.get(0).getHomeField(), rankedD.get(0), rankedC.get(1)));
         return quarterMatches;
+    }
+
+    /**
+     * Set the tankings for groups
+     */
+    public void setRankedGroups() {
+        rankedA = RankingManager.getInstance().sortTeamRankingOrder(0);
+        rankedB = RankingManager.getInstance().sortTeamRankingOrder(1);
+        rankedC = RankingManager.getInstance().sortTeamRankingOrder(2);
+        rankedD = RankingManager.getInstance().sortTeamRankingOrder(3);
+
+        //Put the unqualififed teams in an ArrayList.
+        setUnqualifiedTeams(rankedA);
+        setUnqualifiedTeams(rankedB);
+        setUnqualifiedTeams(rankedC);
+        setUnqualifiedTeams(rankedD);
     }
 
     /**
@@ -219,20 +245,52 @@ public class GroupManager {
     public ArrayList<Team> getSortedUnqualifiedTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(4);
     }
-    
+
     /**
      * Return the List containing all qualified teams that can't advance more.
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Team> getSortedTopTeams() {
         return RankingManager.getInstance().sortTeamRankingOrder(5);
     }
-    
+
     /**
      * Add a team to the top8Team array.
-     * @param teamToAdd 
+     *
+     * @param teamToAdd
      */
-    public void addATop8Team(Team teamToAdd){
+    public void addATop8Team(Team teamToAdd) {
         top8Teams.add(teamToAdd);
+        saveTop8Teams();
+    }
+
+    /**
+     * Removes the parsed team from all matches
+     *
+     * @param teamToRemove
+     */
+    public void removeTeamFromMatches(Team teamToRemove) {
+        Team emptyTeam = new Team("", "", "");
+        //Remove from playoffs
+        for (Group playOffGroup : playOffGroups) {
+            for (Match groupMatch : playOffGroup.getGroupMatches()) {
+                if (groupMatch.getHomeTeam().equals(teamToRemove)) {
+                    groupMatch.setHomeTeam(emptyTeam);
+                } else if (groupMatch.getAwayTeam().equals(teamToRemove)) {
+                    groupMatch.setAwayTeam(emptyTeam);
+                }
+            }
+        }
+        //Remove from finals
+        for (ArrayList<Match> stageMatches : FinalsController.getInstance().getAllMatches()) {
+            for (Match stageMatch : stageMatches) {
+                if (stageMatch.getHomeTeam().equals(teamToRemove)) {
+                    stageMatch.setHomeTeam(emptyTeam);
+                } else if (stageMatch.getAwayTeam().equals(teamToRemove)) {
+                    stageMatch.setAwayTeam(emptyTeam);
+                }
+            }
+        }
     }
 }
