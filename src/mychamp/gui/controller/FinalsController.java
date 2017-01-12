@@ -5,6 +5,7 @@
  */
 package mychamp.gui.controller;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -737,12 +738,14 @@ public class FinalsController implements Initializable {
     public ArrayList<ArrayList<Match>> getAllMatches() {
         return allMatches;
     }
+
     /**
      * Takes a pictue of the finals.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
-    private void handleScreenshotBtn(MouseEvent event) {
+    private void handleScreenshotBtn(MouseEvent event) throws IOException {
         WritableImage image = apFinals.snapshot(new SnapshotParameters(), null);
 
         // TODO: probably use a file chooser here
@@ -752,8 +755,31 @@ public class FinalsController implements Initializable {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
         } catch (IOException e) {
             System.out.println("Error: " + e);
+
         }
         System.out.println("Capturing screenshot...");
+        openUpFolder();
     }
-    
+
+    /**
+     * Opens up the folder where the image is saved.
+     *
+     * @throws IOException
+     */
+    private void openUpFolder() throws IOException {
+        Desktop d = null;
+        File file = new File("ScreenshotOfFinals.png");
+        if (Desktop.isDesktopSupported()) {
+            d = Desktop.getDesktop();
+        }
+        try {
+            d.open(file);
+        } catch (IOException e) {
+            System.out.println("Failed " + e);
+        }
+
+//        FileChooser chooser = new FileChooser();
+//        chooser.setTitle("Open File");
+//        chooser.showOpenDialog(apFinals.getScene().getWindow());
+    }
 }
