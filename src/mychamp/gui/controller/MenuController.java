@@ -16,6 +16,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import mychamp.MyChamp;
+import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
 /**
@@ -38,12 +39,18 @@ public class MenuController implements Initializable {
     @FXML
     private void handlePlayOffButton(ActionEvent event) throws IOException {
         goToView("PlayOffView");
-        PlayOffController.getInstance().loadSavedPlayOffs();
+        if (GroupModel.getInstance().isGroupsDataThere()) {
+            PlayOffController.getInstance().loadSavedPlayOffs();
+        }
     }
 
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         goToView("FinalsView");
+        if (GroupModel.getInstance().isFinalDataThere()) {
+            PlayOffController.getInstance().loadSavedPlayOffs();
+            FinalsController.getInstance().loadSavedFinals();
+        }
     }
 
     @FXML

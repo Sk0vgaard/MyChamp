@@ -7,6 +7,7 @@ package mychamp.bll;
 
 import java.util.ArrayList;
 import mychamp.be.Group;
+import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.dal.DAOManager;
 
@@ -24,12 +25,21 @@ public class FileManager {
     }
 
     /**
-     * Calls the data acces layer to save the songs.
+     * Calls the data acces layer to save the teams.
      *
      * @param teams
      */
     public void saveTeams(ArrayList<Team> teams) {
         daoManager.saveTeams(teams);
+    }
+
+    /**
+     * Calls the data acces layer to save the teams.
+     *
+     * @param teams
+     */
+    public void saveTop8Teams(ArrayList<Team> teams) {
+        daoManager.saveTop8(teams);
     }
 
     /**
@@ -61,6 +71,15 @@ public class FileManager {
     }
 
     /**
+     * Save the parsed matches to finalMatches.data
+     *
+     * @param matches
+     */
+    public void saveMatches(ArrayList<ArrayList<Match>> matches) {
+        daoManager.saveMatches(matches);
+    }
+
+    /**
      * Calls the data acces layer and loads "groups.data".
      *
      * @param fileName
@@ -71,6 +90,15 @@ public class FileManager {
     }
 
     /**
+     * Calls the data acces layer and loads "finalMatches.data".
+     *
+     * @return
+     */
+    public ArrayList<ArrayList<Match>> getFinalMatchesFromFile() {
+        return daoManager.getMatchesFromFile();
+    }
+
+    /**
      * Checks if "groups.data" exist. Return true if yes.
      *
      * @param fileName
@@ -78,5 +106,21 @@ public class FileManager {
      */
     public boolean isGroupsThere(String fileName) {
         return daoManager.isGroupsThere(fileName);
+    }
+
+    /**
+     * Checks if finalMatches exists
+     */
+    public boolean isFinalMatchesThere() {
+        return daoManager.isFinalMatchesThere();
+    }
+
+    /**
+     * Loads the top 8 teams
+     *
+     * @return
+     */
+    public ArrayList<Team> getTop8TeamsFromFile() {
+        return daoManager.getTop8TeamsFromFile();
     }
 }

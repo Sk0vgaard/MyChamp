@@ -26,6 +26,7 @@ import mychamp.be.Game;
 import mychamp.be.Group;
 import mychamp.be.Match;
 import mychamp.be.Team;
+import mychamp.bll.GroupManager;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
 
@@ -620,12 +621,21 @@ public class PlayOffController implements Initializable {
             goToView("FinalsView");
             fController = FinalsController.getInstance();
             fController.setQuarterFinals(groupModel.getQuarterMatches());
-            if (!unqualifiedRankingsSet) {
-                fController.setLast8RankNames();
-                unqualifiedRankingsSet = true;
-            }
+            groupModel.saveFinalMatches();
+            checkUnqualifiedRankings();
         } else {
             System.out.println("We're not done yet!");
+        }
+    }
+
+    /**
+     * Checks for last 8 placements
+     */
+    public void checkUnqualifiedRankings() {
+        if (!unqualifiedRankingsSet) {
+            fController = FinalsController.getInstance();
+            fController.setLast8RankNames();
+            unqualifiedRankingsSet = true;
         }
     }
 
@@ -739,10 +749,10 @@ public class PlayOffController implements Initializable {
             currentMatch = randomGroups.get(0).getGroupMatches().get(i);
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
-                winnerLabels.get(i).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
+                winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
             } else {
                 if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(i).setText(Game.WINNER_DRAW_TEXT);
+                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
                 }
             }
             winnerLabels.remove(0);
@@ -753,10 +763,10 @@ public class PlayOffController implements Initializable {
             currentMatch = randomGroups.get(1).getGroupMatches().get(i);
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
-                winnerLabels.get(i).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
+                winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
             } else {
                 if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(i).setText(Game.WINNER_DRAW_TEXT);
+                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
                 }
             }
             winnerLabels.remove(0);
@@ -767,10 +777,10 @@ public class PlayOffController implements Initializable {
             currentMatch = randomGroups.get(2).getGroupMatches().get(i);
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
-                winnerLabels.get(i).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
+                winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
             } else {
                 if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(i).setText(Game.WINNER_DRAW_TEXT);
+                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
                 }
             }
             winnerLabels.remove(0);
@@ -780,12 +790,15 @@ public class PlayOffController implements Initializable {
             //Set current match to this match
             currentMatch = randomGroups.get(3).getGroupMatches().get(i);
             //If the match was played update the winner label
-            if (currentMatch.getWinnerTeam() != null) {
-                winnerLabels.get(i).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
-            } else {
-                if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(i).setText(Game.WINNER_DRAW_TEXT);
+            if (winnerLabels.size() > 0) {
+                if (currentMatch.getWinnerTeam() != null) {
+                    winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
+                } else {
+                    if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
+                        winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
+                    }
                 }
+                winnerLabels.remove(0);
             }
         }
         winnerLabels.clear();
@@ -813,6 +826,7 @@ public class PlayOffController implements Initializable {
         updateGoals();
         updateWinners();
         updateAllGroupRankings();
+        GroupManager.getInstance().setRankedGroups();
     }
 
     /**

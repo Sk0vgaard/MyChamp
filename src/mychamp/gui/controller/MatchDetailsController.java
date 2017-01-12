@@ -135,7 +135,11 @@ public class MatchDetailsController implements Initializable {
             stage = (Stage) lblOneName.getScene().getWindow();
             stage.close();
             match.setIsPlayed();
-            poController.updateGoals();
+            if (!inFinals) {
+                poController.updateGoals();
+            } else {
+                finalsController.updateGoals();
+            }
             //If there is no text display input validation warning
         } else {
             displayInvalidInputWarning();
@@ -209,6 +213,7 @@ public class MatchDetailsController implements Initializable {
             } else {
                 //Else we'll update the winner label in the finals
                 finalsController.setWinnerLabel(Game.WINNER_TEAM_TEXT + match.getWinnerTeam().getTeamName());
+
             }
         } else if (homeScore < awayScore) {
             awayTeam.addPoints(Game.WINNER_POINTS);

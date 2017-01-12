@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import mychamp.be.Group;
+import mychamp.be.Match;
 import mychamp.be.Team;
 
 /**
@@ -24,7 +25,9 @@ public class DAOManager {
     private static DAOManager instance;
 
     private ArrayList<Team> savedTeams;
+    private ArrayList<Team> savedTop8;
     private ArrayList<Group> savedGroups;
+    private ArrayList<ArrayList<Match>> savedMatches;
 
     public static DAOManager getInstance() {
         if (instance == null) {
@@ -42,6 +45,20 @@ public class DAOManager {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("teams.data"))) {
             oos.writeObject(teams);
             System.out.println("Teams saved");
+        } catch (IOException ex) {
+            System.out.println("Teams save Error " + ex);
+        }
+    }
+
+    /**
+     * Save the ArrayLists that is parsed.
+     *
+     * @param teams
+     */
+    public void saveTop8(ArrayList<Team> teams) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("top8Teams.data"))) {
+            oos.writeObject(teams);
+            System.out.println("Top 8 saved");
         } catch (IOException ex) {
             System.out.println("Teams save Error " + ex);
         }
@@ -68,14 +85,6 @@ public class DAOManager {
      * @return
      */
     public boolean isTeamsThere() {
-        File teams = new File("teams.data");
-        File groups = new File("playOffGroups.data");
-        //TODO ALH: Remove this again!
-//        if (teams.exists()) {
-//            teams.delete();
-//            groups.delete();
-//            System.out.println("Deleted files for testing purposes, remember to remove this!!!");
-//        }
         return new File("teams.data").exists();
     }
 
@@ -92,6 +101,34 @@ public class DAOManager {
         } catch (IOException ex) {
             System.out.println("Group save Error : " + ex);
         }
+    }
+
+    /**
+     * Save Matches
+     *
+     * @param matches
+     */
+    public void saveMatches(ArrayList<ArrayList<Match>> matches) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("finalMatches.data"))) {
+            oos.writeObject(matches);
+            System.out.println("Groups saved");
+        } catch (IOException ex) {
+            System.out.println("Group save Error : " + ex);
+        }
+    }
+
+    /**
+     * Load and returns matches from the specified file.
+     *
+     * @return
+     */
+    public ArrayList<ArrayList<Match>> getMatchesFromFile() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("finalMatches.data"))) {
+            savedMatches = (ArrayList<ArrayList<Match>>) ois.readObject();
+        } catch (ClassNotFoundException | IOException ex) {
+            System.out.println("Groups read Error: " + ex);
+        }
+        return savedMatches;
     }
 
     /**
@@ -117,5 +154,26 @@ public class DAOManager {
      */
     public boolean isGroupsThere(String fileName) {
         return new File(fileName + ".data").exists();
+    }
+
+    /**
+     * Check if finalMatches exists
+     */
+    public boolean isFinalMatchesThere() {
+        return new File("finalMatches.data").exists();
+    }
+
+    /**
+     * Loads the top8Teams.data
+     *
+     * @return
+     */
+    public ArrayList<Team> getTop8TeamsFromFile() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("top8Teams.data"))) {
+            savedTop8 = (ArrayList<Team>) ois.readObject();
+        } catch (ClassNotFoundException | IOException ex) {
+            System.out.println("Groups read Error: " + ex);
+        }
+        return savedTop8;
     }
 }
