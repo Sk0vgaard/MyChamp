@@ -558,31 +558,31 @@ public class PlayOffController implements Initializable {
     private Label winnerLabel;
 
     //Create arrays of team name labels
-    private final ArrayList<Label> round1teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round2teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round3teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round4teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round5teamNameLabels = new ArrayList();
-    private final ArrayList<Label> round6teamNameLabels = new ArrayList();
+    private final ArrayList<Label> round1teamNameLabels;
+    private final ArrayList<Label> round2teamNameLabels;
+    private final ArrayList<Label> round3teamNameLabels;
+    private final ArrayList<Label> round4teamNameLabels;
+    private final ArrayList<Label> round5teamNameLabels;
+    private final ArrayList<Label> round6teamNameLabels;
 
     //Create arrays of team goal labels
-    private final ArrayList<Label> round1teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round2teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round3teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round4teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round5teamGoalLabels = new ArrayList();
-    private final ArrayList<Label> round6teamGoalLabels = new ArrayList();
+    private final ArrayList<Label> round1teamGoalLabels;
+    private final ArrayList<Label> round2teamGoalLabels;
+    private final ArrayList<Label> round3teamGoalLabels;
+    private final ArrayList<Label> round4teamGoalLabels;
+    private final ArrayList<Label> round5teamGoalLabels;
+    private final ArrayList<Label> round6teamGoalLabels;
 
     //Add winner labels to an array
-    private final ArrayList<Label> winnerLabels = new ArrayList();
+    private final ArrayList<Label> winnerLabels;
 
     //Create arrays for group ranking
-    private final ArrayList<Label> rankingsGroupA = new ArrayList();
-    private final ArrayList<Label> rankingsGroupB = new ArrayList();
-    private final ArrayList<Label> rankingsGroupC = new ArrayList();
-    private final ArrayList<Label> rankingsGroupD = new ArrayList();
+    private final ArrayList<Label> rankingsGroupA;
+    private final ArrayList<Label> rankingsGroupB;
+    private final ArrayList<Label> rankingsGroupC;
+    private final ArrayList<Label> rankingsGroupD;
 
-    private final ArrayList<ArrayList<Label>> rankingLabels = new ArrayList();
+    private final ArrayList<ArrayList<Label>> rankingLabels;
 
     private Team teamOne = null;
     private Team teamTwo = null;
@@ -595,6 +595,33 @@ public class PlayOffController implements Initializable {
 
     public static PlayOffController getInstance() {
         return instance;
+    }
+
+    public PlayOffController() {
+        //Team names
+        round1teamNameLabels = new ArrayList();
+        round2teamNameLabels = new ArrayList();
+        round3teamNameLabels = new ArrayList();
+        round4teamNameLabels = new ArrayList();
+        round5teamNameLabels = new ArrayList();
+        round6teamNameLabels = new ArrayList();
+        //Goals
+        round1teamGoalLabels = new ArrayList();
+        round2teamGoalLabels = new ArrayList();
+        round3teamGoalLabels = new ArrayList();
+        round4teamGoalLabels = new ArrayList();
+        round5teamGoalLabels = new ArrayList();
+        round6teamGoalLabels = new ArrayList();
+
+        winnerLabels = new ArrayList();
+
+        //Rankings
+        rankingsGroupA = new ArrayList();
+        rankingsGroupB = new ArrayList();
+        rankingsGroupC = new ArrayList();
+        rankingsGroupD = new ArrayList();
+
+        rankingLabels = new ArrayList();
     }
 
     /**
@@ -647,6 +674,7 @@ public class PlayOffController implements Initializable {
     @FXML
     private void handleTeamButton(ActionEvent event) throws IOException {
         goToView("TeamScheduleView");
+        TeamScheduleController.getInstance().loadTeamInfo();
     }
 
     /**
@@ -1020,8 +1048,6 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundThree() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        Team teamOne = null;
-        Team teamTwo = null;
         for (int i = 0; i < 4; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(1);
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);

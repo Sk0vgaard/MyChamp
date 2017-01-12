@@ -106,8 +106,6 @@ public class TeamScheduleController implements Initializable {
 
     private Team selectedTeam;
 
-    private final TeamModel teamModel;
-
     private final PlayOffController playOffController;
     @FXML
     private Label lblMatchesPlayed;
@@ -116,11 +114,16 @@ public class TeamScheduleController implements Initializable {
     @FXML
     private Label lblTeamID;
 
+    private static TeamScheduleController instance;
+
+    public static TeamScheduleController getInstance() {
+        return instance;
+    }
+
     public TeamScheduleController() {
-        teamModel = TeamModel.getInstance();
         playOffController = PlayOffController.getInstance();
-        //Initializes all lists.
-        listOfAllTeams = teamModel.getTeamsAsArrayList();
+
+        listOfAllTeams = new ArrayList<>();
 
         listOfAllMatches = new ArrayList();
         listOfMatchesForSchedule = new ArrayList();
@@ -137,11 +140,18 @@ public class TeamScheduleController implements Initializable {
     }
 
     /**
+     * Load team info
+     */
+    public void loadTeamInfo() {
+        initializeTeamLists();
+    }
+
+    /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        initializeTeamLists();
+        instance = this;
         fillLabelArray();
     }
 
@@ -151,7 +161,7 @@ public class TeamScheduleController implements Initializable {
      */
     private void initializeTeamLists() {
         //Configures the the names for the ComboBox
-        listOfAllTeams.addAll(teamModel.getTeams());
+        listOfAllTeams.addAll(TeamModel.getInstance().getTeams());
         initializeTeamNames();
     }
 
@@ -267,11 +277,11 @@ public class TeamScheduleController implements Initializable {
         displaySchedule(listOfMatchesForSchedule);
 
         setPlacementForTeam(teamToView);
-        
+
         setMatchesPlayedForTeam();
-        
+
         setGoalDiffences();
-        
+
         setTeamID();
     }
 
@@ -338,16 +348,16 @@ public class TeamScheduleController implements Initializable {
 
         lblTeamPlacement.setText("" + teamPlacement);
     }
-    
+
     private void setMatchesPlayedForTeam() {
-        int totalGames = selectedTeam.getWins()+selectedTeam.getLosses();
+        int totalGames = selectedTeam.getWins() + selectedTeam.getLosses();
         lblMatchesPlayed.setText("" + totalGames);
     }
 
     private void setGoalDiffences() {
         lblGoalDifferences.setText("" + selectedTeam.getGoalDifference());
     }
-    
+
     private void setTeamID() {
         lblTeamID.setText("" + selectedTeam.getID());
     }

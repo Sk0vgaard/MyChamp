@@ -25,13 +25,13 @@ public class GroupModel {
 
     private static GroupModel instance;
 
-    private final GroupManager groupManager = GroupManager.getInstance();
+    private final GroupManager groupManager;
 
-    private final TeamModel teamModel = TeamModel.getInstance();
+    private final TeamModel teamModel;
 
-    private final RankingManager rankingManager = RankingManager.getInstance();
+    private final RankingManager rankingManager;
 
-    private final FileManager fileManager = FileManager.getInstance();
+    private final FileManager fileManager;
 
     private boolean groupPlayOver;
 
@@ -43,6 +43,10 @@ public class GroupModel {
     }
 
     private GroupModel() {
+        teamModel = TeamModel.getInstance();
+        groupManager = GroupManager.getInstance();
+        rankingManager = RankingManager.getInstance();
+        fileManager = FileManager.getInstance();
         randomGroups = getPlayOffGroupsFromFile();
         finalMatches = getFinalMatchesFromFile();
         quarterMatches = new ArrayList<>();
@@ -195,6 +199,10 @@ public class GroupModel {
         return finalMatches;
     }
 
+    /**
+     *
+     * @param finalMatches
+     */
     public void setFinalMatches(ArrayList<ArrayList<Match>> finalMatches) {
         this.finalMatches = finalMatches;
     }

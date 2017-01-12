@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
       <GridPane fx:id="PlayOffGridPane" layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
@@ -1607,6 +1607,90 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <VBox layoutX="1075.0" layoutY="50.0" prefHeight="626.0" prefWidth="30.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="30.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
       <VBox layoutX="35.0" layoutY="65.0" prefHeight="574.0" prefWidth="28.0" spacing="105.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label minHeight="50.0" onMouseClicked="#handleGroupClick" prefWidth="25.0" text="A">
@@ -1634,7 +1718,7 @@
             <Insets top="55.0" />
          </padding>
       </VBox>
-      <VBox layoutX="1070.0" layoutY="65.0" prefHeight="656.0" prefWidth="223.0" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="50.0">
+      <VBox layoutX="1105.0" layoutY="50.0" prefHeight="626.0" prefWidth="183.0" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label fx:id="lblGroupATeam1" alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
             <Label fx:id="lblGroupATeam2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />

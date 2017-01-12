@@ -24,15 +24,17 @@ public class TeamModel {
 
     private static TeamModel instance;
 
-    private final FileManager fileManager = FileManager.getInstance();
+    private final FileManager fileManager;
 
-    private final GroupManager groupManager = GroupManager.getInstance();
+    private final GroupManager groupManager;
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
 //        teams.addAll(MockData.getMockTeams());
         quarterFinalTeams = new ArrayList<>();
         semiFinalTeams = new ArrayList<>();
+        fileManager = FileManager.getInstance();
+        groupManager = GroupManager.getInstance();
     }
 
     /**
