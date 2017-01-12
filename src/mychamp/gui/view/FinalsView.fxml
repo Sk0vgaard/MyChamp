@@ -266,12 +266,12 @@
             </Label>
          </children>
       </VBox>
-      <JFXButton layoutX="406.0" layoutY="736.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="406.0" layoutY="736.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="973.0" layoutY="751.0" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gruppespil" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
+      <JFXButton buttonType="RAISED" layoutX="973.0" layoutY="751.0" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gruppespil" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
