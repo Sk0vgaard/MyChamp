@@ -81,12 +81,12 @@
             <JFXTextField fx:id="txtTwoScore" layoutX="7.0" layoutY="25.0" maxWidth="185.0" minWidth="185.0" prefHeight="31.0" prefWidth="185.0" />
          </children>
       </Pane>
-      <JFXButton layoutY="214.0" onAction="#handleSaveButton" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gem" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="56.0">
+      <JFXButton defaultButton="true" layoutY="214.0" onAction="#handleSaveButton" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gem" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="56.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="274.0" layoutY="211.0" onAction="#handleBackButton" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilbage" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="57.0">
+      <JFXButton cancelButton="true" layoutX="274.0" layoutY="211.0" onAction="#handleBackButton" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilbage" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="57.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
    <children>
       <GridPane fx:id="PlayOffGridPane" layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
@@ -1659,7 +1659,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="84.0" layoutY="748.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" ripplerFill="WHITE" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
+      <JFXButton cancelButton="true" layoutX="84.0" layoutY="748.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" ripplerFill="WHITE" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

@@ -58,10 +58,15 @@
             <JFXButton buttonType="RAISED" layoutX="93.0" layoutY="13.0" onAction="#handleDeleteSelectedTeam" text="Slet" />
          </children>
       </Pane>
-      <JFXButton layoutX="319.0" layoutY="465.0" onAction="#handleStartTournament" prefHeight="117.0" prefWidth="347.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="START TURNERING" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="465.0">
+      <JFXButton layoutX="326.0" layoutY="449.0" onAction="#handleStartTournament" prefHeight="117.0" prefWidth="347.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="START TURNERING" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="449.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></JFXButton>
       <Separator layoutX="-3.0" layoutY="150.0" prefHeight="3.0" prefWidth="717.0" AnchorPane.topAnchor="150.0" />
+      <JFXButton cancelButton="true" layoutX="4.0" layoutY="6.0" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilbage">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
