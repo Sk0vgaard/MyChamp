@@ -9,4 +9,4 @@ http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.h
 
 To use our program, simply download "MyChamp.jar" from dist/ and run it from your machine.
 
-#May the odds, be ever in your favor!
+#May the odds be ever in your favor!
