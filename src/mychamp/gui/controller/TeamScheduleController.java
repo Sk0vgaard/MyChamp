@@ -241,7 +241,7 @@ public class TeamScheduleController implements Initializable {
      */
     @FXML
     private void handleBackButton(ActionEvent event) throws IOException {
-        goToView("PlayOffView");
+        goToView(MyChamp.PLAYOFF_VIEW);
     }
 
     /**
@@ -355,15 +355,24 @@ public class TeamScheduleController implements Initializable {
         lblTeamPlacement.setText("" + teamPlacement);
     }
 
+    /**
+     * Updates the matches played for this team
+     */
     private void setMatchesPlayedForTeam() {
         int totalGames = selectedTeam.getWins() + selectedTeam.getLosses();
         lblMatchesPlayed.setText("" + totalGames);
     }
 
+    /**
+     * Sets the goal difference for the team (Goals scored - Goals taken)
+     */
     private void setGoalDiffences() {
         lblGoalDifferences.setText("" + selectedTeam.getGoalDifference());
     }
 
+    /**
+     * Sets the ID for the team
+     */
     private void setTeamID() {
         lblTeamID.setText("" + selectedTeam.getID());
     }

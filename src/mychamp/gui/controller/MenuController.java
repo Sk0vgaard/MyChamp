@@ -38,7 +38,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handlePlayOffButton(ActionEvent event) throws IOException {
-        goToView("PlayOffView");
+        goToView(MyChamp.PLAYOFF_VIEW);
         if (GroupModel.getInstance().isGroupsDataThere()) {
             PlayOffController.getInstance().loadSavedPlayOffs();
         }
@@ -46,7 +46,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
-        goToView("FinalsView");
+        goToView(MyChamp.FINALS_VIEW);
         if (GroupModel.getInstance().isFinalDataThere()) {
             PlayOffController.getInstance().loadSavedPlayOffs();
             FinalsController.getInstance().loadSavedFinals();
@@ -57,7 +57,7 @@ public class MenuController implements Initializable {
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
         if (TeamModel.getInstance().getTeamsAsArrayList().isEmpty()) {
             try {
-                goToView("MyChamp");
+                goToView(MyChamp.MY_CHAMP_VIEW);
             } catch (IOException ex) {
                 System.out.println(ex);
             }
@@ -76,7 +76,7 @@ public class MenuController implements Initializable {
                     if (TeamModel.getInstance().getTeamsAsArrayList().size() > 0) {
                         TeamModel.getInstance().clearTeams();
                         try {
-                            goToView("MyChamp");
+                            goToView(MyChamp.MY_CHAMP_VIEW);
                         } catch (IOException ex) {
                             System.out.println(ex);
                         }
@@ -84,7 +84,7 @@ public class MenuController implements Initializable {
 
                 } else if (type == noButton) {
                     try {
-                        goToView("MyChamp");
+                        goToView(MyChamp.MY_CHAMP_VIEW);
                     } catch (IOException ex) {
                         System.out.println("Fejl: " + ex);
                     }
@@ -96,7 +96,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void handleTeamEditButton(ActionEvent event) throws IOException {
-        goToView("EditTeamView");
+        goToView(MyChamp.EDIT_TEAM_VIEW);
         EditTeamController.getIntance().updateTeamAmount();
     }
 

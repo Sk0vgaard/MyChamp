@@ -23,13 +23,21 @@ import mychamp.gui.model.TeamModel;
  */
 public class MyChamp extends Application {
 
-    public static Scene playOffView;
-    public static Scene finalsView;
-    public static Scene menuView;
-    public static Scene myChampView;
-    public static Scene teamScheduleView;
-    public static Scene groupScheduleView;
-    public static Scene editTeamView;
+    public static final String PLAYOFF_VIEW = "playOffView";
+    public static final String FINALS_VIEW = "finalsView";
+    public static final String MENU_VIEW = "menuView";
+    public static final String MY_CHAMP_VIEW = "myChampView";
+    public static final String TEAM_SCHEDULE_VIEW = "teamScheduleView";
+    public static final String GROUP_SCHEDULE_VIEW = "groupScheduleView";
+    public static final String EDIT_TEAM_VIEW = "editTeamView";
+
+    private static Scene playOffView;
+    private static Scene finalsView;
+    private static Scene menuView;
+    private static Scene myChampView;
+    private static Scene teamScheduleView;
+    private static Scene groupScheduleView;
+    private static Scene editTeamView;
 
     public static Stage primStage;
 
@@ -77,27 +85,27 @@ public class MyChamp extends Application {
      */
     public static void switchScene(String view) {
         switch (view) {
-            case "PlayOffView": {
+            case PLAYOFF_VIEW: {
                 primStage.setScene(playOffView);
                 break;
             }
-            case "FinalsView": {
+            case FINALS_VIEW: {
                 primStage.setScene(finalsView);
                 break;
             }
-            case "MyChamp": {
+            case MY_CHAMP_VIEW: {
                 primStage.setScene(myChampView);
                 break;
             }
-            case "TeamScheduleView": {
+            case TEAM_SCHEDULE_VIEW: {
                 primStage.setScene(teamScheduleView);
                 break;
             }
-            case "GroupScheduleView": {
+            case GROUP_SCHEDULE_VIEW: {
                 primStage.setScene(groupScheduleView);
                 break;
             }
-            case "EditTeamView": {
+            case EDIT_TEAM_VIEW: {
                 primStage.setScene(editTeamView);
                 break;
             }

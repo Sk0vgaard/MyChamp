@@ -287,7 +287,7 @@ public class MyChampController implements Initializable {
         if (teamModel.getTeamsAsArrayList().size() >= MINIMUM_NUMBER_OF_TEAMS) {
             groupModel.createRandomGroups();
 
-            MyChamp.switchScene("PlayOffView");
+            MyChamp.switchScene(MyChamp.PLAYOFF_VIEW);
             playOffController = PlayOffController.getInstance();
             playOffController.setRandomGroups(groupModel.getGroups());
             playOffController.setPlayOffInformation();
@@ -373,7 +373,7 @@ public class MyChampController implements Initializable {
 
     @FXML
     private void handleBackToMenu(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
     private void goToView(String view) throws IOException {

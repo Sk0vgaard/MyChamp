@@ -645,7 +645,7 @@ public class PlayOffController implements Initializable {
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         if (groupModel.isGroupPlayOver()) {
-            goToView("FinalsView");
+            goToView(MyChamp.FINALS_VIEW);
             fController = FinalsController.getInstance();
             fController.setQuarterFinals(groupModel.getQuarterMatches());
             fController.saveFinals();
@@ -666,14 +666,26 @@ public class PlayOffController implements Initializable {
         }
     }
 
+    /**
+     * Goes back to the launcher menu
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleMenuButton(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
+    /**
+     * Goes to the TeamSchedule view
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleTeamButton(ActionEvent event) throws IOException {
-        goToView("TeamScheduleView");
+        goToView(MyChamp.TEAM_SCHEDULE_VIEW);
         TeamScheduleController.getInstance().loadTeamInfo();
     }
 
@@ -1568,7 +1580,7 @@ public class PlayOffController implements Initializable {
      */
     private void groupClick(int group) throws IOException {
         //Grab hold of the curret stage.
-        goToView("GroupScheduleView");
+        goToView(MyChamp.GROUP_SCHEDULE_VIEW);
 
         //Finds the match that has been clicked on
         GroupModel gModel = GroupModel.getInstance();
@@ -1579,7 +1591,7 @@ public class PlayOffController implements Initializable {
     }
 
     private void handleBackToMenu(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
     /**

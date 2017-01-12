@@ -296,7 +296,7 @@ public class EditTeamController implements Initializable {
 
     @FXML
     private void handleBackToMenu(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
     private void goToView(String view) throws IOException {

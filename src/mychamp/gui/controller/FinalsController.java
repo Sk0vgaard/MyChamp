@@ -387,12 +387,12 @@ public class FinalsController implements Initializable {
      */
     @FXML
     private void handlePlayoffButton(ActionEvent event) throws IOException {
-        goToView("PlayOffView");
+        goToView(MyChamp.PLAYOFF_VIEW);
     }
 
     @FXML
     private void handleMenuButton(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
     /**
@@ -601,7 +601,7 @@ public class FinalsController implements Initializable {
     }
 
     private void handleBackToMenu(ActionEvent event) throws IOException {
-        goToView("MenuView");
+        goToView(MyChamp.MENU_VIEW);
     }
 
     /**

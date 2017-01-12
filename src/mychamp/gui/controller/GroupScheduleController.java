@@ -186,7 +186,7 @@ public class GroupScheduleController implements Initializable {
 
     @FXML
     private void handleBackButton(ActionEvent event) throws IOException {
-        goToView("PlayOffView");
+        goToView(MyChamp.PLAYOFF_VIEW);
     }
 
     /**
