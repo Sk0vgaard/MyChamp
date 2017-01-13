@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import mychamp.MyChamp;
+import mychamp.be.Game;
 import mychamp.be.Match;
 import mychamp.be.Team;
 import mychamp.gui.model.TeamModel;
@@ -182,7 +183,7 @@ public class TeamScheduleController implements Initializable {
      * Gets all matches and adds them to an ArrayList.
      */
     private void initializeAllMatches() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             listOfAllMatches.addAll(playOffController.getRandomGroups().get(i).getGroupMatches());
         }
     }

@@ -31,11 +31,12 @@ public class TeamModel {
 
     public TeamModel() {
         teams = FXCollections.observableArrayList();
-        teams.addAll(MockData.getMockTeams());
         quarterFinalTeams = new ArrayList<>();
         semiFinalTeams = new ArrayList<>();
         fileManager = FileManager.getInstance();
         groupManager = GroupManager.getInstance();
+        //Comment this in for mock data
+//        teams.addAll(MockData.getMockTeams());
     }
 
     /**

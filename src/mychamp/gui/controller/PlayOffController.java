@@ -724,7 +724,7 @@ public class PlayOffController implements Initializable {
      * This is to be updated and redesigned!
      */
     public void updateGoals() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             round1teamGoalLabels.get(0).setText("" + randomGroups.get(i).getGroupMatches().get(0).getHomeTeamScore());
             round1teamGoalLabels.get(1).setText("" + randomGroups.get(i).getGroupMatches().get(0).getAwayTeamScore());
             round1teamGoalLabels.get(2).setText("" + randomGroups.get(i).getGroupMatches().get(1).getHomeTeamScore());
@@ -914,7 +914,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 1
      */
     public void setTeamNamesRoundOne() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             //Go through each group
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = randomGroups.get(i).getGroupTeams().get(1);
@@ -947,7 +947,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundOne() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = randomGroups.get(i).getGroupTeams().get(1);
             //Create the first match of the group
@@ -973,7 +973,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 2
      */
     public void setTeamNamesRoundTwo() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = randomGroups.get(i).getGroupTeams().get(2);
             //Set label for first team in current group
@@ -1003,7 +1003,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundTwo() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = randomGroups.get(i).getGroupTeams().get(2);
             //Create the first match of the group
@@ -1030,7 +1030,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 3
      */
     public void setTeamNamesRoundThree() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(1);
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);
             //Set label for first team in current group
@@ -1060,7 +1060,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundThree() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(1);
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);
             //Create the first match of the group
@@ -1086,7 +1086,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 4
      */
     public void setTeamNamesRoundFour() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = new Team("", "", "");
             if (randomGroups.get(i).getGroupTeams().size() > 3) {
@@ -1116,7 +1116,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundFour() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(0);
             teamTwo = new Team("", "", "");
             if (randomGroups.get(i).getGroupTeams().size() > 3) {
@@ -1142,7 +1142,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 5
      */
     public void setTeamNamesRoundFive() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(2);
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);
             //Set label for first team in current group
@@ -1172,7 +1172,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundFive() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = randomGroups.get(i).getGroupTeams().get(2);
             teamTwo = randomGroups.get(i).getGroupTeams().get(0);
             //Create the first match of the group
@@ -1198,7 +1198,7 @@ public class PlayOffController implements Initializable {
      * Set team names for round 6
      */
     public void setTeamNamesRoundSix() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = new Team("", "", "");
             if (randomGroups.get(i).getGroupTeams().size() > 3) {
                 teamOne = randomGroups.get(i).getGroupTeams().get(3);
@@ -1228,7 +1228,7 @@ public class PlayOffController implements Initializable {
      */
     private void setMatchesRoundSix() {
         ArrayList<Match> groupMatches = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Game.AMOUNT_OF_GROUPS; i++) {
             teamOne = new Team("", "", "");
             if (randomGroups.get(i).getGroupTeams().size() > 3) {
                 teamOne = randomGroups.get(i).getGroupTeams().get(3);
@@ -1635,8 +1635,8 @@ public class PlayOffController implements Initializable {
         rankingsGroupD.clear();
 
         //Reset winners
-        for (Label winnerLabel : winnerLabels) {
-            winnerLabel.setText("Ikke spillet");
+        for (Label currentWinnerLabel : winnerLabels) {
+            currentWinnerLabel.setText("Ikke spillet");
         }
     }
 

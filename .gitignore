@@ -5,6 +5,16 @@
 !jfoenix*.jar
 *.data
 
+### NetBeans ###
+nbproject/private/
+build.xml
+manifest.mf
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
 ### Eclipse ###
 
 .metadata
@@ -87,17 +97,6 @@ bh_unicode_properties.cache
 # Sublime-github package stores a github token in this file
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
-
-
-### NetBeans ###
-nbproject/private/
-build.xml
-manifest.mf
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
 
 
 ### Intellij ###
