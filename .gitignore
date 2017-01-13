@@ -14,7 +14,7 @@ build.xml
 manifest.mf
 build/
 nbbuild/
-dist/
+#dist/
 nbdist/
 .nb-gradle/
 
