@@ -8,7 +8,6 @@ package mychamp.gui.model;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import mychamp.be.MockData;
 import mychamp.be.Team;
 import mychamp.bll.FileManager;
 import mychamp.bll.GroupManager;
