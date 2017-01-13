@@ -467,8 +467,6 @@ public class FinalsController implements Initializable {
                         lblSemiTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 1:
                     if (matchToSend.getWinnerTeam() != null) {
@@ -484,8 +482,6 @@ public class FinalsController implements Initializable {
                         semiFinalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
 
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 2:
                     if (matchToSend.getWinnerTeam() != null) {
@@ -499,8 +495,6 @@ public class FinalsController implements Initializable {
                         lblSemiTeam3.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(1).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 3:
                     if (matchToSend.getWinnerTeam() != null) {
@@ -514,8 +508,6 @@ public class FinalsController implements Initializable {
                         lblSemiTeam4.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         semiFinalMatches.get(1).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 4:
                     if (matchToSend.getWinnerTeam() != null) {
@@ -529,8 +521,6 @@ public class FinalsController implements Initializable {
                         lblFinalTeam1.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         finalMatches.get(0).setHomeTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 case 5:
                     if (matchToSend.getWinnerTeam() != null) {
@@ -544,17 +534,12 @@ public class FinalsController implements Initializable {
                         lblFinalTeam2.setText(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()).getTeamName());
                         finalMatches.get(0).setAwayTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
                     break;
                 default:
                     if (matchToSend.getWinnerTeam() == null) {
                         matchToSend.setWinnerTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
                     showWinnerModal();
-                    //Updates the rankings
-                    teamModel.addTeamToTop8Teams(matchToSend.getWinnerTeam());
-                    teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
             }
             advanceWinner(matchNumber, matchToSend);
         } catch (IOException ioe) {
@@ -911,7 +896,7 @@ public class FinalsController implements Initializable {
     public ArrayList<ArrayList<Match>> getAllMatches() {
         return allMatches;
     }
-    
+
     private void showWinnerModal() throws IOException {
         //Grab hold of the finals stage.
         primStage = (Stage) lblFinalGoal1.getScene().getWindow();
@@ -926,12 +911,12 @@ public class FinalsController implements Initializable {
 
         //Loads the modals controller to send match.
         WinnerViewController wvController = loader.getController();
-        
+
         //
         editStage.show();
-        
+
         wvController.setlblWinner(finalMatch.getWinnerTeam());
-        
+
     }
 
     /**
