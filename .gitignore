@@ -3,6 +3,20 @@
 
 # MyChamp
 !jfoenix*.jar
+*.data
+screenshotOfFinals.png
+screenshotOfPlayOffs.png
+
+
+### NetBeans ###
+nbproject/private/
+build.xml
+manifest.mf
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 ### Eclipse ###
 
@@ -86,17 +100,6 @@ bh_unicode_properties.cache
 # Sublime-github package stores a github token in this file
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
-
-
-### NetBeans ###
-nbproject/private/
-build.xml
-manifest.mf
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
 
 
 ### Intellij ###
@@ -2013,3 +2016,4 @@ hs_err_pid*
 
 # ImageProcessor DiskCache
 **/App_Data/cache/
+*.data

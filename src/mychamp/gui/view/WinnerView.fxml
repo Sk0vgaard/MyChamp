@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.WinnerViewController">
+   <children>
+      <Label layoutX="59.0" layoutY="22.0" text="Vinderen af skolefodbold turneringen er:">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="366.0" fitWidth="600.0" layoutY="60.0">
+         <image>
+            <Image url="@../../assets/icons/source.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblWinner" layoutX="245.0" layoutY="58.0" text="&lt;vinder&gt;">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

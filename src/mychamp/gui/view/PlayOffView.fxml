@@ -1,0 +1,1769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apPlayOffs" prefHeight="751.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.PlayOffController">
+   <children>
+      <GridPane fx:id="PlayOffGridPane" layoutX="84.0" layoutY="65.0" prefHeight="656.0" prefWidth="941.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="00" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound1GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound1GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="01" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="02" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="03" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="04" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="05" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="06" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound1GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound1GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound1GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound1GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="07" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="10" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound2GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound2GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="11" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="12" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="13" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="14" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="15" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="16" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound2GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound2GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound2GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound2GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="17" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="20" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound3GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="21" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="22" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="23" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="24" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="25" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="26" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound3GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound3GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound3GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="27" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="30" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound4GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound4GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="31" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="32" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="33" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="34" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="35" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="36" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound4GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound4GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound4GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound4GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="37" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="40" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound5GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound5GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="41" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="42" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="43" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="44" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="45" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="46" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound5GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound5GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound5GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound5GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="47" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupATeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupAGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupAWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupATeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupAGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="50" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupATeam3" layoutX="9.0" layoutY="21.0" text="&lt;name3&gt;" />
+                        <Label fx:id="lblRound6GroupAGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals3&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupAWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupATeam4" layoutX="9.0" layoutY="21.0" text="&lt;name4&gt;" />
+                        <Label fx:id="lblRound6GroupAGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals4&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="51" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupBTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupBGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupBWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupBTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupBGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="52" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupBTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupBGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupBWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupBTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupBGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="53" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupCTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupCGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupCWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupCTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupCGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="54" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: lightblue;" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupCTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupCGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupCWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupCTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupCGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="55" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="6">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupDTeam1" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupDGoals1" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupDWinner1" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupDTeam2" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupDGoals2" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="56" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7">
+               <children>
+                  <Pane prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="6.0" text="H">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupDTeam3" layoutX="9.0" layoutY="21.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblRound6GroupDGoals3" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals1&gt;" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lblRound6GroupDWinner2" layoutX="38.0" layoutY="60.0" text="Ikke spillet" />
+                  <Pane layoutX="78.0" prefHeight="58.0" prefWidth="70.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="6.0" text="U">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRound6GroupDTeam4" layoutX="9.0" layoutY="21.0" text="&lt;name2&gt;" />
+                        <Label fx:id="lblRound6GroupDGoals4" layoutX="9.0" layoutY="34.0" prefHeight="30.0" prefWidth="52.0" text="&lt;goals2&gt;" />
+                     </children>
+                  </Pane>
+                  <Button id="57" alignment="CENTER" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="83.0" prefWidth="158.0" text="Button">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Label layoutX="124.0" layoutY="35.0" text="Runde 1" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="35.0" text="Runde 2" AnchorPane.leftAnchor="283.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="438.0" layoutY="35.0" text="Runde 3" AnchorPane.leftAnchor="438.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="592.0" layoutY="35.0" text="Runde 4" AnchorPane.leftAnchor="592.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="754.0" layoutY="35.0" text="Runde 5" AnchorPane.leftAnchor="754.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="906.0" layoutY="35.0" text="Runde 6" AnchorPane.leftAnchor="906.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" text="Gruppe" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="1075.0" layoutY="50.0" prefHeight="626.0" prefWidth="30.0" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="30.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="1">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="35.0" layoutY="65.0" prefHeight="574.0" prefWidth="28.0" spacing="105.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label minHeight="50.0" onMouseClicked="#handleGroupClick" prefWidth="25.0" text="A">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label onMouseClicked="#handleGroupClick" text="B">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label onMouseClicked="#handleGroupClick" text="C">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label onMouseClicked="#handleGroupClick" text="D">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="55.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="1105.0" layoutY="50.0" prefHeight="626.0" prefWidth="183.0" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label fx:id="lblGroupATeam1" alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
+            <Label fx:id="lblGroupATeam2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
+            <Label fx:id="lblGroupATeam3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
+            <Label fx:id="lblGroupATeam4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
+            <Label fx:id="lblGroupBTeam1" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team1&gt;" />
+            <Label fx:id="lblGroupBTeam2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team2&gt;" />
+            <Label fx:id="lblGroupBTeam3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team3&gt;" />
+            <Label fx:id="lblGroupBTeam4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team4&gt;" />
+            <Label fx:id="lblGroupCTeam1" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
+            <Label fx:id="lblGroupCTeam2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
+            <Label fx:id="lblGroupCTeam3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
+            <Label fx:id="lblGroupCTeam4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
+            <Label fx:id="lblGroupDTeam1" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team1&gt;" />
+            <Label fx:id="lblGroupDTeam2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team2&gt;" />
+            <Label fx:id="lblGroupDTeam3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team3&gt;" />
+            <Label fx:id="lblGroupDTeam4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black; -fx-background-color: lightblue;" text="&lt;Team4&gt;" />
+         </children>
+      </VBox>
+      <Label layoutX="1137.0" layoutY="35.0" text="Rangliste" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="84.0" layoutY="748.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" ripplerFill="WHITE" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="605.0" layoutY="704.0" onAction="#handleTeamButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Hold" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="327.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="654.0" layoutY="704.0" onAction="#handleFinalsButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Lav Finale" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="58.0" fitWidth="56.0" layoutX="12.0" layoutY="50.0" onMouseClicked="#handleScreenshotBtn">
+         <image>
+            <Image url="@../../assets/icons/Screenshot.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

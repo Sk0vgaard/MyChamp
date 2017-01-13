@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="798.0" prefWidth="1325.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.FinalsController">
+   <children>
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="406.0" layoutY="736.0" onAction="#handleMenuButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Menu" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="84.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="973.0" layoutY="751.0" onAction="#handlePlayoffButton" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Gruppespil" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="73.0" fitWidth="66.0" layoutX="14.0" onMouseClicked="#handleScreenshotBtn">
+         <image>
+            <Image url="@../../assets/icons/Screenshot.gif" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="apFinals" layoutX="84.0" layoutY="36.0" prefHeight="685.0" prefWidth="1210.0">
+         <children>
+            <GridPane layoutY="31.0" prefHeight="656.0" prefWidth="946.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="31.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="lblQuarterTeamA1" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblQuarterTeamB2" layoutX="14.0" layoutY="49.0" text="&lt;name2&gt;" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblQuarterGoalA1" layoutX="98.0" layoutY="14.0" text="0" />
+                        <Label fx:id="lblQuarterGoalB2" layoutX="98.0" layoutY="49.0" text="0" />
+                        <Button id="11" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="lblQuarterTeamA2" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblQuarterTeamB1" layoutX="14.0" layoutY="49.0" text="&lt;name2&gt;" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblQuarterGoalB1" layoutX="93.0" layoutY="14.0" text="0" />
+                        <Label fx:id="lblQuarterGoalA2" layoutX="93.0" layoutY="49.0" text="0" />
+                        <Button id="13" layoutX="1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Label fx:id="lblQuarterTeamC1" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblQuarterTeamD2" layoutX="10.0" layoutY="49.0" text="&lt;name2&gt;" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblQuarterGoalC1" layoutX="89.0" layoutY="14.0" text="0" />
+                        <Label fx:id="lblQuarterGoalD2" layoutX="89.0" layoutY="49.0" text="0" />
+                        <Button id="15" layoutX="5.0" layoutY="-2.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <Label fx:id="lblQuarterTeamC2" layoutX="14.0" layoutY="14.0" text="&lt;name1&gt;" />
+                        <Label fx:id="lblQuarterTeamD1" layoutX="10.0" layoutY="49.0" text="&lt;name2&gt;" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblQuarterGoalC2" layoutX="91.0" layoutY="16.0" text="0" />
+                        <Label fx:id="lblQuarterGoalD1" layoutX="91.0" layoutY="49.0" text="0" />
+                        <Button id="17" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <children>
+                        <Label fx:id="lblSemiTeam1" layoutX="14.0" layoutY="14.0" />
+                        <Label fx:id="lblSemiTeam2" layoutX="10.0" layoutY="49.0" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblSemiGoal1" layoutX="95.0" layoutY="17.0" text="0" />
+                        <Label fx:id="lblSemiGoal2" layoutX="95.0" layoutY="49.0" text="0" />
+                        <Button id="33" layoutX="2.0" layoutY="-3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <children>
+                        <Label fx:id="lblSemiTeam3" layoutX="14.0" layoutY="14.0" />
+                        <Label fx:id="lblSemiTeam4" layoutX="14.0" layoutY="49.0" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblSemiGoal3" layoutX="97.0" layoutY="16.0" text="0" />
+                        <Label fx:id="lblSemiGoal4" layoutX="97.0" layoutY="49.0" text="0" />
+                        <Button id="35" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="lblFinalTeam1" layoutX="3.0" layoutY="14.0" />
+                        <Label fx:id="lblFinalTeam2" layoutX="3.0" layoutY="49.0" />
+                        <Label layoutX="62.0" layoutY="29.0" text="vs" />
+                        <Label fx:id="lblFinalGoal1" layoutX="91.0" layoutY="16.0" text="0" />
+                        <Label fx:id="lblFinalGoal2" layoutX="91.0" layoutY="49.0" text="0" />
+                        <Button id="54" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleMatchClick" opacity="0.0" prefHeight="73.0" prefWidth="135.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="lblQuarterWinner1" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="lblQuarterWinner2" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Label fx:id="lblQuarterWinner3" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <children>
+                        <Label fx:id="lblQuarterWinner4" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <children>
+                        <Label fx:id="lblSemiWinner1" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <children>
+                        <Label fx:id="lblSemiWinner2" layoutX="33.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <children>
+                        <Label fx:id="lblWinner" layoutX="32.0" layoutY="14.0" text="Ikke spillet" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <VBox layoutX="1017.0" layoutY="30.0" prefHeight="656.0" prefWidth="190.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <Label fx:id="lblRank1" alignment="CENTER" prefHeight="40.0" prefWidth="193.0" style="-fx-border-color: black;" text="&lt;Team1&gt;" />
+                  <Label fx:id="lblRank2" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team2&gt;" />
+                  <Label fx:id="lblRank3" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team3&gt;" />
+                  <Label fx:id="lblRank4" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team4&gt;" />
+                  <Label fx:id="lblRank5" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team5&gt;" />
+                  <Label fx:id="lblRank6" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team6&gt;" />
+                  <Label fx:id="lblRank7" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team7&gt;" />
+                  <Label fx:id="lblRank8" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team8&gt;" />
+                  <Label fx:id="lblRank9" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team9&gt;" />
+                  <Label fx:id="lblRank10" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team10&gt;" />
+                  <Label fx:id="lblRank11" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team11&gt;" />
+                  <Label fx:id="lblRank12" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team12&gt;" />
+                  <Label fx:id="lblRank13" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team13&gt;" />
+                  <Label fx:id="lblRank14" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team14&gt;" />
+                  <Label fx:id="lblRank15" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team15&gt;" />
+                  <Label fx:id="lblRank16" alignment="CENTER" prefHeight="41.0" prefWidth="247.0" style="-fx-border-color: black;" text="&lt;Team16&gt;" />
+               </children>
+            </VBox>
+            <Label fx:id="lblRankings" layoutX="1050.0" layoutY="1.0" text="Rangliste">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRankings1" layoutX="138.0" layoutY="1.0" text="Kvart finale">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRankings2" layoutX="421.0" layoutY="1.0" text="Semi finale">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRankings3" layoutX="719.0" text="Finale">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <VBox layoutX="987.0" layoutY="31.0" prefHeight="654.0" prefWidth="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="31.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="30.0" style="-fx-border-color: black;" text="1">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="2">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="3">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="4">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="5">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="6">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="7">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="9">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="10">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="11">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="12">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="13">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="14">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="15">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="36.0" style="-fx-border-color: black;" text="16">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

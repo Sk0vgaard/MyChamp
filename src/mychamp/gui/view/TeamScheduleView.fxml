@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mychamp.gui.controller.TeamScheduleController">
+   <children>
+      <HBox layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="258.0" spacing="10.0">
+         <children>
+            <Label text="Hold:">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboTeamName" onHidden="#handleOnHidden" prefHeight="36.0" prefWidth="184.0" promptText="Vælg et hold" style="-fx-background-color: lightblue;" />
+         </children>
+      </HBox>
+      <GridPane layoutX="14.0" layoutY="86.0" prefHeight="140.0" prefWidth="889.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+               <children>
+                  <Label fx:id="lblRound1Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound1Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound1Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound1Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round1Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="lblRound2Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound2Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound2Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound2Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round2Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2">
+               <children>
+                  <Label fx:id="lblRound3Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound3Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound3Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound3Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round3Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="3">
+               <children>
+                  <Label fx:id="lblRound4Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound4Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound4Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound4Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round4Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="4">
+               <children>
+                  <Label fx:id="lblRound5Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound5Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound5Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound5Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round5Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="5">
+               <children>
+                  <Label fx:id="lblRound6Team1" layoutY="14.0" text="&lt;team1&gt;" />
+                  <Label fx:id="lblRound6Team2" layoutX="79.0" layoutY="14.0" text="&lt;team2&gt;" />
+                  <Label fx:id="lblRound6Goal1" layoutX="2.0" layoutY="51.0" text="&lt;goal1&gt;" />
+                  <Label fx:id="lblRound6Goal2" layoutX="81.0" layoutY="55.0" text="&lt;goal2&gt;" />
+                  <Label fx:id="Round6Winner" layoutX="42.0" layoutY="95.0" text="Ikke spillet" />
+                  <Label layoutX="9.0" layoutY="-2.0" text="H">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="-2.0" text="U">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Label layoutX="43.0" layoutY="50.0" text="Runde 1">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="191.0" layoutY="52.0" text="Runde 2">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="332.0" layoutY="52.0" text="Runde 3">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="486.0" layoutY="52.0" text="Runde 4">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="637.0" layoutY="52.0" text="Runde 5">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="776.0" layoutY="53.0" text="Runde 6">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="14.0" layoutY="241.0" prefHeight="30.0" prefWidth="714.0" spacing="10.0">
+         <children>
+            <Label prefHeight="37.0" prefWidth="46.0" text="Points:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTeamPoints" prefHeight="42.0" prefWidth="62.0" text="&lt;points&gt;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="119.0" text="Placering i gruppe:">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTeamPlacement" prefHeight="36.0" prefWidth="89.0" text="&lt;placement&gt;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="94.0" text="Kampe spillet:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMatchesPlayed" prefHeight="30.0" prefWidth="60.0" text="&lt;matches played&gt;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="77.0" text="Målforskel:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGoalDifferences" prefHeight="30.0" prefWidth="67.0" text="&lt;forskel&gt;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <JFXButton buttonType="RAISED" cancelButton="true" layoutX="605.0" layoutY="243.0" onAction="#handleBackButton" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: lightblue; -fx-background-radius: 25;" text="Tilbage" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="19.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <Label layoutX="288.0" layoutY="15.0" text="ID:">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTeamID" layoutX="324.0" layoutY="15.0" text="&lt;teamid&gt;">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
