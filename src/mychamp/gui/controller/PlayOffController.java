@@ -5,22 +5,29 @@
  */
 package mychamp.gui.controller;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import mychamp.MyChamp;
 import mychamp.be.Game;
 import mychamp.be.Group;
@@ -596,6 +603,8 @@ public class PlayOffController implements Initializable {
     public static PlayOffController getInstance() {
         return instance;
     }
+    @FXML
+    private AnchorPane apPlayOffs;
 
     public PlayOffController() {
         //Team names
@@ -790,10 +799,8 @@ public class PlayOffController implements Initializable {
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
                 winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
-            } else {
-                if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
-                }
+            } else if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
+                winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
             }
             winnerLabels.remove(0);
         }
@@ -804,10 +811,8 @@ public class PlayOffController implements Initializable {
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
                 winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
-            } else {
-                if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
-                }
+            } else if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
+                winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
             }
             winnerLabels.remove(0);
         }
@@ -818,10 +823,8 @@ public class PlayOffController implements Initializable {
             //If the match was played update the winner label
             if (currentMatch.getWinnerTeam() != null) {
                 winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
-            } else {
-                if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
-                }
+            } else if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
+                winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
             }
             winnerLabels.remove(0);
         }
@@ -833,10 +836,8 @@ public class PlayOffController implements Initializable {
             if (winnerLabels.size() > 0) {
                 if (currentMatch.getWinnerTeam() != null) {
                     winnerLabels.get(0).setText(Game.WINNER_TEAM_TEXT + currentMatch.getWinnerTeam().getTeamName());
-                } else {
-                    if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
-                        winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
-                    }
+                } else if (currentMatch.getHomeTeamScore() == currentMatch.getAwayTeamScore() && currentMatch.getHomeTeamScore() != 0) {
+                    winnerLabels.get(0).setText(Game.WINNER_DRAW_TEXT);
                 }
                 winnerLabels.remove(0);
             }
@@ -2011,6 +2012,47 @@ public class PlayOffController implements Initializable {
         winnerLabels.add(lblRound5GroupDWinner2);
         winnerLabels.add(lblRound6GroupDWinner1);
         winnerLabels.add(lblRound6GroupDWinner2);
+    }
+
+    /**
+     * Takes a pictue of the finals.
+     *
+     * @param event
+     */
+    @FXML
+    private void handleScreenshotBtn(MouseEvent event) throws IOException {
+        WritableImage image = apPlayOffs.snapshot(new SnapshotParameters(), null);
+
+        // TODO: probably use a file chooser here
+        File file = new File("ScreenshotOfPlayOffs.png");
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+        } catch (IOException e) {
+            System.out.println("Error: " + e);
+
+        }
+        System.out.println("Capturing screenshot...");
+        openUpFolder();
+    }
+
+    /**
+     * Opens up the folder where the image is saved.
+     *
+     * @throws IOException
+     */
+    private void openUpFolder() throws IOException {
+        Desktop d = null;
+        //Open the working directory
+        File file = new File("").getAbsoluteFile();
+        if (Desktop.isDesktopSupported()) {
+            d = Desktop.getDesktop();
+        }
+        try {
+            d.open(file);
+        } catch (IOException e) {
+            System.out.println("Failed " + e);
+        }
     }
 
 }

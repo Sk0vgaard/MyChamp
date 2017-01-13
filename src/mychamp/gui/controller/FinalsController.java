@@ -973,9 +973,5 @@ public class FinalsController implements Initializable {
         } catch (IOException e) {
             System.out.println("Failed " + e);
         }
-
-//        FileChooser chooser = new FileChooser();
-//        chooser.setTitle("Open File");
-//        chooser.showOpenDialog(apFinals.getScene().getWindow());
     }
 }
