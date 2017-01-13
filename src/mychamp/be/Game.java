@@ -15,6 +15,6 @@ public class Game {
 
     public static final int DRAW_POINTS = 1;
 
-    public static final int NOT_PLAYABLE_MATCH = 0;
+    public static final int AMOUNT_OF_GROUPS = 4;
 
 }

@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import mychamp.MyChamp;
 import mychamp.gui.model.GroupModel;
 import mychamp.gui.model.TeamModel;
@@ -26,9 +25,6 @@ import mychamp.gui.model.TeamModel;
  */
 public class MenuController implements Initializable {
 
-    @FXML
-    private Label lblMenuBanner;
-
     /**
      * Initializes the controller class.
      */
@@ -36,6 +32,12 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * Goes to the playOffsView
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handlePlayOffButton(ActionEvent event) throws IOException {
         goToView(MyChamp.PLAYOFF_VIEW);
@@ -44,6 +46,12 @@ public class MenuController implements Initializable {
         }
     }
 
+    /**
+     * Goes to the finalsView
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleFinalsButton(ActionEvent event) throws IOException {
         goToView(MyChamp.FINALS_VIEW);
@@ -53,6 +61,12 @@ public class MenuController implements Initializable {
         }
     }
 
+    /**
+     * Goes to the myChampView
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleNewTournamentButton(ActionEvent event) throws IOException {
         if (TeamModel.getInstance().getTeamsAsArrayList().isEmpty()) {
@@ -94,6 +108,12 @@ public class MenuController implements Initializable {
         MyChampController.getIntance().updateTeamMount();
     }
 
+    /**
+     * Goes to the editTeamView
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleTeamEditButton(ActionEvent event) throws IOException {
         goToView(MyChamp.EDIT_TEAM_VIEW);
