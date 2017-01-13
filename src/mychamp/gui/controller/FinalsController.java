@@ -836,7 +836,8 @@ public class FinalsController implements Initializable {
      */
     private void openUpFolder() throws IOException {
         Desktop d = null;
-        File file = new File("ScreenshotOfFinals.png");
+        //Open the working directory
+        File file = new File("").getAbsoluteFile();
         if (Desktop.isDesktopSupported()) {
             d = Desktop.getDesktop();
         }
