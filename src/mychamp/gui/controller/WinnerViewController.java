@@ -5,11 +5,14 @@
  */
 package mychamp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import mychamp.MyChamp;
+import mychamp.be.Team;
 
 /**
  * FXML Controller class
@@ -29,4 +32,17 @@ public class WinnerViewController implements Initializable {
         // TODO
     }    
     
+    /**
+     * Goes to the view that is parsed.
+     *
+     * @param view
+     * @throws IOException
+     */
+    private void goToView(String view) throws IOException {
+        MyChamp.switchScene(view);
+    }
+    
+    public void setlblWinner(Team team) {
+        lblWinner.setText(team.getTeamName());
+    }
 }

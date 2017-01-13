@@ -538,7 +538,7 @@ public class FinalsController implements Initializable {
                     if (matchToSend.getWinnerTeam() == null) {
                         matchToSend.setWinnerTeam(rankingManager.rankTwoTeamsAgainstEachOther(matchToSend.getHomeTeam(), matchToSend.getAwayTeam()));
                     }
-                    System.out.println("This was the last match! \nThe winner is " + matchToSend.getWinnerTeam().getTeamName());
+                    showWinnerModal();
                     //Updates the rankings
                     teamModel.addTeamToTop8Teams(matchToSend.getWinnerTeam());
                     teamModel.addTeamToTop8Teams(matchToSend.getLoserTeam());
@@ -754,5 +754,25 @@ public class FinalsController implements Initializable {
     public ArrayList<ArrayList<Match>> getAllMatches() {
         return allMatches;
     }
+    
+    private void showWinnerModal() throws IOException {
+        //Grab hold of the finals stage.
+        primStage = (Stage) lblFinalGoal1.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mychamp/gui/view/WinnerView.fxml"));
+        Parent root = loader.load();
+        Stage editStage = new Stage();
+        editStage.setScene(new Scene(root));
 
+        //Create new modal window from the FXMLLoader.
+        editStage.initModality(Modality.WINDOW_MODAL);
+        editStage.initOwner(primStage);
+
+        //Loads the modals controller to send match.
+        WinnerViewController wvController = loader.getController();
+        
+        //
+        editStage.show();
+        
+        wvController.setlblWinner(finalMatch.getWinnerTeam());
+    }
 }

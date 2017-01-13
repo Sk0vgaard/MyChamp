@@ -5,17 +5,22 @@
  */
 package mychamp.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mychamp.be.Game;
 import mychamp.be.Match;
@@ -47,6 +52,8 @@ public class MatchDetailsController implements Initializable {
     private Match match;
     private Team homeTeam;
     private Team awayTeam;
+
+    private Stage primStage;
 
     private final TeamModel teamModel;
 
@@ -99,31 +106,31 @@ public class MatchDetailsController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleSaveButton(ActionEvent event) {
-        //Check if match is played
-        if (!match.isPlayed()) {
-            givePoints();
-        } else {
-            //If the match is already played just update the score and points
-            if (match.getHomeTeamScore() > match.getAwayTeamScore()) {
-                //Take away the last winning points from winner
-                homeTeam.retractPoints(Game.WINNER_POINTS);
-            } else if (match.getHomeTeamScore() < match.getAwayTeamScore()) {
-                //Take away the last winning points from winner
-                awayTeam.retractPoints(Game.WINNER_POINTS);
+    private void handleSaveButton(ActionEvent event) throws IOException {
+            //Check if match is played
+            if (!match.isPlayed()) {
+                givePoints();
             } else {
-                //If it was a draw, retract draw points from both teams
-                homeTeam.retractPoints(Game.DRAW_POINTS);
-                awayTeam.retractPoints(Game.DRAW_POINTS);
+                //If the match is already played just update the score and points
+                if (match.getHomeTeamScore() > match.getAwayTeamScore()) {
+                    //Take away the last winning points from winner
+                    homeTeam.retractPoints(Game.WINNER_POINTS);
+                } else if (match.getHomeTeamScore() < match.getAwayTeamScore()) {
+                    //Take away the last winning points from winner
+                    awayTeam.retractPoints(Game.WINNER_POINTS);
+                } else {
+                    //If it was a draw, retract draw points from both teams
+                    homeTeam.retractPoints(Game.DRAW_POINTS);
+                    awayTeam.retractPoints(Game.DRAW_POINTS);
+                }
+                //Retract goals scored
+                homeTeam.retractGoalsScored(match.getHomeTeamScore());
+                awayTeam.retractGoalsScored(match.getAwayTeamScore());
+                //Give new points to teams
+                givePoints();
             }
-            //Retract goals scored
-            homeTeam.retractGoalsScored(match.getHomeTeamScore());
-            awayTeam.retractGoalsScored(match.getAwayTeamScore());
-            //Give new points to teams
-            givePoints();
-        }
-        GroupModel.getInstance().savePlayOffGroups();
-    }
+            GroupModel.getInstance().savePlayOffGroups();
+            }
 
     /**
      * Give points to teams
