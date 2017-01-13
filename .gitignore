@@ -6,6 +6,7 @@
 *.data
 screenshotOfFinals.png
 
+
 ### NetBeans ###
 nbproject/private/
 build.xml
