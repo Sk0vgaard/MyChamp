@@ -6,6 +6,7 @@
 package mychamp.gui.controller;
 
 import java.awt.AWTException;
+import java.awt.Desktop;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -15,14 +16,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -186,6 +192,8 @@ public class FinalsController implements Initializable {
     public static FinalsController getInstance() {
         return instance;
     }
+    @FXML
+    private AnchorPane apFinals;
 
     public FinalsController() {
         rankingManager = RankingManager.getInstance();
@@ -799,4 +807,47 @@ public class FinalsController implements Initializable {
         return allMatches;
     }
 
+    /**
+     * Takes a pictue of the finals.
+     *
+     * @param event
+     */
+    @FXML
+    private void handleScreenshotBtn(MouseEvent event) throws IOException {
+        WritableImage image = apFinals.snapshot(new SnapshotParameters(), null);
+
+        // TODO: probably use a file chooser here
+        File file = new File("ScreenshotOfFinals.png");
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
+        } catch (IOException e) {
+            System.out.println("Error: " + e);
+
+        }
+        System.out.println("Capturing screenshot...");
+        openUpFolder();
+    }
+
+    /**
+     * Opens up the folder where the image is saved.
+     *
+     * @throws IOException
+     */
+    private void openUpFolder() throws IOException {
+        Desktop d = null;
+        File file = new File("ScreenshotOfFinals.png");
+        if (Desktop.isDesktopSupported()) {
+            d = Desktop.getDesktop();
+        }
+        try {
+            d.open(file);
+        } catch (IOException e) {
+            System.out.println("Failed " + e);
+        }
+
+//        FileChooser chooser = new FileChooser();
+//        chooser.setTitle("Open File");
+//        chooser.showOpenDialog(apFinals.getScene().getWindow());
+    }
 }
